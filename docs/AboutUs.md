@@ -2,8 +2,8 @@
 
 Display | Name | Github Profile | Portfolio 
 --------|:----:|:--------------:|:---------:
-![](https://via.placeholder.com/100.png?text=Photo) | John Doe | [Github](https://github.com/) | [Portfolio](docs/team/johndoe.md)
-![](https://via.placeholder.com/100.png?text=Photo) | Don Joe | [Github](https://github.com/) | [Portfolio](docs/team/johndoe.md)
-![](https://via.placeholder.com/100.png?text=Photo) | Ron John | [Github](https://github.com/) | [Portfolio](docs/team/johndoe.md)
-![](https://via.placeholder.com/100.png?text=Photo) | John Roe | [Github](https://github.com/) | [Portfolio](docs/team/johndoe.md)
-![](https://via.placeholder.com/100.png?text=Photo) | Don Roe | [Github](https://github.com/) | [Portfolio](docs/team/johndoe.md)
+![](https://via.placeholder.com/100.png?text=Photo) | Vishruti Ranjan | [Github](https://github.com/sevenseasofbri) | [Portfolio](docs/team/johndoe.md)
+![](https://avatars2.githubusercontent.com/u/53231968?s=460&u=43fad5fee043173a5c65db833d39c9c00c04549c&v=4) | Wira Azmoon | [Github](https://github.com/hughjazzman) | [Portfolio](docs/team/johndoe.md)
+![](https://via.placeholder.com/100.png?text=Photo) | Praveen Elango | [Github](https://github.com/PraveenElango) | [Portfolio](docs/team/johndoe.md)
+![](https://avatars2.githubusercontent.com/u/47025155?s=400&u=ce782a0a69f128f7fb409598101baeef34fd201e&v=4) | Dorian Fong | [Github](https://github.com/dorianfong98) | [Portfolio](docs/team/johndoe.md)
+![](https://via.placeholder.com/100.png?text=Photo) | Dash Abishek | [Github](https://github.com/oasisbeatle) | [Portfolio](docs/team/johndoe.md)
