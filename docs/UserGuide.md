@@ -9,7 +9,7 @@ CLIrcuit Assistant is a desktop app to implement and solve simple circuits, opti
 {Give steps to get started quickly}
 
 1. Ensure that you have Java 11 or above installed.
-1. Down the latest version of `Duke` from [here](http://link.to/duke).
+1. Down the latest version of `Duke` from [the releases](https://github.com/AY2021S1-CS2113T-W13-3/tp/releases) when it is ready.
 
 ## Features 
 
@@ -27,7 +27,7 @@ Format: `template TEMPLATE`
 
 * The `TEMPLATE` can be chosen from the following 4 - `r`, `rc`, `rl`, `lc`
     * `r` only consists of the resistor.
-    * `rl` consists of the resistor and capacitor.
+    * `rc` consists of the resistor and capacitor.
     * `rl` consists of the resistor and inductor.
     * `lc` consists of the inductor and capacitor.
 
@@ -96,7 +96,7 @@ Example of usage:
 
 **A**: Pay attention in EPP.
 
-## Command summary
+## Command Summary
 
 Action | Format, Examples
 --------|------------------
