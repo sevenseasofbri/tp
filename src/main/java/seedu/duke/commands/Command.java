@@ -4,7 +4,7 @@ import seedu.duke.DukeException;
 import seedu.duke.ui.Ui;
 
 public class Command {
-    /** boolean whether the command is to exit **/
+    /** Boolean whether the command is to exit. **/
     protected boolean isExit;
 
     /**

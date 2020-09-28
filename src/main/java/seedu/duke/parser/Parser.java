@@ -52,7 +52,7 @@ public class Parser {
         try {
             Double.parseDouble(str);
             return true;
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             return false;
         }
     }
@@ -63,8 +63,8 @@ public class Parser {
             throw new DukeException("Not enough arguments!");
         }
 
-        boolean isTemplate = args[1].equals("r") || args[1].equals("rc") ||
-                args[1].equals("rl") || args[1].equals("lc");
+        boolean isTemplate = args[1].equals("r") || args[1].equals("rc")
+                || args[1].equals("rl") || args[1].equals("lc");
 
         if (!isTemplate) {
             throw new DukeException("Invalid argument");
@@ -103,8 +103,8 @@ public class Parser {
             throw new DukeException("Not enough arguments!");
         }
 
-        boolean isCalc = args[1].equals("reff") || args[1].equals("ceff") ||
-                args[1].equals("leff") || args[1].equals("current") || args[1].equals("power");
+        boolean isCalc = args[1].equals("reff") || args[1].equals("ceff") || args[1].equals("leff")
+                || args[1].equals("current") || args[1].equals("power");
 
         if (!isCalc) {
             throw new DukeException("Invalid argument");
