@@ -1,1 +1,4 @@
 theme: jekyll-theme-hacker
+markdown: GFM
+plugins:
+  - jemoji
