@@ -7,6 +7,11 @@ public class Inductor extends Component {
         super(value);
     }
 
+    /**
+     * Returns String constituting value and unit of Inductor object.
+     *
+     * @return String representation of Inductor object.
+     */
     @Override
     public String toString() {
         return (value) + SI_UNIT;
