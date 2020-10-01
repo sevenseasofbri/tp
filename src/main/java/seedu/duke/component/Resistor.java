@@ -6,6 +6,7 @@ public class Resistor extends Component {
     public Resistor(double value) {
         super(value);
     }
+
     /**
      * Returns the value and unit of Resistor object.
      *
