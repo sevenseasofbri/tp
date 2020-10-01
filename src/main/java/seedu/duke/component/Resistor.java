@@ -1,7 +1,7 @@
 package seedu.duke.component;
 
 public class Resistor extends Component {
-    private static final String SI_UNIT = "μH";
+    private static final String SI_UNIT = "Ω";
 
     public Resistor(double value) {
         super(value);
