@@ -11,6 +11,7 @@ public class VoltageSource extends Component  {
      *
      * @return String representation of VoltageSource object.
      */
+
     @Override
     public String toString() {
         return (value) + SI_UNIT;
