@@ -5,15 +5,7 @@ public class Capacitor extends Component {
 
     public Capacitor(double value) {
         super(value);
-    }
-
-    /**
-     * Returns the value and unit of Capacitor object.
-     *
-     * @return String of Capacitor value
-     */
-    @Override
-    public String toString() {
-        return (value) + SI_UNIT;
+        siUnit = SI_UNIT;
+        isDirectSeries = false;
     }
 }

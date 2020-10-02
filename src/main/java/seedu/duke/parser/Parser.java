@@ -1,6 +1,7 @@
 package seedu.duke.parser;
 
 import seedu.duke.DukeException;
+import seedu.duke.commands.AddCommand;
 import seedu.duke.commands.Command;
 import seedu.duke.ui.Ui;
 
@@ -28,9 +29,9 @@ public class Parser {
         case "template":
             return prepareTemplate(args);
         case "set":
-            return prepareAdd(args);
-        case "add":
             return prepareSet(args);
+        case "add":
+            return prepareAdd(args);
         case "calc":
             return prepareCalc(args);
         default:
@@ -95,7 +96,9 @@ public class Parser {
         if (!isValid) {
             throw new DukeException("Invalid argument");
         }
-        return new Command();
+
+        double value = Double.parseDouble(args[3]);
+        return new AddCommand(args[1], args[2], value);
     }
 
     private static Command prepareCalc(String[] args) throws DukeException {
