@@ -1,6 +1,6 @@
 package seedu.duke.component;
 
-public class Inductor extends Component {
+public class Inductor extends LoadComponent {
     private static final String SI_UNIT = "µH";
 
     public Inductor(double value) {
