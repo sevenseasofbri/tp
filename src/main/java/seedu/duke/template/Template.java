@@ -8,4 +8,13 @@ public class Template {
     public Template(double powerSupply) {
         initialPowerSupply = new VoltageSource(powerSupply);
     }
+
+    /**
+     * Returns the initialPowerSupply as specified at the instantiation of Template.
+     *
+     * @return initialPowerSupply, an instance of VoltageSource.
+     */
+    public VoltageSource getInitialPowerSupply() {
+        return initialPowerSupply;
+    }
 }
