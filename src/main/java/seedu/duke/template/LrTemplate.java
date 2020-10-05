@@ -9,13 +9,12 @@ public class LrTemplate extends RTemplate {
                                             + "\t|             |\n"
                                             + "\t|             |\n"
                                             + "\t+----+V_ac+---+\n";
-    private Resistor resistor;
+
     private Inductor inductor;
 
     public LrTemplate(double resistance, double inductance, double powerSupply) {
         super(resistance, powerSupply);
         inductor = new Inductor(inductance);
-        resistor = new Resistor(resistance);
     }
 
     /**
@@ -27,14 +26,6 @@ public class LrTemplate extends RTemplate {
         return inductor;
     }
 
-    /**
-     * Returns resistor object, an attribute of the instance of LrTemplate.
-     *
-     * @return resistor, an instance of the Resistor class.
-     */
-    public Resistor getResistor() {
-        return resistor;
-    }
 
     /**
      * Returns String consisting of total inductance and resistance values of the LrTemplate object.
@@ -43,8 +34,7 @@ public class LrTemplate extends RTemplate {
      */
     @Override
     public String toString() {
-        return RL_TEMPLATE + "Total Resistance: " + resistor + System.lineSeparator()
-                + "Total Inductance: " + inductor + System.lineSeparator();
+        return super.toString() + "Total Inductance: " + inductor + System.lineSeparator();
     }
 
 }
