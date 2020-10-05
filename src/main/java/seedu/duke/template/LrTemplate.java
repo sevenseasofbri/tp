@@ -41,6 +41,15 @@ public class LrTemplate extends RTemplate {
     }
 
     /**
+     * Sets the value of the inductor in the Lr Template circuit to the value specified.
+     *
+     * @param value double type value to be set to the inductor in the circuit.
+     */
+    public void setInductor(double value) {
+        inductor.setValue(value);
+    }
+
+    /**
      * Returns String consisting of total inductance and resistance values of the LrTemplate object.
      *
      * @return String representation of LrTemplate object.
