@@ -37,8 +37,14 @@ public class LcTemplate extends Template {
         return capacitor;
     }
 
-    public double getImpedance(Inductor l, Capacitor c) {
-        double z = angularFrequency * Math.abs(l.getValue() - (1 / c.getValue()));
+
+    /**
+     * Returns the impedance of LC circuit
+     *
+     * @return Impedance of LC circuit
+     */
+    public double getImpedance() {
+        double z = angularFrequency * Math.abs(inductor.getValue() - (1 / capacitor.getValue()));
         return z;
     }
 
