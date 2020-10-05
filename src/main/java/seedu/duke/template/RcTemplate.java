@@ -18,6 +18,7 @@ public class RcTemplate extends Template {
         capacitor = new Capacitor(capacitance);
         resistor = new Resistor(resistance);
     }
+
     /**
      * Returns capacitor object, an attribute of the instance of RcTemplate.
      *
@@ -26,6 +27,7 @@ public class RcTemplate extends Template {
     public Capacitor getCapacitor() {
         return capacitor;
     }
+
     /**
      * Returns resistor object, an attribute of the instance of LrTemplate.
      *
@@ -34,15 +36,17 @@ public class RcTemplate extends Template {
     public Resistor getResistor() {
         return resistor;
     }
+
     /**
-     * Returns impedance value of circuit
+     * Returns impedance value of circuit.
      *
-     * @return Z, a double representation of the impedance value of circuit
+     * @return Z, a double representation of the impedance value of circuit.
      */
     public double getImpedance(Capacitor c, Resistor r) {
         double z = Math.sqrt(Math.pow(r.getValue(), 2) + Math.pow(c.getValue() * angularFrequency, 2));
         return z;
     }
+
     /**
      * Returns String consisting of total capacitance and resistance values of the RcTemplate object.
      *
