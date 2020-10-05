@@ -34,7 +34,15 @@ public class RcTemplate extends Template {
     public Resistor getResistor() {
         return resistor;
     }
-
+    /**
+     * Returns impedance value of circuit
+     *
+     * @return Z, a double representation of the impedance value
+     */
+    public double getImpedance(Capacitor c, Resistor r) {
+        double z = Math.sqrt(Math.pow(r.getValue(), 2) + Math.pow(c.getValue() * angularFrequency, 2));
+        return z;
+    }
     /**
      * Returns String consisting of total capacitance and resistance values of the RcTemplate object.
      *
