@@ -42,7 +42,7 @@ public class LrTemplate extends RTemplate {
      */
     @Override
     public String toString() {
-        return super.toString() + "Total Inductance: " + inductor + System.lineSeparator();
+        return RL_TEMPLATE + "Total Inductance: " + inductor + System.lineSeparator();
     }
 
 }
