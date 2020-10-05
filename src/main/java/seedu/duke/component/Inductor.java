@@ -1,19 +1,11 @@
 package seedu.duke.component;
 
-public class Inductor extends Component {
+public class Inductor extends LoadComponent {
     private static final String SI_UNIT = "µH";
 
     public Inductor(double value) {
         super(value);
-    }
-
-    /**
-     * Returns String constituting value and unit of Inductor object.
-     *
-     * @return String representation of Inductor object.
-     */
-    @Override
-    public String toString() {
-        return (value) + SI_UNIT;
+        siUnit = SI_UNIT;
+        isDirectSeries = true;
     }
 }
