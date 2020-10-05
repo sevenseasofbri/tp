@@ -37,6 +37,15 @@ public class RTemplate extends Template {
     }
 
     /**
+     * Sets the value of the resistor in the circuit to the value specified.
+     *
+     * @param value double type value to be set to the resistor in the circuit.
+     */
+    public void setResistor(double value) {
+        resistor.setValue(value);
+    }
+
+    /**
      * Returns String consisting of total inductance and resistance values of the LrTemplate object.
      *
      * @return String representation of LrTemplate object.

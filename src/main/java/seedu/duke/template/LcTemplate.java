@@ -50,6 +50,24 @@ public class LcTemplate extends Template {
     }
 
     /**
+     * Sets the value of the inductor in the Lc Template circuit to the value specified.
+     *
+     * @param value double type value to be set to the inductor in the circuit.
+     */
+    public void setInductor(double value) {
+        inductor.setValue(value);
+    }
+
+    /**
+     * Sets the value of the capacitor in the Lc Template circuit to the value specified.
+     *
+     * @param value double type value to be set to the capacitor in the circuit.
+     */
+    public void setCapacitor(double value) {
+        capacitor.setValue(value);
+    }
+
+    /**
      * Returns String consisting of total inductance and capacitance values of the LcTemplate object.
      *
      * @return String representation of LcTemplate object.
