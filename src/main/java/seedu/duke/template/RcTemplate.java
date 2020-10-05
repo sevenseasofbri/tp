@@ -18,23 +18,19 @@ public class RcTemplate extends Template {
         capacitor = new Capacitor(capacitance);
         resistor = new Resistor(resistance);
     }
-
     /**
      * Returns capacitor object, an attribute of the instance of RcTemplate.
      *
      * @return capacitor, an instance of the Capacitor class.
      */
-
     public Capacitor getCapacitor() {
         return capacitor;
     }
-
     /**
      * Returns resistor object, an attribute of the instance of LrTemplate.
      *
      * @return resistor, an instance of the Resistor class.
      */
-
     public Resistor getResistor() {
         return resistor;
     }
@@ -44,7 +40,6 @@ public class RcTemplate extends Template {
      *
      * @return String representation of RcTemplate object.
      */
-
     @Override
     public String toString() {
         return RC_TEMPLATE + "Total Resistance: " + resistor + System.lineSeparator()
