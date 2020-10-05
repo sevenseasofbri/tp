@@ -3,6 +3,10 @@ package seedu.duke.parser;
 import seedu.duke.DukeException;
 import seedu.duke.commands.AddCommand;
 import seedu.duke.commands.Command;
+import seedu.duke.commands.ExitCommand;
+import seedu.duke.commands.TemplateCommand;
+import seedu.duke.template.LrTemplate;
+import seedu.duke.template.Template;
 import seedu.duke.ui.Ui;
 
 public class Parser {
@@ -34,6 +38,8 @@ public class Parser {
             return prepareAdd(args);
         case "calc":
             return prepareCalc(args);
+        case "bye":
+            return new ExitCommand();
         default:
             throw new DukeException("Invalid Command!");
         }
@@ -71,7 +77,17 @@ public class Parser {
             throw new DukeException("Invalid argument");
         }
 
-        return new Command();
+        Template template = getTemplate(args[1]);
+        return new TemplateCommand(template);
+    }
+
+    private static Template getTemplate(String arg) throws DukeException {
+        switch (arg) {
+        case "rl":
+            return new LrTemplate();
+        default:
+            throw new DukeException("Invalid Template!");
+        }
     }
 
     private static Command prepareSet(String[] args) throws DukeException {
