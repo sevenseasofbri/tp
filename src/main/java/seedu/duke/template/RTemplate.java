@@ -35,12 +35,12 @@ public class RTemplate extends Template {
     }
 
     /**
-     * Returns impedance of Resistor r
+     * Returns impedance of Resistor.
      *
-     * @return r
+     * @return impedance of Resistor.
      */
-    public double getImpedance(Resistor r) {
-        return r.getValue();
+    public double getImpedance() {
+        return resistor.getValue();
     }
 
 
