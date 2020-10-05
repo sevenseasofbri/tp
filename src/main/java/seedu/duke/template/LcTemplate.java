@@ -37,6 +37,11 @@ public class LcTemplate extends Template {
         return capacitor;
     }
 
+    public double getImpedance(Inductor l, Capacitor c) {
+        double z = angularFrequency * Math.abs(l.getValue() - (1 / c.getValue()));
+        return z;
+    }
+
     /**
      * Returns String consisting of total inductance and capacitance values of the LcTemplate object.
      *
