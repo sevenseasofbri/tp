@@ -29,7 +29,13 @@ public class LrTemplate extends RTemplate {
         return inductor;
     }
 
-
+    /**
+     * Returns calculated impedance of the LrTemplate circuit.
+     *
+     * @param l Inductor type accepts the
+     * @param r
+     * @return
+     */
     public double getImpedance(Inductor l, Resistor r) {
         double z = Math.sqrt(Math.pow(r.getValue(), 2) + Math.pow(l.getValue() * angularFrequency, 2));
         return z;
@@ -42,7 +48,8 @@ public class LrTemplate extends RTemplate {
      */
     @Override
     public String toString() {
-        return RL_TEMPLATE + "Total Inductance: " + inductor + System.lineSeparator();
+        return RL_TEMPLATE + "Total Resistance: " + getResistor() + System.lineSeparator()
+                           + "Total Inductance: " + inductor + System.lineSeparator();
     }
 
 }
