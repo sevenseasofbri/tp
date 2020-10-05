@@ -18,7 +18,6 @@ public class RcTemplate extends Template {
         capacitor = new Capacitor(capacitance);
         resistor = new Resistor(resistance);
     }
-
     /**
      * Returns capacitor object, an attribute of the instance of RcTemplate.
      *
@@ -27,7 +26,6 @@ public class RcTemplate extends Template {
     public Capacitor getCapacitor() {
         return capacitor;
     }
-
     /**
      * Returns resistor object, an attribute of the instance of LrTemplate.
      *
