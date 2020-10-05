@@ -2,11 +2,13 @@ package seedu.duke;
 
 import seedu.duke.commands.Command;
 import seedu.duke.parser.Parser;
+import seedu.duke.template.Template;
 import seedu.duke.ui.Ui;
 
 public class Duke {
     /** Instances of class objects for UI. **/
     private final Ui ui;
+    private Template template;
 
     private Duke() {
         ui = new Ui();
