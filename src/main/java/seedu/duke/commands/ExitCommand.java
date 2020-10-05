@@ -1,7 +1,5 @@
 package seedu.duke.commands;
 
-import seedu.duke.DukeException;
-import seedu.duke.template.Template;
 import seedu.duke.ui.Ui;
 
 public class ExitCommand extends Command {
@@ -13,12 +11,9 @@ public class ExitCommand extends Command {
      * Executes the exit command message.
      *
      * @param ui Ui object.
-     * @param template Template object.
-     * @return Template object.
      */
     @Override
-    public Template execute(Ui ui, Template template) throws DukeException {
+    public void execute(Ui ui) {
         ui.printFarewell();
-        return super.execute(ui, template);
     }
 }

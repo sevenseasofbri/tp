@@ -17,6 +17,10 @@ public class RTemplate extends Template {
         resistor = new Resistor(resistance);
     }
 
+    public RTemplate() {
+        this(0,0);
+    }
+
     /**
      * Returns impedance of Resistor.
      *
@@ -32,7 +36,7 @@ public class RTemplate extends Template {
      *
      * @return resistor, an instance of the Resistor class.
      */
-    public Resistor getResistor() {
+    protected Resistor getResistor() {
         return resistor;
     }
 
@@ -41,8 +45,19 @@ public class RTemplate extends Template {
      *
      * @param value double type value to be set to the resistor in the circuit.
      */
-    public void setResistor(double value) {
+    protected void setResistor(double value) {
         resistor.setValue(value);
+    }
+
+    /**
+     * Sets the value of the resistor in the circuit to the value specified.
+     *
+     * @param s String corresponding to component type.
+     * @param value double type value to be set to the resistor in the circuit.
+     */
+    @Override
+    public void setComponent(String s, double value) {
+        setResistor(value);
     }
 
     /**
@@ -68,7 +83,7 @@ public class RTemplate extends Template {
         if (!component.equals("r")) {
             throw new DukeException("Invalid component");
         }
-        return resistor;
+        return getResistor();
     }
 }
 

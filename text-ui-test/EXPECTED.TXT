@@ -14,4 +14,28 @@ Hello James Gosling
 Total Resistance: 0.0 Ω
 Total Inductance: 0.0 µH
 
+Nice, added a 2.0 Ω
+	+---R-----L---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Total Resistance: 2.0 Ω
+Total Inductance: 0.0 µH
+
+Nice, added a 2.0 µH
+	+---R-----L---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Total Resistance: 2.0 Ω
+Total Inductance: 2.0 µH
+
+Nice, added a 2.0 Ω
+	+---R-----L---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Total Resistance: 1.0 Ω
+Total Inductance: 2.0 µH
+
  Bye. See you next time!

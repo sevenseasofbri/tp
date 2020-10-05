@@ -3,7 +3,6 @@ package seedu.duke.template;
 import seedu.duke.DukeException;
 import seedu.duke.component.Inductor;
 import seedu.duke.component.LoadComponent;
-import seedu.duke.component.Resistor;
 
 public class LrTemplate extends RTemplate {
     private static final String RL_TEMPLATE = "\t+---R-----L---+\n"
@@ -38,7 +37,7 @@ public class LrTemplate extends RTemplate {
      *
      * @return inductor, an instance of the Inductor class.
      */
-    public Inductor getInductor() {
+    protected Inductor getInductor() {
         return inductor;
     }
 
@@ -47,8 +46,23 @@ public class LrTemplate extends RTemplate {
      *
      * @param value double type value to be set to the inductor in the circuit.
      */
-    public void setInductor(double value) {
+    protected void setInductor(double value) {
         inductor.setValue(value);
+    }
+
+    /**
+     * Sets the value of the inductor in the Lr Template circuit to the value specified.
+     *
+     * @param s String corresponding to component type.
+     * @param value double type value to be set to the resistor in the circuit.
+     */
+    @Override
+    public void setComponent(String s, double value) {
+        if (s.equals("l")) {
+            setInductor(value);
+        } else {
+            super.setComponent(s, value);
+        }
     }
 
     /**
@@ -72,7 +86,7 @@ public class LrTemplate extends RTemplate {
     @Override
     public LoadComponent getComponent(String component) throws DukeException {
         if (component.equals("l")) {
-            return inductor;
+            return getInductor();
         }
         return super.getComponent(component);
     }

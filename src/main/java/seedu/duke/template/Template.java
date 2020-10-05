@@ -23,6 +23,8 @@ public abstract class Template {
 
     protected abstract double calcImpedance();
 
+    public abstract void setComponent(String s, double value);
+
     /**
      * Returns the current of the circuit.
      *

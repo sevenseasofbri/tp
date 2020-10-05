@@ -5,12 +5,16 @@ import seedu.duke.commands.AddCommand;
 import seedu.duke.commands.Command;
 import seedu.duke.commands.ExitCommand;
 import seedu.duke.commands.TemplateCommand;
+import seedu.duke.template.LcTemplate;
 import seedu.duke.template.LrTemplate;
+import seedu.duke.template.RTemplate;
+import seedu.duke.template.RcTemplate;
 import seedu.duke.template.Template;
 import seedu.duke.ui.Ui;
 
 public class Parser {
     private static final Ui ui = new Ui();
+    private static Template template;
 
     /**
      * Returns a Command object based on the input line.
@@ -77,7 +81,7 @@ public class Parser {
             throw new DukeException("Invalid argument");
         }
 
-        Template template = getTemplate(args[1]);
+        template = getTemplate(args[1]);
         return new TemplateCommand(template);
     }
 
@@ -85,6 +89,12 @@ public class Parser {
         switch (arg) {
         case "rl":
             return new LrTemplate();
+        case "rc":
+            return new RcTemplate();
+        case "r":
+            return new RTemplate();
+        case "lc":
+            return new LcTemplate();
         default:
             throw new DukeException("Invalid Template!");
         }
@@ -114,7 +124,7 @@ public class Parser {
         }
 
         double value = Double.parseDouble(args[3]);
-        return new AddCommand(args[1], args[2], value);
+        return new AddCommand(template, args[1], args[2], value);
     }
 
     private static Command prepareCalc(String[] args) throws DukeException {

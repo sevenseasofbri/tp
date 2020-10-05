@@ -1,5 +1,8 @@
 package seedu.duke.ui;
 
+import seedu.duke.component.LoadComponent;
+import seedu.duke.template.Template;
+
 import java.util.Scanner;
 
 public class Ui {
@@ -67,5 +70,13 @@ public class Ui {
      */
     public void showError(String message) {
         printMessage(message);
+    }
+
+    public void printAddComponent(LoadComponent component) {
+        System.out.println("Nice, added a " + component);
+    }
+
+    public void printTemplate(Template template) {
+        System.out.println(template);
     }
 }

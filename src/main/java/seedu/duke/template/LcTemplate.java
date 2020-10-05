@@ -21,6 +21,10 @@ public class LcTemplate extends Template {
         capacitor = new Capacitor(capacitance);
     }
 
+    public LcTemplate() {
+        this(0,0,0);
+    }
+
     /**
      * Returns the impedance of LC circuit.
      *
@@ -36,7 +40,7 @@ public class LcTemplate extends Template {
      *
      * @return inductor, an instance of the Inductor class.
      */
-    public Inductor getInductor() {
+    protected Inductor getInductor() {
         return inductor;
     }
 
@@ -45,7 +49,7 @@ public class LcTemplate extends Template {
      *
      * @return capacitor, an instance of the Capacitor class.
      */
-    public Capacitor getCapacitor() {
+    protected Capacitor getCapacitor() {
         return capacitor;
     }
 
@@ -54,7 +58,7 @@ public class LcTemplate extends Template {
      *
      * @param value double type value to be set to the inductor in the circuit.
      */
-    public void setInductor(double value) {
+    protected void setInductor(double value) {
         inductor.setValue(value);
     }
 
@@ -63,8 +67,18 @@ public class LcTemplate extends Template {
      *
      * @param value double type value to be set to the capacitor in the circuit.
      */
-    public void setCapacitor(double value) {
+    protected void setCapacitor(double value) {
         capacitor.setValue(value);
+    }
+
+
+    @Override
+    public void setComponent(String s, double value) {
+        if (s.equals("l")) {
+            setInductor(value);
+        } else {
+            setCapacitor(value);
+        }
     }
 
     /**
@@ -88,9 +102,9 @@ public class LcTemplate extends Template {
     @Override
     public LoadComponent getComponent(String component) throws DukeException {
         if (component.equals("l")) {
-            return inductor;
+            return getInductor();
         } else if (component.equals("c")) {
-            return capacitor;
+            return getCapacitor();
         } else {
             throw new DukeException("Invalid component");
         }
