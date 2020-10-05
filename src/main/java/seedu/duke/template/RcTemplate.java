@@ -37,7 +37,7 @@ public class RcTemplate extends Template {
     /**
      * Returns impedance value of circuit
      *
-     * @return Z, a double representation of the impedance value
+     * @return Z, a double representation of the impedance value of circuit
      */
     public double getImpedance(Capacitor c, Resistor r) {
         double z = Math.sqrt(Math.pow(r.getValue(), 2) + Math.pow(c.getValue() * angularFrequency, 2));
