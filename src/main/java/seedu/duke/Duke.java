@@ -2,11 +2,13 @@ package seedu.duke;
 
 import seedu.duke.commands.Command;
 import seedu.duke.parser.Parser;
+import seedu.duke.template.Template;
 import seedu.duke.ui.Ui;
 
 public class Duke {
     /** Instances of class objects for UI. **/
     private final Ui ui;
+    private Template template;
 
     private Duke() {
         ui = new Ui();
@@ -19,7 +21,7 @@ public class Duke {
             try {
                 String line = ui.readLine();
                 Command c = Parser.parse(line);
-                c.execute(ui);
+                template = c.execute(ui, template);
                 isExit = c.isExit();
             } catch (DukeException e) {
                 ui.showError(e.getMessage());

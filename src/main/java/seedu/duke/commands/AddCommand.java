@@ -5,6 +5,7 @@ import seedu.duke.component.Capacitor;
 import seedu.duke.component.Inductor;
 import seedu.duke.component.LoadComponent;
 import seedu.duke.component.Resistor;
+import seedu.duke.template.Template;
 import seedu.duke.ui.Ui;
 
 public class AddCommand extends Command {
@@ -24,7 +25,7 @@ public class AddCommand extends Command {
      * @param ui Ui object.
      */
     @Override
-    public void execute(Ui ui) throws DukeException {
+    public Template execute(Ui ui, Template template) throws DukeException {
         // Placeholder, to be replaced with Template.getComponent
         LoadComponent c = getComponent(component);
         if (config.equals("series")) {
@@ -32,6 +33,7 @@ public class AddCommand extends Command {
         } else {
             System.out.println(c.addParallel(value));
         }
+        return super.execute(ui, template);
     }
 
     // Placeholder, getComponent would come from Template class instead
