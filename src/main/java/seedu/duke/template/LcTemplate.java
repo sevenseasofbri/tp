@@ -39,7 +39,7 @@ public class LcTemplate extends Template {
 
 
     /**
-     * Returns the impedance of LC circuit
+     * Returns the impedance of LC circuit.
      *
      * @return Impedance of LC circuit
      */
