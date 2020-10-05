@@ -7,11 +7,3 @@ Hello from
 
 What is your name?
 Hello James Gosling
-	+---R-----L---+
-	|             |
-	|             |
-	+----+V_ac+---+
-Total Resistance: 0.0 Ω
-Total Inductance: 0.0 µH
-
- Bye. See you next time!

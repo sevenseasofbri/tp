@@ -2,7 +2,7 @@ package seedu.duke.template;
 
 import seedu.duke.component.VoltageSource;
 
-public abstract class Template {
+public class Template {
     protected VoltageSource initialPowerSupply;
 
     public Template(double powerSupply) {

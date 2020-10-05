@@ -45,27 +45,11 @@ public class Ui {
     }
 
     /**
-     * Prints farewell message after exiting Duke.
-     */
-    public void printFarewell() {
-        System.out.println(" Bye. See you next time!");
-    }
-
-    /**
      * Prints a message.
      *
      * @param message Message.
      */
-    public void printMessage(String message) {
-        System.out.println(message);
-    }
-
-    /**
-     * Prints an error message.
-     *
-     * @param message Error message.
-     */
     public void showError(String message) {
-        printMessage(message);
+        System.out.println(message);
     }
 }
