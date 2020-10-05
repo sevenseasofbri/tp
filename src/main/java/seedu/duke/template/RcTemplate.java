@@ -42,7 +42,6 @@ public class RcTemplate extends Template {
      *
      * @return String representation of RcTemplate object.
      */
-
     @Override
     public String toString() {
         return RC_TEMPLATE + "Total Resistance: " + resistor + System.lineSeparator()
