@@ -49,6 +49,24 @@ public class RcTemplate extends Template {
     }
 
     /**
+     * Sets the value of the resistor in the circuit to the value specified.
+     *
+     * @param value double type value to be set to the resistor in the circuit.
+     */
+    public void setResistor(double value) {
+        resistor.setValue(value);
+    }
+
+    /**
+     * Sets the value of the capacitor in the Lc Template circuit to the value specified.
+     *
+     * @param value double type value to be set to the capacitor in the circuit.
+     */
+    public void setCapacitor(double value) {
+        capacitor.setValue(value);
+    }
+
+    /**
      * Returns String consisting of total capacitance and resistance values of the RcTemplate object.
      *
      * @return String representation of RcTemplate object.
