@@ -32,12 +32,11 @@ public class LrTemplate extends RTemplate {
     /**
      * Returns calculated impedance of the LrTemplate circuit.
      *
-     * @param l Inductor type accepts the
-     * @param r
-     * @return
+     * @return double type calculated Impedance.
      */
-    public double getImpedance(Inductor l, Resistor r) {
-        double z = Math.sqrt(Math.pow(r.getValue(), 2) + Math.pow(l.getValue() * angularFrequency, 2));
+    public double getImpedance() {
+        double z = Math.sqrt(Math.pow(getResistor().getValue(), 2)
+                    + Math.pow(inductor.getValue() * angularFrequency, 2));
         return z;
     }
 
