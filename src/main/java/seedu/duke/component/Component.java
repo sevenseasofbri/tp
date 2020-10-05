@@ -4,6 +4,7 @@ public abstract class Component {
     protected double value;
     protected String siUnit;
 
+
     public Component(double value) {
         this.value = value;
     }
