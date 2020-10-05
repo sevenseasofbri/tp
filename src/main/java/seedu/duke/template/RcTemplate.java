@@ -24,7 +24,6 @@ public class RcTemplate extends Template {
      *
      * @return capacitor, an instance of the Capacitor class.
      */
-
     public Capacitor getCapacitor() {
         return capacitor;
     }
@@ -52,5 +51,4 @@ public class RcTemplate extends Template {
     }
 
 }
-
 
