@@ -30,9 +30,9 @@ public class LrTemplate extends RTemplate {
     }
 
 
-    public double getImpedance(Inductor L, Resistor R){
-        double Z = Math.sqrt(Math.pow(R.getValue(), 2) + Math.pow(L.getValue()*angularFrequency, 2));
-        return Z;
+    public double getImpedance(Inductor l, Resistor r) {
+        double z = Math.sqrt(Math.pow(r.getValue(), 2) + Math.pow(l.getValue() * angularFrequency, 2));
+        return z;
     }
 
     /**
