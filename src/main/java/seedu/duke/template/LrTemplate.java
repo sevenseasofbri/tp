@@ -2,7 +2,6 @@ package seedu.duke.template;
 
 import seedu.duke.component.Inductor;
 import seedu.duke.component.Resistor;
-import seedu.duke.component.VoltageSource;
 
 public class LrTemplate extends Template {
     private static final String RL_TEMPLATE = "\t+---R-----L---+\n"
@@ -16,6 +15,10 @@ public class LrTemplate extends Template {
         super(powerSupply);
         inductor = new Inductor(inductance);
         resistor = new Resistor(resistance);
+    }
+
+    public LrTemplate() {
+        this(0,0,0);
     }
 
     /**
