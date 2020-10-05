@@ -30,6 +30,11 @@ public class LrTemplate extends RTemplate {
     }
 
 
+    public double getImpedance(Inductor L, Resistor R){
+        double Z = Math.sqrt(Math.pow(R.getValue(), 2) + Math.pow(L.getValue()*angularFrequency, 2));
+        return Z;
+    }
+
     /**
      * Returns String consisting of total inductance and resistance values of the LrTemplate object.
      *
