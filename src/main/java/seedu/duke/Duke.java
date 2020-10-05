@@ -21,7 +21,7 @@ public class Duke {
             try {
                 String line = ui.readLine();
                 Command c = Parser.parse(line);
-                c.execute(ui);
+                template = c.execute(ui, template);
                 isExit = c.isExit();
             } catch (DukeException e) {
                 ui.showError(e.getMessage());

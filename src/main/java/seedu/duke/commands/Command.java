@@ -1,6 +1,7 @@
 package seedu.duke.commands;
 
 import seedu.duke.DukeException;
+import seedu.duke.template.Template;
 import seedu.duke.ui.Ui;
 
 public class Command {
@@ -11,9 +12,12 @@ public class Command {
      * Executes appropriate methods based on the given command.
      *
      * @param ui Ui object.
+     * @param template Template object.
+     * @return Template object.
+     * @throws DukeException If an execution error occurs.
      */
-    public void execute(Ui ui) throws DukeException {
-
+    public Template execute(Ui ui, Template template) throws DukeException {
+        return template;
     }
 
     /**
