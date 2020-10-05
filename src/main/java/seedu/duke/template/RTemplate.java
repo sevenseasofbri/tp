@@ -16,7 +16,15 @@ public class RTemplate extends Template {
         super(powerSupply);
         resistor = new Resistor(resistance);
     }
-
+    
+    /**
+     * Returns resistor object, an attribute of the instance of LrTemplate.
+     *
+     * @return resistor, an instance of the Resistor class.
+     */
+    public Resistor getResistor() {
+        return resistor;
+    }
 
     /**
      * Returns String consisting of total inductance and resistance values of the LrTemplate object.
