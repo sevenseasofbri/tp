@@ -33,7 +33,6 @@ public class RcTemplate extends Template {
      *
      * @return resistor, an instance of the Resistor class.
      */
-
     public Resistor getResistor() {
         return resistor;
     }
@@ -51,4 +50,3 @@ public class RcTemplate extends Template {
     }
 
 }
-
