@@ -1,5 +1,7 @@
 package seedu.duke.template;
 
+import seedu.duke.DukeException;
+import seedu.duke.component.LoadComponent;
 import seedu.duke.component.Resistor;
 
 public class RTemplate extends Template {
@@ -8,13 +10,23 @@ public class RTemplate extends Template {
             + "\t|             |\n"
             + "\t|             |\n"
             + "\t+----+V_ac+---+\n";
-    private Resistor resistor;
+    protected Resistor resistor;
 
     public RTemplate(double resistance, double powerSupply) {
         super(powerSupply);
         resistor = new Resistor(resistance);
     }
-    
+
+    /**
+     * Returns impedance of Resistor.
+     *
+     * @return impedance of Resistor.
+     */
+    @Override
+    public double calcImpedance() {
+        return resistor.getValue();
+    }
+
     /**
      * Returns resistor object, an attribute of the instance of LrTemplate.
      *
@@ -34,16 +46,20 @@ public class RTemplate extends Template {
         return R_TEMPLATE + "Total Resistance: " + resistor + System.lineSeparator();
     }
 
+
     /**
-     * Returns impedance of Resistor.
+     * Returns LoadComponent object depending on input String.
      *
-     * @return impedance of Resistor.
+     * @param component String representing the component.
+     * @return LoadComponent object.
+     * @throws DukeException If input String does not match a component.
      */
-    public double getImpedance() {
-        return resistor.getValue();
+    @Override
+    public LoadComponent getComponent(String component) throws DukeException {
+        if (!component.equals("r")) {
+            throw new DukeException("Invalid component");
+        }
+        return resistor;
     }
-
-
-
 }
 

@@ -27,7 +27,7 @@ public class AddCommand extends Command {
     @Override
     public Template execute(Ui ui, Template template) throws DukeException {
         // Placeholder, to be replaced with Template.getComponent
-        LoadComponent c = getComponent(component);
+        LoadComponent c = template.getComponent(component);
         if (config.equals("series")) {
             System.out.println(c.addSeries(value));
         } else {

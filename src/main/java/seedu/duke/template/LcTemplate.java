@@ -1,7 +1,9 @@
 package seedu.duke.template;
 
+import seedu.duke.DukeException;
 import seedu.duke.component.Capacitor;
 import seedu.duke.component.Inductor;
+import seedu.duke.component.LoadComponent;
 
 public class LcTemplate extends Template {
 
@@ -17,6 +19,16 @@ public class LcTemplate extends Template {
         super(powerSupply);
         inductor = new Inductor(inductance);
         capacitor = new Capacitor(capacitance);
+    }
+
+    /**
+     * Returns the impedance of LC circuit.
+     *
+     * @return Impedance of LC circuit
+     */
+    @Override
+    public double calcImpedance() {
+        return angularFrequency * Math.abs(inductor.getValue() - (1 / capacitor.getValue()));
     }
 
     /**
@@ -37,17 +49,6 @@ public class LcTemplate extends Template {
         return capacitor;
     }
 
-
-    /**
-     * Returns the impedance of LC circuit.
-     *
-     * @return Impedance of LC circuit
-     */
-    public double getImpedance() {
-        double z = angularFrequency * Math.abs(inductor.getValue() - (1 / capacitor.getValue()));
-        return z;
-    }
-
     /**
      * Returns String consisting of total inductance and capacitance values of the LcTemplate object.
      *
@@ -59,6 +60,23 @@ public class LcTemplate extends Template {
                 + "Total Inductance: " + inductor + System.lineSeparator();
     }
 
+    /**
+     * Returns LoadComponent object depending on input String.
+     *
+     * @param component String representing the component.
+     * @return LoadComponent object.
+     * @throws DukeException If input String does not match a component.
+     */
+    @Override
+    public LoadComponent getComponent(String component) throws DukeException {
+        if (component.equals("l")) {
+            return inductor;
+        } else if (component.equals("c")) {
+            return capacitor;
+        } else {
+            throw new DukeException("Invalid component");
+        }
+    }
 }
 
 
