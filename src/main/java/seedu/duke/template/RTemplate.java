@@ -1,8 +1,6 @@
 package seedu.duke.template;
 
-import seedu.duke.component.Inductor;
 import seedu.duke.component.Resistor;
-import seedu.duke.component.VoltageSource;
 
 public class RTemplate extends Template {
     private static final String R_TEMPLATE =
@@ -35,6 +33,17 @@ public class RTemplate extends Template {
     public String toString() {
         return R_TEMPLATE + "Total Resistance: " + resistor + System.lineSeparator();
     }
+
+    /**
+     * Returns impedance of Resistor.
+     *
+     * @return impedance of Resistor.
+     */
+    public double getImpedance() {
+        return resistor.getValue();
+    }
+
+
 
 }
 

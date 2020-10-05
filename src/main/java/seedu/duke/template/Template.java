@@ -6,7 +6,6 @@ public abstract class Template {
     protected VoltageSource initialPowerSupply;
     protected static final double angularFrequency = 100 * Math.PI;
 
-
     public Template(double powerSupply) {
         initialPowerSupply = new VoltageSource(powerSupply);
     }
