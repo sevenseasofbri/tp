@@ -50,5 +50,4 @@ public class LrTemplate extends RTemplate {
         return RL_TEMPLATE + "Total Resistance: " + getResistor() + System.lineSeparator()
                            + "Total Inductance: " + inductor + System.lineSeparator();
     }
-
 }
