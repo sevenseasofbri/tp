@@ -72,7 +72,8 @@ class ParserTest {
         Parser p = new Parser();
         p.parse("template rl");
         String line = "set c 500";
-        assertThrows(DukeException.class, () -> p.parse(line));
+        Command c = p.parse(line);
+        assertTrue(c instanceof SetCommand);
     }
 
     @Test
@@ -100,7 +101,8 @@ class ParserTest {
         p.parse("template rl");
         p.parse("set r 500");
         String line = "add series c 500";
-        assertThrows(DukeException.class, () -> p.parse(line));
+        Command c = p.parse(line);
+        assertTrue(c instanceof AddCommand);
     }
 
 
