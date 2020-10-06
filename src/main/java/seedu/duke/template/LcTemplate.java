@@ -29,10 +29,16 @@ public class LcTemplate extends Template {
      * Returns the impedance of LC circuit.
      *
      * @return Impedance of LC circuit
+     * @throws DukeException If component values are not yet set.
      */
     @Override
-    public double calcImpedance() {
-        return angularFrequency * Math.abs(inductor.getValue() - (1 / capacitor.getValue()));
+    public double calcImpedance() throws DukeException {
+        double inductance = inductor.getValue();
+        double capacitance = capacitor.getValue();
+        if (inductance == 0 || capacitance == 0) {
+            throw new DukeException("Component(s) not set yet.");
+        }
+        return angularFrequency * Math.abs(inductance - (1 / capacitance));
     }
 
     /**

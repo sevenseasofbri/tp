@@ -25,11 +25,17 @@ public class LrTemplate extends RTemplate {
      * Returns calculated impedance of the LrTemplate circuit.
      *
      * @return double type calculated Impedance.
+     * @throws DukeException If component values are not yet set.
      */
     @Override
-    public double calcImpedance() {
-        return Math.sqrt(Math.pow(getResistor().getValue(), 2)
-                + Math.pow(inductor.getValue() * angularFrequency, 2));
+    public double calcImpedance() throws DukeException {
+        double resistance = super.calcImpedance();
+        double inductance = inductor.getValue();
+        if (inductance == 0) {
+            throw new DukeException("Component(s) not set yet.");
+        }
+        return Math.sqrt(Math.pow(resistance, 2)
+                + Math.pow(inductance * angularFrequency, 2));
     }
 
     /**

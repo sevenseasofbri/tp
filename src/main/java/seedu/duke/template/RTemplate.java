@@ -25,9 +25,13 @@ public class RTemplate extends Template {
      * Returns impedance of Resistor.
      *
      * @return impedance of Resistor.
+     * @throws DukeException If component values are not yet set.
      */
     @Override
-    public double calcImpedance() {
+    public double calcImpedance() throws DukeException {
+        if (resistor.getValue() == 0) {
+            throw new DukeException("Component(s) not set yet.");
+        }
         return resistor.getValue();
     }
 

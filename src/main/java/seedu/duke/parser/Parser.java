@@ -50,17 +50,17 @@ public class Parser {
         }
     }
 
-    private static boolean hasMinArguments(String[] args, int n) {
+    private boolean hasMinArguments(String[] args, int n) {
         return args.length < n;
     }
 
-    private static boolean isComponent(String arg) {
+    private boolean isComponent(String arg) {
         return arg.equals("r") || arg.equals("c") || arg.equals("l");
     }
 
     //@@author hughjazzman-reused
     //Reused from https://stackoverflow.com/a/1102916 with minor modifications
-    private static boolean isNumeric(String str) {
+    private boolean isNumeric(String str) {
         try {
             return Double.parseDouble(str) > 0;
         } catch (NumberFormatException e) {
@@ -69,11 +69,11 @@ public class Parser {
     }
     //@@author
 
-    private static boolean hasNoTemplate() {
+    private boolean hasNoTemplate() {
         return template == null;
     }
 
-    private static Command prepareTemplate(String[] args) throws DukeException {
+    private Command prepareTemplate(String[] args) throws DukeException {
         if (hasMinArguments(args, 2)) {
             throw new DukeException("Not enough arguments!");
         }
@@ -89,7 +89,7 @@ public class Parser {
         return new TemplateCommand(template);
     }
 
-    private static Template getTemplate(String arg) throws DukeException {
+    private Template getTemplate(String arg) throws DukeException {
         switch (arg) {
         case "rl":
             return new LrTemplate();
@@ -104,7 +104,7 @@ public class Parser {
         }
     }
 
-    private static Command prepareSet(String[] args) throws DukeException {
+    private Command prepareSet(String[] args) throws DukeException {
         if (hasMinArguments(args, 3)) {
             throw new DukeException("Not enough arguments!");
         }
@@ -119,7 +119,7 @@ public class Parser {
         return new SetCommand(template, args[1], value);
     }
 
-    private static Command prepareAdd(String[] args) throws DukeException {
+    private Command prepareAdd(String[] args) throws DukeException {
         if (hasMinArguments(args, 4)) {
             throw new DukeException("Not enough arguments!");
         }
@@ -138,7 +138,7 @@ public class Parser {
         return new AddCommand(template, args[1], args[2], value);
     }
 
-    private static Command prepareCalc(String[] args) throws DukeException {
+    private Command prepareCalc(String[] args) throws DukeException {
         if (hasMinArguments(args, 2)) {
             throw new DukeException("Not enough arguments!");
         }

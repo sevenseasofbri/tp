@@ -26,11 +26,17 @@ public class RcTemplate extends RTemplate {
      * Returns impedance value of circuit.
      *
      * @return impedance, a double representation of the impedance value of circuit.
+     * @throws DukeException If component values are not yet set.
      */
     @Override
-    public double calcImpedance() {
-        return Math.sqrt(Math.pow(resistor.getValue(), 2)
-                + (1 / Math.pow((angularFrequency * capacitor.getValue()), 2)));
+    public double calcImpedance() throws DukeException {
+        double resistance = super.calcImpedance();
+        double capacitance = capacitor.getValue();
+        if (capacitance == 0) {
+            throw new DukeException("Component(s) not set yet.");
+        }
+        return Math.sqrt(Math.pow(resistance, 2)
+                + (1 / Math.pow((angularFrequency * capacitance), 2)));
     }
 
     /**

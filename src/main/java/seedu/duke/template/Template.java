@@ -21,7 +21,7 @@ public abstract class Template {
         return initialPowerSupply;
     }
 
-    protected abstract double calcImpedance();
+    protected abstract double calcImpedance() throws DukeException;
 
     public abstract void setComponent(String s, double value);
 
@@ -30,7 +30,7 @@ public abstract class Template {
      *
      * @return double of the current value.
      */
-    public double getCurrent() {
+    public double getCurrent() throws DukeException {
         return initialPowerSupply.getValue() / calcImpedance();
     }
 
@@ -39,7 +39,7 @@ public abstract class Template {
      *
      * @return double of the power value.
      */
-    public double getPower() {
+    public double getPower() throws DukeException {
         double voltage = initialPowerSupply.getValue();
         return voltage * voltage / calcImpedance();
     }
