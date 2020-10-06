@@ -1,22 +1,42 @@
 package seedu.duke.template;
 
+import seedu.duke.DukeException;
 import seedu.duke.component.Capacitor;
-import seedu.duke.component.Resistor;
+import seedu.duke.component.LoadComponent;
 
 
-public class RcTemplate extends Template {
+public class RcTemplate extends RTemplate {
     private static final String RC_TEMPLATE = "\t+---R-----C---+\n"
             + "\t|             |\n"
             + "\t|             |\n"
             + "\t+----+V_ac+---+\n";
 
-    private Resistor resistor;
     private Capacitor capacitor;
 
     public RcTemplate(double resistance, double capacitance, double powerSupply) {
-        super(powerSupply);
+        super(resistance, powerSupply);
         capacitor = new Capacitor(capacitance);
-        resistor = new Resistor(resistance);
+    }
+
+    public RcTemplate() {
+        this(0,0,0);
+    }
+
+    /**
+     * Returns impedance value of circuit.
+     *
+     * @return impedance, a double representation of the impedance value of circuit.
+     * @throws DukeException If component values are not yet set.
+     */
+    @Override
+    public double calcImpedance() throws DukeException {
+        double resistance = super.calcImpedance();
+        double capacitance = capacitor.getValue();
+        if (capacitance == 0) {
+            throw new DukeException("Component(s) not set yet.");
+        }
+        return Math.sqrt(Math.pow(resistance, 2)
+                + (1 / Math.pow((angularFrequency * capacitance), 2)));
     }
 
     /**
@@ -24,37 +44,8 @@ public class RcTemplate extends Template {
      *
      * @return capacitor, an instance of the Capacitor class.
      */
-    public Capacitor getCapacitor() {
+    protected Capacitor getCapacitor() {
         return capacitor;
-    }
-
-    /**
-     * Returns resistor object, an attribute of the instance of LrTemplate.
-     *
-     * @return resistor, an instance of the Resistor class.
-     */
-    public Resistor getResistor() {
-        return resistor;
-    }
-
-    /**
-     * Returns impedance value of circuit.
-     *
-     * @return Z, a double representation of the impedance value of circuit.
-     */
-    public double getImpedance() {
-        double z = Math.sqrt(Math.pow(resistor.getValue(), 2)
-                + (1 / Math.pow((angularFrequency * capacitor.getValue()), 2)));
-        return z;
-    }
-
-    /**
-     * Sets the value of the resistor in the circuit to the value specified.
-     *
-     * @param value double type value to be set to the resistor in the circuit.
-     */
-    public void setResistor(double value) {
-        resistor.setValue(value);
     }
 
     /**
@@ -62,8 +53,23 @@ public class RcTemplate extends Template {
      *
      * @param value double type value to be set to the capacitor in the circuit.
      */
-    public void setCapacitor(double value) {
+    protected void setCapacitor(double value) {
         capacitor.setValue(value);
+    }
+
+    /**
+     * Sets the value of the inductor in the Lr Template circuit to the value specified.
+     *
+     * @param s String corresponding to component type.
+     * @param value double type value to be set to the resistor in the circuit.
+     */
+    @Override
+    public void setComponent(String s, double value) {
+        if (s.equals("c")) {
+            setCapacitor(value);
+        } else {
+            super.setComponent(s, value);
+        }
     }
 
     /**
@@ -77,4 +83,18 @@ public class RcTemplate extends Template {
                 + "Total Capacitance: " + capacitor + System.lineSeparator();
     }
 
+    /**
+     * Returns LoadComponent object depending on input String.
+     *
+     * @param component String representing the component.
+     * @return LoadComponent object.
+     * @throws DukeException If input String does not match a component.
+     */
+    @Override
+    public LoadComponent getComponent(String component) throws DukeException {
+        if (component.equals("c")) {
+            return getCapacitor();
+        }
+        return super.getComponent(component);
+    }
 }

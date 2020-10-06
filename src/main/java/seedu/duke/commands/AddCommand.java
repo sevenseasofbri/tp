@@ -1,22 +1,16 @@
 package seedu.duke.commands;
 
 import seedu.duke.DukeException;
-import seedu.duke.component.Capacitor;
-import seedu.duke.component.Inductor;
 import seedu.duke.component.LoadComponent;
-import seedu.duke.component.Resistor;
 import seedu.duke.template.Template;
 import seedu.duke.ui.Ui;
 
-public class AddCommand extends Command {
+public class AddCommand extends SetCommand {
     private final String config;
-    private final String component;
-    private final double value;
 
-    public AddCommand(String config, String component, double value) {
+    public AddCommand(Template template, String config, String component, double value) {
+        super(template, component, value);
         this.config = config;
-        this.component = component;
-        this.value = value;
     }
 
     /**
@@ -25,28 +19,24 @@ public class AddCommand extends Command {
      * @param ui Ui object.
      */
     @Override
-    public Template execute(Ui ui, Template template) throws DukeException {
-        // Placeholder, to be replaced with Template.getComponent
-        LoadComponent c = getComponent(component);
-        if (config.equals("series")) {
-            System.out.println(c.addSeries(value));
-        } else {
-            System.out.println(c.addParallel(value));
-        }
-        return super.execute(ui, template);
+    public void execute(Ui ui) throws DukeException {
+        LoadComponent c = template.getComponent(component);
+        double newValue = getNewValue();
+
+        c.setValue(value);
+        ui.printAddComponent(c);
+
+        template.setComponent(component, newValue);
+        ui.printTemplate(template);
     }
 
-    // Placeholder, getComponent would come from Template class instead
-    private LoadComponent getComponent(String component) throws DukeException {
-        switch (component) {
-        case "r":
-            return new Resistor(1);
-        case "c":
-            return new Capacitor(1);
-        case "l":
-            return new Inductor(1);
-        default:
-            throw new DukeException("Invalid component");
+    private double getNewValue() throws DukeException {
+        LoadComponent c = template.getComponent(component);
+        if (config.equals("series")) {
+            return c.addSeries(value);
+        } else {
+            return c.addParallel(value);
         }
     }
+
 }
