@@ -4,17 +4,16 @@ import seedu.duke.DukeException;
 import seedu.duke.commands.AddCommand;
 import seedu.duke.commands.Command;
 import seedu.duke.commands.ExitCommand;
+import seedu.duke.commands.SetCommand;
 import seedu.duke.commands.TemplateCommand;
 import seedu.duke.template.LcTemplate;
 import seedu.duke.template.LrTemplate;
 import seedu.duke.template.RTemplate;
 import seedu.duke.template.RcTemplate;
 import seedu.duke.template.Template;
-import seedu.duke.ui.Ui;
 
 public class Parser {
-    private static final Ui ui = new Ui();
-    private static Template template;
+    private static Template template = null;
 
     /**
      * Returns a Command object based on the input line.
@@ -23,15 +22,17 @@ public class Parser {
      * @return Command object.
      * @throws DukeException If given line is blank.
      */
-    public static Command parse(String line) throws DukeException {
+    public Command parse(String line) throws DukeException {
         // Prevent blank tasks
         if (line.isBlank()) {
             throw new DukeException("Invalid command!");
         }
         // split by whitespace
         String[] args = line.split("\\s+");
+        String command = args[0].toLowerCase();
 
-        switch (args[0].toLowerCase()) {
+
+        switch (command) {
         case "help":
             return new Command();
         case "template":
@@ -61,13 +62,16 @@ public class Parser {
     //Reused from https://stackoverflow.com/a/1102916 with minor modifications
     private static boolean isNumeric(String str) {
         try {
-            Double.parseDouble(str);
-            return true;
+            return Double.parseDouble(str) > 0;
         } catch (NumberFormatException e) {
             return false;
         }
     }
     //@@author
+
+    private static boolean hasNoTemplate() {
+        return template == null;
+    }
 
     private static Command prepareTemplate(String[] args) throws DukeException {
         if (hasMinArguments(args, 2)) {
@@ -104,16 +108,23 @@ public class Parser {
         if (hasMinArguments(args, 3)) {
             throw new DukeException("Not enough arguments!");
         }
+        if (hasNoTemplate()) {
+            throw new DukeException("No template set yet!");
+        }
         if (!(isComponent(args[1]) && isNumeric(args[2]))) {
             throw new DukeException("Invalid argument");
         }
 
-        return new Command();
+        double value = Double.parseDouble(args[2]);
+        return new SetCommand(template, args[1], value);
     }
 
     private static Command prepareAdd(String[] args) throws DukeException {
         if (hasMinArguments(args, 4)) {
             throw new DukeException("Not enough arguments!");
+        }
+        if (hasNoTemplate()) {
+            throw new DukeException("No template set yet!");
         }
 
         boolean isConfig = args[1].equals("parallel") || args[1].equals("series");
@@ -130,6 +141,9 @@ public class Parser {
     private static Command prepareCalc(String[] args) throws DukeException {
         if (hasMinArguments(args, 2)) {
             throw new DukeException("Not enough arguments!");
+        }
+        if (hasNoTemplate()) {
+            throw new DukeException("No template set yet!");
         }
 
         boolean isCalc = args[1].equals("reff") || args[1].equals("ceff") || args[1].equals("leff")

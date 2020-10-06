@@ -3,4 +3,5 @@ template rl
 add series r 2
 add series l 2
 add parallel r 2
+set r 3
 bye

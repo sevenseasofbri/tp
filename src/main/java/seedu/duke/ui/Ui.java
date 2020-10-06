@@ -72,10 +72,31 @@ public class Ui {
         printMessage(message);
     }
 
+
+    /**
+     * Prints that a component has been set.
+     *
+     * @param component LoadComponent object set.
+     */
+    public void printSetComponent(LoadComponent component) {
+        System.out.println("Set " + component);
+    }
+
+
+    /**
+     * Prints that a component has been added.
+     *
+     * @param component LoadComponent object added.
+     */
     public void printAddComponent(LoadComponent component) {
         System.out.println("Nice, added a " + component);
     }
 
+    /**
+     * Prints the template that was chosen.
+     *
+     * @param template Template object.
+     */
     public void printTemplate(Template template) {
         System.out.println(template);
     }
