@@ -31,7 +31,7 @@ public class RcTemplate extends RTemplate {
     @Override
     public double calcImpedance() throws DukeException {
         double resistance = super.calcImpedance();
-        double capacitance = capacitor.getValue();
+        double capacitance = capacitor.getValue() * Math.pow(10, -6);
         if (capacitance == 0) {
             throw new DukeException("Component(s) not set yet.");
         }

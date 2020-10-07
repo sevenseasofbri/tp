@@ -33,8 +33,8 @@ public class LcTemplate extends Template {
      */
     @Override
     public double calcImpedance() throws DukeException {
-        double inductance = inductor.getValue();
-        double capacitance = capacitor.getValue();
+        double inductance = inductor.getValue() * Math.pow(10, -6);
+        double capacitance = capacitor.getValue() * Math.pow(10, -6);
         if (inductance == 0 || capacitance == 0) {
             throw new DukeException("Component(s) not set yet.");
         }
