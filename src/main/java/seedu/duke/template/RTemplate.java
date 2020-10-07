@@ -40,7 +40,7 @@ public class RTemplate extends Template {
      *
      * @return resistor, an instance of the Resistor class.
      */
-    protected Resistor getResistor() {
+    public Resistor getResistor() {
         return resistor;
     }
 

@@ -44,7 +44,7 @@ public class RcTemplate extends RTemplate {
      *
      * @return capacitor, an instance of the Capacitor class.
      */
-    protected Capacitor getCapacitor() {
+    public Capacitor getCapacitor() {
         return capacitor;
     }
 

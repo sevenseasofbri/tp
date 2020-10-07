@@ -2,6 +2,7 @@ package seedu.duke.parser;
 
 import seedu.duke.DukeException;
 import seedu.duke.commands.AddCommand;
+import seedu.duke.commands.CalculateCommand;
 import seedu.duke.commands.Command;
 import seedu.duke.commands.ExitCommand;
 import seedu.duke.commands.SetCommand;
@@ -55,7 +56,7 @@ public class Parser {
     }
 
     private boolean isComponent(String arg) {
-        return arg.equals("r") || arg.equals("c") || arg.equals("l");
+        return arg.equals("r") || arg.equals("c") || arg.equals("l") || arg.equals("v");
     }
 
     //@@author hughjazzman-reused
@@ -152,6 +153,6 @@ public class Parser {
         if (!isCalc) {
             throw new DukeException("Invalid argument");
         }
-        return new Command();
+        return new CalculateCommand(template, args[1]);
     }
 }

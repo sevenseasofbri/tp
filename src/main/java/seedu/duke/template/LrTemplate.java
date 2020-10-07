@@ -43,7 +43,7 @@ public class LrTemplate extends RTemplate {
      *
      * @return inductor, an instance of the Inductor class.
      */
-    protected Inductor getInductor() {
+    public Inductor getInductor() {
         return inductor;
     }
 

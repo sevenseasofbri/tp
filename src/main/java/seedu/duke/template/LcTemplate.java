@@ -46,7 +46,7 @@ public class LcTemplate extends Template {
      *
      * @return inductor, an instance of the Inductor class.
      */
-    protected Inductor getInductor() {
+    public Inductor getInductor() {
         return inductor;
     }
 
@@ -55,7 +55,7 @@ public class LcTemplate extends Template {
      *
      * @return capacitor, an instance of the Capacitor class.
      */
-    protected Capacitor getCapacitor() {
+    public Capacitor getCapacitor() {
         return capacitor;
     }
 
