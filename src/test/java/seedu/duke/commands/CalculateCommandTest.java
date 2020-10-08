@@ -9,6 +9,7 @@ import seedu.duke.ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 public class CalculateCommandTest {
     private static final Ui UI = new Ui();
@@ -30,9 +31,7 @@ public class CalculateCommandTest {
     @Test
     void execute_calcCeff_calculatesEffectiveCapacitance() throws DukeException {
         CalculateCommand c = new CalculateCommand(LC_TEMPLATE, CAPACITANCE);
-        LcTemplate lc = (LcTemplate) c.template;
-        c.execute(UI);
-        assertDoesNotThrow​();
+        assertDoesNotThrow​(() -> c.execute(UI));
     }
 
     @Test
