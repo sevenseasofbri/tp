@@ -28,14 +28,13 @@ public class SetCommand extends Command {
             template.setInitialPowerSupply(value);
             ui.printSetVoltageSource(template.getInitialPowerSupply());
             return;
-        } else {
-            LoadComponent c = template.getComponent(component);
-
-            c.setValue(value);
-            ui.printSetComponent(c);
-
-            template.setComponent(component, value);
-            ui.printTemplate(template);
         }
+        LoadComponent c = template.getComponent(component);
+
+        c.setValue(value);
+        ui.printSetComponent(c);
+
+        template.setComponent(component, value);
+        ui.printTemplate(template);
     }
 }
