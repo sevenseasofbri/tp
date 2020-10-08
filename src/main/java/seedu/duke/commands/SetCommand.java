@@ -27,6 +27,7 @@ public class SetCommand extends Command {
         if (component.equals("v")) {
             template.setInitialPowerSupply(value);
             ui.printSetVoltageSource(template.getInitialPowerSupply());
+            return;
         } else {
             LoadComponent c = template.getComponent(component);
 

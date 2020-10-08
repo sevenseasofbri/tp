@@ -7,14 +7,4 @@ public class VoltageSource extends Component {
         super(value);
         siUnit = SI_UNIT;
     }
-
-    /**
-     * Sets the value of the voltage source.
-     *
-     * @param value Value of Component.
-     */
-    @Override
-    public void setValue(double value) {
-        super.setValue(value);
-    }
 }
