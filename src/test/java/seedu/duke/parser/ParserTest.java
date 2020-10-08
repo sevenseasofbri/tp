@@ -2,7 +2,12 @@ package seedu.duke.parser;
 
 import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
-import seedu.duke.commands.*;
+import seedu.duke.commands.AddCommand;
+import seedu.duke.commands.CalculateCommand;
+import seedu.duke.commands.Command;
+import seedu.duke.commands.ExitCommand;
+import seedu.duke.commands.SetCommand;
+import seedu.duke.commands.TemplateCommand;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -148,5 +153,10 @@ class ParserTest {
         assertTrue(c instanceof ExitCommand);
     }
 
-
+    @Test
+    void parse_invalidCommand_expectException() {
+        Parser p = new Parser();
+        String line = "invaliddd";
+        assertThrows(DukeException.class, () -> p.parse(line));
+    }
 }
