@@ -31,7 +31,7 @@ public class CalculateCommandTest {
     @Test
     void execute_calcCeff_calculatesEffectiveCapacitance() throws DukeException {
         CalculateCommand c = new CalculateCommand(LC_TEMPLATE, CAPACITANCE);
-       assertDoesNotThrow(() -> c.execute(UI));
+        assertDoesNotThrow(() -> c.execute(UI));
     }
 
     @Test
