@@ -2,10 +2,7 @@ package seedu.duke.parser;
 
 import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
-import seedu.duke.commands.AddCommand;
-import seedu.duke.commands.Command;
-import seedu.duke.commands.SetCommand;
-import seedu.duke.commands.TemplateCommand;
+import seedu.duke.commands.*;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -13,11 +10,30 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ParserTest {
 
     @Test
-    void parseTemplate_LrTemplate_returnsTemplateCommand() throws DukeException {
+    void parse_noLine_expectException() {
         Parser p = new Parser();
-        String line = "template rl";
+        String line = "";
+        assertThrows(DukeException.class, () -> p.parse(line));
+    }
+
+    @Test
+    void parseHelp_help_returnsHelpCommand() throws DukeException {
+        Parser p = new Parser();
+        String line = "help";
         Command c = p.parse(line);
-        assertTrue(c instanceof TemplateCommand);
+        assertTrue(c instanceof Command); // change to HelpCommand once done
+    }
+
+    @Test
+    void parseTemplate_Template_returnsTemplateCommand() throws DukeException {
+        Parser p = new Parser();
+        String line = "template ";
+        String[] tmp = {"r", "rl", "rc", "lc"};
+        Command c;
+        for (String s : tmp) {
+            c = p.parse(line + s);
+            assertTrue(c instanceof TemplateCommand);
+        }
     }
 
     @Test
@@ -103,6 +119,33 @@ class ParserTest {
         String line = "add series c 500";
         Command c = p.parse(line);
         assertTrue(c instanceof AddCommand);
+    }
+
+    @Test
+    void parseCalc_valueEff_CalculateCommand() throws DukeException {
+        Parser p = new Parser();
+        p.parse("template rl");
+        String line = "calc ";
+        String[] valueEff = {"reff", "leff", "current", "power"};
+        Command c;
+        for (String s : valueEff) {
+            c = p.parse(line + s);
+            assertTrue(c instanceof CalculateCommand);
+        }
+
+        p.parse("template rc");
+        String capEff = "ceff";
+        c = p.parse(line + capEff);
+        assertTrue(c instanceof CalculateCommand);
+
+    }
+
+    @Test
+    void parseExit_bye_ExitCommand() throws DukeException {
+        Parser p = new Parser();
+        String line = "bye";
+        Command c = p.parse(line);
+        assertTrue(c instanceof ExitCommand);
     }
 
 
