@@ -21,6 +21,15 @@ public abstract class Template {
         return initialPowerSupply;
     }
 
+    /**
+     * Sets value of the voltage source.
+     *
+     * @param value double value to be set to the component.
+     */
+    public void setInitialPowerSupply(double value) {
+        initialPowerSupply.setValue(value);
+    }
+
     protected abstract double calcImpedance() throws DukeException;
 
     public abstract void setComponent(String s, double value);

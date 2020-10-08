@@ -30,7 +30,7 @@ public class LrTemplate extends RTemplate {
     @Override
     public double calcImpedance() throws DukeException {
         double resistance = super.calcImpedance();
-        double inductance = inductor.getValue();
+        double inductance = inductor.getValue() * Math.pow(10, -6);
         if (inductance == 0) {
             throw new DukeException("Component(s) not set yet.");
         }
@@ -43,7 +43,7 @@ public class LrTemplate extends RTemplate {
      *
      * @return inductor, an instance of the Inductor class.
      */
-    protected Inductor getInductor() {
+    public Inductor getInductor() {
         return inductor;
     }
 

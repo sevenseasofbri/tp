@@ -2,6 +2,7 @@ package seedu.duke.commands;
 
 import seedu.duke.DukeException;
 import seedu.duke.component.LoadComponent;
+import seedu.duke.component.VoltageSource;
 import seedu.duke.template.Template;
 import seedu.duke.ui.Ui;
 
@@ -23,6 +24,11 @@ public class SetCommand extends Command {
      */
     @Override
     public void execute(Ui ui) throws DukeException {
+        if (component.equals("v")) {
+            template.setInitialPowerSupply(value);
+            ui.printSetVoltageSource(template.getInitialPowerSupply());
+            return;
+        }
         LoadComponent c = template.getComponent(component);
 
         c.setValue(value);
@@ -31,5 +37,4 @@ public class SetCommand extends Command {
         template.setComponent(component, value);
         ui.printTemplate(template);
     }
-
 }
