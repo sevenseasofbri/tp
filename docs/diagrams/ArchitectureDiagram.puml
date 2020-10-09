@@ -1,0 +1,15 @@
+@startuml
+
+Package " "<<Rectangle>>{
+    Class Ui
+    Class Logic
+    Class Model
+    Class Duke 
+}
+
+Duke --> Ui
+Duke --> Logic
+Duke --> Model
+
+
+@enduml
