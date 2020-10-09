@@ -33,9 +33,9 @@ class ParserTest {
     void parseTemplate_Template_returnsTemplateCommand() throws DukeException {
         Parser p = new Parser();
         String line = "template ";
-        String[] tmp = {"r", "rl", "rc", "lc"};
+        String[] templates = {"r", "rl", "rc", "lc"};
         Command c;
-        for (String s : tmp) {
+        for (String s : templates) {
             c = p.parse(line + s);
             assertTrue(c instanceof TemplateCommand);
         }
@@ -131,9 +131,9 @@ class ParserTest {
         Parser p = new Parser();
         p.parse("template rl");
         String line = "calc ";
-        String[] valueEff = {"reff", "leff", "current", "power"};
+        String[] effValues = {"reff", "leff", "current", "power"};
         Command c;
-        for (String s : valueEff) {
+        for (String s : effValues) {
             c = p.parse(line + s);
             assertTrue(c instanceof CalculateCommand);
         }
