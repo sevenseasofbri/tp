@@ -2,7 +2,6 @@ package seedu.duke.commands;
 
 import seedu.duke.DukeException;
 import seedu.duke.component.LoadComponent;
-import seedu.duke.component.VoltageSource;
 import seedu.duke.template.Template;
 import seedu.duke.ui.Ui;
 
