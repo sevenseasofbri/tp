@@ -6,8 +6,8 @@ import seedu.duke.DukeException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RTemplateTest {
-
     public static final double DELTA = 1e-15;
+
     @Test
     void calcImpedance_zeroCapacitance_expectException() {
         RcTemplate t = new RcTemplate();

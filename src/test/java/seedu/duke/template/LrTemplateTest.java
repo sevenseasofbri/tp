@@ -3,10 +3,12 @@ package seedu.duke.template;
 import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LrTemplateTest {
     public static final double DELTA = -5*10^-5;
+
     @Test
     void calcImpedance_zeroInductance_expectException() {
         LrTemplate t = new LrTemplate();

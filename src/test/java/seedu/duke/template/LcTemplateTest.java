@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class LcTemplateTest {
     public static final double DELTA = 1e-15;
+
     @Test
     void calcImpedance_zeroCapacitance_expectException() {
         LcTemplate t = new LcTemplate();

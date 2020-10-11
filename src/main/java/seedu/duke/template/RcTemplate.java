@@ -38,7 +38,7 @@ public class RcTemplate extends RTemplate {
         return Math.sqrt(Math.pow(resistance, 2)
                 + (1 / Math.pow((ANGULAR_FREQUENCY * capacitance), 2)));
     }
-    
+
     /**
      * Returns capacitor object, an attribute of the instance of RcTemplate.
      *
