@@ -6,12 +6,12 @@ import seedu.duke.component.LoadComponent;
 
 
 public class RcTemplate extends RTemplate {
-    private static final String RC_TEMPLATE = "\t+---R-----C---+\n"
-            + "\t|             |\n"
-            + "\t|             |\n"
-            + "\t+----+V_ac+---+\n";
+    protected static final String RC_TEMPLATE = "\t+---R-----C---+\n"
+                                            + "\t|             |\n"
+                                            + "\t|             |\n"
+                                            + "\t+----+V_ac+---+\n";
 
-    private Capacitor capacitor;
+    protected Capacitor capacitor;
 
     public RcTemplate(double resistance, double capacitance, double powerSupply) {
         super(resistance, powerSupply);
@@ -36,7 +36,7 @@ public class RcTemplate extends RTemplate {
             throw new DukeException("Component(s) not set yet.");
         }
         return Math.sqrt(Math.pow(resistance, 2)
-                + (1 / Math.pow((angularFrequency * capacitance), 2)));
+                + (1 / Math.pow((ANGULAR_FREQUENCY * capacitance), 2)));
     }
     /**
      * Returns capacitor object, an attribute of the instance of RcTemplate.
@@ -47,7 +47,7 @@ public class RcTemplate extends RTemplate {
         return capacitor;
     }
     /**
-     * Sets the value of the capacitor in the Lc Template circuit to the value specified.
+     * Sets the value of the capacitor in the Rc Template circuit to the value specified.
      *
      * @param value double type value to be set to the capacitor in the circuit.
      */
@@ -56,7 +56,7 @@ public class RcTemplate extends RTemplate {
     }
 
     /**
-     * Sets the value of the inductor in the Lr Template circuit to the value specified.
+     * Sets the value of the capacitor in the Rc Template circuit to the value specified.
      *
      * @param s String corresponding to component type.
      * @param value double type value to be set to the resistor in the circuit.

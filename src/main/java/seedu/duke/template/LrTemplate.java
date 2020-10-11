@@ -5,12 +5,12 @@ import seedu.duke.component.Inductor;
 import seedu.duke.component.LoadComponent;
 
 public class LrTemplate extends RTemplate {
-    private static final String RL_TEMPLATE = "\t+---R-----L---+\n"
+    protected static final String RL_TEMPLATE = "\t+---R-----L---+\n"
                                             + "\t|             |\n"
                                             + "\t|             |\n"
                                             + "\t+----+V_ac+---+\n";
 
-    private Inductor inductor;
+    protected Inductor inductor;
 
     public LrTemplate(double resistance, double inductance, double powerSupply) {
         super(resistance, powerSupply);
@@ -35,7 +35,7 @@ public class LrTemplate extends RTemplate {
             throw new DukeException("Component(s) not set yet.");
         }
         return Math.sqrt(Math.pow(resistance, 2)
-                + Math.pow(inductance * angularFrequency, 2));
+                + Math.pow(inductance * ANGULAR_FREQUENCY, 2));
     }
 
     /**

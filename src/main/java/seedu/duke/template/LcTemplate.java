@@ -7,12 +7,12 @@ import seedu.duke.component.LoadComponent;
 
 public class LcTemplate extends Template {
 
-    private static final String LC_TEMPLATE = "\t+---L-----C---+\n"
+    protected static final String LC_TEMPLATE = "\t+---L-----C---+\n"
                                                 + "\t|             |\n"
                                                 + "\t|             |\n"
                                                 + "\t+----+V_ac+---+\n";
-    private Inductor inductor;
-    private Capacitor capacitor;
+    protected Inductor inductor;
+    protected Capacitor capacitor;
 
 
     public LcTemplate(double capacitance, double inductance, double powerSupply) {
@@ -38,7 +38,7 @@ public class LcTemplate extends Template {
         if (inductance == 0 || capacitance == 0) {
             throw new DukeException("Component(s) not set yet.");
         }
-        return angularFrequency * Math.abs(inductance - (1 / capacitance));
+        return ANGULAR_FREQUENCY * Math.abs(inductance - (1 / capacitance));
     }
 
     /**
@@ -77,7 +77,12 @@ public class LcTemplate extends Template {
         capacitor.setValue(value);
     }
 
-
+    /**
+     * Sets the value of the inductor in the Lc Template circuit to the value specified.
+     *
+     * @param s String corresponding to component type.
+     * @param value double type value to be set to the resistor in the circuit.
+     */
     @Override
     public void setComponent(String s, double value) {
         if (s.equals("l")) {

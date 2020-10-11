@@ -6,7 +6,7 @@ import seedu.duke.component.VoltageSource;
 
 public abstract class Template {
     protected VoltageSource initialPowerSupply;
-    protected static final double angularFrequency = 100 * Math.PI;
+    protected static final double ANGULAR_FREQUENCY = 100 * Math.PI;
 
     public Template(double powerSupply) {
         initialPowerSupply = new VoltageSource(powerSupply);
