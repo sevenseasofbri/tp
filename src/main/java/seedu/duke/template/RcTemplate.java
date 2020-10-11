@@ -69,7 +69,7 @@ public class RcTemplate extends RTemplate {
             super.setComponent(s, value);
         }
     }
-
+    
     /**
      * Returns String consisting of total capacitance and resistance values of the RcTemplate object.
      *
