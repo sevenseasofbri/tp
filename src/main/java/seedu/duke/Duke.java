@@ -7,9 +7,12 @@ import seedu.duke.ui.Ui;
 public class Duke {
     /** Instances of class objects for UI. **/
     private final Ui ui;
+    private final Parser parser;
+
 
     private Duke() {
         ui = new Ui();
+        parser = new Parser();
     }
 
     public void run() {
@@ -18,7 +21,7 @@ public class Duke {
         while (!isExit) {
             try {
                 String line = ui.readLine();
-                Command c = Parser.parse(line);
+                Command c = parser.parse(line);
                 c.execute(ui);
                 isExit = c.isExit();
             } catch (DukeException e) {

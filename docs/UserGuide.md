@@ -50,20 +50,33 @@ Sets the value of the component. The component must be part of the current circu
 
 Format: `set COMPONENT VALUE`
 
-* The `COMPONENT` can be chosen from the 3 - `r`, `c`, `l`
+* The `COMPONENT` can be chosen from the 4 - `r`, `c`, `l`, `v`
     * `r` represents a resistor
     * `c` represents a capacitor
     * `l` represents an inductor
+    * `v` represents a voltage source
 * The `VALUE` can be an integer of a float, of which the units depends on the component set.
 
 Example of usage:
 
 `set r 500`
 
+Expected Outcome:
+```
+Set 500.0 Ω
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Total Resistance: 500.0 Ω
+Total Capacitance: 0.0 µF
+```
+
 ### Add component: `add`
 
 Adds a component, in a specific configuration, to the current circuit template.
 
+Format: `add CONFIG COMPONENT VALUE`
 Format: `add CONFIG COMPONENT VALUE`
 
 * The `CONFIG` can be chosen from the 2 - `series` and `parallel`.
@@ -72,6 +85,18 @@ Format: `add CONFIG COMPONENT VALUE`
 Example of usage:
 
 `add parallel c 500`
+
+Expected Outcome:
+
+```
+Nice, added a 500.0 µF
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Total Resistance: 500.0 Ω
+Total Capacitance: 500.0 µF
+```
 
 ### Calculate effective value: `calc`
 
@@ -89,6 +114,10 @@ Calculates the effective value based on the components and their configuration. 
 Example of usage:
 
 `calc ceff`
+
+Expected Outcome:
+
+`The effective capacitance calculated is 500.0 µF`
 
 ## FAQ
 
