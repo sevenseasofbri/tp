@@ -38,6 +38,7 @@ public class RcTemplate extends RTemplate {
         return Math.sqrt(Math.pow(resistance, 2)
                 + (1 / Math.pow((ANGULAR_FREQUENCY * capacitance), 2)));
     }
+    
     /**
      * Returns capacitor object, an attribute of the instance of RcTemplate.
      *
@@ -46,6 +47,7 @@ public class RcTemplate extends RTemplate {
     public Capacitor getCapacitor() {
         return capacitor;
     }
+
     /**
      * Sets the value of the capacitor in the Rc Template circuit to the value specified.
      *
@@ -69,7 +71,7 @@ public class RcTemplate extends RTemplate {
             super.setComponent(s, value);
         }
     }
-    
+
     /**
      * Returns String consisting of total capacitance and resistance values of the RcTemplate object.
      *
