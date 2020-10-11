@@ -46,6 +46,7 @@ public class RcTemplate extends RTemplate {
     public Capacitor getCapacitor() {
         return capacitor;
     }
+    
     /**
      * Sets the value of the capacitor in the Lc Template circuit to the value specified.
      *
