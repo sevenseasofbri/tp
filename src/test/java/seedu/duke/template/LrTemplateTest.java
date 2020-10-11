@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LrTemplateTest {
-    public static final double DELTA = -5*10^-5;
+    public static final double DELTA = -5 * 10 ^ -5;
 
     @Test
     void calcImpedance_zeroInductance_expectException() {

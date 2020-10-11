@@ -3,7 +3,8 @@ package seedu.duke.template;
 import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RTemplateTest {
     public static final double DELTA = 1e-15;
