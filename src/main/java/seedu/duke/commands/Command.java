@@ -7,18 +7,25 @@ import seedu.duke.ui.Ui;
 public class Command {
     /** Boolean whether the command is to exit. **/
     protected boolean isExit;
+    protected Template template;
+
+    public Command(Template template) {
+        this.template = template;
+    }
+
+    public Command() {
+        this(null);
+    }
 
     /**
      * Executes appropriate methods based on the given command.
      *
      * @param ui Ui object.
-     * @param template Template object.
-     * @return Template object.
      * @throws DukeException If an execution error occurs.
      */
-    public Template execute(Ui ui, Template template) throws DukeException {
-        return template;
+    public void execute(Ui ui) throws DukeException {
     }
+
 
     /**
      * Returns boolean isExit.
