@@ -16,4 +16,4 @@ java -jar -Dfile.encoding=UTF-8 %jarloc% < ..\..\text-ui-test\input.txt > ..\..\
 
 cd ..\..\text-ui-test
 
-FC ACTUAL.TXT EXPECTED.TXT >NUL && ECHO Test passed! || Echo Test failed!
+FC /w ACTUAL.TXT EXPECTED.TXT >NUL && ECHO Test passed! || Echo Test failed!

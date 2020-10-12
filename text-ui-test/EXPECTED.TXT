@@ -1,12 +1,28 @@
 Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
-
+ _____ _      _____                _ _                      _     _              _
+/ ____| |    |_   _|              (_) |       /\           (_)   | |            | |
+| |    | |      | |  _ __ ___ _   _ _| |_     /  \   ___ ___ _ ___| |_ __ _ _ __ | |_
+| |    | |      | | | '__/ __| | | | | __|   / /\ \ / __/ __| / __| __/ _` | '_ \| __|
+| |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\__ \__ \ \__ \ || (_| | | | | |_
+\_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|
 What is your name?
 Hello James Gosling
+You have entered Tutorial Mode!
+Type 'exit' if you want to leave this mode and go back to the application.
+Lets get started! First choose a template you want to work with.You can choose from rc, rl, lc and r templates.
+eg. To select the Resistor-Capacitor circuit template, enter 'template rc.'
+:) Have fun using CLIrcuit Assistant!
+
++-----------+----------------------------+--------------------+
+|  Action   |           Format           |      Examples      |
++-----------+----------------------------+--------------------+
+| Help      | help                       | help               |
+| Template  | template TEMPLATE          | template rc        |
+| Set       | set COMPONENT VALUE        | set r 500          |
+| Add       | add CONFIG COMPONENT VALUE | add parallel c 500 |
+| Calculate | calc EFF_VALUE             | calc ceff          |
++-----------+----------------------------+--------------------+
+
 	+---R-----L---+
 	|             |
 	|             |
