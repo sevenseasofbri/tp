@@ -39,7 +39,7 @@ public class Ui {
         "Great! Say, do you think we could find effective power/current consumed by the circuit?"
             + "Or even effective resistance/inductance/capacitance? Yes!\n"
             + "Lets try it out. Type 'calc' followed by 'ceff'/'leff'/'reff'/'power'/'current' and enter. :D",
-        "Great! You're set to use\n" + LOGO + "Enjoy! :)\n type 'exit' to exit this mode.\n"};
+        "Great! You're set to use\n" + "CLIrcuit Assistant" + "Enjoy! :)\n type 'exit' to exit this mode.\n"};
 
     private static final String COMMAND_SUMMARY = "\n"
             + "+-----------+----------------------------+--------------------+\n"
@@ -199,8 +199,8 @@ public class Ui {
      * Prints the welcome message for the tutorial mode.
      */
     public void printWelcomeTutorial() {
-        System.out.println("You have entered\n" + TUTORIAL + "Type 'exit' if you want to leave"
-                + " this mode and go back to the application.");
+        System.out.println("You have entered Tutorial Mode! " + System.lineSeparator()
+                + "Type 'exit' if you want to leave this mode and go back to the application.");
     }
 
 
@@ -215,6 +215,15 @@ public class Ui {
      * Prints exit statement for the help mode.
      */
     public void printExitHelp() {
-        System.out.println(":) Have fun using \n" + LOGO);
+        System.out.println(":) Have fun using CLIrcuit Assistant!");
+    }
+
+    /**
+     * Prints the instruction at the specified index from the array.
+     *
+     * @param numOfCommandsDone Type int specifies index number.
+     */
+    public void printInstruction(int numOfCommandsDone) {
+        System.out.println(INSTRUCTIONS[numOfCommandsDone]);
     }
 }

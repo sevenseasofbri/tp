@@ -7,7 +7,6 @@ import seedu.duke.ui.Ui;
 import java.util.Scanner;
 
 public class HelpCommand extends Command {
-    private static final Scanner SC = new Scanner(System.in);
     private static final Parser PARSER = new Parser();
     private int numOfCommandsDone = 0;
     private static final String[] orderOfInstructions = {"template", "set v", "set", "set", "add", "calc"};
@@ -24,14 +23,12 @@ public class HelpCommand extends Command {
     @Override
     public void execute(Ui ui) {
         ui.printWelcomeTutorial();
-        String response;
         String command;
         boolean isNotDone = true;
 
         while (isNotDone) {
-            System.out.println(ui.INSTRUCTIONS[numOfCommandsDone]);
-            response = SC.nextLine();
-            command = response.trim().toLowerCase();
+            ui.printInstruction(numOfCommandsDone);
+            command = ui.readLine();
             try {
                 isNotDone = continueTutorial(command, ui);
             } catch (DukeException e) {
@@ -49,8 +46,8 @@ public class HelpCommand extends Command {
             c.execute(ui);
             numOfCommandsDone++;
         } else {
-            System.out.println("Bad Command! Please follow the instructions carefully. "
-                    + "If you want to exit this mode, type 'exit' and press enter.\n");
+            throw new DukeException("Bad Command! Please follow the instructions carefully."
+                    + "If you want to exit this mode, type 'exit' and press enter.");
         }
         return true;
     }
