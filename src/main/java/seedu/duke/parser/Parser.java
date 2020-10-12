@@ -5,7 +5,9 @@ import seedu.duke.commands.AddCommand;
 import seedu.duke.commands.CalculateCommand;
 import seedu.duke.commands.Command;
 import seedu.duke.commands.ExitCommand;
+import seedu.duke.commands.HelpCommand;
 import seedu.duke.commands.SetCommand;
+import seedu.duke.commands.SummaryCommand;
 import seedu.duke.commands.TemplateCommand;
 import seedu.duke.template.LcTemplate;
 import seedu.duke.template.LrTemplate;
@@ -35,7 +37,9 @@ public class Parser {
 
         switch (command) {
         case "help":
-            return new Command();
+            return new HelpCommand();
+        case "summary":
+            return new SummaryCommand();
         case "template":
             return prepareTemplate(args);
         case "set":

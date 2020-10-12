@@ -58,10 +58,10 @@ public class RcTemplate extends RTemplate {
     }
 
     /**
-     * Sets the value of the capacitor in the Rc Template circuit to the value specified.
+     * Sets the value of the component specified to the value specified in the Rc Template.
      *
      * @param s String corresponding to component type.
-     * @param value double type value to be set to the resistor in the circuit.
+     * @param value double type value to be set to the component in the circuit.
      */
     @Override
     public void setComponent(String s, double value) {
