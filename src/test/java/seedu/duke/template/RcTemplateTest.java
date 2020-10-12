@@ -80,7 +80,7 @@ class RcTemplateTest {
     @Test
     void setCapacitor_rCValuesNegative_setsCapacitorObject() {
         RcTemplate t = new RcTemplate(-1, -1, 1);
-        assertEquals(1, t.getCapacitor().getValue(), DELTA);
+        assertEquals(-1, t.getCapacitor().getValue(), DELTA);
     }
 
     @Test
