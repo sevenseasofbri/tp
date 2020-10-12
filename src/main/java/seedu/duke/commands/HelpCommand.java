@@ -41,14 +41,16 @@ public class HelpCommand extends Command {
     private boolean continueTutorial(String command, Ui ui) throws DukeException {
         if (command.equals("exit")) {
             return false;
-        } else if (numOfCommandsDone < 6 && command.matches(orderOfInstructions[numOfCommandsDone] + "(.*)")) {
-            Command c = PARSER.parse(command);
-            c.execute(ui);
-            numOfCommandsDone++;
-        } else {
+        }
+        
+        if (numOfCommandsDone >= 6 || !command.matches(orderOfInstructions[numOfCommandsDone] + "(.*)")) {
             throw new DukeException("Bad Command! Please follow the instructions carefully."
                     + "If you want to exit this mode, type 'exit' and press enter.");
         }
+        
+        Command c = PARSER.parse(command);
+        c.execute(ui);
+        numOfCommandsDone++;
         return true;
     }
 }
