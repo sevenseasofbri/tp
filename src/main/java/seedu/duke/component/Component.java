@@ -26,7 +26,7 @@ public abstract class Component {
      * @param value Value of Component.
      */
     public void setValue(double value) {
-        if(value > 0){
+        if (value > 0) {
             this.value = value;
         }
     }
