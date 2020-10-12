@@ -10,7 +10,10 @@ public abstract class LoadComponent extends Component {
         super(value);
     }
 
-    private double addDirect(double otherValue) {
+    private double addDirect(double otherValue) throws DukeException {
+        if (value <= 0 || otherValue <= 0) {
+            throw new DukeException("Invalid value (<=0)");
+        }
         return value + otherValue;
     }
 
