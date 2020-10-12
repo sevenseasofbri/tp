@@ -7,9 +7,9 @@ import seedu.duke.component.LoadComponent;
 
 public class RcTemplate extends RTemplate {
     private static final String RC_TEMPLATE = "\t+---R-----C---+\n"
-            + "\t|             |\n"
-            + "\t|             |\n"
-            + "\t+----+V_ac+---+\n";
+                                            + "\t|             |\n"
+                                            + "\t|             |\n"
+                                            + "\t+----+V_ac+---+\n";
 
     private Capacitor capacitor;
 
@@ -36,7 +36,7 @@ public class RcTemplate extends RTemplate {
             throw new DukeException("Component(s) not set yet.");
         }
         return Math.sqrt(Math.pow(resistance, 2)
-                + (1 / Math.pow((angularFrequency * capacitance), 2)));
+                + (1 / Math.pow((ANGULAR_FREQUENCY * capacitance), 2)));
     }
 
     /**
