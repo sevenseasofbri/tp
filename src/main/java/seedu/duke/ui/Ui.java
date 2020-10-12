@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Ui {
     //Running into issues with runtest.bat with the following LOGO. Using regular text for now.
-    private static final String LOGO = "_____ _      _____                _ _                      _  "
+    private static final String LOGO = " _____ _      _____                _ _                      _  "
             + "   _              _   \n"
             + "/ ____| |    |_   _|              (_) |       /\\           (_)   | |            | |\n"
             + "| |    | |      | |  _ __ ___ _   _ _| |_     /  \\   ___ ___ _ ___| |_ __ _ _ __ | |_\n"
