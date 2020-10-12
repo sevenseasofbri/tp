@@ -17,7 +17,7 @@ public class Ui {
             + " | |    | |      | |  _ __ ___ _   _ _| |_     /  \\   ___ ___ _ ___| |_ __ _ _ __ | |_ \n"
             + " | |    | |      | | | '__/ __| | | | | __|   / /\\ \\ / __/ __| / __| __/ _` | '_ \\| __|\n"
             + " | |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\\\__ \\__ \\ \\__ \\ || (_| | | | | |_ \n"
-            + "  \\_____|______|_____|_|  \\___|\\__,_|_|\\__| /_/    \\_\\___/___/_|___/\\__\\__,_|_| |_|\\__|\n";
+            + "  \\_____|______|_____|_|  \\___|\\__,_|_|\\__| /_/    \\_\\___/___/_|___/\\__\\__,_|_| |_|\\__|";
 
     private static final String TUTORIAL = "  _______    _             _       _   __  __           _      _ \n"
             + " |__   __|  | |           (_)     | | |  \\/  |         | |    | |\n"
@@ -27,7 +27,7 @@ public class Ui {
             + "    |_|\\__,_|\\__\\___/|_|  |_|\\__,_|_| |_|  |_|\\___/ \\__,_|\\___(_)\n";
 
     public static final String[] INSTRUCTIONS = {"Lets get started! First choose a template you want to work with."
-            + "You can choose from rc, rl, lc and r templates.\n"
+            + "You can choose from rc, rl, lc and r templates." + System.lineSeparator()
             + "eg. To select the Resistor-Capacitor circuit template, enter 'template rc.'",
         "Lets set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts.",
         "Lets set a value to resistor/capacitor/inductor! To do so, type 'set' followed by 'r' OR 'c' OR 'l'"
@@ -68,7 +68,7 @@ public class Ui {
      * Prints Duke logo.
      */
     private void printLogo() {
-        System.out.println("Hello from\n" + "CLIrcuit Assistant!");
+        System.out.println("Hello from\n" + LOGO);
     }
 
     /**
@@ -199,7 +199,7 @@ public class Ui {
      * Prints the welcome message for the tutorial mode.
      */
     public void printWelcomeTutorial() {
-        System.out.println("You have entered Tutorial Mode! " + System.lineSeparator()
+        System.out.println("You have entered Tutorial Mode!" + System.lineSeparator()
                 + "Type 'exit' if you want to leave this mode and go back to the application.");
     }
 

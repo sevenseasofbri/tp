@@ -1,4 +1,7 @@
 James Gosling
+help
+exit
+summary
 template rl
 add series r 2
 add series l 2
