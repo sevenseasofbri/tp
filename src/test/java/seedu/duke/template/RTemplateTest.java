@@ -16,55 +16,93 @@ class RTemplateTest {
     }
 
     @Test
-    void calcImpedance_returnsDouble() throws DukeException {
+    void calcImpedance_rValueEqualsOne_returnsImpedance() throws DukeException {
         RTemplate t = new RTemplate(5,1);
         assertEquals(5, t.calcImpedance(), DELTA);
     }
 
     @Test
-    void getCapacitor_returnsResistor() {
+    void getCapacitor_rValueEqualsFive_returnsResistor() {
         RTemplate t = new RTemplate(1, 1);
         t.setResistor(5);
         assertEquals(5, t.getResistor().getValue(), DELTA);
     }
 
     @Test
-    void setComponent_getResistorValue() {
+    void setComponent_rValueEqualsFive_getResistorValue() {
         RTemplate t = new RTemplate();
         t.setComponent("r", 5);
         assertEquals(5, t.getResistor().getValue(), DELTA);
     }
 
     @Test
-    void toString_returnsString() {
-        RTemplate t = new RTemplate(5,5);
-        String templateString = t.R_TEMPLATE + "Total Resistance: " + t.resistor + System.lineSeparator();
-        assertEquals(templateString, t.toString());
-    }
-
-    @Test
-    void getComponent_getResistorValue() throws DukeException {
+    void getComponent_rValueEqualsFive_getResistorValue() throws DukeException {
         RTemplate t = new RTemplate();
         t.setComponent("r", 5);
         assertEquals(5, t.getResistor().getValue(), DELTA);
     }
 
     @Test
-    void getComponent_expectException() {
+    void getComponent_rValueEqualsOne_expectException() {
         RTemplate t = new RTemplate();
         assertThrows(DukeException.class, () -> t.getComponent(""));
     }
 
     @Test
-    void getCurrent_returnsDouble() throws DukeException {
+    void getCurrent_rValueEqualsOne_returnsCurrent() throws DukeException {
         RcTemplate t = new RcTemplate(1,1,1);
         double current = 1 / t.calcImpedance();
         assertEquals(current, t.getCurrent());
     }
 
     @Test
-    void getPower_returnsDouble() throws DukeException {
+    void getPower_rValueEqualsOne_returnsPower() throws DukeException {
         RcTemplate t = new RcTemplate(1,1,1);
+        double power = 1 * 1 / t.calcImpedance();
+        assertEquals(power, t.getPower());
+    }
+
+    /**
+     * Edge cases for the tests.
+     */
+
+    @Test
+    void calcImpedance_rValueNegative_returnsImpedance() throws DukeException {
+        RTemplate t = new RTemplate(-5,1);
+        assertEquals(-5, t.calcImpedance(), DELTA);
+    }
+
+    @Test
+    void getCapacitor_rValueNegative_returnsResistor() {
+        RTemplate t = new RTemplate(1, 1);
+        t.setResistor(-5);
+        assertEquals(-5, t.getResistor().getValue(), DELTA);
+    }
+
+    @Test
+    void setComponent_rValueNegative_getResistorValue() {
+        RTemplate t = new RTemplate();
+        t.setComponent("r", -5);
+        assertEquals(-5, t.getResistor().getValue(), DELTA);
+    }
+
+    @Test
+    void getComponent_rValueNegative_getResistorValue() throws DukeException {
+        RTemplate t = new RTemplate();
+        t.setComponent("r", -5);
+        assertEquals(-5, t.getResistor().getValue(), DELTA);
+    }
+
+    @Test
+    void getCurrent_rValueNegative_returnsCurrent() throws DukeException {
+        RcTemplate t = new RcTemplate(-1,1,1);
+        double current = 1 / t.calcImpedance();
+        assertEquals(current, t.getCurrent());
+    }
+
+    @Test
+    void getPower_rValueNegative_returnsPower() throws DukeException {
+        RcTemplate t = new RcTemplate(-1,1,1);
         double power = 1 * 1 / t.calcImpedance();
         assertEquals(power, t.getPower());
     }

@@ -7,12 +7,12 @@ import seedu.duke.component.LoadComponent;
 
 public class LcTemplate extends Template {
 
-    protected static final String LC_TEMPLATE = "\t+---L-----C---+\n"
+    private static final String LC_TEMPLATE = "\t+---L-----C---+\n"
                                                 + "\t|             |\n"
                                                 + "\t|             |\n"
                                                 + "\t+----+V_ac+---+\n";
-    protected Inductor inductor;
-    protected Capacitor capacitor;
+    private Inductor inductor;
+    private Capacitor capacitor;
 
 
     public LcTemplate(double capacitance, double inductance, double powerSupply) {

@@ -6,12 +6,12 @@ import seedu.duke.component.LoadComponent;
 
 
 public class RcTemplate extends RTemplate {
-    protected static final String RC_TEMPLATE = "\t+---R-----C---+\n"
+    private static final String RC_TEMPLATE = "\t+---R-----C---+\n"
                                             + "\t|             |\n"
                                             + "\t|             |\n"
                                             + "\t+----+V_ac+---+\n";
 
-    protected Capacitor capacitor;
+    private Capacitor capacitor;
 
     public RcTemplate(double resistance, double capacitance, double powerSupply) {
         super(resistance, powerSupply);

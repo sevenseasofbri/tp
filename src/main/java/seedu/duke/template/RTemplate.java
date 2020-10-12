@@ -5,7 +5,7 @@ import seedu.duke.component.LoadComponent;
 import seedu.duke.component.Resistor;
 
 public class RTemplate extends Template {
-    protected static final String R_TEMPLATE =
+    private static final String R_TEMPLATE =
               "\t+---R---------+\n"
             + "\t|             |\n"
             + "\t|             |\n"

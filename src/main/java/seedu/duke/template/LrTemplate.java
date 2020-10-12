@@ -5,12 +5,12 @@ import seedu.duke.component.Inductor;
 import seedu.duke.component.LoadComponent;
 
 public class LrTemplate extends RTemplate {
-    protected static final String RL_TEMPLATE = "\t+---R-----L---+\n"
+    private static final String RL_TEMPLATE = "\t+---R-----L---+\n"
                                             + "\t|             |\n"
                                             + "\t|             |\n"
                                             + "\t+----+V_ac+---+\n";
 
-    protected Inductor inductor;
+    private Inductor inductor;
 
     public LrTemplate(double resistance, double inductance, double powerSupply) {
         super(resistance, powerSupply);
