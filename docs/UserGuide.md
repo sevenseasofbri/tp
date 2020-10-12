@@ -6,16 +6,28 @@ CLIrcuit Assistant is a desktop app to implement and solve simple circuits, opti
 
 ## Quick Start
 
-{Give steps to get started quickly}
-
 1. Ensure that you have Java 11 or above installed.
 1. Down the latest version of `Duke` from [the releases](https://github.com/AY2021S1-CS2113T-W13-3/tp/releases) when it is ready.
+1. Use the command `help` to go through an interactive tutorial before using the application.
 
 ## Features 
 
+### Summary of Commands: `summary`
+
+This command prints a summary of all commands in the application as shown in [Command Summary](#command-summary).
+
+Format: `summary`
+
 ### Start interactive tutorial: `help`
 
-Starts the interactive tutorial for the app.
+Starts the interactive tutorial for the app. In the following order, the tutorial will guide the user on how to use the commands for the application:
+
+1. `template` - Selecting templates
+1. `set v` - Setting value for voltage
+1. `set r/c/l` - Setting value for a `LoadComponent`
+1. `add series/parallel r/c/l` - Adding a `LoadComponent` in series/parallel
+1. `calc` - Printing a calculated value
+1. `exit` - Exiting the interactive tutorial
 
 Format: `help`
 
@@ -130,6 +142,7 @@ Expected Outcome:
 Action | Format, Examples
 --------|------------------
 **Help** | `help`
+**Summary** | `summary`
 **Template** | `template TEMPLATE` <br> e.g., `template rc`
 **Set** | `set COMPONENT VALUE` <br> e.g., `set r 500`
 **Add** | `add CONFIG COMPONENT VALUE`<br> e.g., `add parallel c 500`

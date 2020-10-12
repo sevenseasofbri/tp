@@ -27,7 +27,7 @@ The `Ui` component
 
 1. `Logic` uses the `Parser` class to parse the user command.
 1. This results in a `Command` object which is executed in `Duke`.
-1. The command execution can affect the `Model` (e.g. adding a person).
+1. The command execution can affect the `Model` (e.g. setting a value).
 1. In addition, the `Ui` may also perform certain actions, such as displaying help to the user.
 
 ### Model component
