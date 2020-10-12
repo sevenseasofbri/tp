@@ -1,5 +1,7 @@
 package seedu.duke.component;
 
+import seedu.duke.DukeException;
+
 public abstract class Component {
     protected double value;
     protected String siUnit;
@@ -24,7 +26,9 @@ public abstract class Component {
      * @param value Value of Component.
      */
     public void setValue(double value) {
-        this.value = value;
+        if(value > 0){
+            this.value = value;
+        }
     }
 
     /**
