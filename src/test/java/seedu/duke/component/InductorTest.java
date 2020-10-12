@@ -7,23 +7,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class InductorTest {
 
-    Inductor l = new Inductor(100);
-
     @Test
-    void getValueTest(){
+    void getValueTest() {
+        Inductor l = new Inductor(100);
         assertEquals(100, l.getValue());
     }
 
     @Test
-    void setValueTest(){
+    void setValueTest() {
+        Inductor l = new Inductor(100);
         l.setValue(200);
         assertEquals(200, l.getValue());
     }
 
     @Test
-    void toStringTest(){
+    void toStringTest() {
+        Inductor l = new Inductor(100);
         assertEquals("100.0 µH", l.toString());
     }
-
 
 }

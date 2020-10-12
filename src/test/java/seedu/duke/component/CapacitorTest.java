@@ -7,21 +7,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CapacitorTest {
 
-    Capacitor c = new Capacitor(100);
-
     @Test
-    void getValueTest(){
+    void getValueTest() {
+        Capacitor c = new Capacitor(100);
         assertEquals(100, c.getValue());
     }
 
     @Test
-    void setValueTest(){
+    void setValueTest() {
+        Capacitor c = new Capacitor(100);
         c.setValue(200);
         assertEquals(200, c.getValue());
     }
 
     @Test
-    void toStringTest(){
+    void toStringTest() {
+        Capacitor c = new Capacitor(100);
         assertEquals("100.0 µF", c.toString());
     }
 

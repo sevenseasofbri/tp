@@ -7,21 +7,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VoltageSourceTest {
 
-    VoltageSource v = new VoltageSource(100);
-
     @Test
-    void getValueTest(){
+    void getValueTest() {
+        VoltageSource v = new VoltageSource(100);
         assertEquals(100, v.getValue());
     }
 
     @Test
-    void setValueTest(){
+    void setValueTest() {
+        VoltageSource v = new VoltageSource(100);
         v.setValue(200);
         assertEquals(200, v.getValue());
     }
 
     @Test
-    void toStringTest(){
+    void toStringTest() {
+        VoltageSource v = new VoltageSource(100);
         assertEquals("100.0 V", v.toString());
     }
 

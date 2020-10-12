@@ -7,23 +7,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ResistorTest {
 
-    Resistor r = new Resistor(100);
-
     @Test
-    void getValueTest(){
+    void getValueTest() {
+        Resistor r = new Resistor(100);
         assertEquals(100, r.getValue());
     }
 
     @Test
-    void setValueTest(){
+    void setValueTest() {
+        Resistor r = new Resistor(100);
         r.setValue(200);
         assertEquals(200, r.getValue());
     }
 
     @Test
-    void toStringTest(){
+    void toStringTest() {
+        Resistor r = new Resistor(100);
         assertEquals("100.0 Ω", r.toString());
     }
-
 
 }
