@@ -4,7 +4,11 @@ import seedu.duke.DukeException;
 import seedu.duke.parser.Parser;
 import seedu.duke.ui.Ui;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class HelpCommand extends Command {
+    private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private static final Parser PARSER = new Parser();
     private static final String[] orderOfInstructions = {"template", "set v", "set", "set", "add", "calc"};
     private int numOfCommandsDone = 0;
@@ -31,9 +35,11 @@ public class HelpCommand extends Command {
             try {
                 isNotDone = continueTutorial(command, ui);
             } catch (DukeException e) {
+                LOGGER.log(Level.FINE, "Bad Command DukeException thrown.", e);
                 ui.showError(e.getMessage());
             }
         }
+        LOGGER.info("Exiting help mode");
     }
 
     private boolean continueTutorial(String command, Ui ui) throws DukeException {
