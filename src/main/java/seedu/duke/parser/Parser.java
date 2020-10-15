@@ -121,6 +121,7 @@ public class Parser {
         }
 
         double value = Double.parseDouble(args[2]);
+        assert value > 0;
         return new SetCommand(template, args[1], value);
     }
 
@@ -140,6 +141,7 @@ public class Parser {
         }
 
         double value = Double.parseDouble(args[3]);
+        assert value > 0;
         return new AddCommand(template, args[1], args[2], value);
     }
 

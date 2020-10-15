@@ -1,19 +1,32 @@
 package seedu.duke.commands;
 
-import seedu.duke.ui.Ui;
-
 public class SummaryCommand extends Command {
+    private static final String COMMAND_SUMMARY = "\n"
+            + "+-----------+----------------------------+--------------------+\n"
+            + "|  Action   |           Format           |      Examples      |\n"
+            + "+-----------+----------------------------+--------------------+\n"
+            + "| Help      | help                       | help               |\n"
+            + "| Template  | template TEMPLATE          | template rc        |\n"
+            + "| Set       | set COMPONENT VALUE        | set r 500          |\n"
+            + "| Add       | add CONFIG COMPONENT VALUE | add parallel c 500 |\n"
+            + "| Calculate | calc EFF_VALUE             | calc ceff          |\n"
+            + "+-----------+----------------------------+--------------------+\n";
+
     public SummaryCommand() {
         super();
     }
 
+    @Override
+    public void execute() {
+    }
+
     /**
-     * Prints a summary of the commands.
+     * String representation of the Command.
      *
-     * @param ui Ui object.
+     * @return String representation.
      */
     @Override
-    public void execute(Ui ui) {
-        ui.printCommandSummary();
+    public String toString() {
+        return COMMAND_SUMMARY;
     }
 }
