@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 public class ExitCommand extends Command {
     private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     /**
      * Executes the exit command.
      */
