@@ -1,17 +1,13 @@
 package seedu.duke.commands;
 
 import seedu.duke.DukeException;
-import seedu.duke.template.LcTemplate;
-import seedu.duke.template.LrTemplate;
-import seedu.duke.template.RTemplate;
-import seedu.duke.template.RcTemplate;
 import seedu.duke.template.Template;
-import seedu.duke.ui.Ui;
 
 public class CalculateCommand extends Command {
-    private String calculationType;
+    private final String calculationType;
+    private String value;
 
-    public CalculateCommand(Template template,String calculationType) {
+    public CalculateCommand(Template template, String calculationType) {
         super(template);
         this.calculationType = calculationType;
     }
@@ -19,73 +15,50 @@ public class CalculateCommand extends Command {
     /**
      * Executes calculate command.
      *
-     * @param ui Ui object.
      * @throws DukeException If execution error occurs.
      */
     @Override
-    public void execute(Ui ui) throws DukeException {
+    public void execute() throws DukeException {
+        value = getValue();
+    }
+
+    private String getValue() throws DukeException {
         switch (calculationType) {
         case "power":
-            ui.printCalculatedPower(template.getPower());
-            break;
+            return template.getPower() + "W";
         case "current":
-            ui.printCalculatedCurrent(template.getCurrent());
-            break;
+            return template.getCurrent() + "A";
         case "reff":
-            calculateReff(ui);
-            break;
+            return template.getComponent("r").toString();
         case "ceff":
-            calculateCeff(ui);
-            break;
+            return template.getComponent("c").toString();
+        case "leff":
+            return template.getComponent("l").toString();
         default:
-            calculateLeff(ui);
-            break;
+            throw new DukeException("No such value");
         }
     }
 
     /**
-     * Calculates and prints the effective resistance of the circuit.
+     * String representation of the Command.
      *
-     * @param ui Ui object.
-     * @throws DukeException If the chosen template does not contain resistors.
+     * @return String representation.
      */
-    private void calculateReff(Ui ui) throws DukeException {
-        if (template instanceof RTemplate) {
-            ui.printCalculatedResistance(((RTemplate)template).getResistor());
-        } else {
-            throw new DukeException("Chosen template does not contain resistors! :( ");
-        }
-    }
-
-    /**
-     * Calculates and prints the effective capacitance of the circuit.
-     *
-     * @param ui Ui object.
-     * @throws DukeException If the chosen template does not contain capacitors.
-     */
-    private void calculateCeff(Ui ui) throws DukeException {
-        if (template instanceof LcTemplate) {
-            ui.printCalculatedCapacitance(((LcTemplate) template).getCapacitor());
-        } else if (template instanceof RcTemplate) {
-            ui.printCalculatedCapacitance(((RcTemplate) template).getCapacitor());
-        } else {
-            throw new DukeException("Chosen template does not contain capacitors! :( ");
-        }
-    }
-
-    /**
-     * Calculates and prints the effective inductance of the circuit.
-     *
-     * @param ui Ui object.
-     * @throws DukeException If the chosen template does not contain inductors.
-     */
-    private void calculateLeff(Ui ui) throws DukeException {
-        if (template instanceof LcTemplate) {
-            ui.printCalculatedInductance(((LcTemplate) template).getInductor());
-        } else if (template instanceof LrTemplate) {
-            ui.printCalculatedInductance(((LrTemplate) template).getInductor());
-        } else {
-            throw new DukeException("Chosen template does not contain inductors! :( ");
+    @Override
+    public String toString() {
+        switch (calculationType) {
+        case "power":
+            return "The power dissipated in the circuit is " + value;
+        case "current":
+            return "The total rms current flowing through the circuit is " + value;
+        case "reff":
+            return "The effective resistance calculated is " + value;
+        case "ceff":
+            return "The effective capacitance calculated is " + value;
+        case "leff":
+            return "The effective inductance calculated is " + value;
+        default:
+            return "Unknown calculation type!";
         }
     }
 }

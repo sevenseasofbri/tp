@@ -30,7 +30,7 @@ eg. To select the Resistor-Capacitor circuit template, enter 'template rc.'
 Total Resistance: 0.0 Ω
 Total Inductance: 0.0 µH
 
-Set 2.0 Ω
+The resistor was set to 2.0 Ω
 	+---R-----L---+
 	|             |
 	|             |
@@ -38,7 +38,7 @@ Set 2.0 Ω
 Total Resistance: 2.0 Ω
 Total Inductance: 0.0 µH
 
-Set 3.0 µH
+The inductor was set to 3.0 µH
 	+---R-----L---+
 	|             |
 	|             |
@@ -46,7 +46,7 @@ Set 3.0 µH
 Total Resistance: 2.0 Ω
 Total Inductance: 3.0 µH
 
-Nice, added a 2.0 Ω
+Nice, added a 4.0 Ω
 	+---R-----L---+
 	|             |
 	|             |
@@ -54,7 +54,7 @@ Nice, added a 2.0 Ω
 Total Resistance: 4.0 Ω
 Total Inductance: 3.0 µH
 
-Nice, added a 2.0 µH
+Nice, added a 5.0 µH
 	+---R-----L---+
 	|             |
 	|             |
@@ -62,7 +62,7 @@ Nice, added a 2.0 µH
 Total Resistance: 4.0 Ω
 Total Inductance: 5.0 µH
 
-Nice, added a 2.0 Ω
+Nice, added a 1.3333333333333333 Ω
 	+---R-----L---+
 	|             |
 	|             |
@@ -70,7 +70,7 @@ Nice, added a 2.0 Ω
 Total Resistance: 1.3333333333333333 Ω
 Total Inductance: 5.0 µH
 
-Set 3.0 Ω
+The resistor was set to 3.0 Ω
 	+---R-----L---+
 	|             |
 	|             |
