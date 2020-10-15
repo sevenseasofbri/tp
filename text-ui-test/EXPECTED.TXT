@@ -6,11 +6,55 @@ Hello from
 | |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\__ \__ \ \__ \ || (_| | | | | |_
 \_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|
 What is your name?
-Hello James Gosling
+Hello struggling CG1111 student
 You have entered Tutorial Mode!
 Type 'exit' if you want to leave this mode and go back to the application.
 Lets get started! First choose a template you want to work with.You can choose from rc, rl, lc and r templates.
 eg. To select the Resistor-Capacitor circuit template, enter 'template rc.'
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Total Resistance: 0.0 Ω
+Total Capacitance: 0.0 µF
+
+Lets set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts.
+The voltage source was changed to: 5.0 V
+Lets set a value to resistor/capacitor/inductor! To do so, type 'set' followed by 'r' OR 'c' OR 'l' followed by a numeric VALUE. eg. 'set r 500' will set the resistor to 500Ω
+The resistor was set to 500.0 Ω
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Total Resistance: 500.0 Ω
+Total Capacitance: 0.0 µF
+
+Lets set another value in our template! Here's the syntax for reference 'set r/l/c/v VALUE'.
+The capacitor was set to 20.0 µF
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Total Resistance: 500.0 Ω
+Total Capacitance: 20.0 µF
+
+Want to add a component in parallel/series to your current component? Lets do that! Type in 'add' followed by 'series/parallel' then 'r'/'c'/'l' and a numeric VALUE.
+eg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit (if any).
+Nice, added a 40.0 µF
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Total Resistance: 500.0 Ω
+Total Capacitance: 40.0 µF
+
+Great! Say, do you think we could find effective power/current consumed by the circuit?Or even effective resistance/inductance/capacitance? Yes!
+Lets try it out. Type 'calc' followed by 'ceff'/'leff'/'reff'/'power'/'current' and enter. :D
+The power dissipated in the circuit is 0.04937852460756959W
+Great! You're set to use
+CLIrcuit AssistantEnjoy! :)
+ type 'exit' to exit this mode.
+
 :) Have fun using CLIrcuit Assistant!
 
 +-----------+----------------------------+--------------------+
@@ -23,59 +67,69 @@ eg. To select the Resistor-Capacitor circuit template, enter 'template rc.'
 | Calculate | calc EFF_VALUE             | calc ceff          |
 +-----------+----------------------------+--------------------+
 
-	+---R-----L---+
+	+---R-----C---+
 	|             |
 	|             |
 	+----+V_ac+---+
 Total Resistance: 0.0 Ω
-Total Inductance: 0.0 µH
+Total Capacitance: 0.0 µF
 
-The resistor was set to 2.0 Ω
-	+---R-----L---+
+The voltage source was changed to: 5.0 V
+The resistor was set to 200.0 Ω
+	+---R-----C---+
 	|             |
 	|             |
 	+----+V_ac+---+
-Total Resistance: 2.0 Ω
-Total Inductance: 0.0 µH
+Total Resistance: 200.0 Ω
+Total Capacitance: 0.0 µF
 
-The inductor was set to 3.0 µH
-	+---R-----L---+
+The capacitor was set to 10.0 µF
+	+---R-----C---+
 	|             |
 	|             |
 	+----+V_ac+---+
-Total Resistance: 2.0 Ω
-Total Inductance: 3.0 µH
+Total Resistance: 200.0 Ω
+Total Capacitance: 10.0 µF
 
-Nice, added a 4.0 Ω
-	+---R-----L---+
+Nice, added a 400.0 Ω
+	+---R-----C---+
 	|             |
 	|             |
 	+----+V_ac+---+
-Total Resistance: 4.0 Ω
-Total Inductance: 3.0 µH
+Total Resistance: 400.0 Ω
+Total Capacitance: 10.0 µF
 
-Nice, added a 5.0 µH
-	+---R-----L---+
+Nice, added a 5.0 µF
+	+---R-----C---+
 	|             |
 	|             |
 	+----+V_ac+---+
-Total Resistance: 4.0 Ω
-Total Inductance: 5.0 µH
+Total Resistance: 400.0 Ω
+Total Capacitance: 5.0 µF
 
-Nice, added a 1.3333333333333333 Ω
-	+---R-----L---+
+Nice, added a 133.33333333333334 Ω
+	+---R-----C---+
 	|             |
 	|             |
 	+----+V_ac+---+
-Total Resistance: 1.3333333333333333 Ω
-Total Inductance: 5.0 µH
+Total Resistance: 133.33333333333334 Ω
+Total Capacitance: 5.0 µF
 
-The resistor was set to 3.0 Ω
-	+---R-----L---+
+The resistor was set to 100.0 Ω
+	+---R-----C---+
 	|             |
 	|             |
 	+----+V_ac+---+
-Total Resistance: 3.0 Ω
-Total Inductance: 5.0 µH
+Total Resistance: 100.0 Ω
+Total Capacitance: 5.0 µF
 
+The capacitor was set to 2.0 µF
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Total Resistance: 100.0 Ω
+Total Capacitance: 2.0 µF
+
+The total rms current flowing through the circuit is 0.0031354096992368807A
  Bye. See you next time!

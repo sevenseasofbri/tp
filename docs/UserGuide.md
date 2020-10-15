@@ -54,6 +54,8 @@ Expected outcome:
 |             |
 |             |
 +----+V_ac+---+
+Total Resistance: 0.0 Ω
+Total Inductance: 0.0 µH
 ```
 
 ### Set component value: `set` <a name='set'></a>
@@ -75,7 +77,7 @@ Example of usage:
 
 Expected Outcome:
 ```
-Set 500.0 Ω
+The resistor was set to 500.0 Ω
 	+---R-----C---+
 	|             |
 	|             |
@@ -114,7 +116,7 @@ Total Capacitance: 500.0 µF
 
 Calculates the effective value based on the components and their configuration. If calculating `reff`, `ceff`, or `leff`, the component must be part of the current circuit template.
 
-`calc EFF_VALUE`
+Format: `calc EFF_VALUE`
 
 * The `EFF_VALUE` can be chosen from the following 5 - `reff`, `ceff`, `leff`, `current`, `power`
     * `reff` is the effective resistance
@@ -129,7 +131,9 @@ Example of usage:
 
 Expected Outcome:
 
-`The effective capacitance calculated is 500.0 µF`
+```
+The effective capacitance calculated is 500.0 µF
+```
 
 ## FAQ
 

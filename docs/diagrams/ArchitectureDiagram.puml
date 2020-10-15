@@ -10,6 +10,7 @@ Package " "<<Rectangle>>{
 Duke --> Ui
 Duke --> Logic
 Duke --> Model
+Logic -r-> Model
 
 
 @enduml
