@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class VoltageSourceTest {
 
@@ -15,17 +16,15 @@ public class VoltageSourceTest {
     }
 
     @Test
-    void setValue_negativeVoltage_sameVoltage() {
+    void setValue_negativeVoltage_expectException() {
         VoltageSource v = new VoltageSource(100);
-        v.setValue(200);
-        assertEquals(200, v.getValue());
+        assertThrows(ArithmeticException.class, () -> v.setValue(-200));
     }
 
     @Test
-    void setValue_zeroVoltage_sameVoltage() {
+    void setValue_zeroVoltage_expectException() {
         VoltageSource v = new VoltageSource(100);
-        v.setValue(200);
-        assertEquals(200, v.getValue());
+        assertThrows(ArithmeticException.class, () -> v.setValue(0));
     }
 
 }
