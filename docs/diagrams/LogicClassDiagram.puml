@@ -1,0 +1,25 @@
+@startuml
+
+package Logic {
+
+package Parser {
+    Class Parser
+}
+
+package Command {
+    Class XYZCommand
+    Class "{abstract}\nCommand" as Command
+}
+
+}
+
+package Model {
+}
+
+Parser --> Model
+Command -r-> Model
+
+XYZCommand --|> Command
+Parser ..> XYZCommand : creates >
+
+@enduml

@@ -21,7 +21,7 @@ Total Capacitance: 0.0 µF
 Lets set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts.
 The voltage source was changed to: 5.0 V
 Lets set a value to resistor/capacitor/inductor! To do so, type 'set' followed by 'r' OR 'c' OR 'l' followed by a numeric VALUE. eg. 'set r 500' will set the resistor to 500Ω
-Set 500.0 Ω
+The resistor was set to 500.0 Ω
 	+---R-----C---+
 	|             |
 	|             |
@@ -30,7 +30,7 @@ Total Resistance: 500.0 Ω
 Total Capacitance: 0.0 µF
 
 Lets set another value in our template! Here's the syntax for reference 'set r/l/c/v VALUE'.
-Set 20.0 µF
+The capacitor was set to 20.0 µF
 	+---R-----C---+
 	|             |
 	|             |
@@ -40,7 +40,7 @@ Total Capacitance: 20.0 µF
 
 Want to add a component in parallel/series to your current component? Lets do that! Type in 'add' followed by 'series/parallel' then 'r'/'c'/'l' and a numeric VALUE.
 eg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit (if any).
-Nice, added a 20.0 µF
+Nice, added a 40.0 µF
 	+---R-----C---+
 	|             |
 	|             |
@@ -75,7 +75,7 @@ Total Resistance: 0.0 Ω
 Total Capacitance: 0.0 µF
 
 The voltage source was changed to: 5.0 V
-Set 200.0 Ω
+The resistor was set to 200.0 Ω
 	+---R-----C---+
 	|             |
 	|             |
@@ -83,7 +83,7 @@ Set 200.0 Ω
 Total Resistance: 200.0 Ω
 Total Capacitance: 0.0 µF
 
-Set 10.0 µF
+The capacitor was set to 10.0 µF
 	+---R-----C---+
 	|             |
 	|             |
@@ -91,7 +91,7 @@ Set 10.0 µF
 Total Resistance: 200.0 Ω
 Total Capacitance: 10.0 µF
 
-Nice, added a 200.0 Ω
+Nice, added a 400.0 Ω
 	+---R-----C---+
 	|             |
 	|             |
@@ -99,7 +99,7 @@ Nice, added a 200.0 Ω
 Total Resistance: 400.0 Ω
 Total Capacitance: 10.0 µF
 
-Nice, added a 10.0 µF
+Nice, added a 5.0 µF
 	+---R-----C---+
 	|             |
 	|             |
@@ -107,7 +107,7 @@ Nice, added a 10.0 µF
 Total Resistance: 400.0 Ω
 Total Capacitance: 5.0 µF
 
-Nice, added a 200.0 Ω
+Nice, added a 133.33333333333334 Ω
 	+---R-----C---+
 	|             |
 	|             |
@@ -115,7 +115,7 @@ Nice, added a 200.0 Ω
 Total Resistance: 133.33333333333334 Ω
 Total Capacitance: 5.0 µF
 
-Set 100.0 Ω
+The resistor was set to 100.0 Ω
 	+---R-----C---+
 	|             |
 	|             |
@@ -123,7 +123,7 @@ Set 100.0 Ω
 Total Resistance: 100.0 Ω
 Total Capacitance: 5.0 µF
 
-Set 2.0 µF
+The capacitor was set to 2.0 µF
 	+---R-----C---+
 	|             |
 	|             |

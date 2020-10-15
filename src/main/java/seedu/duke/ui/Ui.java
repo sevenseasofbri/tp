@@ -1,12 +1,5 @@
 package seedu.duke.ui;
 
-import seedu.duke.component.Capacitor;
-import seedu.duke.component.Inductor;
-import seedu.duke.component.LoadComponent;
-import seedu.duke.component.Resistor;
-import seedu.duke.component.VoltageSource;
-import seedu.duke.template.Template;
-
 import java.util.Scanner;
 
 public class Ui {
