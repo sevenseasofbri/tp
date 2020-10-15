@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class InductorTest {
 
@@ -15,16 +16,14 @@ public class InductorTest {
     }
 
     @Test
-    void setValue_negativeInductance_sameInductance() {
+    void setValue_negativeInductance_expectException() {
         Inductor l = new Inductor(100);
-        l.setValue(-200);
-        assertEquals(100, l.getValue());
+        assertThrows(ArithmeticException.class, () -> l.setValue(-200));
     }
 
     @Test
-    void setValue_zeroInductance_updatesInductance() {
+    void setValue_zeroInductance_expectException() {
         Inductor l = new Inductor(100);
-        l.setValue(0);
-        assertEquals(100, l.getValue());
+        assertThrows(ArithmeticException.class, () -> l.setValue(0));
     }
 }

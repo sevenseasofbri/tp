@@ -35,7 +35,7 @@ public class CalculateCommandTest {
     @Test
     void execute_calcCurrentWithZeroValueComponents_expectException() {
         CalculateCommand c = new CalculateCommand(LR_TEMPLATE, CURRENT);
-        assertThrows(DukeException.class, c::execute);
+        assertThrows(AssertionError.class, c::execute);
     }
 
     @Test
