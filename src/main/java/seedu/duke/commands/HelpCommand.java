@@ -25,6 +25,7 @@ public class HelpCommand extends Command {
         boolean isNotDone = true;
 
         while (isNotDone) {
+            assert numOfCommandsDone < ui.INSTRUCTIONS.length;
             ui.printInstruction(numOfCommandsDone);
             command = ui.readLine();
             try {

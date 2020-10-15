@@ -30,6 +30,7 @@ public class AddCommand extends SetCommand {
 
     private double getNewValue() throws DukeException {
         LoadComponent c = template.getComponent(component);
+        assert config.equals("series") || config.equals("parallel");
         if (config.equals("series")) {
             return c.addSeries(value);
         } else {
