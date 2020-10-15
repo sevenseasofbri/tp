@@ -13,7 +13,7 @@ class LcTemplateTest {
     @Test
     void calcImpedance_zeroCapacitance_expectException() {
         LcTemplate t = new LcTemplate();
-        assertThrows(DukeException.class, t::calcImpedance);
+        assertThrows(AssertionError.class, t::calcImpedance);
     }
 
     @Test

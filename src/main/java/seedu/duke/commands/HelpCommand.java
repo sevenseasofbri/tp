@@ -4,24 +4,22 @@ import seedu.duke.DukeException;
 import seedu.duke.parser.Parser;
 import seedu.duke.ui.Ui;
 
-import java.util.Scanner;
-
 public class HelpCommand extends Command {
     private static final Parser PARSER = new Parser();
-    private int numOfCommandsDone = 0;
     private static final String[] orderOfInstructions = {"template", "set v", "set", "set", "add", "calc"};
+    private int numOfCommandsDone = 0;
+    private final Ui ui;
 
     public HelpCommand() {
         super();
+        ui = new Ui(); // Create its own Ui instance, can be a Ui subclass later on
     }
 
     /**
      * Begins execution of the interactive tutorial.
-     *
-     * @param ui Ui object.
      */
     @Override
-    public void execute(Ui ui) {
+    public void execute() {
         ui.printWelcomeTutorial();
         String command;
         boolean isNotDone = true;
@@ -35,7 +33,6 @@ public class HelpCommand extends Command {
                 ui.showError(e.getMessage());
             }
         }
-        ui.printExitHelp();
     }
 
     private boolean continueTutorial(String command, Ui ui) throws DukeException {
@@ -49,8 +46,19 @@ public class HelpCommand extends Command {
         }
         
         Command c = PARSER.parse(command);
-        c.execute(ui);
+        c.execute();
+        ui.printMessage(c.toString());
         numOfCommandsDone++;
         return true;
+    }
+
+    /**
+     * String representation of the Command.
+     *
+     * @return String representation.
+     */
+    @Override
+    public String toString() {
+        return ":) Have fun using CLIrcuit Assistant!";
     }
 }

@@ -11,14 +11,16 @@ public abstract class LoadComponent extends Component {
     }
 
     private double addDirect(double otherValue) throws DukeException {
-        if (value <= 0 || otherValue <= 0) {
+        assert value > 0 : "Value has been incorrectly read.";
+        if (otherValue <= 0) {
             throw new DukeException("Invalid value (<=0)");
         }
         return value + otherValue;
     }
 
     private double addReciprocal(double otherValue) throws DukeException {
-        if (value <= 0 || otherValue <= 0) {
+        assert value > 0 : "Value has been incorrectly read.";
+        if (otherValue <= 0) {
             throw new DukeException("Invalid value (<=0)");
         }
         return 1 / ((1 / value) + (1 / otherValue));

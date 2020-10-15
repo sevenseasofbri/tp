@@ -41,17 +41,6 @@ public class Ui {
             + "Lets try it out. Type 'calc' followed by 'ceff'/'leff'/'reff'/'power'/'current' and enter. :D",
         "Great! You're set to use\n" + "CLIrcuit Assistant" + "Enjoy! :)\n type 'exit' to exit this mode.\n"};
 
-    private static final String COMMAND_SUMMARY = "\n"
-            + "+-----------+----------------------------+--------------------+\n"
-            + "|  Action   |           Format           |      Examples      |\n"
-            + "+-----------+----------------------------+--------------------+\n"
-            + "| Help      | help                       | help               |\n"
-            + "| Template  | template TEMPLATE          | template rc        |\n"
-            + "| Set       | set COMPONENT VALUE        | set r 500          |\n"
-            + "| Add       | add CONFIG COMPONENT VALUE | add parallel c 500 |\n"
-            + "| Calculate | calc EFF_VALUE             | calc ceff          |\n"
-            + "+-----------+----------------------------+--------------------+\n"
-            + "\n";
 
     private static final Scanner IN = new Scanner(System.in);
 
@@ -88,13 +77,6 @@ public class Ui {
     }
 
     /**
-     * Prints farewell message after exiting Duke.
-     */
-    public void printFarewell() {
-        System.out.println(" Bye. See you next time!");
-    }
-
-    /**
      * Prints a message.
      *
      * @param message Message.
@@ -112,110 +94,12 @@ public class Ui {
         printMessage(message);
     }
 
-
-    /**
-     * Prints that a component has been set.
-     *
-     * @param component LoadComponent object set.
-     */
-    public void printSetComponent(LoadComponent component) {
-        System.out.println("Set " + component);
-    }
-
-
-    /**
-     * Prints that a component has been added.
-     *
-     * @param component LoadComponent object added.
-     */
-    public void printAddComponent(LoadComponent component) {
-        System.out.println("Nice, added a " + component);
-    }
-
-    /**
-     * Prints the template that was chosen.
-     *
-     * @param template Template object.
-     */
-    public void printTemplate(Template template) {
-        System.out.println(template);
-    }
-
-    /**
-     * Prints the effective resistance that was calculated.
-     *
-     * @param resistor Resistor object.
-     */
-    public void printCalculatedResistance(Resistor resistor) {
-        System.out.println("The effective resistance calculated is " + resistor);
-    }
-
-    /**
-     * Prints the effective capacitance that was calculated.
-     *
-     * @param capacitor Capacitor object.
-     */
-    public void printCalculatedCapacitance(Capacitor capacitor) {
-        System.out.println("The effective capacitance calculated is " + capacitor);
-    }
-
-    /**
-     * Prints the effective inductance that was calculated.
-     *
-     * @param inductor Inductor object.
-     */
-    public void printCalculatedInductance(Inductor inductor) {
-        System.out.println("The effective inductance calculated is " + inductor);
-    }
-
-    /**
-     * Prints the power dissipated in the circuit.
-     *
-     * @param power double value.
-     */
-    public void printCalculatedPower(double power) {
-        System.out.println("The power dissipated in the circuit is " + power + "W");
-    }
-
-    /**
-     * Prints the current drawn by the circuit.
-     *
-     * @param current double value.
-     */
-    public void printCalculatedCurrent(double current) {
-        System.out.println("The total rms current flowing through the circuit is " + current + "A");
-    }
-
-    /**
-     * Prints the value of the voltage source after setting voltage.
-     *
-     * @param voltageSource VoltageSource object.
-     */
-    public void printSetVoltageSource(VoltageSource voltageSource) {
-        System.out.println("The voltage source was changed to: " + voltageSource);
-    }
-
     /**
      * Prints the welcome message for the tutorial mode.
      */
     public void printWelcomeTutorial() {
         System.out.println("You have entered Tutorial Mode!" + System.lineSeparator()
                 + "Type 'exit' if you want to leave this mode and go back to the application.");
-    }
-
-
-    /**
-     * Prints command summary.
-     */
-    public void printCommandSummary() {
-        System.out.print(COMMAND_SUMMARY);
-    }
-
-    /**
-     * Prints exit statement for the help mode.
-     */
-    public void printExitHelp() {
-        System.out.println(":) Have fun using CLIrcuit Assistant!");
     }
 
     /**

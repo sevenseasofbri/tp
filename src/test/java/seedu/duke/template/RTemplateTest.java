@@ -12,7 +12,7 @@ class RTemplateTest {
     @Test
     void calcImpedance_zeroCapacitance_expectException() {
         RcTemplate t = new RcTemplate();
-        assertThrows(DukeException.class, t::calcImpedance);
+        assertThrows(AssertionError.class, t::calcImpedance);
     }
 
     @Test
