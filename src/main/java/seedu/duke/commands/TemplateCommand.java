@@ -2,6 +2,8 @@ package seedu.duke.commands;
 
 import seedu.duke.template.Template;
 
+import java.util.logging.Logger;
+
 public class TemplateCommand extends Command {
 
     public TemplateCommand(Template template) {
@@ -10,6 +12,7 @@ public class TemplateCommand extends Command {
 
     @Override
     public void execute() {
+        LOGGER.info("Template was chosen");
     }
 
     @Override
