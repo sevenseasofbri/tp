@@ -92,7 +92,6 @@ public class LrTemplate extends RTemplate {
      */
     @Override
     public LoadComponent getComponent(String component) throws DukeException {
-        assert component.equals("c") || component.equals("r");
         if (component.equals("l")) {
             return getInductor();
         }

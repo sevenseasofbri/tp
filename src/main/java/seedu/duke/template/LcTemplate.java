@@ -108,7 +108,6 @@ public class LcTemplate extends Template {
      */
     @Override
     public LoadComponent getComponent(String component) throws DukeException {
-        assert component.equals("c") || component.equals("r");
         if (component.equals("l")) {
             return getInductor();
         } else if (component.equals("c")) {
