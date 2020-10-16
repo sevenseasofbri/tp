@@ -32,7 +32,6 @@ public class Parser {
         String[] args = line.split("\\s+");
         String command = args[0].toLowerCase();
 
-
         switch (command) {
         case "help":
             return new Command();

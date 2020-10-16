@@ -11,8 +11,8 @@ public class LcTemplate extends Template {
                                                 + "\t|             |\n"
                                                 + "\t|             |\n"
                                                 + "\t+----+V_ac+---+\n";
-    private Inductor inductor;
-    private Capacitor capacitor;
+    private final Inductor inductor;
+    private final Capacitor capacitor;
 
 
     public LcTemplate(double capacitance, double inductance, double powerSupply) {
@@ -80,6 +80,7 @@ public class LcTemplate extends Template {
 
     @Override
     public void setComponent(String s, double value) {
+        assert s.equals("c") || s.equals("l");
         if (s.equals("l")) {
             setInductor(value);
         } else {
@@ -107,6 +108,7 @@ public class LcTemplate extends Template {
      */
     @Override
     public LoadComponent getComponent(String component) throws DukeException {
+        assert component.equals("c") || component.equals("r");
         if (component.equals("l")) {
             return getInductor();
         } else if (component.equals("c")) {

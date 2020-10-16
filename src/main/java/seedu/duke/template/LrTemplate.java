@@ -10,7 +10,7 @@ public class LrTemplate extends RTemplate {
                                             + "\t|             |\n"
                                             + "\t+----+V_ac+---+\n";
 
-    private Inductor inductor;
+    private final Inductor inductor;
 
     public LrTemplate(double resistance, double inductance, double powerSupply) {
         super(resistance, powerSupply);
@@ -64,6 +64,7 @@ public class LrTemplate extends RTemplate {
      */
     @Override
     public void setComponent(String s, double value) {
+        assert s.equals("l") || s.equals("r");
         if (s.equals("l")) {
             setInductor(value);
         } else {
@@ -91,6 +92,7 @@ public class LrTemplate extends RTemplate {
      */
     @Override
     public LoadComponent getComponent(String component) throws DukeException {
+        assert component.equals("c") || component.equals("r");
         if (component.equals("l")) {
             return getInductor();
         }
