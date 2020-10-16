@@ -11,8 +11,8 @@ public class LcTemplate extends Template {
                                                 + "\t|             |\n"
                                                 + "\t|             |\n"
                                                 + "\t+----+V_ac+---+\n";
-    private Inductor inductor;
-    private Capacitor capacitor;
+    private final Inductor inductor;
+    private final Capacitor capacitor;
 
 
     public LcTemplate(double capacitance, double inductance, double powerSupply) {
@@ -38,7 +38,7 @@ public class LcTemplate extends Template {
         if (inductance == 0 || capacitance == 0) {
             throw new DukeException("Component(s) not set yet.");
         }
-        return angularFrequency * Math.abs(inductance - (1 / capacitance));
+        return ANGULAR_FREQUENCY * Math.abs(inductance - (1 / capacitance));
     }
 
     /**
@@ -77,9 +77,15 @@ public class LcTemplate extends Template {
         capacitor.setValue(value);
     }
 
-
+    /**
+     * Sets the value of the inductor in the Lc Template circuit to the value specified.
+     *
+     * @param s String corresponding to component type.
+     * @param value double type value to be set to the resistor in the circuit.
+     */
     @Override
     public void setComponent(String s, double value) {
+        assert s.equals("l") || s.equals("c");
         if (s.equals("l")) {
             setInductor(value);
         } else {
@@ -106,13 +112,12 @@ public class LcTemplate extends Template {
      * @throws DukeException If input String does not match a component.
      */
     @Override
-    public LoadComponent getComponent(String component) throws DukeException {
+    public LoadComponent getComponent(String component) {
+        assert component.equals("l") || component.equals("c");
         if (component.equals("l")) {
             return getInductor();
-        } else if (component.equals("c")) {
-            return getCapacitor();
         } else {
-            throw new DukeException("Invalid component");
+            return getCapacitor();
         }
     }
 }
