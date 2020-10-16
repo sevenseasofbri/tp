@@ -1,7 +1,21 @@
-James Gosling
-template rl
-add series r 2
-add series l 2
-add parallel r 2
-set r 3
+struggling CG1111 student
+help
+template rc
+set v 5
+set r 500
+set c 20
+add parallel c 20
+calc power
+exit
+summary
+template rc
+set v 5
+set r 200
+set c 10
+add series r 200
+add series c 10
+add parallel r 200
+set r 100
+set c 2
+calc current
 bye
