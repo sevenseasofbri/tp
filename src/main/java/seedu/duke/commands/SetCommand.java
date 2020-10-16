@@ -1,14 +1,17 @@
 package seedu.duke.commands;
 
 import seedu.duke.DukeException;
-import seedu.duke.component.LoadComponent;
+import seedu.duke.component.Capacitor;
+import seedu.duke.component.Component;
+import seedu.duke.component.Inductor;
+import seedu.duke.component.Resistor;
 import seedu.duke.component.VoltageSource;
 import seedu.duke.template.Template;
-import seedu.duke.ui.Ui;
 
 public class SetCommand extends Command {
     protected final String component;
     protected final double value;
+    protected Component componentObject;
 
     public SetCommand(Template template, String component, double value) {
         super(template);
@@ -19,22 +22,43 @@ public class SetCommand extends Command {
     /**
      * Executes set command.
      *
-     * @param ui Ui object.
      * @throws DukeException If execution error occurs.
      */
     @Override
-    public void execute(Ui ui) throws DukeException {
+    public void execute() throws DukeException {
         if (component.equals("v")) {
             template.setInitialPowerSupply(value);
-            ui.printSetVoltageSource(template.getInitialPowerSupply());
+            componentObject = template.getInitialPowerSupply();
             return;
         }
-        LoadComponent c = template.getComponent(component);
+        componentObject = template.getComponent(component);
 
-        c.setValue(value);
-        ui.printSetComponent(c);
+        componentObject.setValue(value);
 
         template.setComponent(component, value);
-        ui.printTemplate(template);
+    }
+
+    /**
+     * String representation of the Command.
+     *
+     * @return String representation.
+     */
+    @Override
+    public String toString() {
+        if (componentObject instanceof VoltageSource) {
+            return "The voltage source was changed to: " + componentObject;
+        }
+
+        String componentName = "";
+
+        if (componentObject instanceof Resistor) {
+            componentName = "resistor";
+        } else if (componentObject instanceof Capacitor) {
+            componentName = "capacitor";
+        } else if (componentObject instanceof Inductor) {
+            componentName = "inductor";
+        }
+
+        return "The " + componentName + " was set to " + componentObject + '\n' + template;
     }
 }

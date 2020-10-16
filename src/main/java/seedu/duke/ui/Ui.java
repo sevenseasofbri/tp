@@ -1,20 +1,38 @@
 package seedu.duke.ui;
 
-import seedu.duke.component.Capacitor;
-import seedu.duke.component.Inductor;
-import seedu.duke.component.LoadComponent;
-import seedu.duke.component.Resistor;
-import seedu.duke.component.VoltageSource;
-import seedu.duke.template.Template;
-
 import java.util.Scanner;
 
 public class Ui {
-    private static final String LOGO = " ____        _        \n"
-            + "|  _ \\ _   _| | _____ \n"
-            + "| | | | | | | |/ / _ \\\n"
-            + "| |_| | |_| |   <  __/\n"
-            + "|____/ \\__,_|_|\\_\\___|\n";
+    //Running into issues with runtest.bat with the following LOGO. Using regular text for now.
+    private static final String LOGO = " _____ _      _____                _ _                      _  "
+            + "   _              _   \n"
+            + "/ ____| |    |_   _|              (_) |       /\\           (_)   | |            | |\n"
+            + "| |    | |      | |  _ __ ___ _   _ _| |_     /  \\   ___ ___ _ ___| |_ __ _ _ __ | |_\n"
+            + "| |    | |      | | | '__/ __| | | | | __|   / /\\ \\ / __/ __| / __| __/ _` | '_ \\| __|\n"
+            + "| |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\\\__ \\__ \\ \\__ \\ || (_| | | | | |_\n"
+            + "\\_____|______|_____|_|  \\___|\\__,_|_|\\__| /_/    \\_\\___/___/_|___/\\__\\__,_|_| |_|\\__|";
+
+    private static final String TUTORIAL = "  _______    _             _       _   __  __           _      _ \n"
+            + " |__   __|  | |           (_)     | | |  \\/  |         | |    | |\n"
+            + "    | |_   _| |_ ___  _ __ _  __ _| | | \\  / | ___   __| | ___| |\n"
+            + "    | | | | | __/ _ \\| '__| |/ _` | | | |\\/| |/ _ \\ / _` |/ _ \\ |\n"
+            + "    | | |_| | || (_) | |  | | (_| | | | |  | | (_) | (_| |  __/_|\n"
+            + "    |_|\\__,_|\\__\\___/|_|  |_|\\__,_|_| |_|  |_|\\___/ \\__,_|\\___(_)\n";
+
+    public static final String[] INSTRUCTIONS = {"Lets get started! First choose a template you want to work with."
+            + "You can choose from rc, rl, lc and r templates." + System.lineSeparator()
+            + "eg. To select the Resistor-Capacitor circuit template, enter 'template rc.'",
+        "Lets set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts.",
+        "Lets set a value to resistor/capacitor/inductor! To do so, type 'set' followed by 'r' OR 'c' OR 'l'"
+            + " followed by a numeric VALUE. eg. 'set r 500' will set the resistor to 500Ω",
+        "Lets set another value in our template! Here's the syntax for reference 'set r/l/c/v VALUE'.",
+        "Want to add a component in parallel/series to your current component? Lets do that! "
+            + "Type in 'add' followed by 'series/parallel' then 'r'/'c'/'l' and a numeric VALUE.\n"
+            + "eg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit (if any).",
+        "Great! Say, do you think we could find effective power/current consumed by the circuit?"
+            + "Or even effective resistance/inductance/capacitance? Yes!\n"
+            + "Lets try it out. Type 'calc' followed by 'ceff'/'leff'/'reff'/'power'/'current' and enter. :D",
+        "Great! You're set to use\n" + "CLIrcuit Assistant" + "Enjoy! :)\n type 'exit' to exit this mode.\n"};
 
 
     private static final Scanner IN = new Scanner(System.in);
@@ -52,13 +70,6 @@ public class Ui {
     }
 
     /**
-     * Prints farewell message after exiting Duke.
-     */
-    public void printFarewell() {
-        System.out.println(" Bye. See you next time!");
-    }
-
-    /**
      * Prints a message.
      *
      * @param message Message.
@@ -76,86 +87,20 @@ public class Ui {
         printMessage(message);
     }
 
-
     /**
-     * Prints that a component has been set.
-     *
-     * @param component LoadComponent object set.
+     * Prints the welcome message for the tutorial mode.
      */
-    public void printSetComponent(LoadComponent component) {
-        System.out.println("Set " + component);
-    }
-
-
-    /**
-     * Prints that a component has been added.
-     *
-     * @param component LoadComponent object added.
-     */
-    public void printAddComponent(LoadComponent component) {
-        System.out.println("Nice, added a " + component);
+    public void printWelcomeTutorial() {
+        System.out.println("You have entered Tutorial Mode!" + System.lineSeparator()
+                + "Type 'exit' if you want to leave this mode and go back to the application.");
     }
 
     /**
-     * Prints the template that was chosen.
+     * Prints the instruction at the specified index from the array.
      *
-     * @param template Template object.
+     * @param numOfCommandsDone Type int specifies index number.
      */
-    public void printTemplate(Template template) {
-        System.out.println(template);
-    }
-
-    /**
-     * Prints the effective resistance that was calculated.
-     *
-     * @param resistor Resistor object.
-     */
-    public void printCalculatedResistance(Resistor resistor) {
-        System.out.println("The effective resistance calculated is " + resistor);
-    }
-
-    /**
-     * Prints the effective capacitance that was calculated.
-     *
-     * @param capacitor Capacitor object.
-     */
-    public void printCalculatedCapacitance(Capacitor capacitor) {
-        System.out.println("The effective capacitance calculated is " + capacitor);
-    }
-
-    /**
-     * Prints the effective inductance that was calculated.
-     *
-     * @param inductor Inductor object.
-     */
-    public void printCalculatedInductance(Inductor inductor) {
-        System.out.println("The effective inductance calculated is " + inductor);
-    }
-
-    /**
-     * Prints the power dissipated in the circuit.
-     *
-     * @param power double value.
-     */
-    public void printCalculatedPower(double power) {
-        System.out.println("The power dissipated in the circuit is " + power + "W");
-    }
-
-    /**
-     * Prints the current drawn by the circuit.
-     *
-     * @param current double value.
-     */
-    public void printCalculatedCurrent(double current) {
-        System.out.println("The total rms current flowing through the circuit is " + current + "A");
-    }
-
-    /**
-     * Prints the value of the voltage source after setting voltage.
-     *
-     * @param voltageSource VoltageSource object.
-     */
-    public void printSetVoltageSource(VoltageSource voltageSource) {
-        System.out.println("The voltage source was changed to: " + voltageSource);
+    public void printInstruction(int numOfCommandsDone) {
+        System.out.println(INSTRUCTIONS[numOfCommandsDone]);
     }
 }

@@ -5,14 +5,12 @@ import seedu.duke.DukeException;
 import seedu.duke.template.LcTemplate;
 import seedu.duke.template.LrTemplate;
 import seedu.duke.template.RTemplate;
-import seedu.duke.ui.Ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 public class CalculateCommandTest {
-    private static final Ui UI = new Ui();
     private static final RTemplate RTEMPLATE = new RTemplate(100, 100);
     private static final LrTemplate LR_TEMPLATE = new LrTemplate(0, 0, 10);
     private static final LcTemplate LC_TEMPLATE = new LcTemplate(1600, 299, 220);
@@ -24,25 +22,25 @@ public class CalculateCommandTest {
     @Test
     void execute_calcPower_calculatesPower() throws DukeException {
         CalculateCommand c = new CalculateCommand(RTEMPLATE, POWER);
-        c.execute(UI);
+        c.execute();
         assertEquals(100, c.template.getPower());
     }
 
     @Test
-    void execute_calcCeff_calculatesEffectiveCapacitance() throws DukeException {
+    void execute_calcCeff_calculatesEffectiveCapacitance() {
         CalculateCommand c = new CalculateCommand(LC_TEMPLATE, CAPACITANCE);
-        assertDoesNotThrow(() -> c.execute(UI));
+        assertDoesNotThrow(c::execute);
     }
 
     @Test
     void execute_calcCurrentWithZeroValueComponents_expectException() {
         CalculateCommand c = new CalculateCommand(LR_TEMPLATE, CURRENT);
-        assertThrows(DukeException.class, () -> c.execute(UI));
+        assertThrows(AssertionError.class, c::execute);
     }
 
     @Test
     void execute_invalidComponentForTemplate_expectException() {
         CalculateCommand c = new CalculateCommand(RTEMPLATE, INDUCTANCE);
-        assertThrows(DukeException.class, () -> c.execute(UI));
+        assertThrows(DukeException.class, c::execute);
     }
 }

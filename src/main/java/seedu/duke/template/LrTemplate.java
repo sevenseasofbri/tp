@@ -35,7 +35,7 @@ public class LrTemplate extends RTemplate {
             throw new DukeException("Component(s) not set yet.");
         }
         return Math.sqrt(Math.pow(resistance, 2)
-                + Math.pow(inductance * angularFrequency, 2));
+                + Math.pow(inductance * ANGULAR_FREQUENCY, 2));
     }
 
     /**
