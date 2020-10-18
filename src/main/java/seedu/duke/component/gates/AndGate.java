@@ -10,8 +10,7 @@ public class AndGate extends TwoInputGate {
 
     @Override
     public int getOutput() {
-        output = input & secondInput;
-        return output;
+        return input & secondInput;
     }
 
     @Override

@@ -6,7 +6,7 @@ public abstract class Gate {
 
     public abstract int getOutput();
 
-    public void setInput(byte input) {
+    public void setInput(int input) {
         this.input = input;
     }
 

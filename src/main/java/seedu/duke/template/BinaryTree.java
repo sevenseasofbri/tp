@@ -7,6 +7,7 @@ import java.util.Collections;
 
 public class BinaryTree<T> {
     private final ArrayList<T> arrayList = new ArrayList<>(Collections.nCopies(16, null));
+    private final int SPACE = 4;
     private String tree = "";
 
     public BinaryTree(T root) {
@@ -23,7 +24,7 @@ public class BinaryTree<T> {
      * @return boolean value, true if the tree is empty, otherwise false.
      */
     public boolean isEmpty() {
-        return arrayList.isEmpty();
+        return isNullAtIndex(0);
     }
 
     /**
@@ -86,10 +87,8 @@ public class BinaryTree<T> {
      * @return boolean value, true if node is a leaf, else false.
      */
     public boolean isLeaf(int index) {
-        if (isNullAtIndex(index) || !isNullAtIndex(getLeftIndex(index)) || !isNullAtIndex(getRightIndex(index))) {
-            return false;
-        }
-        return true;
+        boolean hasNoChildren = isNullAtIndex(getLeftIndex(index)) && isNullAtIndex(getRightIndex(index));
+        return !isNullAtIndex(index) && hasNoChildren;
     }
 
     /**
@@ -112,7 +111,7 @@ public class BinaryTree<T> {
         }
         //Process the right subtree, if it exists.
         if (!isNullAtIndex(getRightIndex(index))) {
-            buildTreeString(getRightIndex(index), space + 4);
+            buildTreeString(getRightIndex(index), space + SPACE);
         }
 
         for (int i = 0; i < space; i++) {
@@ -122,7 +121,7 @@ public class BinaryTree<T> {
 
         //Process the the left subtree , if it exists.
         if (!isNullAtIndex(getLeftIndex(index))) {
-            buildTreeString(getLeftIndex(index), space + 4);
+            buildTreeString(getLeftIndex(index), space + SPACE);
         }
     }
 
