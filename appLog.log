@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2020-10-18T09:57:21.050340500Z</date>
-  <millis>1603015041050</millis>
-  <nanos>340500</nanos>
+  <date>2020-10-18T14:01:21.791291900Z</date>
+  <millis>1603029681791</millis>
+  <nanos>291900</nanos>
   <sequence>0</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>Execution is beginning.</message>
 </record>
 <record>
-  <date>2020-10-18T09:57:26.736909800Z</date>
-  <millis>1603015046736</millis>
-  <nanos>909800</nanos>
+  <date>2020-10-18T14:01:30.520877100Z</date>
+  <millis>1603029690520</millis>
+  <nanos>877100</nanos>
   <sequence>1</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -26,9 +26,9 @@
   <message>Changed flag to exit program.</message>
 </record>
 <record>
-  <date>2020-10-18T09:57:26.757890500Z</date>
-  <millis>1603015046757</millis>
-  <nanos>890500</nanos>
+  <date>2020-10-18T14:01:30.521878Z</date>
+  <millis>1603029690521</millis>
+  <nanos>878000</nanos>
   <sequence>2</sequence>
   <logger>global</logger>
   <level>INFO</level>

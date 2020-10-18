@@ -1,5 +1,7 @@
 package seedu.duke.template;
 
+import seedu.duke.DukeException;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -11,17 +13,38 @@ public class BinaryTree<T> {
         arrayList.set(0, root);
     }
 
+    public BinaryTree() {
+        this(null);
+    }
+
+    /**
+     * Checks if the tree is empty.
+     *
+     * @return boolean value, true if the tree is empty, otherwise false.
+     */
     public boolean isEmpty() {
         return arrayList.isEmpty();
     }
 
+    /**
+     * Returns the root of the tree.
+     *
+     * @return T type value, root of the tree.
+     */
     public T getRoot() {
         return arrayList.get(0);
     }
 
-    public void insert(int idx, T t) {
+    /**
+     * Inserts T type value at specified position in the tree.
+     *
+     * @param idx int type specifies position to insert element.
+     * @param t T type value to be inserted.
+     * @throws DukeException If the index specified is invalid.
+     */
+    public void insert(int idx, T t) throws DukeException {
         if (idx <= 0 || idx >= arrayList.size() || isNullAtIndex(getParentIndex(idx))) {
-            return;
+            throw new DukeException("Index specified is out of bounds!");
         }
         arrayList.set(idx, t);
     }
@@ -56,13 +79,40 @@ public class BinaryTree<T> {
         return isNull;
     }
 
-    private void printTree(int index, int space) {
+    /**
+     * Returns whether node at specified index is a leaf node or not.
+     *
+     * @param index int type specifying index of node.
+     * @return boolean value, true if node is a leaf, else false.
+     */
+    public boolean isLeaf(int index) {
+        if (isNullAtIndex(index) || !isNullAtIndex(getLeftIndex(index)) || !isNullAtIndex(getRightIndex(index))) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Manipulates the instance variable String tree to produce a tree-like structure String output.
+     * Example of manipulated tree String with Integer type values stored in arrayList = {1,2,3,4,5,6,7}:
+     *         7
+     *     3
+     *         6
+     * 1
+     *         5
+     *     2
+     *         4
+     *
+     * @param index int type specifying which node to process.
+     * @param space int type determining number of spaces to make tree-like output.
+     */
+    private void buildTreeString(int index, int space) {
         if (isNullAtIndex(index)) {
             return;
         }
         //Process the right subtree, if it exists.
         if (!isNullAtIndex(getRightIndex(index))) {
-            printTree(getRightIndex(index), space + 4);
+            buildTreeString(getRightIndex(index), space + 4);
         }
 
         for (int i = 0; i < space; i++) {
@@ -72,13 +122,18 @@ public class BinaryTree<T> {
 
         //Process the the left subtree , if it exists.
         if (!isNullAtIndex(getLeftIndex(index))) {
-            printTree(getLeftIndex(index), space + 4);
+            buildTreeString(getLeftIndex(index), space + 4);
         }
     }
 
+    /**
+     * Returns a String after formatting with the function buildTreeString().
+     *
+     * @return String type instance variable tree.
+     */
     @Override
     public String toString() {
-        printTree(0, 0);
+        buildTreeString(0, 0);
         return tree;
     }
 }
