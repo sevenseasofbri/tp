@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class BinaryTree<T> {
     private final ArrayList<T> arrayList = new ArrayList<>(Collections.nCopies(16, null));
-    private String TREE = "";
+    private String tree = "";
 
     public BinaryTree(T root) {
         arrayList.set(0, root);
@@ -49,7 +49,7 @@ public class BinaryTree<T> {
     private boolean isNullAtIndex(int idx) {
         boolean isNull;
         try {
-            isNull = arrayList.get(idx) == null ? true : false;
+            isNull = arrayList.get(idx) == null;
         } catch (IndexOutOfBoundsException e) {
             isNull = true;
         }
@@ -57,7 +57,7 @@ public class BinaryTree<T> {
     }
 
     private void printTree(int index, int space) {
-        if(isNullAtIndex(index)){
+        if (isNullAtIndex(index)) {
             return;
         }
         //Process the right subtree, if it exists.
@@ -65,10 +65,10 @@ public class BinaryTree<T> {
             printTree(getRightIndex(index), space + 4);
         }
 
-        for(int i = 0; i < space; i++) {
-            TREE = TREE + " ";
+        for (int i = 0; i < space; i++) {
+            tree = tree + " ";
         }
-        TREE = TREE + arrayList.get(index) + System.lineSeparator();
+        tree = tree + arrayList.get(index) + System.lineSeparator();
 
         //Process the the left subtree , if it exists.
         if (!isNullAtIndex(getLeftIndex(index))) {
@@ -79,6 +79,6 @@ public class BinaryTree<T> {
     @Override
     public String toString() {
         printTree(0, 0);
-        return TREE;
+        return tree;
     }
 }
