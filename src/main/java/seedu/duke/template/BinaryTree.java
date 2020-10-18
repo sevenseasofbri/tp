@@ -1,12 +1,14 @@
 package seedu.duke.template;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class BinaryTree<T> {
-    private final ArrayList<T> arrayList = new ArrayList<>();
+    private final ArrayList<T> arrayList = new ArrayList<>(Collections.nCopies(16, null));
+    private String TREE = "";
 
     public BinaryTree(T root) {
-        arrayList.add(root);
+        arrayList.set(0, root);
     }
 
     public boolean isEmpty() {
@@ -18,7 +20,7 @@ public class BinaryTree<T> {
     }
 
     public void insert(int idx, T t) {
-        if (idx <= 0 || idx >= arrayList.size() || arrayList.get(getParentIndex(idx)) == null) {
+        if (idx <= 0 || idx >= arrayList.size() || isNullAtIndex(getParentIndex(idx))) {
             return;
         }
         arrayList.set(idx, t);
@@ -42,5 +44,41 @@ public class BinaryTree<T> {
 
     private int getHeight(int idx) {
         return (int) (Math.log(idx + 1) / Math.log(2));
+    }
+
+    private boolean isNullAtIndex(int idx) {
+        boolean isNull;
+        try {
+            isNull = arrayList.get(idx) == null ? true : false;
+        } catch (IndexOutOfBoundsException e) {
+            isNull = true;
+        }
+        return isNull;
+    }
+
+    private void printTree(int index, int space) {
+        if(isNullAtIndex(index)){
+            return;
+        }
+        //Process the right subtree, if it exists.
+        if (!isNullAtIndex(getRightIndex(index))) {
+            printTree(getRightIndex(index), space + 4);
+        }
+
+        for(int i = 0; i < space; i++) {
+            TREE = TREE + " ";
+        }
+        TREE = TREE + arrayList.get(index) + System.lineSeparator();
+
+        //Process the the left subtree , if it exists.
+        if (!isNullAtIndex(getLeftIndex(index))) {
+            printTree(getLeftIndex(index), space + 4);
+        }
+    }
+
+    @Override
+    public String toString() {
+        printTree(0, 0);
+        return TREE;
     }
 }
