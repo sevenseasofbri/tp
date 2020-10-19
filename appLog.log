@@ -20,7 +20,7 @@
   <sequence>1</sequence>
   <logger>global</logger>
   <level>INFO</level>
-  <class>seedu.duke.commands.ExitCommand</class>
+  <class>seedu.duke.logic.commands.ExitCommand</class>
   <method>execute</method>
   <thread>1</thread>
   <message>Changed flag to exit program.</message>
