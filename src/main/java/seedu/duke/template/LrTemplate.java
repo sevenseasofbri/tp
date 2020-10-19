@@ -64,6 +64,7 @@ public class LrTemplate extends RTemplate {
      */
     @Override
     public void setComponent(String s, double value) {
+        assert s.equals("l") || s.equals("r");
         if (s.equals("l")) {
             setInductor(value);
         } else {

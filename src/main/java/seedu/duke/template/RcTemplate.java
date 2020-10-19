@@ -67,6 +67,7 @@ public class RcTemplate extends RTemplate {
      */
     @Override
     public void setComponent(String s, double value) {
+        assert s.equals("r") || s.equals("r");
         if (s.equals("c")) {
             setCapacitor(value);
         } else {
