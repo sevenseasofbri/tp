@@ -64,7 +64,6 @@ public class LrTemplate extends RTemplate {
      */
     @Override
     public void setComponent(String s, double value) {
-        assert s.equals("l") || s.equals("r");
         if (s.equals("l")) {
             setInductor(value);
         } else {
@@ -92,7 +91,6 @@ public class LrTemplate extends RTemplate {
      */
     @Override
     public LoadComponent getComponent(String component) throws DukeException {
-        assert component.equals("r") || component.equals("l");
         if (component.equals("l")) {
             return getInductor();
         }

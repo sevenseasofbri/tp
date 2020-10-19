@@ -67,7 +67,6 @@ public class RcTemplate extends RTemplate {
      */
     @Override
     public void setComponent(String s, double value) {
-        assert s.equals("r") || s.equals("c");
         if (s.equals("c")) {
             setCapacitor(value);
         } else {
@@ -95,7 +94,6 @@ public class RcTemplate extends RTemplate {
      */
     @Override
     public LoadComponent getComponent(String component) throws DukeException {
-        assert component.equals("r") || component.equals("c");
         if (component.equals("c")) {
             return getCapacitor();
         }

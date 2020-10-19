@@ -85,9 +85,6 @@ public class LcTemplate extends Template {
      */
     @Override
     public void setComponent(String s, double value) {
-
-        assert s.equals("l") || s.equals("c");
-
         if (s.equals("l")) {
             setInductor(value);
         } else {
@@ -115,7 +112,6 @@ public class LcTemplate extends Template {
      */
     @Override
     public LoadComponent getComponent(String component) {
-        assert component.equals("l") || component.equals("c");
         if (component.equals("l")) {
             return getInductor();
         } else {
