@@ -12,15 +12,21 @@ CLIrcuit Assistant is a desktop app to implement and solve simple circuits, opti
 
 ## Features 
 
-### Summary of Commands: `summary`
+This section details the various features and commands available.
+
+### General Commands
+
+This section details the generic commands that can be used.
+
+#### Summary of Commands: `summary`
 
 This command prints a summary of all commands in the application as shown in [Command Summary](#command-summary).
 
 Format: `summary`
 
-### Start interactive tutorial: `help`
+#### Start interactive tutorial: `help`
 
-Starts the interactive tutorial for the app. In the following order, the tutorial will guide the user on how to use the commands for the application:
+Starts the interactive tutorial for the app. In the following order, the tutorial will guide the user on how to use the commands for the application, currently specific to [Circuit Commands](#circuit-commands):
 
 1. `template` - Selecting templates
 1. `set v` - Setting value for voltage
@@ -31,7 +37,22 @@ Starts the interactive tutorial for the app. In the following order, the tutoria
 
 Format: `help`
 
-### Create circuit template: `template`
+### Action Commands
+
+Action commnads used in the application can be split into two categories, the [*circuit* commands](#circuit-commands), or the [*logic gate* commands](#logic-gate-commands). The two categories may use the same syntax for some commands, but the application will continuously track the current `template` that is being worked on and automatically use the correct command to execute. Thus, if there is no current `template`, then the other commands used will not be available to run.
+
+The commands involved with both categories are:
+
+* `template`
+* `set`
+* `add`
+* `calc`
+
+#### Circuit Commands
+
+This section details how the commands are used with a *circuit* `template`.
+
+##### Create *circuit* template: `template`
 
 Creates a circuit template.
 
@@ -58,7 +79,7 @@ Total Resistance: 0.0 Ω
 Total Inductance: 0.0 µH
 ```
 
-### Set component value: `set` <a name='set'></a>
+##### Set component value: `set` <a name='set-comp'></a>
 
 Sets the value of the component. The component must be part of the current circuit template. Units correspond to the component involved - resistors in ohms, capacitors in microfarads, inductors in microhenries.
 
@@ -86,15 +107,14 @@ Total Resistance: 500.0 Ω
 Total Capacitance: 0.0 µF
 ```
 
-### Add component: `add`
+##### Add component: `add`
 
 Adds a component, in a specific configuration, to the current circuit template.
 
 Format: `add CONFIG COMPONENT VALUE`
-Format: `add CONFIG COMPONENT VALUE`
 
 * The `CONFIG` can be chosen from the 2 - `series` and `parallel`.
-* The `COMPONENT` and `VALUE` are as explained above under [Set component value](#set).
+* The `COMPONENT` and `VALUE` are as explained above under [Set component value](#set-comp).
 
 Example of usage:
 
@@ -112,7 +132,7 @@ Total Resistance: 500.0 Ω
 Total Capacitance: 500.0 µF
 ```
 
-### Calculate effective value: `calc`
+##### Calculate effective value: `calc`
 
 Calculates the effective value based on the components and their configuration. If calculating `reff`, `ceff`, or `leff`, the component must be part of the current circuit template.
 
@@ -135,6 +155,105 @@ Expected Outcome:
 The effective capacitance calculated is 500.0 µF
 ```
 
+#### Logic Gate Commands
+
+This section details how the commands are used with a *logic gate* `template`.
+
+##### Create *logic gate* template: `template` <a name='logic-template'></a>
+
+Creates a logic gate `template`.
+
+Format: `template GATE`
+
+* Logic Gate `GATE` can be chosen from the following:
+    * `not`, `and`, `or`, `xor`, `nand`, `nor`, `xnor`
+
+
+
+Example of usage:
+
+`template and`
+
+Expected outcome:
+
+```
+  |---C
+  |       
+-AND
+  |       
+  |---B
+```
+The letters B and C correspond to `INPUT` which is used in the following section.
+
+##### Set input value: `set` <a name='set-input'></a>
+
+Sets the value of an input.
+
+Format: `set INPUT VALUE`
+
+* The `INPUT` can be chosen only from the current `template`, which can be printed out using `print`.
+* The `VALUE` can be any integer, but any non-zero integer will be treated as `true`, while 0 is treated as `false`.
+
+Example of usage:
+
+`set B 0`
+
+Expected Outcome:
+```
+  |---C
+  |       
+-AND
+  |       
+  |---0
+```
+
+##### Add component: `add`
+
+The application has the ability to combine multiple templates to generate more complicated boolean logic gate configurations. This command allows you to set an input to a *logic gate* `template`.
+
+Format: `add INPUT GATE`
+
+* The `INPUT` is as explained above in [Set](#set-input).
+* The `GATE` is as explained above in [Template](#logic-template).
+
+Example of usage:
+
+`add C or`
+
+Expected Outcome:
+
+```
+       |---G
+  |---OR
+  |    |---F   
+-AND
+  |       
+  |---0
+```
+
+##### Calculate effective value: `calc`
+
+Calculates the effective output of the configured logic gates. This command requires that all inputs are set.
+
+Format: `calc`
+
+Example of usage:
+
+`calc`
+
+Expected Outcome:
+
+```
+       |---1
+  |---OR
+  |    |---0   
+-AND
+  |       
+  |---0
+
+The output of the above boolean logic gates is 0.
+```
+
 ## FAQ
 
 **Q**: How do I know the difference between the components?
@@ -147,7 +266,8 @@ Action | Format, Examples
 --------|------------------
 **Help** | `help`
 **Summary** | `summary`
-**Template** | `template TEMPLATE` <br> e.g., `template rc`
-**Set** | `set COMPONENT VALUE` <br> e.g., `set r 500`
-**Add** | `add CONFIG COMPONENT VALUE`<br> e.g., `add parallel c 500`
-**Calculate** | `calc EFF_VALUE` <br> e.g., `calc ceff`
+**Template Circuit/Logic Gate** | `template TEMPLATE/GATE` <br> e.g., `template rc` <br> e.g., `template and`
+**Set Circuit/Logic Gate** | `set COMPONENT/INPUT VALUE` <br> e.g., `set r 500` <br> e.g., `set B 0`
+**Add Circuit** | `add CONFIG COMPONENT VALUE`<br> e.g., `add parallel c 500`
+**Add Logic Gate** | `add INPUT GATE`<br> e.g., `add C or`
+**Calculate Circuit/Logic Gate** | `calc EFF_VALUE/[]` <br> e.g., `calc ceff` <br> e.g., `calc`
