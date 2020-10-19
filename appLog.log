@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2020-10-18T14:01:21.791291900Z</date>
-  <millis>1603029681791</millis>
-  <nanos>291900</nanos>
+  <date>2020-10-19T07:26:42.654329400Z</date>
+  <millis>1603092402654</millis>
+  <nanos>329400</nanos>
   <sequence>0</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -14,10 +14,57 @@
   <message>Execution is beginning.</message>
 </record>
 <record>
-  <date>2020-10-18T14:01:30.520877100Z</date>
-  <millis>1603029690520</millis>
-  <nanos>877100</nanos>
+  <date>2020-10-19T07:26:50.836178400Z</date>
+  <millis>1603092410836</millis>
+  <nanos>178400</nanos>
   <sequence>1</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>seedu.duke.commands.TemplateCommand</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>Template was chosen</message>
+</record>
+<record>
+  <date>2020-10-19T07:26:53.820006800Z</date>
+  <millis>1603092413820</millis>
+  <nanos>6800</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>seedu.duke.Duke</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Bad command</message>
+  <exception>
+    <message>seedu.duke.DukeException: Invalid component</message>
+    <frame>
+      <class>seedu.duke.template.RTemplate</class>
+      <method>getComponent</method>
+      <line>88</line>
+    </frame>
+    <frame>
+      <class>seedu.duke.commands.SetCommand</class>
+      <method>execute</method>
+      <line>34</line>
+    </frame>
+    <frame>
+      <class>seedu.duke.Duke</class>
+      <method>run</method>
+      <line>35</line>
+    </frame>
+    <frame>
+      <class>seedu.duke.Duke</class>
+      <method>main</method>
+      <line>50</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2020-10-19T07:27:35.836338400Z</date>
+  <millis>1603092455836</millis>
+  <nanos>338400</nanos>
+  <sequence>3</sequence>
   <logger>global</logger>
   <level>INFO</level>
   <class>seedu.duke.commands.ExitCommand</class>
@@ -26,10 +73,10 @@
   <message>Changed flag to exit program.</message>
 </record>
 <record>
-  <date>2020-10-18T14:01:30.521878Z</date>
-  <millis>1603029690521</millis>
-  <nanos>878000</nanos>
-  <sequence>2</sequence>
+  <date>2020-10-19T07:27:35.838149800Z</date>
+  <millis>1603092455838</millis>
+  <nanos>149800</nanos>
+  <sequence>4</sequence>
   <logger>global</logger>
   <level>INFO</level>
   <class>seedu.duke.Duke</class>
