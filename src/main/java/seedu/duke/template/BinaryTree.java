@@ -7,15 +7,11 @@ import java.util.Collections;
 
 public class BinaryTree<T> {
     private final ArrayList<T> arrayList = new ArrayList<>(Collections.nCopies(16, null));
-    private final int spaces = 4;
+    private final int SPACES = 4;
     private String tree = "";
 
     public BinaryTree(T root) {
         arrayList.set(0, root);
-    }
-
-    public BinaryTree() {
-        this(null);
     }
 
     /**
@@ -111,7 +107,7 @@ public class BinaryTree<T> {
         }
         //Process the right subtree, if it exists.
         if (!isNullAtIndex(getRightIndex(index))) {
-            buildTreeString(getRightIndex(index), space + spaces);
+            buildTreeString(getRightIndex(index), space + SPACES);
         }
 
         for (int i = 0; i < space; i++) {
@@ -121,7 +117,7 @@ public class BinaryTree<T> {
 
         //Process the the left subtree , if it exists.
         if (!isNullAtIndex(getLeftIndex(index))) {
-            buildTreeString(getLeftIndex(index), space + spaces);
+            buildTreeString(getLeftIndex(index), space + SPACES);
         }
     }
 
