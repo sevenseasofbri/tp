@@ -7,7 +7,7 @@ import java.util.Collections;
 
 public class BinaryTree<T> {
     private final ArrayList<T> arrayList = new ArrayList<>(Collections.nCopies(16, null));
-    private final int SPACES_OF_FOUR = 4;
+    private static final int SPACES_OF_FOUR = 4;
     private String tree = "";
 
     public BinaryTree(T root) {
