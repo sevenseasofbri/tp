@@ -5,7 +5,8 @@ import seedu.duke.DukeException;
 import seedu.duke.component.Resistor;
 import seedu.duke.template.RcTemplate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class SetCommandTest {
 
