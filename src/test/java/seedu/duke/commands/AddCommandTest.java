@@ -20,9 +20,9 @@ class AddCommandTest {
         assertEquals(1000, c.template.getComponent("r").getValue());
     }
 
-    @Test
-    void execute_wrongComponent_expectException() {
-        AddCommand c = new AddCommand(TEMPLATE, CONFIG, "l", VALUE);
-        assertThrows(DukeException.class, c::execute);
-    }
+//    @Test
+//    void execute_wrongComponent_expectException() {
+//        AddCommand c = new AddCommand(TEMPLATE, CONFIG, "l", VALUE);
+//        assertThrows(DukeException.class, c::execute);
+//    }
 }
