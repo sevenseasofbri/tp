@@ -186,11 +186,13 @@ Example of usage:
 Expected outcome:
 
 ```
-  |---C
-  |       
--AND
-  |       
-  |---B
+      OUT
+       |
+   B       C
+
+OUT = B AND C
+B = ?
+C = ?
 ```
 The letters B and C correspond to `INPUT` which is used in the following section.
 
@@ -209,11 +211,13 @@ Example of usage:
 
 Expected Outcome:
 ```
-  |---C
-  |       
--AND
-  |       
-  |---0
+      OUT
+       |
+   B       C
+
+OUT = B AND C
+B = 0
+C = ?
 ```
 
 ##### Add component: `add`
@@ -236,12 +240,16 @@ Example of usage:
 Expected Outcome:
 
 ```
-       |---G
-  |---OR
-  |    |---F   
--AND
-  |       
-  |---0
+      OUT
+       |
+   B       C
+         F   G
+
+OUT = B AND C
+B = 0
+C = F OR G
+F = ?
+G = ?
 ```
 
 ##### Calculate effective value: `calc`
@@ -257,12 +265,16 @@ Example of usage:
 Expected Outcome:
 
 ```
-       |---1
-  |---OR
-  |    |---0   
--AND
-  |       
-  |---0
+      OUT
+       |
+   B       C
+         F   G
+
+OUT = B AND C
+B = 0
+C = F OR G
+F = 1
+G = 0
 
 The output of the above configuration is 0.
 ```
