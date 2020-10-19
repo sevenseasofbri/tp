@@ -8,15 +8,6 @@ add parallel c 20
 calc power
 exit
 summary
-<<<<<<< HEAD
-template rl
-set r 2
-set l 3
-add series r 2
-add series l 2
-add parallel r 2
-set r 3
-=======
 template rc
 set v 5
 set r 200
@@ -27,5 +18,4 @@ add parallel r 200
 set r 100
 set c 2
 calc current
->>>>>>> 23fbc845356e08ec7a208524a96bed1a348ff114
 bye
