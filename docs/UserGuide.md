@@ -1,5 +1,26 @@
 # User Guide
 
+## Table of Contents
+1. [Introduction](#introduction)
+1. [Quick Start](#quick-start)
+1. [Features](#features)
+    1. [General Commands](#general-commands)
+        1. [Summary of Commands](#summary)
+        1. [Interactive Tutorial](#help)
+    1. [Action Commands](#action-commands)
+        1. [Circuit Commands](#circuit-commands)
+            1. [Create Circuit Template](#template-circ)
+            1. [Set Component](#set-comp)
+            1. [Add Component](#add-comp)
+            1. [Calculate Value](#calc-circ)
+        1. [Logic Gate Commands](#logic-gate-commands)
+            1. [Create Boolean Template](#template-logic)
+            1. [Set Input](#set-input)
+            1. [Add Gate](#add-gate)
+            1. [Calculate Output](#calc-circ)
+1. [FAQ](#faq)
+1. [Command Summary](#command-summary)
+
 ## Introduction
 
 CLIrcuit Assistant is a desktop app to implement and solve simple circuits, optimized for use via the Command Line Interface (CLI).
@@ -18,13 +39,13 @@ This section details the various features and commands available.
 
 This section details the generic commands that can be used.
 
-#### Summary of Commands: `summary`
+#### Summary of Commands: `summary` <a name="summary"></a>
 
 This command prints a summary of all commands in the application as shown in [Command Summary](#command-summary).
 
 Format: `summary`
 
-#### Start interactive tutorial: `help`
+#### Start interactive tutorial: `help` <a name="help"></a>
 
 Starts the interactive tutorial for the app. In the following order, the tutorial will guide the user on how to use the commands for the application, currently specific to [Circuit Commands](#circuit-commands):
 
@@ -37,7 +58,7 @@ Starts the interactive tutorial for the app. In the following order, the tutoria
 
 Format: `help`
 
-#### Print: `print`
+#### Print: `print` <a name="print"></a>
 
 Prints the current `template` that is set under the [Action Commands](#action-commands) below. Nothing is printed if a `template` is not yet set.
 
@@ -59,11 +80,11 @@ The format of commands below keep to the following.
 | :information_source: | Words in `UPPER_CASE` are parameters. |
 |----------------------|:-------------------------------------|
 
-#### Circuit Commands
+#### Circuit Commands 
 
 This section details how the commands are used with a *circuit* `template`.
 
-##### Create *circuit* template: `template`
+##### Create *circuit* template: `template` <a name="template-circ"></a>
 
 Creates a circuit template.
 
@@ -118,7 +139,7 @@ Total Resistance: 500.0 Ω
 Total Capacitance: 0.0 µF
 ```
 
-##### Add component: `add`
+##### Add component: `add` <a name="add-comp"></a>
 
 Adds a component, in a specific configuration, to the current circuit template.
 
@@ -143,7 +164,7 @@ Total Resistance: 500.0 Ω
 Total Capacitance: 500.0 µF
 ```
 
-##### Calculate effective value: `calc`
+##### Calculate effective value: `calc` <a name="calc-circ"></a>
 
 Calculates the effective value based on the components and their configuration. If calculating `reff`, `ceff`, or `leff`, the component must be part of the current circuit template.
 
@@ -170,7 +191,7 @@ The effective capacitance calculated is 500.0 µF
 
 This section details how the commands are used with a *logic gate* `template`.
 
-##### Create *logic gate* template: `template` <a name='logic-template'></a>
+##### Create *logic gate* template: `template` <a name='template-logic'></a>
 
 Creates a logic gate `template`.
 
@@ -220,7 +241,7 @@ B = 0
 C = ?
 ```
 
-##### Add component: `add`
+##### Add `Gate`: `add` <a name="add-gate"></a>
 
 The application has the ability to combine multiple templates to generate more complicated boolean logic gate configurations. This command allows you to set an input to a *logic gate* `template`. However, the depth of the deepest *logic gate* from the root *logic gate* cannot exceed 3.
 
@@ -231,7 +252,7 @@ The application has the ability to combine multiple templates to generate more c
 Format: `add INPUT GATE`
 
 * The `INPUT` is as explained above in [Set](#set-input).
-* The `GATE` is as explained above in [Template](#logic-template).
+* The `GATE` is as explained above in [Template](#template-logic).
 
 Example of usage:
 
@@ -252,9 +273,9 @@ F = ?
 G = ?
 ```
 
-##### Calculate effective value: `calc`
+##### Calculate output: `calc` <a name="calc-output"></a>
 
-Calculates the effective output of the configured logic gates. This command requires that all inputs are set.
+Calculates the output of the configured logic gates. This command requires that all inputs are set.
 
 Format: `calc`
 

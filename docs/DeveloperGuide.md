@@ -1,5 +1,18 @@
 # Developer Guide
 
+## Table of Contents
+* [Design & Implementation](#design--implmentation)
+    * [UI component](#ui-component)
+    * [Logic component](#logic-component)
+    * [Model component](#model-component)
+* [Product scope](#product-scope)
+    * [Target user profile](#target-user-profile)
+    * [Value proposition](#value-proposition)
+* [User Stories](#user-stories)
+* [Non-Functional Requirements](#non-functional-requirements)
+* [Glossary](#glossary)
+* [Instructions for manual testing](#instructions)
+
 ## Design & Implementation
 
 ![ArchitectureDiagram](diagrams/ArchitectureDiagram.png)
@@ -78,6 +91,6 @@ CLIrcuit Assistant solves three problems:
 
 * *glossary item* - Definition
 
-## Instructions for manual testing
+## Instructions for manual testing <a name="instructions"></a>
 
 {Give instructions on how to do a manual product testing e.g., how to load sample data to be used for testing}
