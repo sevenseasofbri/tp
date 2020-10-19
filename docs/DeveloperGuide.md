@@ -32,6 +32,10 @@ The `Ui` component
 1. The command execution can affect the `Model` (e.g. setting a value).
 1. In addition, the `Ui` may also perform certain actions, such as displaying help to the user.
 
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `parse("set r 500")` API call.
+
+![SetSequence](diagrams/SetSequenceDiagram.png)
+
 ### Model component
 
 ![ModelDiagram](diagrams/ModelClassDiagram.png)
