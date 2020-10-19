@@ -1,7 +1,8 @@
 package seedu.duke.commands;
 
 import seedu.duke.template.Template;
-import seedu.duke.ui.Ui;
+
+import java.util.logging.Logger;
 
 public class TemplateCommand extends Command {
 
@@ -9,13 +10,13 @@ public class TemplateCommand extends Command {
         super(template);
     }
 
-    /**
-    * Executes appropriate methods based on the given command.
-    *
-    * @param ui Ui object.
-    */
     @Override
-    public void execute(Ui ui) {
-        ui.printMessage(template.toString());
+    public void execute() {
+        LOGGER.info("Template was chosen");
+    }
+
+    @Override
+    public String toString() {
+        return template.toString();
     }
 }

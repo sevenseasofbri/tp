@@ -2,8 +2,6 @@
 
 ## Design & Implementation
 
-{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
-
 ![ArchitectureDiagram](diagrams/ArchitectureDiagram.png)
 
 The **Architecture Design** given above explains the high-level design of the App. Given below is a quick overview of each component.
@@ -18,6 +16,8 @@ The rest of the app consists of four components.
 
 ### UI component
 
+![UiDiagram](diagrams/UiClassDiagram.png)
+
 The `Ui` component
 
 * Executes user commands using the `Logic` component.
@@ -25,12 +25,16 @@ The `Ui` component
 
 ### Logic component
 
+![LogicDiagram](diagrams/LogicClassDiagram.png)
+
 1. `Logic` uses the `Parser` class to parse the user command.
 1. This results in a `Command` object which is executed in `Duke`.
 1. The command execution can affect the `Model` (e.g. setting a value).
 1. In addition, the `Ui` may also perform certain actions, such as displaying help to the user.
 
 ### Model component
+
+![ModelDiagram](diagrams/ModelClassDiagram.png)
 
 The `Model`,
 

@@ -1,19 +1,25 @@
 package seedu.duke.commands;
 
-import seedu.duke.ui.Ui;
+import java.util.logging.Logger;
 
 public class ExitCommand extends Command {
-    public ExitCommand() {
+
+    /**
+     * Executes the exit command.
+     */
+    @Override
+    public void execute() {
         isExit = true;
+        LOGGER.info("Changed flag to exit program.");
     }
 
     /**
-     * Executes the exit command message.
+     * String representation of the Command.
      *
-     * @param ui Ui object.
+     * @return String representation.
      */
     @Override
-    public void execute(Ui ui) {
-        ui.printFarewell();
+    public String toString() {
+        return " Bye. See you next time!";
     }
 }

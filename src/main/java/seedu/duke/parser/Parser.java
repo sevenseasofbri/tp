@@ -15,7 +15,11 @@ import seedu.duke.template.RTemplate;
 import seedu.duke.template.RcTemplate;
 import seedu.duke.template.Template;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Parser {
+    private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private static Template template = null;
 
     /**
@@ -28,12 +32,12 @@ public class Parser {
     public Command parse(String line) throws DukeException {
         // Prevent blank tasks
         if (line.isBlank()) {
+            LOGGER.log(Level.WARNING, "Blank line entered.");
             throw new DukeException("Invalid command!");
         }
         // split by whitespace
         String[] args = line.split("\\s+");
         String command = args[0].toLowerCase();
-
 
         switch (command) {
         case "help":
@@ -121,6 +125,7 @@ public class Parser {
         }
 
         double value = Double.parseDouble(args[2]);
+        assert value > 0;
         return new SetCommand(template, args[1], value);
     }
 
@@ -140,6 +145,7 @@ public class Parser {
         }
 
         double value = Double.parseDouble(args[3]);
+        assert value > 0;
         return new AddCommand(template, args[1], args[2], value);
     }
 

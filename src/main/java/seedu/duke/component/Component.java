@@ -17,6 +17,7 @@ public abstract class Component {
      * @return Value of Component.
      */
     public double getValue() {
+        assert value > 0 : "Value has been incorrectly read.";
         return value;
     }
 
@@ -26,9 +27,12 @@ public abstract class Component {
      * @param value Value of Component.
      */
     public void setValue(double value) {
-        if (value > 0) {
-            this.value = value;
+        if (value < 0) {
+            throw new ArithmeticException("You tried to enter a negative value!");
+        } else if (value == 0) {
+            throw new ArithmeticException("You tried to enter a zero value!");
         }
+        this.value = value;
     }
 
     /**

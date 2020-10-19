@@ -12,7 +12,7 @@ class LrTemplateTest {
     @Test
     void calcImpedance_zeroInductance_expectException() {
         LrTemplate t = new LrTemplate();
-        assertThrows(DukeException.class, t::calcImpedance);
+        assertThrows(AssertionError.class, t::calcImpedance);
     }
 
     @Test

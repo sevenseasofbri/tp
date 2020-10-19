@@ -1,0 +1,26 @@
+@startuml
+
+package Model {
+package Template {
+    Class XYZTemplate
+    Class "{abstract}\nTemplate" as Template
+}
+
+package Component {
+
+    Class XYZComponent
+    Class XYZLoadComponent
+    Class "{abstract}\nComponent" as Component
+    Class "{abstract}\nLoadComponent" as LoadComponent
+
+}
+}
+
+XYZTemplate --|> Template
+
+Template --> Component
+LoadComponent --|> Component
+XYZComponent --|> Component
+XYZLoadComponent --|> LoadComponent
+
+@enduml

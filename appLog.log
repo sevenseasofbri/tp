@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-10-15T16:50:13.929890700Z</date>
+  <millis>1602780613929</millis>
+  <nanos>890700</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>seedu.duke.Duke</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Execution is beginning.</message>
+</record>
+<record>
+  <date>2020-10-15T16:50:24.571079800Z</date>
+  <millis>1602780624571</millis>
+  <nanos>79800</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>seedu.duke.Duke</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Bad command</message>
+  <exception>
+    <message>seedu.duke.DukeException: Invalid Command!</message>
+    <frame>
+      <class>seedu.duke.parser.Parser</class>
+      <method>parse</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>seedu.duke.Duke</class>
+      <method>run</method>
+      <line>33</line>
+    </frame>
+    <frame>
+      <class>seedu.duke.Duke</class>
+      <method>main</method>
+      <line>49</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2020-10-15T16:50:27.585772200Z</date>
+  <millis>1602780627585</millis>
+  <nanos>772200</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>seedu.duke.Duke</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Bad command</message>
+  <exception>
+    <message>seedu.duke.DukeException: Invalid Command!</message>
+    <frame>
+      <class>seedu.duke.parser.Parser</class>
+      <method>parse</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>seedu.duke.Duke</class>
+      <method>run</method>
+      <line>33</line>
+    </frame>
+    <frame>
+      <class>seedu.duke.Duke</class>
+      <method>main</method>
+      <line>49</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2020-10-15T16:50:33.609323400Z</date>
+  <millis>1602780633609</millis>
+  <nanos>323400</nanos>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>seedu.duke.commands.TemplateCommand</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>Template was chosen</message>
+</record>
+<record>
+  <date>2020-10-15T16:50:42.693458700Z</date>
+  <millis>1602780642693</millis>
+  <nanos>458700</nanos>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>FINE</level>
+  <class>seedu.duke.commands.HelpCommand</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>Bad Command DukeException thrown.</message>
+  <exception>
+    <message>seedu.duke.DukeException: Bad Command! Please follow the instructions carefully.If you want to exit this mode, type 'exit' and press enter.</message>
+    <frame>
+      <class>seedu.duke.commands.HelpCommand</class>
+      <method>continueTutorial</method>
+      <line>51</line>
+    </frame>
+    <frame>
+      <class>seedu.duke.commands.HelpCommand</class>
+      <method>execute</method>
+      <line>36</line>
+    </frame>
+    <frame>
+      <class>seedu.duke.Duke</class>
+      <method>run</method>
+      <line>34</line>
+    </frame>
+    <frame>
+      <class>seedu.duke.Duke</class>
+      <method>main</method>
+      <line>49</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2020-10-15T16:50:59.733998300Z</date>
+  <millis>1602780659733</millis>
+  <nanos>998300</nanos>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>seedu.duke.commands.HelpCommand</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>Exiting help mode</message>
+</record>
+<record>
+  <date>2020-10-15T16:51:01.747909Z</date>
+  <millis>1602780661747</millis>
+  <nanos>909000</nanos>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>seedu.duke.commands.ExitCommand</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>Changed flag to exit program.</message>
+</record>
+<record>
+  <date>2020-10-15T16:51:01.749640200Z</date>
+  <millis>1602780661749</millis>
+  <nanos>640200</nanos>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>seedu.duke.Duke</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Execution has ended</message>
+</record>
+</log>
