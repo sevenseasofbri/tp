@@ -112,7 +112,7 @@ public class LcTemplate extends Template {
      * @throws DukeException If input String does not match a component.
      */
     @Override
-    public LoadComponent getComponent(String component) throws DukeException{
+    public LoadComponent getComponent(String component) throws DukeException {
         if (component.equals("l")) {
             return getInductor();
         } else if (component.equals("c")) {
