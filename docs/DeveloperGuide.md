@@ -1,7 +1,7 @@
 # Developer Guide
 
 ## Table of Contents
-* [Design & Implementation](#design--implmentation)
+* [Design & Implementation](#design--implementation)
     * [UI component](#ui-component)
     * [Logic component](#logic-component)
     * [Model component](#model-component)
