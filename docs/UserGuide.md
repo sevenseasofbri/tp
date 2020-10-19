@@ -45,7 +45,7 @@ Format: `print`
 
 ### Action Commands
 
-Action commnads used in the application can be split into two categories, the [*circuit* commands](#circuit-commands), or the [*logic gate* commands](#logic-gate-commands). The two categories may use the same syntax for some commands, but the application will continuously track the current `template` that is being worked on and automatically use the correct command to execute. Thus, if there is no current `template`, then the other commands used will not be available to run.
+Action commands used in the application can be split into two categories, the [*circuit* commands](#circuit-commands), or the [*logic gate* commands](#logic-gate-commands). The two categories may use the same syntax for some commands, but the application will continuously track the current `template` that is being worked on and automatically use the correct command to execute. Thus, if there is no current `template`, then the other commands used will not be available to run.
 
 The commands involved with both categories are:
 
@@ -53,6 +53,11 @@ The commands involved with both categories are:
 * `set`
 * `add`
 * `calc`
+
+The format of commands below keep to the following.
+
+| :information_source: | Words in `UPPER_CASE` are parameters. |
+|----------------------|:-------------------------------------|
 
 #### Circuit Commands
 
@@ -172,9 +177,7 @@ Creates a logic gate `template`.
 Format: `template GATE`
 
 * Logic Gate `GATE` can be chosen from the following:
-    * `not`, `and`, `or`, `xor`, `nand`, `nor`, `xnor`
-
-
+    * `and`, `or`, `xor`, `nand`, `nor`, `xnor`
 
 Example of usage:
 
@@ -215,7 +218,11 @@ Expected Outcome:
 
 ##### Add component: `add`
 
-The application has the ability to combine multiple templates to generate more complicated boolean logic gate configurations. This command allows you to set an input to a *logic gate* `template`.
+The application has the ability to combine multiple templates to generate more complicated boolean logic gate configurations. This command allows you to set an input to a *logic gate* `template`. However, the depth of the deepest *logic gate* from the root *logic gate* cannot exceed 3.
+
+
+| :exclamation: | The `BooleanTemplate` `Gate` depth cannot exceed 3. |
+|---------------|:-------------------------------------|
 
 Format: `add INPUT GATE`
 
@@ -257,7 +264,7 @@ Expected Outcome:
   |       
   |---0
 
-The output of the above boolean logic gates is 0.
+The output of the above configuration is 0.
 ```
 
 ## FAQ

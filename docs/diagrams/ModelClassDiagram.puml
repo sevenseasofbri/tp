@@ -2,8 +2,9 @@
 
 package Model {
 package Template {
-    Class XYZTemplate
-    Class "{abstract}\nTemplate" as Template
+    Class XYZCircuitTemplate
+    Class "{abstract}\nCircuitTemplate" as CircuitTemplate
+    Class BooleanTemplate
 }
 
 package Component {
@@ -14,13 +15,28 @@ package Component {
     Class "{abstract}\nLoadComponent" as LoadComponent
 
 }
+
+package Gate {
+    Class XYZGate
+    Class "{abstract}\nGate" as Gate
 }
 
-XYZTemplate --|> Template
+package BinaryTree {
+    Class BinaryTree<Gate>
+}
+}
 
-Template --> Component
+XYZCircuitTemplate --|> CircuitTemplate
+
+CircuitTemplate --> Component
 LoadComponent --|> Component
 XYZComponent --|> Component
 XYZLoadComponent --|> LoadComponent
+
+BooleanTemplate --|> BinaryTree
+BooleanTemplate --> Gate
+BinaryTree --> Gate
+
+XYZGate --|> Gate
 
 @enduml

@@ -27,6 +27,7 @@ The `Ui` component
 
 ![LogicDiagram](diagrams/LogicClassDiagram.png)
 
+1. `Logic` stores a current `Template` object that represents the current circuit configuration.
 1. `Logic` uses the `Parser` class to parse the user command.
 1. This results in a `Command` object which is executed in `Duke`.
 1. The command execution can affect the `Model` (e.g. setting a value).
@@ -41,8 +42,8 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 ![ModelDiagram](diagrams/ModelClassDiagram.png)
 
 The `Model`,
-
-* stores a current `Template` object that represents the current circuit configuration.
+* includes `CircuitTemplate` and `BooleanTemplate` that can represent the current `template` in [`Logic`](#logic-component).
+* has `Component` and `Gate` within the templates.
 * does not depend on any of the other three components.
 
 ## Product scope
