@@ -1,0 +1,57 @@
+@startuml
+
+box Logic
+participant ":Parser" as Parser
+participant ":SetCommand" as SetCommand
+end box
+
+box Model 
+participant ":Model" as Model 
+end box
+
+
+[-> Parser : parse("set r 500")
+activate Parser
+
+Parser -> Parser : prepareSet("set r 500")
+activate Parser
+
+Parser -> SetCommand : SetCommand(template, "r", 500)
+activate SetCommand
+
+SetCommand -> Parser : c
+deactivate SetCommand
+
+Parser -> Parser : c
+deactivate Parser
+
+[<- Parser : c
+deactivate Parser
+
+
+[-> SetCommand : execute()
+activate SetCommand
+
+SetCommand -> Model : template.getComponent("r")
+activate Model
+
+Model -> SetCommand : comp
+deactivate Model
+
+SetCommand -> Model : comp.setValue(500)
+activate Model
+
+Model -> SetCommand
+deactivate Model
+
+SetCommand -> Model : template.setComponent("r",500)
+activate Model
+
+Model -> SetCommand
+deactivate Model
+
+[<- SetCommand 
+deactivate SetCommand
+
+
+@enduml
