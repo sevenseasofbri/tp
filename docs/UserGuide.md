@@ -37,6 +37,12 @@ Starts the interactive tutorial for the app. In the following order, the tutoria
 
 Format: `help`
 
+#### Print: `print`
+
+Prints the current `template` that is set under the [Action Commands](#action-commands) below. Nothing is printed if a `template` is not yet set.
+
+Format: `print`
+
 ### Action Commands
 
 Action commnads used in the application can be split into two categories, the [*circuit* commands](#circuit-commands), or the [*logic gate* commands](#logic-gate-commands). The two categories may use the same syntax for some commands, but the application will continuously track the current `template` that is being worked on and automatically use the correct command to execute. Thus, if there is no current `template`, then the other commands used will not be available to run.
@@ -266,6 +272,7 @@ Action | Format, Examples
 --------|------------------
 **Help** | `help`
 **Summary** | `summary`
+**Print Circuit/Logic Gate** | `print`
 **Template Circuit/Logic Gate** | `template TEMPLATE/GATE` <br> e.g., `template rc` <br> e.g., `template and`
 **Set Circuit/Logic Gate** | `set COMPONENT/INPUT VALUE` <br> e.g., `set r 500` <br> e.g., `set B 0`
 **Add Circuit** | `add CONFIG COMPONENT VALUE`<br> e.g., `add parallel c 500`
