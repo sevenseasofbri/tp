@@ -14,6 +14,10 @@ public class BinaryTree<T> {
         arrayList.set(0, root);
     }
 
+    public BinaryTree() {
+        this(null);
+    }
+
     /**
      * Checks if the tree is empty.
      *
