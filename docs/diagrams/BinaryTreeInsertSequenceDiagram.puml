@@ -1,15 +1,23 @@
 @startuml
+box Logic
+participant ":BooleanTemplate" as BooleanTemplate
+end box
+
+box Model
+participant ":BinaryTree" as BinaryTree
+participant ":AndGate" as AndGate
+end box
 autoactivate on
-Logic -->>AndGate: <<create>>
+BooleanTemplate -->>AndGate: <<create>>
 return gateObj
-Logic -> BinaryTree : insert(1, gateObj)
-BinaryTree -> BinaryTree : isNullAtIndex(getParentIndex(idx))
-BinaryTree -> BinaryTree : getParentIndex(idx)
-return 0
-return false
-alt valid index and is not null at parent index
-BinaryTree -> ArrayList : set(idx, gateObj)
-return
+
+BooleanTemplate -> BinaryTree : insert(1, gateObj)
+BinaryTree -> BinaryTree : isNullAtIndex(idx)
+ref over BinaryTree
+Check if parent is null.
 end
-return
+return false
+alt valid index and parent is not null
+return set successfully
+end
 @enduml

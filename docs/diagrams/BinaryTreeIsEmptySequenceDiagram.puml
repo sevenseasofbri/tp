@@ -1,0 +1,16 @@
+@startuml
+box Logic
+participant ":BooleanTemplate" as BooleanTemplate
+end box
+
+box Model
+participant ":BinaryTree" as BinaryTree
+end box
+autoactivate on
+BooleanTemplate -> BinaryTree : isEmpty()
+
+BinaryTree -> BinaryTree : isNullAtIndex(0)
+return false
+return false
+
+@enduml

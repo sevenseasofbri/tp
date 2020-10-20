@@ -7,14 +7,6 @@ import java.util.Collections;
 
 public class BinaryTree<T> {
     protected final ArrayList<T> arrayList = new ArrayList<>(Collections.nCopies(15, null));
-    protected String tree = "";
-    private static String FULL_TREE = "          0UT \n"
-            + "           |     \n"
-            + "     B           C\n"
-            + "                     \n"
-            + "  D     E     F     G\n"
-            + "                      \n"
-            + "H   I J   K L   M N   O";
 
     public BinaryTree(T root) {
         arrayList.set(0, root);
@@ -56,7 +48,7 @@ public class BinaryTree<T> {
         arrayList.set(idx, t);
     }
 
-    private int getParentIndex(int idx) {
+    public int getParentIndex(int idx) {
         if (idx % 2 == 0) {
             return idx / 2 - 1;
         } else {
@@ -76,7 +68,7 @@ public class BinaryTree<T> {
         return (int) (Math.log(idx + 1) / Math.log(2));
     }
 
-    private boolean isNullAtIndex(int idx) {
+    public boolean isNullAtIndex(int idx) {
         boolean isNull;
         try {
             isNull = arrayList.get(idx) == null;
@@ -97,23 +89,4 @@ public class BinaryTree<T> {
         return !isNullAtIndex(index) && hasNoChildren;
     }
 
-    private void buildTopDown() {
-        tree = FULL_TREE;
-        for (int i = 0; i< arrayList.size(); i++) {
-            if( i != 0 && isNullAtIndex(getParentIndex(i))) { // i == 0
-                tree = tree.replace((char)(65 + i), ' ');
-            }
-        }
-    }
-
-    /**
-     * Returns a String after formatting with the function buildTreeString().
-     *
-     * @return String type instance variable tree.
-     */
-    @Override
-    public String toString() {
-        buildTopDown();
-        return tree;
-    }
 }
