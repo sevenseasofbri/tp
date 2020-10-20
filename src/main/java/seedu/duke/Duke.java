@@ -1,7 +1,6 @@
 package seedu.duke;
 
 import seedu.duke.logic.commands.Command;
-import seedu.duke.logic.commands.circuit.CircuitCommand;
 import seedu.duke.logic.parser.Parser;
 import seedu.duke.ui.Ui;
 
