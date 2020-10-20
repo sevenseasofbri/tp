@@ -1,7 +1,8 @@
 package seedu.duke.model.template;
 
 import seedu.duke.DukeException;
-import seedu.duke.model.component.gates.Gate;
+import seedu.duke.model.binarytree.BinaryTree;
+import seedu.duke.model.gates.Gate;
 
 public class BooleanTemplate {
     private static String FULL_TREE = "          0UT \n"

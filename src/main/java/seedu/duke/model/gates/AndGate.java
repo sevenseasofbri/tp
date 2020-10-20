@@ -1,4 +1,4 @@
-package seedu.duke.model.component.gates;
+package seedu.duke.model.gates;
 
 public class AndGate extends TwoInputGate {
     public AndGate(int input1, int input2) {

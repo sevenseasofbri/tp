@@ -1,4 +1,4 @@
-package seedu.duke.model.component.gates;
+package seedu.duke.model.gates;
 
 public abstract class TwoInputGate extends Gate {
     protected int secondInput;

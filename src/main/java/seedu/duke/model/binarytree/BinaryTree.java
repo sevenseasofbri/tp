@@ -1,4 +1,4 @@
-package seedu.duke.model.template;
+package seedu.duke.model.binarytree;
 
 import seedu.duke.DukeException;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class BinaryTree<T> {
-    protected final ArrayList<T> arrayList = new ArrayList<>(Collections.nCopies(15, null));
+    public final ArrayList<T> arrayList = new ArrayList<>(Collections.nCopies(15, null));
 
     public BinaryTree(T root) {
         arrayList.set(0, root);
