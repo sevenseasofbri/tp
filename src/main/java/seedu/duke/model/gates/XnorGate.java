@@ -1,12 +1,7 @@
-package seedu.duke.model.component.gates;
+package seedu.duke.model.gates;
 
-public class XnorGate extends TwoInputGate {
+public class XnorGate extends XorGate {
     private static final String XNOR = "--(~^)--";
-
-    public XnorGate(int input1, int input2) {
-        input = input1;
-        secondInput = input2;
-    }
 
     /**
      * Performs bitwise XNOR (~^) operation on the input instance variables.
@@ -15,7 +10,7 @@ public class XnorGate extends TwoInputGate {
      */
     @Override
     public int getOutput() {
-        return ~(input ^ secondInput);
+        return ~(super.getOutput());
     }
 
     /**

@@ -1,4 +1,4 @@
-package seedu.duke.model.template;
+package seedu.duke.model.binarytree;
 
 import seedu.duke.DukeException;
 
