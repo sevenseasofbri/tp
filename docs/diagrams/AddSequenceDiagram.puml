@@ -1,0 +1,117 @@
+@startuml
+
+box logic
+participant ":Parser" as Parser
+participant ":AddCommand" as AddCommand
+end box
+
+box template
+participant ":RcTemplate" as RcTemplate
+end box
+
+box component
+participant ":Capacitor" as Capacitor
+participant ":Component" as Component
+end box
+
+[-> Parser : parse("add parallel c 20")
+activate Parser
+
+Parser -> Parser : (prepareAdd("add parallel c 20"))
+activate Parser
+
+Parser -> AddCommand : AddCommand(template,"parallel","c", 500)
+activate AddCommand
+
+Parser <- AddCommand : add
+deactivate AddCommand
+
+Parser <- Parser : add
+deactivate Parser
+
+[<- Parser : add
+deactivate Parser
+
+[-> AddCommand: Execute
+activate AddCommand
+
+AddCommand -> RcTemplate : rc.getComponent(c)
+activate RcTemplate
+
+RcTemplate -> Capacitor : getComponent(c)
+activate Capacitor
+
+RcTemplate <- Capacitor : capacitor
+deactivate Capacitor
+
+AddCommand <- RcTemplate : capacitor
+deactivate RcTemplate
+
+AddCommand -> AddCommand : getNewValue()
+activate AddCommand
+
+alt series
+AddCommand -> Capacitor : capacitor.addSeries(20)
+activate Capacitor
+
+AddCommand <- Capacitor : value
+deactivate Capacitor
+
+else parallel
+AddCommand -> Capacitor : capacitor.addParallel(20)
+activate Capacitor
+
+AddCommand <- Capacitor : value
+deactivate Capacitor
+end
+
+AddCommand <- AddCommand : value
+deactivate AddCommand
+
+AddCommand -> Capacitor : capacitor.setValue(value)
+activate Capacitor
+
+AddCommand <- Capacitor : capacitor
+deactivate Capacitor
+
+AddCommand -> RcTemplate: rc.setComponent(capacitor, value)
+activate RcTemplate
+
+RcTemplate -> RcTemplate: setComponent("c", value)
+activate RcTemplate
+
+alt "c"
+RcTemplate -> RcTemplate: setCapacitor(value)
+activate RcTemplate
+
+RcTemplate -> Capacitor: capacitor.setValue(value)
+activate Capacitor
+
+RcTemplate <- Capacitor: capacitor
+deactivate Capacitor
+
+RcTemplate <- RcTemplate: capacitor
+deactivate RcTemplate
+
+else not "c"
+RcTemplate -> Component: setComponent(c, value)
+activate Component
+
+RcTemplate <- Component: component
+deactivate Component
+end
+
+RcTemplate <- RcTemplate: capacitor
+deactivate RcTemplate
+
+AddCommand <- RcTemplate: capacitor
+deactivate RcTemplate
+
+[<- AddCommand
+deactivate AddCommand
+
+
+
+
+
+@enduml
