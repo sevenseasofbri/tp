@@ -99,6 +99,7 @@ further discussed in the section detailing the `insert()` function.
 #### Initialising A `BinaryTree<T>` Object
 The Logic initialises the `BinaryTree<Gate>` object using the parameterised constructor, thus specifying the Gate class type 
 root. The object diagram below depicts the initial state of the Model when a `BinaryTree<Gate>` object is created.
+
 ![InitialBinaryTree](diagrams/BinaryTreeInitialObjectDiagram.png)
 
 The Logic uses the parameterised constructor of `BinaryTree<T>` to create the object since it requires initialisation of
@@ -208,4 +209,3 @@ https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-output
 
 ### Exiting the program
 Simply enter `bye` to exit the program and bid farewell to ol' Duke.
-
