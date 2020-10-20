@@ -1,0 +1,15 @@
+@startuml
+autoactivate on
+Logic -->>AndGate: <<create>>
+return gateObj
+Logic -> BinaryTree : insert(1, gateObj)
+BinaryTree -> BinaryTree : isNullAtIndex(getParentIndex(idx))
+BinaryTree -> BinaryTree : getParentIndex(idx)
+return 0
+return false
+alt valid index and is not null at parent index
+BinaryTree -> ArrayList : set(idx, gateObj)
+return
+end
+return
+@enduml

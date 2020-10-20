@@ -1,0 +1,10 @@
+@startuml
+object BinaryTree
+BinaryTree : tree = ""
+
+object Gate
+Gate : - input
+Gate : - secondInput
+
+BinaryTree *--> "0..15 \n arrayList" Gate
+@enduml
