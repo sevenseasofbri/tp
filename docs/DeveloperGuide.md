@@ -46,9 +46,21 @@ The `Ui` component
 1. The command execution can affect the `Model` (e.g. setting a value).
 1. In addition, the `Ui` may also perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `parse("set r 500")` API call.
+The various command classes to be parsed can be divided into Trivial and Non-Trivial classes:
+##### - Trivial Classes
 
-![SetSequence](diagrams/SetSequenceDiagram.png)
+##### - Non-Trivial Classes
+`SetCommand`  
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `parse("set r 500")` API call
+which implements the set command.  
+
+![SetSequence](diagrams/SetSequenceDiagram.png)  
+
+`AddCommand`    
+Given below is the detailed Sequence diagram for interactions within the `logic`, `template` and `component` components 
+for the `parse("add parallel c 20")` API call that implements the addCommand.
+
+![AddSequence](diagrams/AddSequenceDiagram.png)  
 
 ### Model component
 
