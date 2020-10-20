@@ -19,22 +19,17 @@ public class AddCircuitCommand extends SetCircuitCommand {
      */
     @Override
     public void execute() throws DukeException {
-        LoadComponent c = template.getComponent(component);
-        double newValue = getNewValue();
-
-        c.setValue(value);
-        loadComponent = c;
-
-        template.setComponent(component, newValue);
+        loadComponent = template.getComponent(component);
+        value = getNewValue();
+        super.execute();
     }
 
     private double getNewValue() throws DukeException {
-        LoadComponent c = template.getComponent(component);
         assert config.equals("series") || config.equals("parallel");
         if (config.equals("series")) {
-            return c.addSeries(value);
+            return loadComponent.addSeries(value);
         } else {
-            return c.addParallel(value);
+            return loadComponent.addParallel(value);
         }
     }
 

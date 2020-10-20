@@ -10,7 +10,7 @@ import seedu.duke.model.template.CircuitTemplate;
 
 public class SetCircuitCommand extends CircuitCommand {
     protected final String component;
-    protected final double value;
+    protected double value;
     protected Component componentObject;
 
     public SetCircuitCommand(CircuitTemplate template, String component, double value) {
@@ -34,8 +34,6 @@ public class SetCircuitCommand extends CircuitCommand {
         componentObject = template.getComponent(component);
 
         componentObject.setValue(value);
-
-        template.setComponent(component, value);
     }
 
     /**
