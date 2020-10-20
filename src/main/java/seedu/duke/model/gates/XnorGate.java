@@ -1,6 +1,6 @@
 package seedu.duke.model.gates;
 
-public class XnorGate extends TwoInputGate {
+public class XnorGate extends XorGate {
     private static final String XNOR = "--(~^)--";
 
     /**
@@ -10,7 +10,7 @@ public class XnorGate extends TwoInputGate {
      */
     @Override
     public int getOutput() {
-        return ~(input ^ secondInput);
+        return ~(super.getOutput());
     }
 
     /**

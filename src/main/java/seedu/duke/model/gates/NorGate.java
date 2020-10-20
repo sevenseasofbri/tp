@@ -1,7 +1,6 @@
 package seedu.duke.model.gates;
 
-
-public class NorGate extends TwoInputGate {
+public class NorGate extends OrGate {
     private static final String NOR = "--(~|)--";
 
     /**
@@ -11,7 +10,7 @@ public class NorGate extends TwoInputGate {
      */
     @Override
     public int getOutput() {
-        return ~(input | secondInput);
+        return ~(super.getOutput());
     }
 
     /**
