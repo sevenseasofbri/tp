@@ -68,10 +68,84 @@ The `Model`,
 * has `Component` and `Gate` within the templates.
 * does not depend on any of the other three components.
 
-## Appendix: Requirements
-### Product scope
-#### Target user profile
+## Implementation of Boolean Commands
 
+### Binary Tree
+The boolean add, set and calculate features are modeled using a generic `BinaryTree<T>` class. The `BooleanTemplate` imports
+this class to store and evaluate the logic circuit. 
+
+The elements of the tree are stored in a fixed `ArrayList` (size = 15) indexed in a _heap-like_
+manner. That is, a left to right _level-order traversal_ will map to the indexes of the array. The following diagram represents
+the indexes each node in the tree corresponds to in the `ArrayList`.
+```
+                  [0]
+                   |     
+       [1]                    [2]
+                     
+  [3]       [4]         [5]         [6]
+                      
+[7] [8]   [9] [10]   [11] [12]   [13] [14]
+```
+The operations exposed to the Logic in this Model include: 
+* `BinaryTree#isNullAtIndex(int)` - Checks whether the value at specified index in tree is 'null' or not.
+* `BinaryTree#getParentIndex(int)` - Returns index of parent node.
+* `BinaryTree#insert(int, T)` - Inserts value at position specified in the tree, if valid.
+* `BinaryTree#isLeaf(int)` - Returns boolean based on whether node at specified index is a _leaf node_ or not.
+* `BinaryTree#isEmpty()` - Checks if the tree has no elements in it.
+
+When an object of the `BinaryTree<T>` class is created, it initialises the ArrayList<T> instance to 15 `null` values. This will be 
+further discussed in the section detailing the `insert()` function.
+
+#### Initialising A `BinaryTree<T>` Object
+The Logic initialises the `BinaryTree<Gate>` object using the parameterised constructor, thus specifying the Gate class type 
+root. The object diagram below depicts the initial state of the Model when a `BinaryTree<Gate>` object is created.
+
+![InitialBinaryTree](diagrams/BinaryTreeInitialObjectDiagram.png)
+
+The Logic uses the parameterised constructor of `BinaryTree<T>` to create the object since it requires initialisation of
+the root. Such an object is created as follows: `BinaryTree<Gate> obj = new BinaryTree(new OrGate(1,1))`. This sets the root
+of the Binary Tree to the object specified.
+
+#### Using `BinaryTree#isNullAtIndex(int)`
+`BooleanTemplate` uses this function to render the current configuration of the circuit in a String format. The method
+is also extensively used in other internal operations in `BinaryTree<T>` for checking whether a position in the tree has been set or not.
+
+#### Using `BinaryTree#getParentIndex(int, T)`
+Similar to `isNullAtIndex(int)`, this method is used in rendering the current configuration of the circuit in String format.
+
+#### Using `BinaryTree#insert(int, T)`
+In order to enable the ability to populate the `ArrayList<T>` at any node which has a non-null parent node
+the `ArrayList<T> arrayList` attribute is pre-populated with 15 `null` values. The same attribute is modified in the insert()
+operation in the list. Since `insert(int, T)` makes use of `ArrayList<T>.set(int, T)`, values in `arrayList` can be overwritten with this function.
+
+The following sequence diagram is a depiction of the events succeeding a call to `insert(1, new AndGate(1,1))`. 
+![InsertSequenceDiagram](diagrams/BinaryTreeInsertSequenceDiagram.png)
+
+Post calling this function, the second element in the `arrayList` will be the `AndGate(1,1)` object.
+
+#### Using `BinaryTree#isLeaf(int)`
+This function is used by the Logic class `BooleanTemplate` to calculate output values in the digital circuit. It 
+returns whether the node at the input index is a leaf node or not.
+
+The following sequence diagram is a depiction of the events succeeding a call to `isLeaf(1)`on the current `arrayList`:
+
+![IsLeafSequenceDiagram](diagrams/BinaryTreeIsLeafSequence.png)
+
+#### Using `BinaryTree#isEmpty`
+This is used by `BooleanTemplate` to ensure no calculations are being performed on an empty tree.
+
+The following sequence diagram showcases the events succeeding a call to `isEmpty()` on the current object of the `BinaryTree<Gate>` 
+
+![IsEmptySequenceDiagram](diagrams/BinaryTreeIsEmptySequenceDiagram.png)
+ 
+### Rendering Current Boolean Circuit State
+Using a _standard I/O operation_ (Like _Sopln()_) on an object of the `BooleanTemplate` class yields the current configuration
+of the system.
+Each node of the system is represented by a signal ranging from B to O (OUT being the root). All nodes with null parent nodes are
+not shown in the diagram.
+
+## Product scope
+### Target user profile
 New Computer/Electrical Engineering (CEG/EE) students who are looking for a quick way to check calculations for simple circuit configurations can use this App as an aid.
 
 #### Value proposition
@@ -135,4 +209,3 @@ https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-output
 
 ### Exiting the program
 Simply enter `bye` to exit the program and bid farewell to ol' Duke.
-
