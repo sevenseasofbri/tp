@@ -6,9 +6,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class BinaryTree<T> {
-    private final ArrayList<T> arrayList = new ArrayList<>(Collections.nCopies(16, null));
-    private static final int SPACES = 4;
-    private String tree = "";
+    protected final ArrayList<T> arrayList = new ArrayList<>(Collections.nCopies(15, null));
+    protected String tree = "";
+    private static String FULL_TREE = "          0UT \n"
+            + "           |     \n"
+            + "     B           C\n"
+            + "                     \n"
+            + "  D     E     F     G\n"
+            + "                      \n"
+            + "H   I J   K L   M N   O";
 
     public BinaryTree(T root) {
         arrayList.set(0, root);
@@ -44,7 +50,7 @@ public class BinaryTree<T> {
      * @throws DukeException If the index specified is invalid.
      */
     public void insert(int idx, T t) throws DukeException {
-        if (idx <= 0 || idx >= arrayList.size() || isNullAtIndex(getParentIndex(idx))) {
+        if (idx < 0 || idx >= arrayList.size() || isNullAtIndex(getParentIndex(idx))) {
             throw new DukeException("Index specified is out of bounds!");
         }
         arrayList.set(idx, t);
@@ -91,37 +97,12 @@ public class BinaryTree<T> {
         return !isNullAtIndex(index) && hasNoChildren;
     }
 
-    /**
-     * Manipulates the instance variable String tree to produce a tree-like structure String output.
-     * Example of manipulated tree String with Integer type values stored in arrayList = {1,2,3,4,5,6,7}:
-     *         7
-     *     3
-     *         6
-     * 1
-     *         5
-     *     2
-     *         4
-     *
-     * @param index int type specifying which node to process.
-     * @param space int type determining number of spaces to make tree-like output.
-     */
-    private void buildTreeString(int index, int space) {
-        if (isNullAtIndex(index)) {
-            return;
-        }
-        //Process the right subtree, if it exists.
-        if (!isNullAtIndex(getRightIndex(index))) {
-            buildTreeString(getRightIndex(index), space + SPACES);
-        }
-
-        for (int i = 0; i < space; i++) {
-            tree = tree + " ";
-        }
-        tree = tree + arrayList.get(index) + System.lineSeparator();
-
-        //Process the the left subtree , if it exists.
-        if (!isNullAtIndex(getLeftIndex(index))) {
-            buildTreeString(getLeftIndex(index), space + SPACES);
+    private void buildTopDown() {
+        tree = FULL_TREE;
+        for (int i = 0; i< arrayList.size(); i++) {
+            if( i != 0 && isNullAtIndex(getParentIndex(i))) { // i == 0
+                tree = tree.replace((char)(65 + i), ' ');
+            }
         }
     }
 
@@ -132,7 +113,7 @@ public class BinaryTree<T> {
      */
     @Override
     public String toString() {
-        buildTreeString(0, 0);
+        buildTopDown();
         return tree;
     }
 }
