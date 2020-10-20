@@ -127,10 +127,10 @@ For calculation of values, the `calc` command is used.
 
 Detailed steps on calculation for 
 
-Digital circuits:
+* Digital circuits:  
 https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-circ
 
-Logic Gates:
+* Logic Gates:  
 https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-output 
 
 ### Exiting the program
