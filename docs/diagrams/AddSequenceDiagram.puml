@@ -35,7 +35,7 @@ deactivate Parser
 [-> AddCommand: execute()
 activate AddCommand
 
-AddCommand -> RcTemplate : rc.getComponent(c)
+AddCommand -> RcTemplate : rc.getComponent("c")
 activate RcTemplate
 
 RcTemplate -> RcTemplate : getCapacitor()
