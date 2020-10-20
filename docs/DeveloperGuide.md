@@ -52,15 +52,34 @@ The various command classes to be parsed can be divided into Trivial and Non-Tri
 ##### - Non-Trivial Classes
 `SetCommand`  
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `parse("set r 500")` API call
-which implements the set command.  
+which implements the set command to set values of components.
 
 ![SetSequence](diagrams/SetSequenceDiagram.png)  
 
 `AddCommand`    
 Given below is the detailed Sequence diagram for interactions within the `logic`, `template` and `component` components 
-for the `parse("add parallel c 20")` API call that implements the addCommand.
+for the `parse("add parallel c 20")` API call that implements the add command to add components.
 
 ![AddSequence](diagrams/AddSequenceDiagram.png)  
+
+`CalculateCommand`  
+The calculate command can be split into two distinct sequence diagrams. Given below is the sequence diagram for the
+calculate command that does not show the access of the `component` component and shows the interactions for the
+`parse("calc power")` API call that implements this version of the calculate command to calculate power.  
+
+![CalcPowerSequence](diagrams/CalcPowerSequenceDiagram.png)  
+
+The second sequence diagram given below shows the detailed interaction that acesses the `component` class through the
+`parse("calc reff")`API call that implements this version of the calculate command to calculate effective resistance.
+
+![CalcReffSequence](diagrams/CalcReffSequenceDiagram.png)  
+
+`TemplateCommand`  
+Given below is the sequence diagram for interactions within the `logic` and `template` components for the 
+`parse(template rl)` API call that implements the template command to create templates.
+
+![TemplateSequence](diagrams/TemplateSequenceDiagram.png)
+ 
 
 ### Model component
 
