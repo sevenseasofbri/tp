@@ -1,4 +1,4 @@
-package seedu.duke.logic.commands;
+package seedu.duke.logic.commands.circuit;
 
 import seedu.duke.DukeException;
 import seedu.duke.logic.parser.Parser;
@@ -6,13 +6,13 @@ import seedu.duke.ui.Ui;
 
 import java.util.logging.Level;
 
-public class HelpCommand extends Command {
+public class HelpCircuitCommand extends CircuitCommand {
     private static final Parser PARSER = new Parser();
     private static final String[] orderOfInstructions = {"template", "set v", "set", "set", "add", "calc"};
     private int numOfCommandsDone = 0;
     private final Ui ui;
 
-    public HelpCommand() {
+    public HelpCircuitCommand() {
         super();
         ui = new Ui(); // Create its own Ui instance, can be a Ui subclass later on
     }
@@ -27,7 +27,7 @@ public class HelpCommand extends Command {
         boolean isNotDone = true;
 
         while (isNotDone) {
-            assert numOfCommandsDone < ui.INSTRUCTIONS.length;
+            assert numOfCommandsDone < Ui.INSTRUCTIONS.length;
             ui.printInstruction(numOfCommandsDone);
             command = ui.readLine();
             try {
@@ -50,7 +50,7 @@ public class HelpCommand extends Command {
                     + "If you want to exit this mode, type 'exit' and press enter.");
         }
         
-        Command c = PARSER.parse(command);
+        CircuitCommand c = (CircuitCommand) PARSER.parse(command);
         c.execute();
         ui.printMessage(c.toString());
         numOfCommandsDone++;

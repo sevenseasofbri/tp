@@ -1,10 +1,11 @@
 package seedu.duke.model.template;
 
 import seedu.duke.DukeException;
-import seedu.duke.model.component.gates.Gate;
+import seedu.duke.model.binarytree.BinaryTree;
+import seedu.duke.model.gates.Gate;
 
 public class BooleanTemplate {
-    private BinaryTree<Gate> circuit;
+    private final BinaryTree<Gate> circuit;
 
     public BooleanTemplate(Gate gate) {
         circuit = new BinaryTree<>(gate);

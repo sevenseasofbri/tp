@@ -1,14 +1,14 @@
-package seedu.duke.logic.commands;
+package seedu.duke.logic.commands.circuit;
 
 import seedu.duke.DukeException;
 import seedu.duke.model.component.LoadComponent;
-import seedu.duke.model.template.Template;
+import seedu.duke.model.template.CircuitTemplate;
 
-public class AddCommand extends SetCommand {
+public class AddCircuitCommand extends SetCircuitCommand {
     private final String config;
     private LoadComponent loadComponent;
 
-    public AddCommand(Template template, String config, String component, double value) {
+    public AddCircuitCommand(CircuitTemplate template, String config, String component, double value) {
         super(template, component, value);
         this.config = config;
     }

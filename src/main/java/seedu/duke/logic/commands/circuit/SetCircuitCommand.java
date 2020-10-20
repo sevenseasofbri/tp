@@ -1,4 +1,4 @@
-package seedu.duke.logic.commands;
+package seedu.duke.logic.commands.circuit;
 
 import seedu.duke.DukeException;
 import seedu.duke.model.component.Capacitor;
@@ -6,14 +6,14 @@ import seedu.duke.model.component.Component;
 import seedu.duke.model.component.Inductor;
 import seedu.duke.model.component.Resistor;
 import seedu.duke.model.component.VoltageSource;
-import seedu.duke.model.template.Template;
+import seedu.duke.model.template.CircuitTemplate;
 
-public class SetCommand extends Command {
+public class SetCircuitCommand extends CircuitCommand {
     protected final String component;
     protected final double value;
     protected Component componentObject;
 
-    public SetCommand(Template template, String component, double value) {
+    public SetCircuitCommand(CircuitTemplate template, String component, double value) {
         super(template);
         this.component = component;
         this.value = value;

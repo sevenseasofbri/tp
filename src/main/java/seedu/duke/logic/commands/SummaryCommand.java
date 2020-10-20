@@ -1,6 +1,8 @@
 package seedu.duke.logic.commands;
 
-public class SummaryCommand extends Command {
+import seedu.duke.logic.commands.circuit.CircuitCommand;
+
+public class SummaryCommand extends CircuitCommand {
     private static final String COMMAND_SUMMARY = "\n"
             + "+-----------+----------------------------+--------------------+\n"
             + "|  Action   |           Format           |      Examples      |\n"
