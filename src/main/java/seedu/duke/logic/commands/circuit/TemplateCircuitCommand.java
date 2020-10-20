@@ -1,10 +1,10 @@
-package seedu.duke.logic.commands;
+package seedu.duke.logic.commands.circuit;
 
-import seedu.duke.model.template.Template;
+import seedu.duke.model.template.CircuitTemplate;
 
-public class TemplateCommand extends Command {
+public class TemplateCircuitCommand extends CircuitCommand {
 
-    public TemplateCommand(Template template) {
+    public TemplateCircuitCommand(CircuitTemplate template) {
         super(template);
     }
 

@@ -2,12 +2,14 @@ package seedu.duke.logic.parser;
 
 import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
-import seedu.duke.logic.commands.AddCommand;
-import seedu.duke.logic.commands.CalculateCommand;
 import seedu.duke.logic.commands.Command;
 import seedu.duke.logic.commands.ExitCommand;
-import seedu.duke.logic.commands.SetCommand;
-import seedu.duke.logic.commands.TemplateCommand;
+import seedu.duke.logic.commands.circuit.AddCircuitCommand;
+import seedu.duke.logic.commands.circuit.CalculateCircuitCommand;
+import seedu.duke.logic.commands.circuit.CircuitCommand;
+import seedu.duke.logic.commands.circuit.HelpCircuitCommand;
+import seedu.duke.logic.commands.circuit.SetCircuitCommand;
+import seedu.duke.logic.commands.circuit.TemplateCircuitCommand;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -25,8 +27,8 @@ class ParserTest {
     void parseHelp_help_returnsHelpCommand() throws DukeException {
         Parser p = new Parser();
         String line = "help";
-        Command c = p.parse(line);
-        assertTrue(c instanceof Command); // change to HelpCommand once done
+        CircuitCommand c = (CircuitCommand) p.parse(line);
+        assertTrue(c instanceof HelpCircuitCommand); // change to HelpCommand once done
     }
 
     @Test
@@ -34,10 +36,10 @@ class ParserTest {
         Parser p = new Parser();
         String line = "template ";
         String[] templates = {"r", "rl", "rc", "lc"};
-        Command c;
+        CircuitCommand c;
         for (String s : templates) {
-            c = p.parse(line + s);
-            assertTrue(c instanceof TemplateCommand);
+            c = (CircuitCommand) p.parse(line + s);
+            assertTrue(c instanceof TemplateCircuitCommand);
         }
     }
 
@@ -60,8 +62,8 @@ class ParserTest {
         Parser p = new Parser();
         p.parse("template rl");
         String line = "set r 500";
-        Command c = p.parse(line);
-        assertTrue(c instanceof SetCommand);
+        CircuitCommand c = (CircuitCommand) p.parse(line);
+        assertTrue(c instanceof SetCircuitCommand);
     }
 
     @Test
@@ -93,8 +95,8 @@ class ParserTest {
         Parser p = new Parser();
         p.parse("template rl");
         String line = "set c 500";
-        Command c = p.parse(line);
-        assertTrue(c instanceof SetCommand);
+        CircuitCommand c = (CircuitCommand) p.parse(line);
+        assertTrue(c instanceof SetCircuitCommand);
     }
 
     @Test
@@ -103,8 +105,8 @@ class ParserTest {
         p.parse("template rl");
         p.parse("set r 500");
         String line = "add series r 500";
-        Command c = p.parse(line);
-        assertTrue(c instanceof AddCommand);
+        CircuitCommand c = (CircuitCommand) p.parse(line);
+        assertTrue(c instanceof AddCircuitCommand);
     }
 
     @Test
@@ -122,8 +124,8 @@ class ParserTest {
         p.parse("template rl");
         p.parse("set r 500");
         String line = "add series c 500";
-        Command c = p.parse(line);
-        assertTrue(c instanceof AddCommand);
+        CircuitCommand c = (CircuitCommand) p.parse(line);
+        assertTrue(c instanceof AddCircuitCommand);
     }
 
     @Test
@@ -132,16 +134,16 @@ class ParserTest {
         p.parse("template rl");
         String line = "calc ";
         String[] effValues = {"reff", "leff", "current", "power"};
-        Command c;
+        CircuitCommand c;
         for (String s : effValues) {
-            c = p.parse(line + s);
-            assertTrue(c instanceof CalculateCommand);
+            c = (CircuitCommand) p.parse(line + s);
+            assertTrue(c instanceof CalculateCircuitCommand);
         }
 
         p.parse("template rc");
         String capEff = "ceff";
-        c = p.parse(line + capEff);
-        assertTrue(c instanceof CalculateCommand);
+        c = (CircuitCommand) p.parse(line + capEff);
+        assertTrue(c instanceof CalculateCircuitCommand);
 
     }
 

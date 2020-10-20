@@ -1,0 +1,16 @@
+@startuml
+box Logic
+participant ":BooleanTemplate" as BooleanTemplate
+end box
+
+box Model
+participant ":BinaryTree" as BinaryTree
+end box
+autoactivate on
+BooleanTemplate -> BinaryTree : isLeaf(1)
+
+alt non-null node AND null children
+return true
+
+end
+@enduml

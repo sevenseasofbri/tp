@@ -20,7 +20,7 @@
   <sequence>1</sequence>
   <logger>global</logger>
   <level>INFO</level>
-  <class>seedu.duke.logic.commands.TemplateCommand</class>
+  <class>seedu.duke.logic.commands.circuit.TemplateCircuitCommand</class>
   <method>execute</method>
   <thread>1</thread>
   <message>Template was chosen</message>
@@ -32,7 +32,7 @@
   <sequence>2</sequence>
   <logger>global</logger>
   <level>INFO</level>
-  <class>seedu.duke.logic.commands.HelpCommand</class>
+  <class>seedu.duke.logic.commands.circuit.HelpCircuitCommand</class>
   <method>execute</method>
   <thread>1</thread>
   <message>Exiting help mode</message>
@@ -44,7 +44,7 @@
   <sequence>3</sequence>
   <logger>global</logger>
   <level>INFO</level>
-  <class>seedu.duke.logic.commands.TemplateCommand</class>
+  <class>seedu.duke.logic.commands.circuit.TemplateCircuitCommand</class>
   <method>execute</method>
   <thread>1</thread>
   <message>Template was chosen</message>
