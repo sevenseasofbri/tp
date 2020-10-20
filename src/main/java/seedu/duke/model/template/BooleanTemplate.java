@@ -24,8 +24,8 @@ public class BooleanTemplate {
 
     private void buildTopDown() {
         currentConfig = FULL_TREE;
-        for (int i = 0; i< circuit.arrayList.size(); i++) {
-            if( i != 0 && circuit.isNullAtIndex(circuit.getParentIndex(i))) { // i == 0
+        for (int i = 0; i < circuit.arrayList.size(); i++) {
+            if (i != 0 && circuit.isNullAtIndex(circuit.getParentIndex(i))) { // i == 0
                 currentConfig = currentConfig.replace((char)(65 + i), ' ');
             }
         }
