@@ -31,6 +31,8 @@ public class Parser {
             return new ExitCommand();
         case "template":
             return prepareTemplate(args);
+        default:
+            break;
         }
 
         if (isCircuit) {
