@@ -1,8 +1,6 @@
 package seedu.duke.model.component.gates;
 
 public class XorGate extends TwoInputGate {
-    private static final String XOR = "--(^)--";
-
     public XorGate(int input1, int input2) {
         input = input1;
         secondInput = input2;
@@ -25,6 +23,6 @@ public class XorGate extends TwoInputGate {
      */
     @Override
     public String toString() {
-        return XOR;
+        return input + "XOR" + secondInput;
     }
 }

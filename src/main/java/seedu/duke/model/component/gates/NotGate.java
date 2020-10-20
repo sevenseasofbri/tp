@@ -1,7 +1,6 @@
 package seedu.duke.model.component.gates;
 
 public class NotGate extends Gate {
-    private static final String NOT = "--(~)--";
 
     public NotGate(int input1) {
         input = input1;
@@ -24,6 +23,6 @@ public class NotGate extends Gate {
      */
     @Override
     public String toString() {
-        return NOT;
+        return "NOT";
     }
 }

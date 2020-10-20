@@ -1,8 +1,6 @@
 package seedu.duke.model.component.gates;
 
 public class AndGate extends TwoInputGate {
-    private static final String AND = "--(&|--";
-
     public AndGate(int input1, int input2) {
         input = input1;
         secondInput = input2;
@@ -25,6 +23,6 @@ public class AndGate extends TwoInputGate {
      */
     @Override
     public String toString() {
-        return AND;
+        return input + "AND" + secondInput;
     }
 }

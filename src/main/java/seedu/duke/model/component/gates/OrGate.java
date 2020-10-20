@@ -1,7 +1,6 @@
 package seedu.duke.model.component.gates;
 
 public class OrGate extends TwoInputGate {
-    private static final String OR = "--(|)--";
 
     public OrGate(int input1, int input2) {
         input = input1;
@@ -25,6 +24,6 @@ public class OrGate extends TwoInputGate {
      */
     @Override
     public String toString() {
-        return OR;
+        return input + "OR" + secondInput;
     }
 }
