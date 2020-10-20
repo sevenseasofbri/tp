@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-10-20T14:35:21.509745700Z</date>
+  <millis>1603204521509</millis>
+  <nanos>745700</nanos>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>seedu.duke.Duke</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Execution is beginning.</message>
+</record>
+<record>
+  <date>2020-10-20T14:35:29.220398400Z</date>
+  <millis>1603204529220</millis>
+  <nanos>398400</nanos>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>seedu.duke.logic.commands.ExitCommand</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>Changed flag to exit program.</message>
+</record>
+<record>
+  <date>2020-10-20T14:35:29.221401900Z</date>
+  <millis>1603204529221</millis>
+  <nanos>401900</nanos>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>seedu.duke.Duke</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Execution has ended</message>
+</record>
+</log>

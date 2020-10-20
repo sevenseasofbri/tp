@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2020-10-18T09:58:47.047344800Z</date>
-  <millis>1603015127047</millis>
-  <nanos>344800</nanos>
+  <date>2020-10-20T13:33:07.892269100Z</date>
+  <millis>1603200787892</millis>
+  <nanos>269100</nanos>
   <sequence>0</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>Execution is beginning.</message>
 </record>
 <record>
-  <date>2020-10-18T09:58:47.072370500Z</date>
-  <millis>1603015127072</millis>
-  <nanos>370500</nanos>
+  <date>2020-10-20T13:33:07.919251800Z</date>
+  <millis>1603200787919</millis>
+  <nanos>251800</nanos>
   <sequence>1</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -26,9 +26,9 @@
   <message>Template was chosen</message>
 </record>
 <record>
-  <date>2020-10-18T09:58:47.151369400Z</date>
-  <millis>1603015127151</millis>
-  <nanos>369400</nanos>
+  <date>2020-10-20T13:33:08.003252500Z</date>
+  <millis>1603200788003</millis>
+  <nanos>252500</nanos>
   <sequence>2</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -38,9 +38,9 @@
   <message>Exiting help mode</message>
 </record>
 <record>
-  <date>2020-10-18T09:58:47.151369400Z</date>
-  <millis>1603015127151</millis>
-  <nanos>369400</nanos>
+  <date>2020-10-20T13:33:08.004250200Z</date>
+  <millis>1603200788004</millis>
+  <nanos>250200</nanos>
   <sequence>3</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -50,9 +50,9 @@
   <message>Template was chosen</message>
 </record>
 <record>
-  <date>2020-10-18T09:58:47.154367800Z</date>
-  <millis>1603015127154</millis>
-  <nanos>367800</nanos>
+  <date>2020-10-20T13:33:08.007249800Z</date>
+  <millis>1603200788007</millis>
+  <nanos>249800</nanos>
   <sequence>4</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -62,9 +62,9 @@
   <message>Changed flag to exit program.</message>
 </record>
 <record>
-  <date>2020-10-18T09:58:47.154367800Z</date>
-  <millis>1603015127154</millis>
-  <nanos>367800</nanos>
+  <date>2020-10-20T13:33:08.007249800Z</date>
+  <millis>1603200788007</millis>
+  <nanos>249800</nanos>
   <sequence>5</sequence>
   <logger>global</logger>
   <level>INFO</level>
