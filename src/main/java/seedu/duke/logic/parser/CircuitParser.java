@@ -39,7 +39,7 @@ public class CircuitParser {
         }
     }
 
-    public CircuitCommand prepareCircuitTemplate(String[] args) throws DukeException {
+    public TemplateCircuitCommand prepareCircuitTemplate(String[] args) throws DukeException {
         circuitTemplate = getCircuitTemplate(args[1]);
         return new TemplateCircuitCommand(circuitTemplate);
     }

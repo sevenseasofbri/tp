@@ -33,7 +33,7 @@ public class BooleanParser {
         }
     }
 
-    public BooleanCommand prepareBooleanTemplate(String[] args) throws DukeException {
+    public TemplateBooleanCommand prepareBooleanTemplate(String[] args) throws DukeException {
         booleanTemplate = getBooleanTemplate(args[1]);
         return new TemplateBooleanCommand();
     }
