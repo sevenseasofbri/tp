@@ -38,11 +38,11 @@ activate AddCommand
 AddCommand -> RcTemplate : rc.getComponent(c)
 activate RcTemplate
 
-RcTemplate -> Capacitor : getComponent(c)
-activate Capacitor
+RcTemplate -> RcTemplate : getCapacitor()
+activate RcTemplate
 
-RcTemplate <- Capacitor : capacitor
-deactivate Capacitor
+RcTemplate <- RcTemplate : capacitor
+deactivate RcTemplate
 
 AddCommand <- RcTemplate : capacitor
 deactivate RcTemplate
