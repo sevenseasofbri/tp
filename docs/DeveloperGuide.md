@@ -107,8 +107,8 @@ the root. Such an object is created as follows: `BinaryTree<Gate> obj = new Bina
 of the Binary Tree to the object specified.
 
 #### Using `BinaryTree#isNullAtIndex(int)`
-`BooleanTemplate` uses this function to render the current configuration of the circuit in a String format. Besides, the method
-is extensively used in other internal operations in `BinaryTree<T>` for checking whether a position in the tree has been set or not.
+`BooleanTemplate` uses this function to render the current configuration of the circuit in a String format. The method
+is also extensively used in other internal operations in `BinaryTree<T>` for checking whether a position in the tree has been set or not.
 
 #### Using `BinaryTree#getParentIndex(int, T)`
 Similar to `isNullAtIndex(int)`, this method is used in rendering the current configuration of the circuit in String format.
