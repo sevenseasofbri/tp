@@ -32,7 +32,7 @@ deactivate Parser
 [<- Parser : add
 deactivate Parser
 
-[-> AddCommand: Execute
+[-> AddCommand: execute()
 activate AddCommand
 
 AddCommand -> RcTemplate : rc.getComponent(c)
