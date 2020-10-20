@@ -15,6 +15,7 @@ public class BooleanTemplate {
     private BinaryTree<Gate> circuit;
     private String currentConfig = "";
 
+
     public BooleanTemplate(Gate gate) {
         circuit = new BinaryTree<>(gate);
     }

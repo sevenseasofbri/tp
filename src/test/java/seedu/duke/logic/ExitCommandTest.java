@@ -1,6 +1,7 @@
-package seedu.duke.logic.commands;
+package seedu.duke.logic;
 
 import org.junit.jupiter.api.Test;
+import seedu.duke.logic.commands.ExitCommand;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

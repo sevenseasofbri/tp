@@ -1,10 +1,7 @@
 package seedu.duke.model.gates;
 
 public class XorGate extends TwoInputGate {
-    public XorGate(int input1, int input2) {
-        input = input1;
-        secondInput = input2;
-    }
+    private static final String XOR = "--(^)--";
 
     /**
      * Performs bitwise XOR (^) operation on the input instance variables.
@@ -23,6 +20,6 @@ public class XorGate extends TwoInputGate {
      */
     @Override
     public String toString() {
-        return input + "XOR" + secondInput;
+        return XOR;
     }
 }

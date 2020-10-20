@@ -4,11 +4,11 @@ import seedu.duke.DukeException;
 import seedu.duke.model.component.LoadComponent;
 import seedu.duke.model.component.VoltageSource;
 
-public abstract class Template {
+public abstract class CircuitTemplate {
     protected VoltageSource initialPowerSupply;
     protected static final double ANGULAR_FREQUENCY = 100 * Math.PI;
 
-    public Template(double powerSupply) {
+    public CircuitTemplate(double powerSupply) {
         initialPowerSupply = new VoltageSource(powerSupply);
     }
 
