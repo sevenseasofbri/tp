@@ -6,7 +6,8 @@ participant ":SetCommand" as SetCommand
 end box
 
 box Model 
-participant ":Model" as Model 
+participant ":Template" as Template
+participant ":Component" as Component 
 end box
 
 
@@ -32,23 +33,23 @@ deactivate Parser
 [-> SetCommand : execute()
 activate SetCommand
 
-SetCommand -> Model : template.getComponent("r")
-activate Model
+SetCommand -> Template : template.getComponent("r")
+activate Template
 
-Model -> SetCommand : comp
-deactivate Model
+Template -> SetCommand : comp
+deactivate Template
 
-SetCommand -> Model : comp.setValue(500)
-activate Model
+SetCommand -> Component : comp.setValue(500)
+activate Component
 
-Model -> SetCommand
-deactivate Model
+Component -> SetCommand
+deactivate Component
 
-SetCommand -> Model : template.setComponent("r",500)
-activate Model
+SetCommand -> Template : template.setComponent("r",500)
+activate Template
 
-Model -> SetCommand
-deactivate Model
+Template -> SetCommand
+deactivate Template
 
 [<- SetCommand 
 deactivate SetCommand

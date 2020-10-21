@@ -1,12 +1,7 @@
-package seedu.duke.model.component.gates;
+package seedu.duke.model.gates;
 
 public class OrGate extends TwoInputGate {
     private static final String OR = "--(|)--";
-
-    public OrGate(int input1, int input2) {
-        input = input1;
-        secondInput = input2;
-    }
 
     /**
      * Performs bitwise OR (|) operation on the input instance variables.

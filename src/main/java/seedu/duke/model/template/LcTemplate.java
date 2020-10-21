@@ -5,7 +5,7 @@ import seedu.duke.model.component.Capacitor;
 import seedu.duke.model.component.Inductor;
 import seedu.duke.model.component.LoadComponent;
 
-public class LcTemplate extends Template {
+public class LcTemplate extends CircuitTemplate {
 
     private static final String LC_TEMPLATE = "\t+---L-----C---+\n"
                                                 + "\t|             |\n"
