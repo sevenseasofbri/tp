@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2020-10-20T03:07:22.689783Z</date>
-  <millis>1603163242689</millis>
-  <nanos>783000</nanos>
+  <date>2020-10-21T03:38:45.511671Z</date>
+  <millis>1603251525511</millis>
+  <nanos>671000</nanos>
   <sequence>0</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -12,87 +12,5 @@
   <method>run</method>
   <thread>1</thread>
   <message>Execution is beginning.</message>
-</record>
-<record>
-  <date>2020-10-20T03:07:44.179121Z</date>
-  <millis>1603163264179</millis>
-  <nanos>121000</nanos>
-  <sequence>1</sequence>
-  <logger>global</logger>
-  <level>FINE</level>
-  <class>seedu.duke.logic.commands.HelpCommand</class>
-  <method>execute</method>
-  <thread>1</thread>
-  <message>Bad Command DukeException thrown.</message>
-  <exception>
-    <message>seedu.duke.DukeException: Bad Command! Please follow the instructions carefully.If you want to exit this mode, type 'exit' and press enter.</message>
-    <frame>
-      <class>seedu.duke.logic.commands.HelpCommand</class>
-      <method>continueTutorial</method>
-      <line>49</line>
-    </frame>
-    <frame>
-      <class>seedu.duke.logic.commands.HelpCommand</class>
-      <method>execute</method>
-      <line>34</line>
-    </frame>
-    <frame>
-      <class>seedu.duke.Duke</class>
-      <method>run</method>
-      <line>34</line>
-    </frame>
-    <frame>
-      <class>seedu.duke.Duke</class>
-      <method>main</method>
-      <line>49</line>
-    </frame>
-  </exception>
-</record>
-<record>
-  <date>2020-10-20T03:07:48.194075Z</date>
-  <millis>1603163268194</millis>
-  <nanos>75000</nanos>
-  <sequence>2</sequence>
-  <logger>global</logger>
-  <level>INFO</level>
-  <class>seedu.duke.logic.commands.TemplateCommand</class>
-  <method>execute</method>
-  <thread>1</thread>
-  <message>Template was chosen</message>
-</record>
-<record>
-  <date>2020-10-20T03:08:54.357092Z</date>
-  <millis>1603163334357</millis>
-  <nanos>92000</nanos>
-  <sequence>3</sequence>
-  <logger>global</logger>
-  <level>FINE</level>
-  <class>seedu.duke.logic.commands.HelpCommand</class>
-  <method>execute</method>
-  <thread>1</thread>
-  <message>Bad Command DukeException thrown.</message>
-  <exception>
-    <message>seedu.duke.DukeException: Bad Command! Please follow the instructions carefully.If you want to exit this mode, type 'exit' and press enter.</message>
-    <frame>
-      <class>seedu.duke.logic.commands.HelpCommand</class>
-      <method>continueTutorial</method>
-      <line>49</line>
-    </frame>
-    <frame>
-      <class>seedu.duke.logic.commands.HelpCommand</class>
-      <method>execute</method>
-      <line>34</line>
-    </frame>
-    <frame>
-      <class>seedu.duke.Duke</class>
-      <method>run</method>
-      <line>34</line>
-    </frame>
-    <frame>
-      <class>seedu.duke.Duke</class>
-      <method>main</method>
-      <line>49</line>
-    </frame>
-  </exception>
 </record>
 </log>

@@ -68,11 +68,6 @@ end
 AddCommand <- AddCommand : value
 deactivate AddCommand
 
-AddCommand -> Capacitor : capacitor.setValue(value)
-activate Capacitor
-
-AddCommand <- Capacitor : capacitor
-deactivate Capacitor
 
 AddCommand -> RcTemplate: RcTemplate.setComponent(capacitor, value)
 activate RcTemplate
