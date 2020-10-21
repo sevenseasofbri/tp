@@ -1,13 +1,7 @@
-package seedu.duke.model.component.gates;
+package seedu.duke.model.gates;
 
-
-public class NorGate extends TwoInputGate {
+public class NorGate extends OrGate {
     private static final String NOR = "--(~|)--";
-
-    public NorGate(int input1, int input2) {
-        input = input1;
-        secondInput = input2;
-    }
 
     /**
      * Performs bitwise NOR (~|) operation on the input instance variables.
@@ -16,7 +10,7 @@ public class NorGate extends TwoInputGate {
      */
     @Override
     public int getOutput() {
-        return ~(input | secondInput);
+        return ~(super.getOutput());
     }
 
     /**

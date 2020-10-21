@@ -17,7 +17,7 @@
             1. [Create Boolean Template](#template-logic)
             1. [Set Input](#set-input)
             1. [Add Gate](#add-gate)
-            1. [Calculate Output](#calc-circ)
+            1. [Calculate Output](#calc-output)
 1. [FAQ](#faq)
 1. [Command Summary](#command-summary)
 

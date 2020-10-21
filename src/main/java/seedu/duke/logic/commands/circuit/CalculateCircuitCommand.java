@@ -1,13 +1,13 @@
-package seedu.duke.logic.commands;
+package seedu.duke.logic.commands.circuit;
 
 import seedu.duke.DukeException;
-import seedu.duke.model.template.Template;
+import seedu.duke.model.template.CircuitTemplate;
 
-public class CalculateCommand extends Command {
+public class CalculateCircuitCommand extends CircuitCommand {
     private final String calculationType;
     private String value;
 
-    public CalculateCommand(Template template, String calculationType) {
+    public CalculateCircuitCommand(CircuitTemplate template, String calculationType) {
         super(template);
         this.calculationType = calculationType;
     }

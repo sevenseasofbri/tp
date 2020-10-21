@@ -4,7 +4,7 @@ import seedu.duke.DukeException;
 import seedu.duke.model.component.LoadComponent;
 import seedu.duke.model.component.Resistor;
 
-public class RTemplate extends Template {
+public class RTemplate extends CircuitTemplate {
     private static final String R_TEMPLATE =
               "\t+---R---------+\n"
             + "\t|             |\n"
