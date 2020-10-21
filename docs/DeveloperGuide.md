@@ -14,6 +14,11 @@ The rest of the app consists of four components.
 * [**`Logic`**](#logic-component): The command executor.
 * [**`Model`**](#model-component): Holds the data of the App in memory.
 
+### Boolean circuit solver
+
+
+
+
 ### UI component
 
 ![UiDiagram](diagrams/UiClassDiagram.png)
