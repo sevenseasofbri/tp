@@ -1,7 +1,6 @@
-package seedu.duke.model.component.gates;
+package seedu.duke.model.gates;
 
-public class NandGate extends TwoInputGate {
-
+public class NandGate extends AndGate {
     private static final String NAND = "--(~&|--";
 
     /**
@@ -11,7 +10,7 @@ public class NandGate extends TwoInputGate {
      */
     @Override
     public int getOutput() {
-        return ~(input & secondInput);
+        return ~(super.getOutput());
     }
 
     /**

@@ -1,14 +1,14 @@
-package seedu.duke.logic.commands;
+package seedu.duke.logic.commands.circuit;
 
 import seedu.duke.DukeException;
 import seedu.duke.model.component.LoadComponent;
-import seedu.duke.model.template.Template;
+import seedu.duke.model.template.CircuitTemplate;
 
-public class AddCommand extends SetCommand {
+public class AddCircuitCommand extends SetCircuitCommand {
     private final String config;
     private LoadComponent loadComponent;
 
-    public AddCommand(Template template, String config, String component, double value) {
+    public AddCircuitCommand(CircuitTemplate template, String config, String component, double value) {
         super(template, component, value);
         this.config = config;
     }
@@ -19,22 +19,17 @@ public class AddCommand extends SetCommand {
      */
     @Override
     public void execute() throws DukeException {
-        LoadComponent c = template.getComponent(component);
-        double newValue = getNewValue();
-
-        c.setValue(value);
-        loadComponent = c;
-
-        template.setComponent(component, newValue);
+        loadComponent = template.getComponent(component);
+        value = getNewValue();
+        super.execute();
     }
 
     private double getNewValue() throws DukeException {
-        LoadComponent c = template.getComponent(component);
         assert config.equals("series") || config.equals("parallel");
         if (config.equals("series")) {
-            return c.addSeries(value);
+            return loadComponent.addSeries(value);
         } else {
-            return c.addParallel(value);
+            return loadComponent.addParallel(value);
         }
     }
 

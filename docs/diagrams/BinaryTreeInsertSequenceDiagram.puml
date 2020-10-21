@@ -1,0 +1,23 @@
+@startuml
+box Logic
+participant ":BooleanTemplate" as BooleanTemplate
+end box
+
+box Model
+participant ":BinaryTree" as BinaryTree
+participant ":AndGate" as AndGate
+end box
+autoactivate on
+BooleanTemplate -->>AndGate: <<create>>
+return gateObj
+
+BooleanTemplate -> BinaryTree : insert(1, gateObj)
+BinaryTree -> BinaryTree : isNullAtIndex(idx)
+ref over BinaryTree
+Check if parent is null.
+end
+return false
+alt valid index and parent is not null
+return set successfully
+end
+@enduml

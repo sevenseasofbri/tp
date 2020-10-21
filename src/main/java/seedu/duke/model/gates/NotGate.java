@@ -1,4 +1,4 @@
-package seedu.duke.model.component.gates;
+package seedu.duke.model.gates;
 
 public class NotGate extends Gate {
     private static final String NOT = "--(~)--";
