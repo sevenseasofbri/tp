@@ -192,7 +192,7 @@ The above sequence of object interactions through the SetBooleanCommand can be r
 
 ![InsertSequeunceDiagram](diagrams/SetBooleanCommand.png)
 
-####AddBooleanCommmand
+#### `AddBooleanCommand`
 
 The `AddBooleanCommand` is used to combine multiple logic gate templates to produce advanced Boolean logic gate configurations.
 For instance, an `OrGate` can be combined with an `AndGate` to produce a new logic gate where its final output will depend on the
