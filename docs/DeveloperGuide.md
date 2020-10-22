@@ -294,10 +294,6 @@ values of the inputs of that one logic gate.
 passed back into the `BooleanTemplate` object. The Boolean values of all the logic gates will be calculated to obtain the effective logic gate output.
 ![InsertSequeunceDiagram](diagrams/CalcBooleanCommand.png)
 
-
-## Product scope
-### Target user profile
-=======
 ## Appendix: Requirements
 ### Product scope
 **Target user profile**
