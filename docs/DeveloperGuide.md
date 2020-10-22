@@ -272,7 +272,7 @@ included in the new combination.
 
 ![InsertSequeunceDiagram](diagrams/AddBooleanCommandSeqDiagram.png)
 
-####CalcBooleanCommmand
+#### `CalcBooleanCommand`
 
 The `CalcBooleanCommand` is used to calculate the effective output of the configured logic gates stored in the `BinaryTree` is used to , which requires that all inputs be set.
 
