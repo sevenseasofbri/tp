@@ -39,6 +39,13 @@ public class CircuitParser {
         }
     }
 
+    /**
+     * Prepares arguments for template command with BooleanTemplate.
+     *
+     * @param args Template chosen.
+     * @return TemplateBooleanCommand object.
+     * @throws DukeException If parsing error occurs.
+     */
     public TemplateCircuitCommand prepareCircuitTemplate(String[] args) throws DukeException {
         circuitTemplate = getCircuitTemplate(args[1]);
         return new TemplateCircuitCommand(circuitTemplate);

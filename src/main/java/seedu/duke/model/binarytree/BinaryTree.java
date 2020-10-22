@@ -35,6 +35,16 @@ public class BinaryTree<T> {
     }
 
     /**
+     * Returns T object at index of tree.
+     *
+     * @param idx Index in tree.
+     * @return T object.
+     */
+    public T getT(int idx) {
+        return arrayList.get(idx);
+    }
+
+    /**
      * Inserts T type value at specified position in the tree.
      *
      * @param idx int type specifies position to insert element.
