@@ -55,9 +55,9 @@ The `Ui` component
 1. The command execution can affect the `Model` (e.g. setting a value).
 1. In addition, the `Ui` may also perform certain actions, such as displaying help to the user.
 
-### Architechture Component 
+#### Command components  
+The various command classes to be parsed can be divided into Trivial and Non-Trivial classes:  
 
-The various command classes to be parsed can be divided into Trivial and Non-Trivial classes:
 ##### - Trivial Classes
 
 ##### - Non-Trivial Classes
