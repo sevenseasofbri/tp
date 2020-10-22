@@ -13,7 +13,7 @@ import seedu.duke.model.template.LrTemplate;
 import seedu.duke.model.template.RTemplate;
 import seedu.duke.model.template.RcTemplate;
 
-public class CircuitParser {
+public class CircuitParser implements LogicParser {
     private static CircuitTemplate circuitTemplate = null;
 
     /**

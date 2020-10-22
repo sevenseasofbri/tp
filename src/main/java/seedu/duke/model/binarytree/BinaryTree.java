@@ -34,6 +34,10 @@ public class BinaryTree<T> {
         return arrayList.get(0);
     }
 
+    private boolean isOutOfBounds(int idx) {
+        return idx < 0 || idx >= arrayList.size();
+    }
+
     /**
      * Returns T object at index of tree.
      *
@@ -43,10 +47,14 @@ public class BinaryTree<T> {
      */
     public T getT(int idx) throws DukeException {
         int parentIndex = getParentIndex(idx);
+
         boolean hasParent = !isNullAtIndex(parentIndex);
         boolean isRoot = idx == 0;
-        boolean isOutOfBounds = idx < 0 || idx >= arrayList.size();
-        if (isOutOfBounds || !(isRoot || hasParent)) {
+        // Not the root or has no parent
+        boolean isExisting = isRoot || hasParent;
+
+         // If out of bounds or does not exist currently
+        if (isOutOfBounds(idx) || !isExisting) {
             throw new DukeException("Index specified is out of bounds!");
         }
         return arrayList.get(idx);
@@ -60,12 +68,18 @@ public class BinaryTree<T> {
      * @throws DukeException If the index specified is invalid.
      */
     public void insert(int idx, T t) throws DukeException {
-        if (idx < 0 || idx >= arrayList.size() || isNullAtIndex(getParentIndex(idx))) {
+        if (isOutOfBounds(idx) || isNullAtIndex(getParentIndex(idx))) {
             throw new DukeException("Index specified is out of bounds!");
         }
         arrayList.set(idx, t);
     }
 
+    /**
+     * Returns the index of the parent.
+     *
+     * @param idx Index of child.
+     * @return int Index of parent.
+     */
     public int getParentIndex(int idx) {
         if (idx % 2 == 0) {
             return idx / 2 - 1;
@@ -74,10 +88,22 @@ public class BinaryTree<T> {
         }
     }
 
+    /**
+     * Returns left child index.
+     *
+     * @param idx Index of parent.
+     * @return int Index of left child.
+     */
     public int getLeftIndex(int idx) {
         return 2 * idx + 1;
     }
 
+    /**
+     * Returns right child index.
+     *
+     * @param idx Index of parent.
+     * @return int Index of right child.
+     */
     public int getRightIndex(int idx) {
         return 2 * idx + 2;
     }
@@ -86,6 +112,12 @@ public class BinaryTree<T> {
         return (int) (Math.log(idx + 1) / Math.log(2));
     }
 
+    /**
+     * Returns whether an index is null in the tree
+     *
+     * @param idx Index in tree.
+     * @return boolean whether index is null.
+     */
     public boolean isNullAtIndex(int idx) {
         boolean isNull;
         try {
@@ -96,11 +128,11 @@ public class BinaryTree<T> {
         return isNull;
     }
 
-    public boolean hasLeftChild(int index) {
+    private boolean hasLeftChild(int index) {
         return !isNullAtIndex(getLeftIndex(index));
     }
 
-    public boolean hasRightChild(int index) {
+    private boolean hasRightChild(int index) {
         return !isNullAtIndex(getRightIndex(index));
     }
 

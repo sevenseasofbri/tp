@@ -14,9 +14,10 @@ public class BooleanTemplate {
             + "                      \n"
             + "H   I J   K L   M N   O";
     private static final int ASCII_A = 65;
+    /** BinaryTree object to represent the logic circuit **/
     private final BinaryTree<Gate> circuit;
+    /** String representation of the template **/
     private String currentConfig = "";
-
 
     public BooleanTemplate(Gate gate) throws DukeException {
         circuit = new BinaryTree<>(gate);
@@ -65,15 +66,23 @@ public class BooleanTemplate {
         return isInputOutput(index) && circuit.isNullAtIndex(index);
     }
 
-
+    /**
+     * Builds currentConfig, the String representation of the template.
+     *
+     * @throws DukeException If index error occurs.
+     */
     private void buildTopDown() throws DukeException {
         currentConfig = FULL_TREE;
         int treeSize = circuit.arrayList.size();
+
+        // Clear empty indices first
         for (int i = 1; i < treeSize; i++) {
             if (!isInputOutput(i)) { // i == 0
                 currentConfig = currentConfig.replace((char) (ASCII_A + i), ' ');
             }
         }
+
+        // Get all equations
         StringBuilder equations = new StringBuilder();
         equations.append(System.lineSeparator()).append(System.lineSeparator());
         equations.append("OUT = B ").append(circuit.getRoot()).append(" C").append(System.lineSeparator());
@@ -87,20 +96,39 @@ public class BooleanTemplate {
         currentConfig = currentConfig.stripTrailing() + equations;
     }
 
+    /**
+     * Returns the String representation of a gate equation.
+     *
+     * @param index Index of gate chosen.
+     * @return String equation of gate.
+     * @throws DukeException If index error occurs.
+     */
     private String getGateEquation(int index) throws DukeException {
         TwoInputGate gate = (TwoInputGate) circuit.getT(index);
+
         char letter = (char) (index + ASCII_A);
+
         String leftLetter = String.valueOf((char) (circuit.getLeftIndex(index) + ASCII_A));
         String rightLetter = String.valueOf((char) (circuit.getRightIndex(index) + ASCII_A));
         return letter + " = " + leftLetter + " " + gate + " " + rightLetter;
-
     }
 
+    /**
+     * Returns the String representation of an input.
+     *
+     * @param index Index of input chosen.
+     * @return String equation of input.
+     * @throws DukeException If index error occurs.
+     */
     private String getInputEquation(int index) throws DukeException {
         int parentIndex = circuit.getParentIndex(index);
+
         TwoInputGate gate = (TwoInputGate) circuit.getT(parentIndex);
+
         char letter = (char) (index + ASCII_A);
         String equation = letter + " = ";
+
+        // Odd index - first input, even index, 2nd input
         if (index % 2 == 1) {
             equation += gate.isSetInput() ? gate.getInput() : "?";
         } else {

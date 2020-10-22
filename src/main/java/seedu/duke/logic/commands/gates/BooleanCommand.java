@@ -14,7 +14,6 @@ public abstract class BooleanCommand extends Command {
         this(null);
     }
 
-
     @Override
     public String toString() {
         return template.toString();

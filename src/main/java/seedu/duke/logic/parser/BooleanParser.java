@@ -14,7 +14,7 @@ import seedu.duke.model.gates.XnorGate;
 import seedu.duke.model.gates.XorGate;
 import seedu.duke.model.template.BooleanTemplate;
 
-public class BooleanParser {
+public class BooleanParser implements LogicParser {
     private static BooleanTemplate booleanTemplate;
 
     /**
@@ -45,7 +45,7 @@ public class BooleanParser {
      * @return TemplateBooleanCommand object.
      * @throws DukeException If parsing error occurs.
      */
-    public TemplateBooleanCommand prepareBooleanTemplate(String[] args) throws DukeException {
+    public TemplateBooleanCommand prepareTemplate(String[] args) throws DukeException {
         booleanTemplate = getBooleanTemplate(args[1]);
         return new TemplateBooleanCommand(booleanTemplate);
     }
@@ -67,7 +67,13 @@ public class BooleanParser {
         return args.length < i;
     }
 
-
+    /**
+     * Returns the SetBooleanCommand after parsing the input arguments.
+     *
+     * @param args User Input arguments.
+     * @return SetBooleanCommand object to be executed.
+     * @throws DukeException If input parsed incorrectly, or no template set yet.
+     */
     private SetBooleanCommand prepareBooleanSet(String[] args) throws DukeException {
         if (hasMinArguments(args, 3)) {
             throw new DukeException("Not enough arguments!");
