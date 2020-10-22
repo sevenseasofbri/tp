@@ -6,13 +6,22 @@
     * [UI component](#ui-component)
     * [Logic component](#logic-component)
     * [Model component](#model-component)
+* [Implementation of Boolean Commands](#implementation-of-boolean-commands)
+    * [Binary Tree](#binary-tree)
+        * [Initialising A BinaryTree Object](#initialising-a-binarytreet-object)
+        * [Using BinaryTree isNullAtIndex(int)](#using-binarytreeisnullatindexint)
+        * [Using BinaryTree getParentIndex(int)](#using-binarytreegetparentindexint-t)
+        * [Using BinaryTree insert(int, T)](#using-binarytreeinsertint-t)
+        * [Using BinaryTree isLeaf(int)](#using-binarytreeisleafint)
+        * [Using BinaryTree isEmpty()](#using-binarytreeisempty)
+    * [Rendering Current Boolean Circuit State](#rendering-current-boolean-circuit-state)
 * [Appendix: Requirements](#appendix-requirements)
     * [Product scope](#product-scope)
     * [User Stories](#user-stories)
     * [Non-Functional Requirements](#non-functional-requirements)
     * [Glossary](#glossary)
 * [Appendix: Instructions for manual testing](#appendix-instructions-for-manual-testing)
-    * [Initital launch](#initial-launch)
+    * [Initial launch](#initial-launch)
     * [Creating a digital circuit](#creating-a-digital-circuit)
     * [Creating a logic gate](#creating-a-logic-gate)
     * [Calculating values](#calculating-values)
@@ -142,7 +151,17 @@ The following sequence diagram showcases the events succeeding a call to `isEmpt
 Using a _standard I/O operation_ (Like _Sopln()_) on an object of the `BooleanTemplate` class yields the current configuration
 of the system.
 Each node of the system is represented by a signal ranging from B to O (OUT being the root). All nodes with null parent nodes are
-not shown in the diagram.
+not shown in the diagram. The following diagram depicts a tree wherein no parent nodes are null:
+```
+              0UT
+               |     
+      B                  C
+                     
+  D       E         F         G
+                      
+H  I     J  K      L  M      N  O
+```
+
 
 ## Appendix: Requirements
 ### Product scope
