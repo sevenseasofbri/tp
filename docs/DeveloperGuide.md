@@ -1,7 +1,7 @@
 # Developer Guide
 
 ## Table of Contents
-* [Setting up, getting started](#setting-up)
+* [Setting up, getting started](#setting-up-getting-started)
 * [Design & Implementation](#design--implementation)
     * [UI component](#ui-component)
     * [Logic component](#logic-component)
@@ -20,7 +20,7 @@
     
 
 ## Setting up, getting started
-Refer to the guide [*Setting up and getting started*](../README.md).
+Refer to the guide [*Setting up and getting started*](SettingUp.md).
 
 ## Design & Implementation
 
@@ -144,11 +144,13 @@ of the system.
 Each node of the system is represented by a signal ranging from B to O (OUT being the root). All nodes with null parent nodes are
 not shown in the diagram.
 
-## Product scope
-### Target user profile
+## Appendix: Requirements
+### Product scope
+**Target user profile**
+  
 New Computer/Electrical Engineering (CEG/EE) students who are looking for a quick way to check calculations for simple circuit configurations can use this App as an aid.
 
-#### Value proposition
+**Value proposition**  
 
 CLIrcuit Assistant solves three problems:
 
@@ -180,7 +182,7 @@ CLIrcuit Assistant solves three problems:
 ## Appendix: Instructions for manual testing
 ### Initial launch  
 1. Download the jar file and copy it into an empty folder
-2. Open a new terminal window and navigate to the same directory where your ip.jar is located
+2. Open a new terminal window and navigate to the same directory where your duke.jar is located
 3. Enter the command `java -jar duke.jar` into the terminal window to launch the application
 4. Enter `help` to go into interactive tutorial mode or `summary` to generate a summary of all the commands
 
@@ -208,4 +210,4 @@ https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-circ
 https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-output 
 
 ### Exiting the program
-Simply enter `bye` to exit the program and bid farewell to ol' Duke.
+Simply enter `bye` to exit the program and bid farewell to your loyal CLIrcuit Assistant.
