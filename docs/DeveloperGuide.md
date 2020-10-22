@@ -172,7 +172,7 @@ The inheritance of the `OrGate` class from `TwoInputGate` class which inherits f
 
 There are four Boolean commands that are used in the implementation of the logic gates: `TemplateBooleanCommand, SetBooleanCommand, AddBooleanCommand, and CalcBooleanCommand`.
 
-####SetBooleanCommmand
+#### `SetBooleanCommand`
 The `setBooleanCommand` is used to set the value of one of two inputs to the logic gates, which can be either the Boolean value of `0 or 1`.
 
 1. It is instantiated through the `execute()` function in the Parser class.
