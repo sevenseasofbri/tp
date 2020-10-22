@@ -2,10 +2,12 @@
 
 ## Table of Contents
 * [Setting up, getting started](#setting-up-getting-started)
-* [Design & Implementation](#design--implementation)
+* [Design & Implementation](#design)
     * [UI component](#ui-component)
     * [Logic component](#logic-component)
     * [Model component](#model-component)
+* [Implementation of Boolean Commands](#implementation-of-boolean-commands)
+    * [Binary Tree](#binary-tree)
 * [Appendix: Requirements](#appendix-requirements)
     * [Product scope](#product-scope)
     * [User Stories](#user-stories)
@@ -22,7 +24,7 @@
 ## Setting up, getting started
 Refer to the guide [*Setting up and getting started*](SettingUp.md).
 
-## Design & Implementation
+## Design & Implementation <a name="design"></a>
 
 ![ArchitectureDiagram](diagrams/ArchitectureDiagram.png)
 
