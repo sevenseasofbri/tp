@@ -6,7 +6,7 @@ import seedu.duke.model.gates.Gate;
 import seedu.duke.model.gates.TwoInputGate;
 
 public class BooleanTemplate {
-    private static String FULL_TREE = "          0UT \n"
+    private static final String FULL_TREE = "          0UT \n"
             + "           |     \n"
             + "     B           C\n"
             + "                     \n"
