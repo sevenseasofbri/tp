@@ -6,6 +6,7 @@ public class TemplateBooleanCommand extends BooleanCommand {
     public TemplateBooleanCommand(BooleanTemplate template) {
         super(template);
     }
+
     @Override
     public void execute() {
 
