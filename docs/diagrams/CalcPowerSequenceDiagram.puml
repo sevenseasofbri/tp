@@ -1,0 +1,48 @@
+@startuml
+
+box logic
+participant ":Parser" as Parser
+participant ":CalculateCommand" as CalculateCommand
+end box
+
+box template
+participant ":Template" as Template
+end box
+
+[-> Parser : parse("calc power")
+activate Parser
+
+Parser -> Parser : prepareCalc("calc power")
+activate Parser
+
+Parser -> CalculateCommand : calculateCommand(template, power)
+activate CalculateCommand
+
+Parser <- CalculateCommand : calc
+deactivate CalculateCommand
+
+Parser <- Parser: calc
+deactivate Parser
+
+[<- Parser : calc
+deactivate Parser
+
+[->CalculateCommand : execute()
+activate CalculateCommand
+
+CalculateCommand -> CalculateCommand : getValue()
+activate CalculateCommand
+
+CalculateCommand -> Template : template.getPower()
+activate Template
+
+CalculateCommand <- Template : value
+deactivate Template
+
+CalculateCommand <- CalculateCommand : value
+deactivate CalculateCommand
+
+[<- CalculateCommand
+deactivate CalculateCommand
+
+@enduml

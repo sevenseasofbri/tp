@@ -1,0 +1,47 @@
+@startuml
+box logic
+participant ":Parser" as Parser
+participant ":TemplateCommand" as TemplateCommand
+end box
+
+box template
+participant ":LrTemplate" as LrTemplate
+end box
+
+[-> Parser : parse("template rl")
+activate Parser
+
+Parser -> Parser : prepareTemplate("template rl")
+activate Parser
+
+Parser -> Parser : getTemplate("rl")
+activate Parser
+
+Parser -> LrTemplate : new LrTemplate()
+activate LrTemplate
+
+Parser <- LrTemplate : lr
+deactivate LrTemplate
+
+Parser <- Parser: lr
+deactivate Parser
+
+Parser -> TemplateCommand : TemplateCommand(LrTemplate)
+activate TemplateCommand
+
+Parser <- TemplateCommand : templateCommand
+deactivate TemplateCommand
+
+Parser <- Parser : templateCommand
+deactivate Parser
+
+[<- Parser : templateCommand
+deactivate Parser
+
+[-> TemplateCommand : execute()
+activate TemplateCommand
+
+[<- TemplateCommand
+deactivate TemplateCommand
+
+@enduml
