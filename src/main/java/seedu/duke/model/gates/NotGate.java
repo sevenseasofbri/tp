@@ -1,7 +1,7 @@
 package seedu.duke.model.gates;
 
 public class NotGate extends Gate {
-    private static final String NOT = "--(~)--";
+    private static final String NOT = "NOT";
 
     public NotGate(int input1) {
         input = input1;

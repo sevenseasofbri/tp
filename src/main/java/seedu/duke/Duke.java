@@ -25,7 +25,7 @@ public class Duke {
     public void run() {
         setUpLogger();
         LOGGER.info("Execution is beginning.");
-        ui.showWelcome();
+        //ui.showWelcome();
         boolean isExit = false;
         while (!isExit) {
             try {

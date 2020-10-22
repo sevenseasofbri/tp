@@ -47,7 +47,7 @@ public class BooleanParser {
      */
     public TemplateBooleanCommand prepareBooleanTemplate(String[] args) throws DukeException {
         booleanTemplate = getBooleanTemplate(args[1]);
-        return new TemplateBooleanCommand();
+        return new TemplateBooleanCommand(booleanTemplate);
     }
 
     private boolean hasNoTemplate() {

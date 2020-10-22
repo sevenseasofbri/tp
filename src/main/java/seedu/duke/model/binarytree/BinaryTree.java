@@ -42,7 +42,11 @@ public class BinaryTree<T> {
      * @throws DukeException If the index specified is invalid.
      */
     public T getT(int idx) throws DukeException {
-        if (idx < 0 || idx >= arrayList.size() || isNullAtIndex(getParentIndex(idx))) {
+        int parentIndex = getParentIndex(idx);
+        boolean hasParent = !isNullAtIndex(parentIndex);
+        boolean isRoot = idx == 0;
+        boolean isOutOfBounds = idx < 0 || idx >= arrayList.size();
+        if (isOutOfBounds || !(isRoot || hasParent)) {
             throw new DukeException("Index specified is out of bounds!");
         }
         return arrayList.get(idx);
@@ -70,11 +74,11 @@ public class BinaryTree<T> {
         }
     }
 
-    private int getLeftIndex(int idx) {
+    public int getLeftIndex(int idx) {
         return 2 * idx + 1;
     }
 
-    private int getRightIndex(int idx) {
+    public int getRightIndex(int idx) {
         return 2 * idx + 2;
     }
 
@@ -92,6 +96,14 @@ public class BinaryTree<T> {
         return isNull;
     }
 
+    public boolean hasLeftChild(int index) {
+        return !isNullAtIndex(getLeftIndex(index));
+    }
+
+    public boolean hasRightChild(int index) {
+        return !isNullAtIndex(getRightIndex(index));
+    }
+
     /**
      * Returns whether node at specified index is a leaf node or not.
      *
@@ -99,7 +111,7 @@ public class BinaryTree<T> {
      * @return boolean value, true if node is a leaf, else false.
      */
     public boolean isLeaf(int index) {
-        boolean hasNoChildren = isNullAtIndex(getLeftIndex(index)) && isNullAtIndex(getRightIndex(index));
+        boolean hasNoChildren = !hasLeftChild(index) && !hasRightChild(index);
         return !isNullAtIndex(index) && hasNoChildren;
     }
 
