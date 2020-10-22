@@ -182,8 +182,8 @@ CLIrcuit Assistant solves three problems:
 ## Appendix: Instructions for manual testing
 ### Initial launch  
 1. Download the jar file and copy it into an empty folder
-2. Open a new terminal window and navigate to the same directory where your tp.jar is located
-3. Enter the command `java -jar tp.jar` into the terminal window to launch the application
+2. Open a new terminal window and navigate to the same directory where your duke.jar is located
+3. Enter the command `java -jar duke.jar` into the terminal window to launch the application
 4. Enter `help` to go into interactive tutorial mode or `summary` to generate a summary of all the commands
 
 ### Creating a digital circuit  
