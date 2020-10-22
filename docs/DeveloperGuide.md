@@ -1,18 +1,27 @@
 # Developer Guide
 
 ## Table of Contents
-* [Setting up, getting started](#setting-up)
-* [Design & Implementation](#design--implementation)
+* [Setting up, getting started](#setting-up-getting-started)
+* [Design & Implementation](#design)
     * [UI component](#ui-component)
     * [Logic component](#logic-component)
     * [Model component](#model-component)
+* [Implementation of Boolean Commands](#implementation-of-boolean-commands)
+    * [Binary Tree](#binary-tree)
+        * [Initialising A BinaryTree Object](#initialising-a-binarytreet-object)
+        * [Using BinaryTree isNullAtIndex(int)](#using-binarytreeisnullatindexint)
+        * [Using BinaryTree getParentIndex(int)](#using-binarytreegetparentindexint-t)
+        * [Using BinaryTree insert(int, T)](#using-binarytreeinsertint-t)
+        * [Using BinaryTree isLeaf(int)](#using-binarytreeisleafint)
+        * [Using BinaryTree isEmpty()](#using-binarytreeisempty)
+    * [Rendering Current Boolean Circuit State](#rendering-current-boolean-circuit-state)
 * [Appendix: Requirements](#appendix-requirements)
     * [Product scope](#product-scope)
     * [User Stories](#user-stories)
     * [Non-Functional Requirements](#non-functional-requirements)
     * [Glossary](#glossary)
 * [Appendix: Instructions for manual testing](#appendix-instructions-for-manual-testing)
-    * [Initital launch](#initial-launch)
+    * [Initial launch](#initial-launch)
     * [Creating a digital circuit](#creating-a-digital-circuit)
     * [Creating a logic gate](#creating-a-logic-gate)
     * [Calculating values](#calculating-values)
@@ -20,9 +29,9 @@
     
 
 ## Setting up, getting started
-Refer to the guide [*Setting up and getting started*](../README.md).
+Refer to the guide [*Setting up and getting started*](SettingUp.md).
 
-## Design & Implementation
+## Design & Implementation <a name="design"></a>
 
 ![ArchitectureDiagram](diagrams/ArchitectureDiagram.png)
 
@@ -175,13 +184,25 @@ The following sequence diagram showcases the events succeeding a call to `isEmpt
 Using a _standard I/O operation_ (Like _Sopln()_) on an object of the `BooleanTemplate` class yields the current configuration
 of the system.
 Each node of the system is represented by a signal ranging from B to O (OUT being the root). All nodes with null parent nodes are
-not shown in the diagram.
+not shown in the diagram. The following diagram depicts a tree wherein no parent nodes are null:
+```
+              0UT
+               |     
+      B                  C
+                     
+  D       E         F         G
+                      
+H  I     J  K      L  M      N  O
+```
 
-## Product scope
-### Target user profile
+
+## Appendix: Requirements
+### Product scope
+**Target user profile**
+  
 New Computer/Electrical Engineering (CEG/EE) students who are looking for a quick way to check calculations for simple circuit configurations can use this App as an aid.
 
-#### Value proposition
+**Value proposition**  
 
 CLIrcuit Assistant solves three problems:
 
@@ -213,7 +234,7 @@ CLIrcuit Assistant solves three problems:
 ## Appendix: Instructions for manual testing
 ### Initial launch  
 1. Download the jar file and copy it into an empty folder
-2. Open a new terminal window and navigate to the same directory where your ip.jar is located
+2. Open a new terminal window and navigate to the same directory where your duke.jar is located
 3. Enter the command `java -jar duke.jar` into the terminal window to launch the application
 4. Enter `help` to go into interactive tutorial mode or `summary` to generate a summary of all the commands
 
@@ -241,4 +262,4 @@ https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-circ
 https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-output 
 
 ### Exiting the program
-Simply enter `bye` to exit the program and bid farewell to ol' Duke.
+Simply enter `bye` to exit the program and bid farewell to your loyal CLIrcuit Assistant.
