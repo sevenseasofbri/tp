@@ -170,9 +170,9 @@ The inheritance of the `OrGate` class from `TwoInputGate` class which inherits f
 ![InsertClassDiagram](diagrams/OrGateClassDiagram.png)
 
 
-There are four Boolean commands that are used in the implementation of the logic gates: `TemplateBooleanCommand, SetBooleanCommand, AddBooleanCommand, and CalcBooleanCommand`.
+There are four Boolean commands that are used in the implementation of the logic gates: `TemplateBooleanCommand, SetBooleanCommand, AddBooleanCommand`, and `CalcBooleanCommand`.
 
-####SetBooleanCommmand
+#### `SetBooleanCommand`
 The `setBooleanCommand` is used to set the value of one of two inputs to the logic gates, which can be either the Boolean value of `0 or 1`.
 
 1. It is instantiated through the `execute()` function in the Parser class.
@@ -192,7 +192,7 @@ The above sequence of object interactions through the SetBooleanCommand can be r
 
 ![InsertSequeunceDiagram](diagrams/SetBooleanCommand.png)
 
-####AddBooleanCommmand
+#### `AddBooleanCommand`
 
 The `AddBooleanCommand` is used to combine multiple logic gate templates to produce advanced Boolean logic gate configurations.
 For instance, an `OrGate` can be combined with an `AndGate` to produce a new logic gate where its final output will depend on the
