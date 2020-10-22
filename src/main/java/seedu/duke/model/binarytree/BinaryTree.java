@@ -39,8 +39,12 @@ public class BinaryTree<T> {
      *
      * @param idx Index in tree.
      * @return T object.
+     * @throws DukeException If the index specified is invalid.
      */
-    public T getT(int idx) {
+    public T getT(int idx) throws DukeException {
+        if (idx < 0 || idx >= arrayList.size() || isNullAtIndex(getParentIndex(idx))) {
+            throw new DukeException("Index specified is out of bounds!");
+        }
         return arrayList.get(idx);
     }
 

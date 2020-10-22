@@ -37,8 +37,9 @@ public class BooleanTemplate {
      *
      * @param value Input value.
      * @param index Index in tree.
+     * @throws DukeException If index specified is out of bounds.
      */
-    public void setInput(int value, int index) {
+    public void setInput(int value, int index) throws DukeException {
         int parentIdx = circuit.getParentIndex(index);
         TwoInputGate parentGate = (TwoInputGate) circuit.getT(parentIdx);
         if (index % 2 == 1) {
