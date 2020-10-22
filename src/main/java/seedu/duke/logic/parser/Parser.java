@@ -57,7 +57,7 @@ public class Parser {
             return circuitParser.prepareCircuitTemplate(args);
         } else if (isBooleanTemplate) {
             isCircuit = false;
-            return booleanParser.prepareTemplate(args);
+            return booleanParser.prepareBooleanTemplate(args);
         }
 
         throw new DukeException("Invalid argument");

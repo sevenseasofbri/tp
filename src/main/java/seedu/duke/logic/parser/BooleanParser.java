@@ -45,7 +45,7 @@ public class BooleanParser implements LogicParser {
      * @return TemplateBooleanCommand object.
      * @throws DukeException If parsing error occurs.
      */
-    public TemplateBooleanCommand prepareTemplate(String[] args) throws DukeException {
+    public TemplateBooleanCommand prepareBooleanTemplate(String[] args) throws DukeException {
         booleanTemplate = getBooleanTemplate(args[1]);
         return new TemplateBooleanCommand(booleanTemplate);
     }
