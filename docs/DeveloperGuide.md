@@ -188,7 +188,7 @@ assigned as inputs.
 6. The `OrGate` object represents the `or` operation logic gate. 
 It then calls `setBoolean(int value)` function on itself to assign the Boolean value to that selected input of the logic gate.
 
-The above sequence of object interactions through the SetCommand can be represented in the following sequence diagram:
+The above sequence of object interactions through the SetBooleanCommand can be represented in the following sequence diagram:
 
 ![InsertSequeunceDiagram](diagrams/SetBooleanCommand.png)
 

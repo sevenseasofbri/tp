@@ -155,7 +155,7 @@ Example of usage:
 Expected Outcome:
 
 ```
-Nice, added a 500.0 µF**
+Nice, added a 500.0 µF
 	+---R-----C---+
 	|             |
 	|             |
