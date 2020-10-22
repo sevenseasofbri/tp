@@ -2,17 +2,26 @@
 
 ## Table of Contents
 * [Setting up, getting started](#setting-up-getting-started)
-* [Design & Implementation](#design--implementation)
+* [Design & Implementation](#design)
     * [UI component](#ui-component)
     * [Logic component](#logic-component)
     * [Model component](#model-component)
+* [Implementation of Boolean Commands](#implementation-of-boolean-commands)
+    * [Binary Tree](#binary-tree)
+        * [Initialising A BinaryTree Object](#initialising-a-binarytreet-object)
+        * [Using BinaryTree isNullAtIndex(int)](#using-binarytreeisnullatindexint)
+        * [Using BinaryTree getParentIndex(int)](#using-binarytreegetparentindexint-t)
+        * [Using BinaryTree insert(int, T)](#using-binarytreeinsertint-t)
+        * [Using BinaryTree isLeaf(int)](#using-binarytreeisleafint)
+        * [Using BinaryTree isEmpty()](#using-binarytreeisempty)
+    * [Rendering Current Boolean Circuit State](#rendering-current-boolean-circuit-state)
 * [Appendix: Requirements](#appendix-requirements)
     * [Product scope](#product-scope)
     * [User Stories](#user-stories)
     * [Non-Functional Requirements](#non-functional-requirements)
     * [Glossary](#glossary)
 * [Appendix: Instructions for manual testing](#appendix-instructions-for-manual-testing)
-    * [Initital launch](#initial-launch)
+    * [Initial launch](#initial-launch)
     * [Creating a digital circuit](#creating-a-digital-circuit)
     * [Creating a logic gate](#creating-a-logic-gate)
     * [Calculating values](#calculating-values)
@@ -22,7 +31,7 @@
 ## Setting up, getting started
 Refer to the guide [*Setting up and getting started*](SettingUp.md).
 
-## Design & Implementation
+## Design & Implementation <a name="design"></a>
 
 ![ArchitectureDiagram](diagrams/ArchitectureDiagram.png)
 
@@ -55,9 +64,42 @@ The `Ui` component
 1. The command execution can affect the `Model` (e.g. setting a value).
 1. In addition, the `Ui` may also perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `parse("set r 500")` API call.
+#### Command components  
+The various command classes to be parsed can be divided into Trivial and Non-Trivial classes:  
 
-![SetSequence](diagrams/SetSequenceDiagram.png)
+##### - Trivial Classes
+
+##### - Non-Trivial Classes
+`SetCommand`  
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `parse("set r 500")` API call
+which implements the set command to set values of components.
+
+![SetSequence](diagrams/SetSequenceDiagram.png)  
+
+`AddCommand`    
+Given below is the detailed Sequence diagram for interactions within the `logic`, `template` and `component` components 
+for the `parse("add parallel c 20")` API call that implements the add command to add components.
+
+![AddSequence](diagrams/AddSequenceDiagram.png)  
+
+`CalculateCommand`  
+The calculate command can be split into two distinct sequence diagrams. Given below is the sequence diagram for the
+calculate command that does not show the access of the `component` component and shows the interactions for the
+`parse("calc power")` API call that implements this version of the calculate command to calculate power.  
+
+![CalcPowerSequence](diagrams/CalcPowerSequenceDiagram.png)  
+
+The second sequence diagram given below shows the detailed interaction that acesses the `component` class through the
+`parse("calc reff")`API call that implements this version of the calculate command to calculate effective resistance.
+
+![CalcReffSequence](diagrams/CalcReffSequenceDiagram.png)  
+
+`TemplateCommand`  
+Given below is the sequence diagram for interactions within the `logic` and `template` components for the 
+`parse(template rl)` API call that implements the template command to create templates.
+
+![TemplateSequence](diagrams/TemplateSequenceDiagram.png)
+ 
 
 ### Model component
 
@@ -142,7 +184,17 @@ The following sequence diagram showcases the events succeeding a call to `isEmpt
 Using a _standard I/O operation_ (Like _Sopln()_) on an object of the `BooleanTemplate` class yields the current configuration
 of the system.
 Each node of the system is represented by a signal ranging from B to O (OUT being the root). All nodes with null parent nodes are
-not shown in the diagram.
+not shown in the diagram. The following diagram depicts a tree wherein no parent nodes are null:
+```
+              0UT
+               |     
+      B                  C
+                     
+  D       E         F         G
+                      
+H  I     J  K      L  M      N  O
+```
+
 
 ## Appendix: Requirements
 ### Product scope
@@ -182,7 +234,7 @@ CLIrcuit Assistant solves three problems:
 ## Appendix: Instructions for manual testing
 ### Initial launch  
 1. Download the jar file and copy it into an empty folder
-2. Open a new terminal window and navigate to the same directory where your ip.jar is located
+2. Open a new terminal window and navigate to the same directory where your duke.jar is located
 3. Enter the command `java -jar duke.jar` into the terminal window to launch the application
 4. Enter `help` to go into interactive tutorial mode or `summary` to generate a summary of all the commands
 
@@ -210,4 +262,4 @@ https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-circ
 https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-output 
 
 ### Exiting the program
-Simply enter `bye` to exit the program and bid farewell to ol' Duke.
+Simply enter `bye` to exit the program and bid farewell to your loyal CLIrcuit Assistant.
