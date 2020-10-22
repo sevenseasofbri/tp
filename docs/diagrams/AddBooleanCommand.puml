@@ -1,0 +1,40 @@
+
+@startuml
+activate AddBooleanCommand
+
+->AddBooleanCommand: execute()
+
+activate BooleanTemplate
+AddBooleanCommand -> BooleanTemplate: addGate(template, "C", and)
+
+activate BooleanTemplate
+BooleanTemplate -> BooleanTemplate: convertToIndex("C")
+
+activate BooleanTemplate
+BooleanTemplate -> BinaryTree: passIndextoTree(index)
+
+activate BinaryTree
+BinaryTree -> BinaryTree : getLeftIndex(index)
+
+activate BinaryTree
+BinaryTree -> BinaryTree : getRightIndex(index)
+
+deactivate BooleanTemplate
+
+deactivate BinaryTree
+
+activate AndGate
+BinaryTree -> AndGate: addGate(leftIndex, rightIndex)
+
+deactivate BinaryTree
+
+AndGate -> AndGate: setInputPositions(leftIndex, rightIndex)
+
+
+deactivate AndGate
+
+deactivate BooleanTemplate
+
+deactivate BooleanTemplate
+deactivate AddBooleanCommand
+@enduml

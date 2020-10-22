@@ -36,11 +36,6 @@ The rest of the app consists of four components.
 * [**`Logic`**](#logic-component): The command executor.
 * [**`Model`**](#model-component): Holds the data of the App in memory.
 
-### Boolean circuit solver
-
-
-
-
 ### UI component
 
 ![UiDiagram](diagrams/UiClassDiagram.png)
@@ -148,6 +143,104 @@ Using a _standard I/O operation_ (Like _Sopln()_) on an object of the `BooleanTe
 of the system.
 Each node of the system is represented by a signal ranging from B to O (OUT being the root). All nodes with null parent nodes are
 not shown in the diagram.
+
+
+## Implementation of Logic Gate Commands
+
+There are six different logic gates that can be instantiated in the program:
+- `or, and, nor, nand, xor, xand`
+
+All gates can be first instantiated using the `Gate` class which has one `int input` and one `int output` as its attributes. 
+It has `setInput(int input)` and `getOutput()` as its methods, which are used to set the input of the logic gate and get the output of the gate respectively. 
+
+The six different logic gates take in two different inputs, which necessitates the need for a logic gate class to take in one more input.
+This can be achieved by instantiating the `TwoInputGate` class which inherits from the `Gate` class. It has an additional attribute `int secondInput`
+to take in the additional input and a method `setSecondInput(int input)` to set the Boolean value of either `0 or 1` to the additional input.
+
+The six different logic gates then individually inherit from the `TwoInputGate` class where the return value of their `getOutput()` function depends
+on the logic function of the gate itself. For instance, the `OrGate` which inherits from the `TwoInputGate` class has its `getOutput()` function set to `{return input | secondInput}`, 
+which represents the `or` operation.
+
+The `OrGate` can be visualised as such in the following object diagram:
+
+![InsertObjectDiagram](diagrams/OrGateObjectDiagram.png)
+ 
+The inheritance of the `OrGate` class from `TwoInputGate` class which inherits from the `Gate` class can be seen in the following class diagram:
+
+![InsertClassDiagram](diagrams/OrGateClassDiagram.png)
+
+
+There are four Boolean commands that are used in the implementation of the logic gates: `TemplateBooleanCommand, SetBooleanCommand, AddBooleanCommand, and CalcBooleanCommand`.
+
+####SetBooleanCommmand
+The `setBooleanCommand` is used to set the value of one of two inputs to the logic gates, which can be either the Boolean value of `0 or 1`.
+
+1. It is instantiated through the `execute()` function in the Parser class.
+2. The `setBooleanCommand` object will then call the `setInput(template logicGate, String gateInput, int value)` method which will take in a template, input of a logic gate as `String` data type, 
+and its Boolean value to be set as its three inputs. The function takes in a template as its first input and will instantiate the BooleanTemplate object.
+3. The `BooleanTemplate` object will then convert the input of the logic gate into the index to be stored in the binary tree of logic gates. This will depend on where the 
+logic gate is stored in the binary tree. This can be achieved by passing in the gate in `String` form to the `convertToIndex("C")` function, where in this case `"C"` is the
+input of the logic gate to be converted.
+4. The `BooleanTemplate` object will then call `insertTree` function in the instantiated `BinaryTree` object, where the `insertTree` function will take in the index of the logic gate
+stored in the `BinaryTree` and the Boolean value to be assigned to the gate as input. The binary tree containing the logic gates is stored in this object.
+5. The `BinaryTree` object will then call on the `setInput` function in the instantiated `OrGate` object with `index` of the logic gate and its Boolean value to be
+assigned as inputs.
+6. The `OrGate` object represents the `or` operation logic gate. 
+It then calls `setBoolean(int value)` function on itself to assign the Boolean value to that selected input of the logic gate.
+
+The above sequence of object interactions through the SetCommand can be represented in the following sequence diagram:
+
+![InsertSequeunceDiagram](diagrams/SetBooleanCommand.png)
+
+####AddBooleanCommmand
+
+The `AddBooleanCommand` is used to combine multiple logic gate templates to produce advanced Boolean logic gate configurations.
+For instance, an `OrGate` can be combined with an `AndGate` to produce a new logic gate where its final output will depend on the
+Boolean values assigned to the `OrGate` and `AndGate`. The combination of both these gates can be represented by the following object diagram:
+
+![InsertObjectDiagram](diagrams/AddOrAndGates.png)
+
+The above combined logic gate configuration can also further be combined with another logic gate template (for instance, an `XorGate`) using the `AddBooleanCommand`
+again to produce an even more advanced logic gate configuration. This combination can be represented by the following
+object diagram:
+
+![InsertObjectDiagram](diagrams/AddAndOrXORGates.png)
+
+The sequence by which the `AddBooleanCommand` is instantiated to combine the logic gates is as follows:
+
+1. It is instantiated through the `execute()` function in the Parser class.
+2. The `AddBooleanCommand` object will then call on the `addGate(template, String gateInput, String logicGate)` function in the instantiated BooleanTemplate object. 
+The gateInput refers to the input of the gate where the combination of the gates will be instantiated and the logicGate represents the new gate that can be 
+included in the new combination.
+3. The `BooleanTemplate` object will then call `convertToIndex(String gateInput)` on itself to obtain the index of the input of the logic gate.
+4. Upon obtaining the index, the `BooleanTemplate` will call on the `passIndextoTree(int index)` in the instantiated `BinaryTree` object.
+6. The `AndGate` object can then be instantiated from the call of the `AddGate(index, String logicGate)` function, where in this case the second parameter is `"and"`.
+7. The `AndGate` object will then call the `setInputPosition(index)` method where its index will be set in the `BinaryTree`.
+
+![InsertSequeunceDiagram](diagrams/AddBooleanCommandSeqDiagram.png)
+
+####CalcBooleanCommmand
+
+The `CalcBooleanCommand` is used to calculate the effective output of the configured logic gates stored in the `BinaryTree` is used to , which requires that all inputs be set.
+
+For instance, in a `BinaryTree` object with just two gates - `OrGate` and `AndGate` - all the inputs of the gates have to be assigned before the effective output of both the logic gates (`Input C`) can 
+be calculated as follows:
+
+![InsertObjectDiagram](diagrams/calcObjectDiagram.png)
+
+The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
+
+1. It is instantiated through the `execute()` function in the Parser class.
+2. The `CalcBooleanCommand` object will then call on the `calc()` method in the instantiated `BooleanTemplate` class.
+3. The `BooleanTemplate` then calls the `getGate()` method for all the gates stored in its instantiated `BinaryTree` object using a `for` loop.
+that spans for the height of the `BinaryTree`. In this case, the `BinaryTree` is stored as an `ArrayList`, which means that `getGate()` will iterate through
+the `for` loop that spans for the length of the `ArrayList`. 
+4. The `BinaryTree` object will then call the `getGateBooleanValue()` method on the instantiated `Gate` object in each of its index to get the Boolean 
+values of the inputs of that one logic gate.
+5. The `Gate` object will then call the `calcBoolean(input1,input2)` on itself to obtain the Boolean output of that logic gate. This value obtained - `booleanValue` - is then
+passed back into the `BooleanTemplate` object. The Boolean values of all the logic gates will be calculated to obtain the effective logic gate output.
+![InsertSequeunceDiagram](diagrams/CalcBooleanCommand.png)
+
 
 ## Product scope
 ### Target user profile

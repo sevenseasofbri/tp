@@ -1,0 +1,24 @@
+@startuml
+activate SetBooleanCommand
+
+->SetBooleanCommand: execute()
+
+activate BooleanTemplate
+
+SetBooleanCommand -> BooleanTemplate: setInput(template, "C", 0);
+deactivate SetBooleanCommand
+
+BooleanTemplate -> BooleanTemplate: convertToIndex("C");
+
+
+BooleanTemplate -> BinaryTree: insertTree(index, 0)
+activate BinaryTree
+activate OrGate
+
+BinaryTree -> OrGate: setInput(index, 0)
+
+OrGate -> OrGate: setBoolean(0)
+deactivate OrGate
+deactivate BinaryTree
+deactivate BooleanTemplate
+@enduml
