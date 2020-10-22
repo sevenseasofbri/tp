@@ -6,6 +6,8 @@
     * [UI component](#ui-component)
     * [Logic component](#logic-component)
     * [Model component](#model-component)
+* [Implementation of Boolean Commands](#implementation-of-boolean-commands)
+    * [Binary Tree](#binary-tree)
 * [Appendix: Requirements](#appendix-requirements)
     * [Product scope](#product-scope)
     * [User Stories](#user-stories)
