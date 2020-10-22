@@ -1,7 +1,7 @@
 # Developer Guide
 
 ## Table of Contents
-* [Setting up, getting started](#setting-up)
+* [Setting up, getting started](#setting-up-getting-started)
 * [Design & Implementation](#design--implementation)
     * [UI component](#ui-component)
     * [Logic component](#logic-component)
@@ -20,7 +20,7 @@
     
 
 ## Setting up, getting started
-Refer to the guide [*Setting up and getting started*](../README.md).
+Refer to the guide [*Setting up and getting started*](SettingUp.md).
 
 ## Design & Implementation
 
@@ -144,11 +144,13 @@ of the system.
 Each node of the system is represented by a signal ranging from B to O (OUT being the root). All nodes with null parent nodes are
 not shown in the diagram.
 
-## Product scope
-### Target user profile
+## Appendix: Requirements
+### Product scope
+**Target user profile**
+  
 New Computer/Electrical Engineering (CEG/EE) students who are looking for a quick way to check calculations for simple circuit configurations can use this App as an aid.
 
-#### Value proposition
+**Value proposition**  
 
 CLIrcuit Assistant solves three problems:
 
