@@ -53,7 +53,7 @@ public class BinaryTree<T> {
         // Not the root or has no parent
         boolean isExisting = isRoot || hasParent;
 
-         // If out of bounds or does not exist currently
+        // If out of bounds or does not exist currently
         if (isOutOfBounds(idx) || !isExisting) {
             throw new DukeException("Index specified is out of bounds!");
         }
@@ -113,7 +113,7 @@ public class BinaryTree<T> {
     }
 
     /**
-     * Returns whether an index is null in the tree
+     * Returns whether an index is null in the tree.
      *
      * @param idx Index in tree.
      * @return boolean whether index is null.

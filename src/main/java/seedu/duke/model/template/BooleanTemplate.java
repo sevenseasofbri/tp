@@ -14,9 +14,9 @@ public class BooleanTemplate {
             + "                      \n"
             + "H   I J   K L   M N   O";
     private static final int ASCII_A = 65;
-    /** BinaryTree object to represent the logic circuit **/
+    /** BinaryTree object to represent the logic circuit. **/
     private final BinaryTree<Gate> circuit;
-    /** String representation of the template **/
+    /** String representation of the template. **/
     private String currentConfig = "";
 
     public BooleanTemplate(Gate gate) throws DukeException {
