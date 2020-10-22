@@ -18,4 +18,7 @@ add parallel r 200
 set r 100
 set c 2
 calc current
+template and
+set B 1
+add C or
 bye

@@ -3,6 +3,7 @@ package seedu.duke.logic.parser;
 import seedu.duke.DukeException;
 import seedu.duke.logic.commands.gates.AddBooleanCommand;
 import seedu.duke.logic.commands.gates.BooleanCommand;
+import seedu.duke.logic.commands.gates.CalculateBooleanCommand;
 import seedu.duke.logic.commands.gates.SetBooleanCommand;
 import seedu.duke.logic.commands.gates.TemplateBooleanCommand;
 import seedu.duke.model.gates.AndGate;
@@ -14,25 +15,25 @@ import seedu.duke.model.gates.XnorGate;
 import seedu.duke.model.gates.XorGate;
 import seedu.duke.model.template.BooleanTemplate;
 
-public class BooleanParser {
+public class BooleanParser implements LogicParser {
     private static BooleanTemplate booleanTemplate;
 
     /**
-     * Returns a Command object based on the input line.
+     * Returns a BooleanCommand object based on the input line.
      *
      * @param args Array of arguments.
      * @param command Command as String.
-     * @return Command object.
+     * @return BooleanCommand object.
      * @throws DukeException If given line is blank.
      */
     public BooleanCommand parse(String[] args, String command) throws DukeException {
         switch (command) {
         case "help":
-        case "set":
+        case SetBooleanCommand.COMMAND_WORD:
             return prepareBooleanSet(args);
-        case "add":
+        case AddBooleanCommand.COMMAND_WORD:
             return prepareBooleanAdd(args);
-        case "calc":
+        case CalculateBooleanCommand.COMMAND_WORD:
         default:
             throw new DukeException("Invalid Command!");
         }
@@ -47,7 +48,7 @@ public class BooleanParser {
      */
     public TemplateBooleanCommand prepareBooleanTemplate(String[] args) throws DukeException {
         booleanTemplate = getBooleanTemplate(args[1]);
-        return new TemplateBooleanCommand();
+        return new TemplateBooleanCommand(booleanTemplate);
     }
 
     private boolean hasNoTemplate() {
@@ -67,7 +68,13 @@ public class BooleanParser {
         return args.length < i;
     }
 
-
+    /**
+     * Returns the SetBooleanCommand after parsing the input arguments.
+     *
+     * @param args User Input arguments.
+     * @return SetBooleanCommand object to be executed.
+     * @throws DukeException If input parsed incorrectly, or no template set yet.
+     */
     private SetBooleanCommand prepareBooleanSet(String[] args) throws DukeException {
         if (hasMinArguments(args, 3)) {
             throw new DukeException("Not enough arguments!");

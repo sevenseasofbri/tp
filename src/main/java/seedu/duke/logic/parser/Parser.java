@@ -4,6 +4,7 @@ import seedu.duke.DukeException;
 import seedu.duke.logic.commands.Command;
 import seedu.duke.logic.commands.ExitCommand;
 import seedu.duke.logic.commands.SummaryCommand;
+import seedu.duke.logic.commands.circuit.TemplateCircuitCommand;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +15,13 @@ public class Parser {
     private static final CircuitParser circuitParser = new CircuitParser();
     private static final BooleanParser booleanParser = new BooleanParser();
 
+    /**
+     * Returns a Command object based on the input line.
+     *
+     * @param line Line of user input.
+     * @return Command object.
+     * @throws DukeException If given line is blank.
+     */
     public Command parse(String line) throws DukeException {
         // Prevent blank tasks
         if (line.isBlank()) {
@@ -25,11 +33,11 @@ public class Parser {
         String command = args[0].toLowerCase();
 
         switch (command) {
-        case "summary":
+        case SummaryCommand.COMMAND_WORD:
             return new SummaryCommand();
-        case "bye":
+        case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
-        case "template":
+        case TemplateCircuitCommand.COMMAND_WORD:
             return prepareTemplate(args);
         default:
             break;
@@ -61,10 +69,5 @@ public class Parser {
         }
 
         throw new DukeException("Invalid argument");
-
     }
-
-
-
-
 }

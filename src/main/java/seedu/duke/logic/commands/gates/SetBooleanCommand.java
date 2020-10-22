@@ -4,6 +4,7 @@ import seedu.duke.DukeException;
 import seedu.duke.model.template.BooleanTemplate;
 
 public class SetBooleanCommand extends BooleanCommand {
+    public static final String COMMAND_WORD = "set";
     private final int value;
     private final int index;
 

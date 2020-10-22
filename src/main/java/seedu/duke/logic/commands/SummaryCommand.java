@@ -1,6 +1,7 @@
 package seedu.duke.logic.commands;
 
 public class SummaryCommand extends Command {
+    public static final String COMMAND_WORD = "summary";
     private static final String COMMAND_SUMMARY = "\n"
             + "+-----------+----------------------------+--------------------+\n"
             + "|  Action   |           Format           |      Examples      |\n"

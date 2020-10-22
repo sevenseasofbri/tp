@@ -1,7 +1,7 @@
 package seedu.duke.model.gates;
 
 public class AndGate extends TwoInputGate {
-    private static final String AND = "--(&|--";
+    private static final String AND = "AND";
 
     /**
      * Performs bitwise AND (&) operation on the input instance variables.
