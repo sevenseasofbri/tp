@@ -226,7 +226,7 @@ The `CalcBooleanCommand` is used to calculate the effective output of the config
 For instance, in a `BinaryTree` object with just two gates - `OrGate` and `AndGate` - all the inputs of the gates have to be assigned before the effective output of both the logic gates (`Input C`) can 
 be calculated as follows:
 
-![InsertObjectDiagram](diagrams/calcObjectDiagram.png)
+![InsertObjectDiagram](diagrams/CalcObjectDiagram.png)
 
 The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
 
