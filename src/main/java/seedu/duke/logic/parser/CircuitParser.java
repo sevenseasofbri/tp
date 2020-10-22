@@ -17,22 +17,22 @@ public class CircuitParser implements LogicParser {
     private static CircuitTemplate circuitTemplate = null;
 
     /**
-     * Returns a Command object based on the input line.
+     * Returns a CircuitCommand object based on the input line.
      *
      * @param args Array of arguments.
      * @param command Command as String.
-     * @return Command object.
+     * @return CircuitCommand object.
      * @throws DukeException If given line is blank.
      */
     public CircuitCommand parse(String[] args, String command) throws DukeException {
         switch (command) {
-        case "help":
+        case HelpCircuitCommand.COMMAND_WORD:
             return new HelpCircuitCommand();
-        case "set":
+        case SetCircuitCommand.COMMAND_WORD:
             return prepareCircuitSet(args);
-        case "add":
+        case AddCircuitCommand.COMMAND_WORD:
             return prepareCircuitAdd(args);
-        case "calc":
+        case CalculateCircuitCommand.COMMAND_WORD:
             return prepareCircuitCalc(args);
         default:
             throw new DukeException("Invalid Command!");

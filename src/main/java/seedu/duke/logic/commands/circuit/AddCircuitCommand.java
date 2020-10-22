@@ -5,6 +5,7 @@ import seedu.duke.model.component.LoadComponent;
 import seedu.duke.model.template.CircuitTemplate;
 
 public class AddCircuitCommand extends SetCircuitCommand {
+    public static final String COMMAND_WORD = "add";
     private final String config;
     private LoadComponent loadComponent;
 

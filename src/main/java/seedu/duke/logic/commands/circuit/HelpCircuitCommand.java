@@ -7,6 +7,7 @@ import seedu.duke.ui.Ui;
 import java.util.logging.Level;
 
 public class HelpCircuitCommand extends CircuitCommand {
+    public static final String COMMAND_WORD = "help";
     private static final Parser PARSER = new Parser();
     private static final String[] orderOfInstructions = {"template", "set v", "set", "set", "add", "calc"};
     private int numOfCommandsDone = 0;

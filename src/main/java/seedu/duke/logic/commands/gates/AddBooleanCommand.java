@@ -5,6 +5,7 @@ import seedu.duke.model.gates.Gate;
 import seedu.duke.model.template.BooleanTemplate;
 
 public class AddBooleanCommand extends BooleanCommand {
+    public static final String COMMAND_WORD = "add";
     private final Gate gate;
     private final int index;
 
