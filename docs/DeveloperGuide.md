@@ -318,7 +318,12 @@ CLIrcuit Assistant solves three problems:
 |v1.0|new CEG/EE Student | change values assigned to the components| obtain different calculations quickly|
 |v1.0|new CEG/EE Student|add components arranged in either series or parallel|obtain my configuration for analysis|
 |v1.0|new CEG/EE Student |calculate/verify my calculations of effective resistance, total capacitance, etc.|quickly and accurately do so via CLI, and not 3rd party software that I have to install/load online|
-|**v2.0** (latest)|CEG/EE Student|compute a boolean logical expression|familiarise myself with logical computation used in digital circuits|
+|v2.0|CEG/EE Student|compute a boolean logical expression|familiarise myself with logical computation used in digital circuits|
+|v2.0|CEG/EE Student|create a template boolean logic gate to connect more gates to|build a logical circuit|
+|v2.0|CEG/EE Student|add logic gates to configure a boolean logic circuit|create my own configuration of logic gates
+|v2.0|CEG/EE Student|set input values to the logic gate configuration|analyse inputs and outputs of a configuration
+|v2.0|CEG/EE Student|print the current template I am working on|find out my current configuration and make a decision
+
 
 ### Non-Functional Requirements
 
