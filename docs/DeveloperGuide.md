@@ -196,7 +196,7 @@ CLIrcuit Assistant solves three problems:
 
 ## Glossary
 
-* *glossary item* - Definition
+* *glossary item* - Definition 
 
 ## Appendix: Instructions for manual testing
 ### Initial launch  
