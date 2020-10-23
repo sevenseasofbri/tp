@@ -8,7 +8,7 @@ This **User Guide** aims to help you get familiarised with the commands used in 
 |:exclamation:|A warning.|
 |**Bolded**|A keyword.|
 |*Italicised*|Technical word.|
-|[Hyperlinked](#)|Leads to appropriate section.|
+|[Hyperlinked](#)|Leads to the appropriate section.|
 |`Code`|Text that appears on the CLI / in code.|
 
 
@@ -26,7 +26,7 @@ This **User Guide** aims to help you get familiarised with the commands used in 
     1. [Setting Component](#set-comp)
     1. [Adding Component](#add-comp)
     1. [Calculating Value](#calc-circ)
-1. [Logic Gate Commands](#logic-gate-commands)
+1. [Boolean Action Commands](#boolean-action-commands)
     1. [Interactive Tutorial](#tut-logic)
     1. [Creating Boolean Template](#template-logic)
     1. [Setting Input](#set-input)
@@ -59,7 +59,7 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
 
 ![Command](diagrams/CommandUserDiagram.png)
 
-The diagram above shows the different types of commands available in this application. You can find the following sections listed below:
+The diagram above shows the hierarchy of the types of commands in the application. In this **User Guide**, you can find the following sections listed below:
 
 * [General Commands](#general-commands)
 * [Circuit Action Commands](#circuit-action-commands)
@@ -223,7 +223,7 @@ The effective capacitance calculated is 500.0 µF
 
 This section details how the commands are used with a *boolean* `template`. You can use this section to build simple logic circuits which may be made up of various gates such as `AND`, `OR`, and `XOR` gates.
 
-### Interactive Tutorial : `tutorial`
+### Interactive Tutorial : `tutorial` <a name='tut-logic'></a>
 
 To aid the user, this command starts the interactive tutorial for the *boolean* action commands. In the following order, the tutorial will guide you on how to use the commands:
 
