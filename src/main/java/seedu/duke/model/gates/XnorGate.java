@@ -1,7 +1,7 @@
 package seedu.duke.model.gates;
 
 public class XnorGate extends XorGate {
-    private static final String XNOR = "--(~^)--";
+    private static final String XNOR = "XNOR";
 
     /**
      * Performs bitwise XNOR (~^) operation on the input instance variables.

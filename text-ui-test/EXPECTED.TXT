@@ -132,4 +132,32 @@ Total Resistance: 100.0 Ω
 Total Capacitance: 2.0 µF
 
 The total rms current flowing through the circuit is 0.0031354096992368807A
+          0UT
+           |
+     B           C
+
+OUT = B AND C
+B = ?
+C = ?
+
+          0UT
+           |
+     B           C
+
+OUT = B AND C
+B = 1
+C = ?
+
+          0UT
+           |
+     B           C
+
+              F     G
+
+OUT = B AND C
+B = 1
+C = F OR G
+F = ?
+G = ?
+
  Bye. See you next time!
