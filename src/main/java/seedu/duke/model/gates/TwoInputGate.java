@@ -2,6 +2,7 @@ package seedu.duke.model.gates;
 
 public abstract class TwoInputGate extends Gate {
     protected int secondInput;
+    protected boolean isSetSecondInput = false;
 
     public TwoInputGate(int input, int secondInput) {
         this.input = input;
@@ -19,5 +20,24 @@ public abstract class TwoInputGate extends Gate {
      */
     public void setSecondInput(int input) {
         secondInput = input;
+        isSetSecondInput = true;
+    }
+
+    /**
+     * Returns second input of gate.
+     *
+     * @return int second input
+     */
+    public int getSecondInput() {
+        return secondInput;
+    }
+
+    /**
+     * Returns whether second input is set.
+     *
+     * @return boolean
+     */
+    public boolean isSetSecondInput() {
+        return isSetSecondInput;
     }
 }

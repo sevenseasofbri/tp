@@ -1,7 +1,7 @@
 package seedu.duke.model.gates;
 
 public class NorGate extends OrGate {
-    private static final String NOR = "--(~|)--";
+    private static final String NOR = "NOR";
 
     /**
      * Performs bitwise NOR (~|) operation on the input instance variables.

@@ -4,6 +4,7 @@ import seedu.duke.DukeException;
 import seedu.duke.model.template.CircuitTemplate;
 
 public class CalculateCircuitCommand extends CircuitCommand {
+    public static final String COMMAND_WORD = "calc";
     private final String calculationType;
     private String value;
 

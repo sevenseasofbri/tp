@@ -1,7 +1,7 @@
 package seedu.duke.model.gates;
 
 public class OrGate extends TwoInputGate {
-    private static final String OR = "--(|)--";
+    private static final String OR = "OR";
 
     /**
      * Performs bitwise OR (|) operation on the input instance variables.

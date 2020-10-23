@@ -1,7 +1,7 @@
 package seedu.duke.model.gates;
 
 public class NandGate extends AndGate {
-    private static final String NAND = "--(~&|--";
+    private static final String NAND = "NAND";
 
     /**
      * Performs bitwise NAND (~&) operation on the input instance variables.
