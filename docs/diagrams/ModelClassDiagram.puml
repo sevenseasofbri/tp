@@ -1,5 +1,7 @@
 @startuml
 
+hide member
+
 package Model {
 package Template {
     Class XYZCircuitTemplate
@@ -18,6 +20,7 @@ package Component {
 
 package Gate {
     Class XYZGate
+    Class "{abstract}\nTwoInputGate" as TwoInput
     Class "{abstract}\nGate" as Gate
 }
 
@@ -33,10 +36,11 @@ LoadComponent --|> Component
 XYZComponent --|> Component
 XYZLoadComponent --|> LoadComponent
 
-BooleanTemplate --|> BinaryTree
+BooleanTemplate --> BinaryTree
 BooleanTemplate --> Gate
 BinaryTree --> Gate
 
-XYZGate --|> Gate
+XYZGate --|> TwoInput
+TwoInput --|> Gate
 
 @enduml

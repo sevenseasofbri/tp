@@ -1,5 +1,6 @@
 @startuml
 
+hide member
 package UI {
     Class Ui
 }

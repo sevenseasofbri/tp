@@ -1,8 +1,19 @@
 # Developer Guide
 
+This **Developer Guide** aims to get developers familiarised with the design and implementation of **CLIrcuit Assistant**. The following table indicates the symbols used to aid the understanding of the guide.
+
+| Symbol/Format | Meaning |
+|:---------------:|:--------|
+|:information_source:|An informational source.|
+|:exclamation:|A warning.|
+|**Bolded**|A keyword.|
+|*Italicised*|Technical word.|
+|[Hyperlinked](#)|Leads to the appropriate section.|
+|`Code`|Text that appears on the CLI / in code.|
+
 ## Table of Contents
 * [Setting up, getting started](#setting-up-getting-started)
-* [Design & Implementation](#design)
+* [Design Architecture](#design)
     * [UI component](#ui-component)
     * [Logic component](#logic-component)
     * [Model component](#model-component)
@@ -31,7 +42,7 @@
 ## Setting up, getting started
 Refer to the guide [*Setting up and getting started*](SettingUp.md).
 
-## Design & Implementation <a name="design"></a>
+## Design Architecture <a name="design"></a>
 
 ![ArchitectureDiagram](diagrams/ArchitectureDiagram.png)
 
@@ -39,7 +50,7 @@ The **Architecture Design** given above explains the high-level design of the Ap
 
 **`Duke`** is the main class of the application, and handles the app launch, initializing the appropriate classes to be used.
 
-The rest of the app consists of four components.
+The rest of the app consists of three components.
 
 * [**`UI`**](#ui-component): The UI of the App.
 * [**`Logic`**](#logic-component): The command executor.
@@ -58,31 +69,42 @@ The `Ui` component
 
 ![LogicDiagram](diagrams/LogicClassDiagram.png)
 
-1. `Logic` stores a current `Template` object that represents the current circuit configuration.
+1. `Logic` stores a current `Template` object in [`Model`](#model-component) that represents the current circuit configuration.
 1. `Logic` uses the `Parser` class to parse the user command.
 1. This results in a `Command` object which is executed in `Duke`.
 1. The command execution can affect the `Model` (e.g. setting a value).
 1. In addition, the `Ui` may also perform certain actions, such as displaying help to the user.
 
-#### Command components  
-The various command classes to be parsed can be divided into Trivial and Non-Trivial classes:  
+### Model component
 
-##### - Trivial Classes
+![ModelDiagram](diagrams/ModelClassDiagram.png)
 
-##### - Non-Trivial Classes
-`SetCommand`  
+The `Model`,
+* includes `CircuitTemplate` and `BooleanTemplate` that can represent the current `template` in [`Logic`](#logic-component).
+* has `Component` and `Gate` within the templates.
+* does not depend on any of the other three components.
+
+## Implementation of Circuit Commands
+
+![CircuitClass](diagrams/CircuitClassDiagram.png)
+
+The various commands to be parsed are as explained in this section. While the **User Guide** explains the commands used on the CLI, this section goes into detail the classes used to execute the commands.
+
+### `SetCircuitCommand`  
+
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `parse("set r 500")` API call
 which implements the set command to set values of components.
 
 ![SetSequence](diagrams/SetSequenceDiagram.png)  
 
-`AddCommand`    
+### `AddCircuitCommand`    
+
 Given below is the detailed Sequence diagram for interactions within the `logic`, `template` and `component` components 
 for the `parse("add parallel c 20")` API call that implements the add command to add components.
 
 ![AddSequence](diagrams/AddSequenceDiagram.png)  
 
-`CalculateCommand`  
+### `CalculateCircuitCommand`
 The calculate command can be split into two distinct sequence diagrams. Given below is the sequence diagram for the
 calculate command that does not show the access of the `component` component and shows the interactions for the
 `parse("calc power")` API call that implements this version of the calculate command to calculate power.  
@@ -99,16 +121,6 @@ Given below is the sequence diagram for interactions within the `logic` and `tem
 `parse(template rl)` API call that implements the template command to create templates.
 
 ![TemplateSequence](diagrams/TemplateSequenceDiagram.png)
- 
-
-### Model component
-
-![ModelDiagram](diagrams/ModelClassDiagram.png)
-
-The `Model`,
-* includes `CircuitTemplate` and `BooleanTemplate` that can represent the current `template` in [`Logic`](#logic-component).
-* has `Component` and `Gate` within the templates.
-* does not depend on any of the other three components.
 
 ## Implementation of Boolean Commands
 
@@ -196,8 +208,6 @@ H  I     J  K      L  M      N  O
 ```
 
 
-
-
 ## Implementation of Logic Gate Commands
 
 There are six different logic gates that can be instantiated in the program:
@@ -225,7 +235,7 @@ The inheritance of the `OrGate` class from `TwoInputGate` class which inherits f
 
 There are four Boolean commands that are used in the implementation of the logic gates: `TemplateBooleanCommand, SetBooleanCommand, AddBooleanCommand`, and `CalcBooleanCommand`.
 
-#### `SetBooleanCommand`
+### `SetBooleanCommand`
 The `setBooleanCommand` is used to set the value of one of two inputs to the logic gates, which can be either the Boolean value of `0 or 1`.
 
 1. It is instantiated through the `execute()` function in the Parser class.
@@ -245,7 +255,7 @@ The above sequence of object interactions through the SetBooleanCommand can be r
 
 ![InsertSequeunceDiagram](diagrams/SetBooleanCommand.png)
 
-#### `AddBooleanCommand`
+### `AddBooleanCommand`
 
 The `AddBooleanCommand` is used to combine multiple logic gate templates to produce advanced Boolean logic gate configurations.
 For instance, an `OrGate` can be combined with an `AndGate` to produce a new logic gate where its final output will depend on the
@@ -272,9 +282,9 @@ included in the new combination.
 
 ![InsertSequeunceDiagram](diagrams/AddBooleanCommandSeqDiagram.png)
 
-#### `CalcBooleanCommand`
+### `CalculateBooleanCommand`
 
-The `CalcBooleanCommand` is used to calculate the effective output of the configured logic gates stored in the `BinaryTree` is used to , which requires that all inputs be set.
+The `CalculateBooleanCommand` is used to calculate the effective output of the configured logic gates stored in the `BinaryTree` is used to , which requires that all inputs be set.
 
 For instance, in a `BinaryTree` object with just two gates - `OrGate` and `AndGate` - all the inputs of the gates have to be assigned before the effective output of both the logic gates (`Input C`) can 
 be calculated as follows:
@@ -295,7 +305,9 @@ passed back into the `BooleanTemplate` object. The Boolean values of all the log
 ![InsertSequeunceDiagram](diagrams/CalcBooleanCommand.png)
 
 ## Appendix: Requirements
+
 ### Product scope
+
 **Target user profile**
   
 
