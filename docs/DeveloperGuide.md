@@ -316,10 +316,6 @@ passed back into the `BooleanTemplate` object. The Boolean values of all the log
 The aforementioned sequence of events can be represented in the following sequence diagram:
 ![InsertSequeunceDiagram](diagrams/CalcBooleanCommand.png)
 
-
-## Product scope
-### Target user profile
-=======
 ## Appendix: Requirements
 ### Product scope
 **Target user profile**
