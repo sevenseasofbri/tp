@@ -7,7 +7,7 @@ Class "TemplateCircuitCommand" as Template
 Class "SetCircuitCommand" as Set
 Class "AddCircuitCommand" as Add
 Class "CalculateCircuitCommand" as Calc
-Class "HelpCircuitCommand" as Help
+Class "TutorialCircuitCommand" as Help
 }
 Help --|> Circuit
 Template --|> Circuit

@@ -33,23 +33,17 @@ deactivate Parser
 [-> SetCommand : execute()
 activate SetCommand
 
-SetCommand -> Template : template.getComponent("r")
+SetCommand -> Template : getComponent("r")
 activate Template
 
-Template --> SetCommand : comp
+Template --> SetCommand : component
 deactivate Template
 
-SetCommand -> Component : comp.setValue(500)
+SetCommand -> Component : setValue(500)
 activate Component
 
 Component --> SetCommand
 deactivate Component
-
-SetCommand -> Template : template.setComponent("r",500)
-activate Template
-
-Template --> SetCommand
-deactivate Template
 
 [<-- SetCommand 
 deactivate SetCommand

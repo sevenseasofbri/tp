@@ -1,6 +1,6 @@
 # Developer Guide
 
-This **Developer Guide** aims to get developers familiarised with the design and implementation of **CLIrcuit Assistant**. The following table indicates the symbols used to aid the understanding of the guide.
+This **Developer Guide** aims to get developers familiarised with the design and implementation of **CLIrcuit Assistant**. The following table indicates the symbols used to aid the understanding of the guide. This guide also assumes that the reader has basic understanding of *UML Diagrams*. [To access the **User Guide** instead, click here.](#UserGuide.md)
 
 | Symbol/Format | Meaning |
 |:---------------:|:--------|
@@ -17,7 +17,12 @@ This **Developer Guide** aims to get developers familiarised with the design and
     * [UI component](#ui-component)
     * [Logic component](#logic-component)
     * [Model component](#model-component)
-* [Implementation of Boolean Commands](#implementation-of-boolean-commands)
+* [Implementation of Circuit Commands](#circ-comd)
+    * [Creating Template](#temp-circ)
+    * [Setting Component](#set-circ)
+    * [Adding Component](#add-circ)
+    * [Calculating Value](#calc-circ)
+* [Implementation of Boolean Commands](#bool-comd)
     * [Binary Tree](#binary-tree)
         * [Initialising A BinaryTree Object](#initialising-a-binarytreet-object)
         * [Using BinaryTree isNullAtIndex(int)](#using-binarytreeisnullatindexint)
@@ -25,7 +30,7 @@ This **Developer Guide** aims to get developers familiarised with the design and
         * [Using BinaryTree insert(int, T)](#using-binarytreeinsertint-t)
         * [Using BinaryTree isLeaf(int)](#using-binarytreeisleafint)
         * [Using BinaryTree isEmpty()](#using-binarytreeisempty)
-    * [Rendering Current Boolean Circuit State](#rendering-current-boolean-circuit-state)
+    * [Rendering Current Boolean Circuit State](#rendering-current-Boolean-circuit-state)
 * [Appendix: Requirements](#appendix-requirements)
     * [Product scope](#product-scope)
     * [User Stories](#user-stories)
@@ -62,8 +67,11 @@ The rest of the app consists of three components.
 
 The `Ui` component
 
-* Executes user commands using the `Logic` component.
-* Listens for changes to `Model` data so that the UI can be updated with the modified data.
+* Reads user input as lines using `readLine()`.
+* Prints every `Command` object that is parsed using `printMessage()`.
+* Prints any user input error that might occur using `showError()`.
+
+![UiSequence](diagrams/UiSequenceDiagram.png)
 
 ### Logic component
 
@@ -84,53 +92,51 @@ The `Model`,
 * has `Component` and `Gate` within the templates.
 * does not depend on any of the other three components.
 
-## Implementation of Circuit Commands
+## Implementation of Circuit Commands <a name="circ-comd"></a>
 
 ![CircuitClass](diagrams/CircuitClassDiagram.png)
 
-The various commands to be parsed are as explained in this section. While the **User Guide** explains the commands used on the CLI, this section goes into detail the classes used to execute the commands.
+The diagram above demonstrates the relationship between the various `CircuitCommand` objects. The various commands to be parsed are as explained in this section. While the **User Guide** explains the commands used on the CLI, this section goes into detail the classes used to execute the commands.
 
-### `SetCircuitCommand`  
+### `TemplateCircuitCommand`  <a name="temp-circ"></a>
+Given below is the sequence diagram for interactions within the `logic` and `template` components for the 
+`parse(template rl)` API call that implements the `template` command to create templates.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `parse("set r 500")` API call
-which implements the set command to set values of components.
+![TemplateSequence](diagrams/TemplateSequenceDiagram.png)
+
+### `SetCircuitCommand` <a name="set-circ"></a>
+
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `parse("set r 500")` API call which implements the `set` command to set values of components.
 
 ![SetSequence](diagrams/SetSequenceDiagram.png)  
 
-### `AddCircuitCommand`    
+### `AddCircuitCommand` <a name="add-circ"></a>
 
 Given below is the detailed Sequence diagram for interactions within the `logic`, `template` and `component` components 
-for the `parse("add parallel c 20")` API call that implements the add command to add components.
+for the `parse("add parallel c 20")` API call that implements the `add` command to add components.
 
 ![AddSequence](diagrams/AddSequenceDiagram.png)  
 
-### `CalculateCircuitCommand`
+### `CalculateCircuitCommand` <a name="calc-circ"></a>
 The calculate command can be split into two distinct sequence diagrams. Given below is the sequence diagram for the
 calculate command that does not show the access of the `component` component and shows the interactions for the
-`parse("calc power")` API call that implements this version of the calculate command to calculate power.  
+`parse("calc power")` API call that implements this version of the `calculate` command to calculate power.  
 
 ![CalcPowerSequence](diagrams/CalcPowerSequenceDiagram.png)  
 
 The second sequence diagram given below shows the detailed interaction that acesses the `component` class through the
-`parse("calc reff")`API call that implements this version of the calculate command to calculate effective resistance.
+`parse("calc reff")` API call that implements this version of the `calculate` command to calculate effective resistance.
 
 ![CalcReffSequence](diagrams/CalcReffSequenceDiagram.png)  
 
-`TemplateCommand`  
-Given below is the sequence diagram for interactions within the `logic` and `template` components for the 
-`parse(template rl)` API call that implements the template command to create templates.
+## Implementation of Boolean Commands <a name="bool-comd"></a>
 
-![TemplateSequence](diagrams/TemplateSequenceDiagram.png)
-
-## Implementation of Boolean Commands
+The second major feature of the application is the implementation of Boolean logic commands, of which various noteworthy implementation details are explained in this section.
 
 ### Binary Tree
-The boolean add, set and calculate features are modeled using a generic `BinaryTree<T>` class. The `BooleanTemplate` imports
-this class to store and evaluate the logic circuit. 
+The Boolean `add`, `set` and `calculate` features are modeled using a generic `BinaryTree<T>` class. The `BooleanTemplate` imports this class to store and evaluate the logic circuit. 
 
-The elements of the tree are stored in a fixed `ArrayList` (size = 15) indexed in a _heap-like_
-manner. That is, a left to right _level-order traversal_ will map to the indexes of the array. The following diagram represents
-the indexes each node in the tree corresponds to in the `ArrayList`.
+The elements of the tree are stored in a fixed `ArrayList` (size = 15) indexed in a _heap-like_ manner. That is, a left to right _level-order traversal_ will map to the indexes of the array. The following diagram represents the indexes each node in the tree corresponds to in the `ArrayList`.
 ```
                   [0]
                    |     
@@ -140,25 +146,22 @@ the indexes each node in the tree corresponds to in the `ArrayList`.
                       
 [7] [8]   [9] [10]   [11] [12]   [13] [14]
 ```
-The operations exposed to the Logic in this Model include: 
-* `BinaryTree#isNullAtIndex(int)` - Checks whether the value at specified index in tree is 'null' or not.
+The operations exposed to the `Logic` in this `Model` include: 
+* `BinaryTree#isNullAtIndex(int)` - Checks whether the value at specified index in tree is `null` or not.
 * `BinaryTree#getParentIndex(int)` - Returns index of parent node.
 * `BinaryTree#insert(int, T)` - Inserts value at position specified in the tree, if valid.
-* `BinaryTree#isLeaf(int)` - Returns boolean based on whether node at specified index is a _leaf node_ or not.
+* `BinaryTree#isLeaf(int)` - Returns Boolean based on whether node at specified index is a _leaf node_ or not.
 * `BinaryTree#isEmpty()` - Checks if the tree has no elements in it.
 
-When an object of the `BinaryTree<T>` class is created, it initialises the ArrayList<T> instance to 15 `null` values. This will be 
-further discussed in the section detailing the `insert()` function.
+When an object of the `BinaryTree<T>` class is created, it initialises the `ArrayList<T>` instance to 15 `null` values. This will be further discussed in the section detailing the `insert()` function.
 
 #### Initialising A `BinaryTree<T>` Object
-The Logic initialises the `BinaryTree<Gate>` object using the parameterised constructor, thus specifying the Gate class type 
-root. The object diagram below depicts the initial state of the Model when a `BinaryTree<Gate>` object is created.
+The `Logic` initialises the `BinaryTree<Gate>` object using the parameterised constructor, thus specifying the `Gate` class type root. The object diagram below depicts the initial state of the `Model` when a `BinaryTree<Gate>` object is created.
 
 ![InitialBinaryTree](diagrams/BinaryTreeInitialObjectDiagram.png)
 
 The Logic uses the parameterised constructor of `BinaryTree<T>` to create the object since it requires initialisation of
-the root. Such an object is created as follows: `BinaryTree<Gate> obj = new BinaryTree(new OrGate(1,1))`. This sets the root
-of the Binary Tree to the object specified.
+the root. Such an object is created as follows: `BinaryTree<Gate> obj = new BinaryTree(new OrGate(1,1))`. This sets the root of the Binary Tree to the object specified.
 
 #### Using `BinaryTree#isNullAtIndex(int)`
 `BooleanTemplate` uses this function to render the current configuration of the circuit in a String format. The method
@@ -195,8 +198,8 @@ The following sequence diagram showcases the events succeeding a call to `isEmpt
 ### Rendering Current Boolean Circuit State
 Using a _standard I/O operation_ (Like _Sopln()_) on an object of the `BooleanTemplate` class yields the current configuration
 of the system.
-Each node of the system is represented by a signal ranging from B to O (OUT being the root). All nodes with null parent nodes are
-not shown in the diagram. The following diagram depicts a tree wherein no parent nodes are null:
+Each node of the system is represented by a signal ranging from B to O (OUT being the root). All nodes with `null` parent nodes are
+not shown in the diagram. The following diagram depicts a tree wherein no parent nodes are `null`:
 ```
               0UT
                |     
@@ -300,22 +303,24 @@ that spans for the height of the `BinaryTree`. In this case, the `BinaryTree` is
 the `for` loop that spans for the length of the `ArrayList`. 
 4. The `BinaryTree` object will then call the `getGateBooleanValue()` method on the instantiated `Gate` object in each of its index to get the Boolean 
 values of the inputs of that one logic gate.
-5. The `Gate` object will then call the `calcBoolean(input1,input2)` on itself to obtain the Boolean output of that logic gate. This value obtained - `booleanValue` - is then
+5. The `Gate` object will then call the `calcBoolean(input1,input2)` on itself to obtain the Boolean output of that logic gate. This value obtained - `BooleanValue` - is then
 passed back into the `BooleanTemplate` object. The Boolean values of all the logic gates will be calculated to obtain the effective logic gate output.
 ![InsertSequeunceDiagram](diagrams/CalcBooleanCommand.png)
 
 ## Appendix: Requirements
 
+This section details the various requirements that the project needs to fulfil.
+
 ### Product scope
 
-**Target user profile**
+#### Target user profile
   
 
 New Computer/Electrical Engineering (CEG/EE) students who are looking for a quick way to check calculations for simple circuit configurations can use this App as an aid.
 
-**Value proposition**  
+#### Value proposition
 
-CLIrcuit Assistant solves three problems:
+**CLIrcuit Assistant** solves three problems:
 
 1. Lack of access to simple circuit computation - the App quickly computes the required circuit's values.
 1. Doing labs at home because of remote learning - the App provides a quick visualisation tool for the student.
@@ -330,9 +335,9 @@ CLIrcuit Assistant solves three problems:
 |v1.0|new CEG/EE Student | change values assigned to the components| obtain different calculations quickly|
 |v1.0|new CEG/EE Student|add components arranged in either series or parallel|obtain my configuration for analysis|
 |v1.0|new CEG/EE Student |calculate/verify my calculations of effective resistance, total capacitance, etc.|quickly and accurately do so via CLI, and not 3rd party software that I have to install/load online|
-|v2.0|CEG/EE Student|compute a boolean logical expression|familiarise myself with logical computation used in digital circuits|
-|v2.0|CEG/EE Student|create a template boolean logic gate to connect more gates to|build a logical circuit|
-|v2.0|CEG/EE Student|add logic gates to configure a boolean logic circuit|create my own configuration of logic gates
+|v2.0|CEG/EE Student|compute a Boolean logical expression|familiarise myself with logical computation used in digital circuits|
+|v2.0|CEG/EE Student|create a template Boolean logic gate to connect more gates to|build a logical circuit|
+|v2.0|CEG/EE Student|add logic gates to configure a Boolean logic circuit|create my own configuration of logic gates
 |v2.0|CEG/EE Student|set input values to the logic gate configuration|analyse inputs and outputs of a configuration
 |v2.0|CEG/EE Student|print the current template I am working on|find out my current configuration and make a decision
 
@@ -340,7 +345,7 @@ CLIrcuit Assistant solves three problems:
 ### Non-Functional Requirements
 
 1. Should work on any *mainstream OS* as long as it has Java 11 or above installed.
-2. The average user profile is assumed to be someone who possesses *at least a basic understanding of the fundamental concepts of digital circuits, its components, and boolean logic computation* (concepts covered in CG1111, CS1231 and EE2026).
+2. The average user profile is assumed to be someone who possesses *at least a basic understanding of the fundamental concepts of digital circuits, its components, and Boolean logic computation* (concepts covered in CG1111, CS1231 and EE2026).
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
 ## Glossary
@@ -378,4 +383,4 @@ https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-circ
 https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-output 
 
 ### Exiting the program
-Simply enter `bye` to exit the program and bid farewell to your loyal CLIrcuit Assistant.
+Simply enter `bye` to exit the program and bid farewell to your loyal **CLIrcuit Assistant**.

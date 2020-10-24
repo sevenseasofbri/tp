@@ -41,7 +41,7 @@ XYZBooleanCommand -u-|> Boolean
 Parser ..> Command : creates >
 BooleanParser .u.|> LogicParser
 CircuitParser .u.|> LogicParser
-Parser -> BooleanParser
-Parser -> CircuitParser
+Parser -> "1" BooleanParser
+Parser -> "1" CircuitParser
 
 @enduml

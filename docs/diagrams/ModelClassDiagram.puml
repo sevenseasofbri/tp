@@ -31,14 +31,14 @@ package BinaryTree {
 
 XYZCircuitTemplate --|> CircuitTemplate
 
-CircuitTemplate --> Component
+CircuitTemplate --> "2..3" Component
 LoadComponent --|> Component
 XYZComponent --|> Component
 XYZLoadComponent --|> LoadComponent
 
-BooleanTemplate --> BinaryTree
-BooleanTemplate --> Gate
-BinaryTree --> Gate
+BooleanTemplate --> "1" BinaryTree
+BooleanTemplate --> "1..7"Gate
+BinaryTree --> "1..7" Gate
 
 XYZGate --|> TwoInput
 TwoInput --|> Gate
