@@ -10,7 +10,6 @@ import seedu.duke.logic.commands.circuit.CircuitCommand;
 import seedu.duke.logic.commands.circuit.SetCircuitCommand;
 import seedu.duke.logic.commands.circuit.TemplateCircuitCommand;
 import seedu.duke.logic.commands.circuit.TutorialCircuitCommand;
-import seedu.duke.logic.commands.circuit.TutorialCircuitCommand;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
