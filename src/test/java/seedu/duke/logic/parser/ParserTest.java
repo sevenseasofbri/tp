@@ -25,9 +25,9 @@ class ParserTest {
     }
 
     @Test
-    void parseHelp_help_returnsHelpCommand() throws DukeException {
+    void parseTutorial_tutorialCircuit_returnsTutorialCircuitCommand() throws DukeException {
         Parser p = new Parser();
-        String line = "help";
+        String line = "tutorial circuit";
         CircuitCommand c = (CircuitCommand) p.parse(line);
         assertTrue(c instanceof TutorialCircuitCommand); // change to HelpCommand once done
     }
