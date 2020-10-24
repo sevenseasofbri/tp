@@ -14,4 +14,5 @@ public class CalculateBooleanCommand extends BooleanCommand {
     public void execute() throws DukeException {
 
     }
+
 }

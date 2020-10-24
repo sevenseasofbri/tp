@@ -7,9 +7,10 @@ import seedu.duke.logic.commands.ExitCommand;
 import seedu.duke.logic.commands.circuit.AddCircuitCommand;
 import seedu.duke.logic.commands.circuit.CalculateCircuitCommand;
 import seedu.duke.logic.commands.circuit.CircuitCommand;
-import seedu.duke.logic.commands.circuit.HelpCircuitCommand;
 import seedu.duke.logic.commands.circuit.SetCircuitCommand;
 import seedu.duke.logic.commands.circuit.TemplateCircuitCommand;
+import seedu.duke.logic.commands.circuit.TutorialCircuitCommand;
+import seedu.duke.logic.commands.circuit.TutorialCircuitCommand;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -28,7 +29,7 @@ class ParserTest {
         Parser p = new Parser();
         String line = "help";
         CircuitCommand c = (CircuitCommand) p.parse(line);
-        assertTrue(c instanceof HelpCircuitCommand); // change to HelpCommand once done
+        assertTrue(c instanceof TutorialCircuitCommand); // change to HelpCommand once done
     }
 
     @Test

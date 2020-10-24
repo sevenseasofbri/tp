@@ -1,19 +1,19 @@
 package seedu.duke.logic.commands.circuit;
 
 import seedu.duke.DukeException;
+import seedu.duke.logic.commands.TutorialCommand;
 import seedu.duke.logic.parser.Parser;
 import seedu.duke.ui.Ui;
 
 import java.util.logging.Level;
 
-public class HelpCircuitCommand extends CircuitCommand {
-    public static final String COMMAND_WORD = "help";
+public class TutorialCircuitCommand extends CircuitCommand implements TutorialCommand {
     private static final Parser PARSER = new Parser();
     private static final String[] orderOfInstructions = {"template", "set v", "set", "set", "add", "calc"};
     private int numOfCommandsDone = 0;
     private final Ui ui;
 
-    public HelpCircuitCommand() {
+    public TutorialCircuitCommand() {
         super();
         ui = new Ui(); // Create its own Ui instance, can be a Ui subclass later on
     }
