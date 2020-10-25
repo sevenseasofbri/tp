@@ -1,5 +1,5 @@
 struggling CG1111 student
-help
+tutorial circuit
 template rc
 set v 5
 set r 500
