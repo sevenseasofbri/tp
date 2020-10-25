@@ -86,7 +86,7 @@ public abstract class Gate {
      * @throws DukeException If an input is not set.
      */
     protected void checkHasSetBothInput() throws DukeException {
-        if(!hasSetBothInput()) {
+        if (!hasSetBothInput()) {
             throw new DukeException("Input(s) not set yet!");
         }
     }

@@ -6,7 +6,13 @@ import seedu.duke.logic.commands.gates.BooleanCommand;
 import seedu.duke.logic.commands.gates.CalculateBooleanCommand;
 import seedu.duke.logic.commands.gates.SetBooleanCommand;
 import seedu.duke.logic.commands.gates.TemplateBooleanCommand;
-import seedu.duke.model.gates.*;
+import seedu.duke.model.gates.AndGate;
+import seedu.duke.model.gates.Gate;
+import seedu.duke.model.gates.NandGate;
+import seedu.duke.model.gates.NorGate;
+import seedu.duke.model.gates.OrGate;
+import seedu.duke.model.gates.XnorGate;
+import seedu.duke.model.gates.XorGate;
 import seedu.duke.model.template.BooleanTemplate;
 
 public class BooleanParser implements LogicParser {

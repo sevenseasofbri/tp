@@ -31,7 +31,7 @@ public class BooleanTemplate {
      * @throws DukeException If index specified is out of bounds.
      */
     public void addGate(Gate gate, int index) throws DukeException {
-        if(index > 6) {
+        if (index > 6) {
             throw new DukeException("Cannot add gates to channels H, I, J, K, L, M, N, O! Try setting them instead.");
         }
         circuit.insert(index, gate);
