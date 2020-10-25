@@ -1,6 +1,5 @@
 package seedu.duke.model.template;
 
-import seedu.duke.Duke;
 import seedu.duke.DukeException;
 import seedu.duke.model.binarytree.BinaryTree;
 import seedu.duke.model.gates.Gate;
