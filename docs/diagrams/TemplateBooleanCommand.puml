@@ -23,8 +23,6 @@ BooleanParser --> BooleanParser: BooleanTemplate(AndGate())
 
 deactivate BooleanParser
 
-deactivate BooleanParser
-
 BooleanParser -> TemplateBooleanCommand: TemplateBooleanCommand(BooleanTemplate(AndGate()))
 
 deactivate BooleanParser
