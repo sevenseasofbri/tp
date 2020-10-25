@@ -15,7 +15,7 @@ BooleanParser -> BooleanParser: getGate("and")
 
 activate BooleanParser
 
-BooleanParser -> BooleanParser: AndGate()
+BooleanParser --> BooleanParser: AndGate()
 
 deactivate BooleanParser
 
