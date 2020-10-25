@@ -3,7 +3,6 @@ package seedu.duke.model.template;
 import seedu.duke.DukeException;
 import seedu.duke.model.binarytree.BinaryTree;
 import seedu.duke.model.gates.Gate;
-import seedu.duke.model.gates.TwoInputGate;
 
 public class BooleanTemplate {
     private static final String FULL_TREE = "          0UT \n"
@@ -32,6 +31,9 @@ public class BooleanTemplate {
      * @throws DukeException If index specified is out of bounds.
      */
     public void addGate(Gate gate, int index) throws DukeException {
+        if(index > 6) {
+            throw new DukeException("Cannot add gates to channels H, I, J, K, L, M, N, O! Try setting them instead.");
+        }
         circuit.insert(index, gate);
         buildTopDown();
     }
@@ -45,7 +47,13 @@ public class BooleanTemplate {
      */
     public void setInput(int value, int index) throws DukeException {
         int parentIdx = circuit.getParentIndex(index);
-        TwoInputGate parentGate = (TwoInputGate) circuit.getT(parentIdx);
+        Gate parentGate = circuit.getT(parentIdx);
+
+        //Prevent accessing null gate.
+        if (parentGate == null) {
+            throw new DukeException("Parent gate not set yet!");
+        }
+
         if (index % 2 == 1) {
             parentGate.setInput(value);
         } else {
@@ -104,7 +112,7 @@ public class BooleanTemplate {
      * @throws DukeException If index error occurs.
      */
     private String getGateEquation(int index) throws DukeException {
-        TwoInputGate gate = (TwoInputGate) circuit.getT(index);
+        Gate gate = circuit.getT(index);
 
         char letter = (char) (index + ASCII_A);
 
@@ -123,7 +131,7 @@ public class BooleanTemplate {
     private String getInputEquation(int index) throws DukeException {
         int parentIndex = circuit.getParentIndex(index);
 
-        TwoInputGate gate = (TwoInputGate) circuit.getT(parentIndex);
+        Gate gate = circuit.getT(parentIndex);
 
         char letter = (char) (index + ASCII_A);
         String equation = letter + " = ";
@@ -136,6 +144,24 @@ public class BooleanTemplate {
         }
 
         return equation;
+    }
+
+    public int calculateOutput(int idx) throws DukeException {
+        if (circuit.isNullAtIndex(idx)) {
+            throw new DukeException("Oops! Nothing set yet.");
+        }
+
+        boolean isNullAtRight = circuit.isNullAtIndex(circuit.getRightIndex(idx));
+        boolean isNullAtLeft = circuit.isNullAtIndex(circuit.getLeftIndex(idx));
+
+        if (!isNullAtLeft) {
+            circuit.getT(idx).setInput(calculateOutput(circuit.getLeftIndex(idx)));
+        }
+        if (!isNullAtRight) {
+            circuit.getT(idx).setSecondInput(calculateOutput(circuit.getRightIndex(idx)));
+        }
+
+        return circuit.getT(idx).getOutput();
     }
 
     /**
