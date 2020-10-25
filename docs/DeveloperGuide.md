@@ -147,7 +147,8 @@ further discussed in the section detailing the `insert()` function.
 The Logic initialises the `BinaryTree<Gate>` object using the parameterised constructor, thus specifying the Gate class type 
 root. The object diagram below depicts the initial state of the Model when a `BinaryTree<Gate>` object is created.
 
-![InitialBinaryTree](diagrams/BinaryTreeInitialObjectDiagram.png)
+![InitialBinaryTree](diagrams/Binar
+yTreeInitialObjectDiagram.png)
 
 The Logic uses the parameterised constructor of `BinaryTree<T>` to create the object since it requires initialisation of
 the root. Such an object is created as follows: `BinaryTree<Gate> obj = new BinaryTree(new OrGate(1,1))`. This sets the root
