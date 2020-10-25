@@ -10,31 +10,21 @@ AddBooleanCommand -> BooleanTemplate: addGate(template, "C", and)
 activate BooleanTemplate
 BooleanTemplate -> BooleanTemplate: convertToIndex("C")
 
+BooleanTemplate -> BinaryTree : insert(idx, and)
+activate BinaryTree
+
+BinaryTree --> BooleanTemplate
+deactivate BinaryTree
+
+BooleanTemplate -> BooleanTemplate : buildTopDown()
 activate BooleanTemplate
-BooleanTemplate -> BinaryTree: passIndextoTree(index)
 
-activate BinaryTree
-BinaryTree -> BinaryTree : getLeftIndex(index)
-
-activate BinaryTree
-BinaryTree -> BinaryTree : getRightIndex(index)
-
+BooleanTemplate --> BooleanTemplate
 deactivate BooleanTemplate
 
-deactivate BinaryTree
-
-activate AndGate
-BinaryTree -> AndGate: addGate(leftIndex, rightIndex)
-
-deactivate BinaryTree
-
-AndGate -> AndGate: setInputPositions(leftIndex, rightIndex)
-
-
-deactivate AndGate
-
+BooleanTemplate --> AddBooleanCommand
 deactivate BooleanTemplate
 
-deactivate BooleanTemplate
+<-- AddBooleanCommand
 deactivate AddBooleanCommand
 @enduml
