@@ -1,75 +1,78 @@
 # User Guide
 
+This **User Guide** aims to help you get familiarised with the commands used in the Command Line Interface (CLI) application. The following table indicates the symbols used to aid the understanding of the guide. The end of this **User Guide** also gives a [summary of commands](#command-summary) used in the application.
+
+| Symbol/Format | Meaning |
+|:---------------:|:--------|
+|:information_source:|An informational source.|
+|:exclamation:|A warning.|
+|**Bolded**|A keyword.|
+|*Italicised*|Technical word.|
+|[Hyperlinked](#)|Leads to the appropriate section.|
+|`Code`|Text that appears on the CLI / in code.|
+
+
+
 ## Table of Contents
 1. [Introduction](#introduction)
 1. [Quick Start](#quick-start)
-1. [Features](#features)
-    1. [General Commands](#general-commands)
-        1. [Summary of Commands](#summary)
-        1. [Interactive Tutorial](#help)
-    1. [Action Commands](#action-commands)
-        1. [Circuit Commands](#circuit-commands)
-            1. [Create Circuit Template](#template-circ)
-            1. [Set Component](#set-comp)
-            1. [Add Component](#add-comp)
-            1. [Calculate Value](#calc-circ)
-        1. [Logic Gate Commands](#logic-gate-commands)
-            1. [Create Boolean Template](#template-logic)
-            1. [Set Input](#set-input)
-            1. [Add Gate](#add-gate)
-            1. [Calculate Output](#calc-output)
+1. [Command Preface](#command-preface)
+1. [General Commands](#general-commands)
+    1. [Summary of Commands](#summary)
+    1. [Printing Template](#print)
+1. [Circuit Action Commands](#circuit-action-commands)
+    1. [Interactive Tutorial](#tut-circ)
+    1. [Creating Circuit Template](#template-circ)
+    1. [Setting Component](#set-comp)
+    1. [Adding Component](#add-comp)
+    1. [Calculating Value](#calc-circ)
+1. [Boolean Action Commands](#boolean-action-commands)
+    1. [Interactive Tutorial](#tut-logic)
+    1. [Creating Boolean Template](#template-logic)
+    1. [Setting Input](#set-input)
+    1. [Adding Gate](#add-gate)
+    1. [Calculating Output](#calc-output)
 1. [FAQ](#faq)
 1. [Command Summary](#command-summary)
 
 ## Introduction
 
-CLIrcuit Assistant is a desktop app to implement and solve simple circuits, optimized for use via the Command Line Interface (CLI).
+**CLIrcuit Assistant** is a desktop app to implement and solve simple circuits, optimized for use via the CLI. The application is targeted at those who would simply like a resource-light and offline program to aid in analysing circuits.
 
 ## Quick Start
 
+The following section will explain the steps taken to get **CLIrcuit Assistant** running on your computer.
+
 1. Ensure that you have Java 11 or above installed.
-1. Down the latest version of `Duke` from [the releases](https://github.com/AY2021S1-CS2113T-W13-3/tp/releases) when it is ready.
+1. Download the latest version of `Duke` from [the releases](https://github.com/AY2021S1-CS2113T-W13-3/tp/releases) when it is ready.
+1. Double click `jar` file to start the application. 
+    1. If the above step does not open the app, then open your *terminal* and make sure you are in the folder with the `jar` file. 
+    1. Type the following command: 
+        ```
+        java -jar duke.jar
+        ```
+1. Once the app starts, type a command in the command line and press enter to execute it.
 1. Use the command `help` to go through an interactive tutorial before using the application.
+1. Alternatively, you can use the command `summary` to get a list of all commands used in the application.
 
-## Features 
+## Command Preface
 
-This section details the various features and commands available.
+![Command](diagrams/CommandUserDiagram.png)
 
-### General Commands
+The diagram above shows the hierarchy of the types of commands in the application. In this **User Guide**, you can find the following sections listed below:
 
-This section details the generic commands that can be used.
+* [General Commands](#general-commands)
+* [Circuit Action Commands](#circuit-action-commands)
+* [Boolean Action Commands](#boolean-action-commands)
 
-#### Summary of Commands: `summary` <a name="summary"></a>
+Action commands are split into two categories - they may use the same *syntax* for some commands, but the application will continuously track the current `template` that is being worked on and automatically use the correct command to execute. Thus, if there is no current `template`, then the other commands used will not be available to run.
 
-This command prints a summary of all commands in the application as shown in [Command Summary](#command-summary).
-
-Format: `summary`
-
-#### Start interactive tutorial: `help` <a name="help"></a>
-
-Starts the interactive tutorial for the app. In the following order, the tutorial will guide the user on how to use the commands for the application, currently specific to [Circuit Commands](#circuit-commands):
-
-1. `template` - Selecting templates
-1. `set v` - Setting value for voltage
-1. `set r/c/l` - Setting value for a `LoadComponent`
-1. `add series/parallel r/c/l` - Adding a `LoadComponent` in series/parallel
-1. `calc` - Printing a calculated value
-1. `exit` - Exiting the interactive tutorial
-
-Format: `help`
-
-#### Print: `print` <a name="print"></a>
-
-Prints the current `template` that is set under the [Action Commands](#action-commands) below. Nothing is printed if a `template` is not yet set.
-
-Format: `print`
-
-### Action Commands
-
-Action commands used in the application can be split into two categories, the [*circuit* commands](#circuit-commands), or the [*logic gate* commands](#logic-gate-commands). The two categories may use the same syntax for some commands, but the application will continuously track the current `template` that is being worked on and automatically use the correct command to execute. Thus, if there is no current `template`, then the other commands used will not be available to run.
+| :information_source: | The `template` command is essential. |
+|----------------------|:-------------------------------------|
 
 The commands involved with both categories are:
 
+* `tutorial`
 * `template`
 * `set`
 * `add`
@@ -80,13 +83,42 @@ The format of commands below keep to the following.
 | :information_source: | Words in `UPPER_CASE` are parameters. |
 |----------------------|:-------------------------------------|
 
-#### Circuit Commands 
+## General Commands
 
-This section details how the commands are used with a *circuit* `template`.
+This section details the generic commands that can be used. These commands assist you in finding out generic information regarding the application.
 
-##### Create *circuit* template: `template` <a name="template-circ"></a>
+### Summary of Commands: `summary` <a name="summary"></a>
 
-Creates a circuit template.
+This command prints a summary of all commands in the application as shown in [Command Summary](#command-summary).
+
+Format: `summary`
+
+### Printing `template`: `print` <a name="print"></a>
+
+Prints the current `template` that is set as explained in the [Command Preface](#command-preface). Nothing is printed if a `template` is not yet set. This command is useful to find out the current `template` you are working on.
+
+Format: `print`
+
+## Circuit Action Commands 
+
+This section details how the commands are used with a *circuit* `template`. You can use this section to build simple template circuits which may have resistors, capacitors, or inductors.
+
+### Interactive Tutorial: `tutorial` <a name="tut-circ"></a>
+
+To aid the user, this command starts the interactive tutorial for the *circuit* action commands. In the following order, the tutorial will guide you on how to use the commands:
+
+1. `template` - Selecting templates
+1. `set v` - Setting value for voltage
+1. `set r/c/l` - Setting value for a `LoadComponent`
+1. `add series/parallel r/c/l` - Adding a `LoadComponent` in series/parallel
+1. `calc` - Printing a calculated value
+1. `exit` - Exiting the interactive tutorial
+
+Format: `tutorial circuit`
+
+### Creating a *circuit* `template`: `template` <a name="template-circ"></a>
+
+This command creates a *circuit* `template`. This command must be used to be able to use the `set`, `add`, `calc` commands since those commands must be done on an existing `template`.
 
 Format: `template TEMPLATE`
 
@@ -111,13 +143,13 @@ Total Resistance: 0.0 Ω
 Total Inductance: 0.0 µH
 ```
 
-##### Set component value: `set` <a name='set-comp'></a>
+### Setting a `Component` value: `set` <a name='set-comp'></a>
 
-Sets the value of the component. The component must be part of the current circuit template. Units correspond to the component involved - resistors in ohms, capacitors in microfarads, inductors in microhenries.
+This command sets the value of a component. The component must be part of the current *circuit* `template`. Units correspond to the component involved - resistors in ohms, capacitors in microfarads, and inductors in microhenries. The values would need to be set to perform calculations or analysis such as in the [`calc`](#calc-circ) command.
 
 Format: `set COMPONENT VALUE`
 
-* The `COMPONENT` can be chosen from the 4 - `r`, `c`, `l`, `v`
+* The `COMPONENT` can be chosen from the 4:
     * `r` represents a resistor
     * `c` represents a capacitor
     * `l` represents an inductor
@@ -139,9 +171,9 @@ Total Resistance: 500.0 Ω
 Total Capacitance: 0.0 µF
 ```
 
-##### Add component: `add` <a name="add-comp"></a>
+### Adding a `Component`: `add` <a name="add-comp"></a>
 
-Adds a component, in a specific configuration, to the current circuit template.
+This command adds a component, in a specific configuration, to the current circuit template. This allows you to quickly obtain calculations to your chosen configurations.
 
 Format: `add CONFIG COMPONENT VALUE`
 
@@ -164,9 +196,9 @@ Total Resistance: 500.0 Ω
 Total Capacitance: 500.0 µF
 ```
 
-##### Calculate effective value: `calc` <a name="calc-circ"></a>
+### Calculating effective value: `calc` <a name="calc-circ"></a>
 
-Calculates the effective value based on the components and their configuration. If calculating `reff`, `ceff`, or `leff`, the component must be part of the current circuit template.
+This command calculates the various effective values based on the `template` configuration. If calculating `reff`, `ceff`, or `leff`, the component must be part of the current *circuit* `template`. You can obtain the various value detailed below quickly after setting the necessary components.
 
 Format: `calc EFF_VALUE`
 
@@ -187,13 +219,25 @@ Expected Outcome:
 The effective capacitance calculated is 500.0 µF
 ```
 
-#### Logic Gate Commands
+## Boolean Action Commands
 
-This section details how the commands are used with a *logic gate* `template`.
+This section details how the commands are used with a *boolean* `template`. You can use this section to build simple logic circuits which may be made up of various gates such as `AND`, `OR`, and `XOR` gates.
 
-##### Create *logic gate* template: `template` <a name='template-logic'></a>
+### Interactive Tutorial : `tutorial` <a name='tut-logic'></a>
 
-Creates a logic gate `template`.
+To aid the user, this command starts the interactive tutorial for the *boolean* action commands. In the following order, the tutorial will guide you on how to use the commands:
+
+1. `template` - Selecting templates
+1. `add` - Adding a `Gate`
+1. `set` - Setting an input value
+1. `calc` - Calculating the output
+1. `exit` - Exiting the interactive tutorial
+
+Format: `tutorial boolean`
+
+### Creating *boolean* `template`: `template` <a name='template-logic'></a>
+
+This command creates a *boolean* `template`. Similar to the [*circuit* `template`](#circuit-action-commands), this command must be used to be able to use the `set`, `add`, `calc` commands since those commands must be done on an existing `template`.
 
 Format: `template GATE`
 
@@ -215,15 +259,15 @@ OUT = B AND C
 B = ?
 C = ?
 ```
-The letters B and C correspond to `INPUT` which is used in the following section.
+Here, `OUT` represents the output of the *boolean* `template`. The letters `B` and `C` can correspond to `INPUT` which is used in the following section.
 
-##### Set input value: `set` <a name='set-input'></a>
+### Setting input value: `set` <a name='set-input'></a>
 
-Sets the value of an input.
+This command sets the value of an input. The inputs can then be used in the `calc` command to give the output of the *boolean* `template`.
 
 Format: `set INPUT VALUE`
 
-* The `INPUT` can be chosen only from the current `template`, which can be printed out using `print`.
+* The `INPUT` can be chosen only from the current `template`, which can be printed out using [`print`](#print).
 * The `VALUE` can be any integer, but any non-zero integer will be treated as `true`, while 0 is treated as `false`.
 
 Example of usage:
@@ -241,9 +285,9 @@ B = 0
 C = ?
 ```
 
-##### Add `Gate`: `add` <a name="add-gate"></a>
+### Adding `Gate`: `add` <a name="add-gate"></a>
 
-The application has the ability to combine multiple templates to generate more complicated boolean logic gate configurations. This command allows you to set an input to a *logic gate* `template`. However, the depth of the deepest *logic gate* from the root *logic gate* cannot exceed 3.
+The application has the ability to combine multiple `Gate` objects to generate more complicated boolean logic gate configurations. This command allows you to set an input to a *boolean logic* `Gate`. However, the depth of the deepest *logic* `Gate` from the *root logic* `Gate` cannot exceed 3.
 
 
 | :exclamation: | The `BooleanTemplate` `Gate` depth cannot exceed 3. |
@@ -273,9 +317,9 @@ F = ?
 G = ?
 ```
 
-##### Calculate output: `calc` <a name="calc-output"></a>
+### Calculating output: `calc` <a name="calc-output"></a>
 
-Calculates the output of the configured logic gates. This command requires that all inputs are set.
+This command calculates the output of the configured logic gates, and requires that all inputs of the circuit are set. The output is represented by `OUT` in the printed `template`.
 
 Format: `calc`
 
@@ -302,15 +346,17 @@ The output of the above configuration is 0.
 
 ## FAQ
 
+This section details the frequently asked questions (FAQ) regarding the use of the application.
+
 **Q**: How do I know the difference between the components?
 
-**A**: Pay attention in EPP.
+**A**: Pay attention in CG1111 Engineering Principles & Practice (EPP).
 
 ## Command Summary
 
 Action | Format, Examples
 --------|------------------
-**Help** | `help`
+**Tutorial** | `tutorial TYPE` <br> e.g., `tutorial circuit`
 **Summary** | `summary`
 **Print Circuit/Logic Gate** | `print`
 **Template Circuit/Logic Gate** | `template TEMPLATE/GATE` <br> e.g., `template rc` <br> e.g., `template and`

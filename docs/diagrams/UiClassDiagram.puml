@@ -1,7 +1,12 @@
 @startuml
 
+
 package UI {
-    Class Ui
+    Class Ui {
+        + String readline()
+        + void printMessage()
+        + void showError()
+    }
 }
 
 @enduml
