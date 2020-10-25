@@ -41,7 +41,16 @@ public class TutorialCircuitCommand extends CircuitCommand implements TutorialCo
         LOGGER.info("Exiting help mode");
     }
 
-    private boolean continueTutorial(String command, Ui ui) throws DukeException {
+    /**
+     * Continues or terminates tutorial based on user input.
+     *
+     * @param command String type command input by the user.
+     * @param ui Ui type to perform User Interface interactions.
+     * @return boolean type true to continue tutorial, false otherwise.
+     * @throws DukeException If the command is invalid.
+     */
+    @Override
+    public boolean continueTutorial(String command, Ui ui) throws DukeException {
         if (command.equals("exit")) {
             return false;
         }

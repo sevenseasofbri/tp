@@ -1,5 +1,6 @@
 package seedu.duke.logic.commands.gates;
 
+import seedu.duke.DukeException;
 import seedu.duke.logic.commands.TutorialCommand;
 import seedu.duke.logic.parser.Parser;
 import seedu.duke.ui.Ui;
@@ -15,5 +16,10 @@ public class TutorialBooleanCommand extends BooleanCommand implements TutorialCo
 
     @Override
     public void execute() {
+    }
+
+    @Override
+    public boolean continueTutorial(String command, Ui ui) throws DukeException {
+        return false;
     }
 }
