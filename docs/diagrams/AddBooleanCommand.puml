@@ -7,8 +7,6 @@ activate AddBooleanCommand
 activate BooleanTemplate
 AddBooleanCommand -> BooleanTemplate: addGate(template, "C", and)
 
-activate BooleanTemplate
-BooleanTemplate -> BooleanTemplate: convertToIndex("C")
 
 BooleanTemplate -> BinaryTree : insert(idx, and)
 activate BinaryTree
