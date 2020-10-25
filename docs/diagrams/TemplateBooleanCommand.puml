@@ -29,13 +29,13 @@ deactivate BooleanParser
 
 activate TemplateBooleanCommand
 
-TemplateBooleanCommand -> BooleanCommand: super(BooleanTemplate(AndGate()))
+TemplateBooleanCommand --> BooleanParser
+deactivate TemplateBooleanCommand 
 
-deactivate TemplateBooleanCommand
+BooleanParser --> Parser
+deactivate BooleanParser
 
-activate BooleanCommand
+[<-- Parser
+deactivate Parser
 
-BooleanCommand -> BooleanCommand: this.template = BooleanTemplate(AndGate())
-
-deactivate BooleanCommand
 @enduml
