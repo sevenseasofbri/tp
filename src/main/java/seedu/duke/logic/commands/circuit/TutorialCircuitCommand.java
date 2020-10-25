@@ -8,7 +8,7 @@ import seedu.duke.ui.Ui;
 import java.util.logging.Level;
 
 public class TutorialCircuitCommand extends CircuitCommand implements TutorialCommand {
-    private static final String COMMAND_SUMMARY = "\n"
+    private static final String COMMAND_SUMMARY = "Here's a summary of available commands: \n"
             + "+-----------+----------------------------+--------------------+\n"
             + "|  Action   |           Format           |      Examples      |\n"
             + "+-----------+----------------------------+--------------------+\n"
@@ -88,6 +88,6 @@ public class TutorialCircuitCommand extends CircuitCommand implements TutorialCo
      */
     @Override
     public String toString() {
-        return "You have exited Tutorial Mode!\n" + "Here's a summary of available commands: \n" + COMMAND_SUMMARY + ":) Have fun using CLIrcuit Assistant!";
+        return "You have exited Tutorial Mode!\n" + COMMAND_SUMMARY + ":) Have fun using CLIrcuit Assistant!";
     }
 }
