@@ -14,6 +14,6 @@ public class CalculateBooleanCommand extends BooleanCommand {
 
     @Override
     public void execute() throws DukeException {
-        ui.printMessage("The output of the above configuration is " + template.calculateOutput(0) + ".");
+        ui.printMessage("The output of the current configuration is " + template.calculateOutput(0) + ".");
     }
 }
