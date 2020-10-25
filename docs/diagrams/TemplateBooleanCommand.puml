@@ -1,9 +1,9 @@
 @startuml
--->BooleanParser: parse("template and")
+[->Parser: parse("template and")
 
-activate BooleanParser
+activate Parser
 
-BooleanParser -> BooleanParser: prepareBooleanTemplate("and")
+Parser-> BooleanParser: prepareBooleanTemplate("and")
 
 activate BooleanParser
 
