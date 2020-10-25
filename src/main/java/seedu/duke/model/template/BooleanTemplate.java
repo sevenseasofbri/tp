@@ -146,6 +146,13 @@ public class BooleanTemplate {
         return equation;
     }
 
+    /**
+     * Recursive function which calculates the output value of the circuit at position passed.
+     *
+     * @param idx int type index of node.
+     * @return int type value output, can be 0 or 1.
+     * @throws DukeException If input values are not set.
+     */
     public int calculateOutput(int idx) throws DukeException {
         if (circuit.isNullAtIndex(idx)) {
             throw new DukeException("Oops! Nothing set yet.");

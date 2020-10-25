@@ -221,20 +221,4 @@ N = 1
 O = 0
 
 The output of the current configuration is 1.
-          0UT
-           |
-     B           C
-
-              F     G
-
-                  N   O
-
-OUT = B AND C
-B = 1
-C = F OR G
-F = 0
-G = N XOR O
-N = 1
-O = 0
-
  Bye. See you next time!

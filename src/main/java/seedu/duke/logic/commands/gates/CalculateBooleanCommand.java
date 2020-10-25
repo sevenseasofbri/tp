@@ -7,6 +7,7 @@ import seedu.duke.ui.Ui;
 public class CalculateBooleanCommand extends BooleanCommand {
     public static final String COMMAND_WORD = "calc";
     public static final Ui ui = new Ui();
+    private int output;
 
     public CalculateBooleanCommand(BooleanTemplate template) {
         super(template);
@@ -14,6 +15,11 @@ public class CalculateBooleanCommand extends BooleanCommand {
 
     @Override
     public void execute() throws DukeException {
-        ui.printMessage("The output of the current configuration is " + template.calculateOutput(0) + ".");
+        output = template.calculateOutput(0);
+    }
+
+    @Override
+    public String toString() {
+        return "The output of the current configuration is " + output + ".";
     }
 }

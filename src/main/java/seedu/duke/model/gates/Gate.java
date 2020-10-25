@@ -18,6 +18,12 @@ public abstract class Gate {
         this(-1, -1);
     }
 
+    /**
+     * Returns output of gate.
+     *
+     * @return int type output value.
+     * @throws DukeException If the inputs aren't set.
+     */
     public abstract int getOutput() throws DukeException;
 
     public void setInput(int input) {
@@ -72,21 +78,12 @@ public abstract class Gate {
     }
 
     /**
-     * Returns if both inputs are set or not.
-     *
-     * @return boolean value
-     */
-    public boolean hasSetBothInput() {
-        return isSetSecondInput && isSetInput;
-    }
-
-    /**
      * Checks is input has been set or not.
      *
      * @throws DukeException If an input is not set.
      */
     protected void checkHasSetBothInput() throws DukeException {
-        if (!hasSetBothInput()) {
+        if (!(isSetSecondInput && isSetInput)) {
             throw new DukeException("Input(s) not set yet!");
         }
     }

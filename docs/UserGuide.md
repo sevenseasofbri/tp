@@ -341,7 +341,7 @@ C = F OR G
 F = 1
 G = 0
 
-The output of the above configuration is 0.
+The output of the current configuration is 0.
 ```
 
 ## FAQ
