@@ -61,6 +61,7 @@ CLIrcuit AssistantEnjoy! :)
 |  Action   |           Format           |      Examples      |
 +-----------+----------------------------+--------------------+
 | Help      | help                       | help               |
+| Tutorial  | tutorial MODE              | tutorial boolean   |
 | Template  | template TEMPLATE          | template rc        |
 | Set       | set COMPONENT VALUE        | set r 500          |
 | Add       | add CONFIG COMPONENT VALUE | add parallel c 500 |
