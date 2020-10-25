@@ -6,7 +6,7 @@ public class SummaryCommand extends Command {
             + "+-----------+----------------------------+--------------------+\n"
             + "|  Action   |           Format           |      Examples      |\n"
             + "+-----------+----------------------------+--------------------+\n"
-            + "| Help      | help                       | help               |\n"
+            + "| Tutorial  | tutorial MODE              | tutorial boolean   |\n"
             + "| Template  | template TEMPLATE          | template rc        |\n"
             + "| Set       | set COMPONENT VALUE        | set r 500          |\n"
             + "| Add       | add CONFIG COMPONENT VALUE | add parallel c 500 |\n"
