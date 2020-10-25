@@ -19,7 +19,7 @@ BooleanParser -> BooleanParser: AndGate()
 
 deactivate BooleanParser
 
-BooleanParser -> BooleanParser: BooleanTemplate(AndGate())
+BooleanParser --> BooleanParser: BooleanTemplate(AndGate())
 
 deactivate BooleanParser
 
