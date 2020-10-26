@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
 import seedu.duke.logic.commands.Command;
 import seedu.duke.logic.commands.ExitCommand;
+import seedu.duke.logic.commands.SummaryCommand;
 import seedu.duke.logic.commands.circuit.AddCircuitCommand;
 import seedu.duke.logic.commands.circuit.CalculateCircuitCommand;
 import seedu.duke.logic.commands.circuit.CircuitCommand;
@@ -27,7 +28,7 @@ class ParserTest {
     void parseTutorial_tutorialCircuit_returnsTutorialCircuitCommand() throws DukeException {
         Parser p = new Parser();
         String line = "tutorial circuit";
-        CircuitCommand c = (CircuitCommand) p.parse(line);
+        SummaryCommand c = (SummaryCommand) p.parse(line);
         assertTrue(c instanceof TutorialCircuitCommand); // change to HelpCommand once done
     }
 

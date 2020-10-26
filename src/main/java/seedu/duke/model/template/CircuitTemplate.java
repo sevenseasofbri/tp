@@ -54,4 +54,5 @@ public abstract class CircuitTemplate {
     }
 
     public abstract LoadComponent getComponent(String component) throws DukeException;
+
 }

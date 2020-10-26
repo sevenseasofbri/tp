@@ -1,6 +1,6 @@
 # Developer Guide
 
-This **Developer Guide** aims to get developers familiarised with the design and implementation of **CLIrcuit Assistant**. The following table indicates the symbols used to aid the understanding of the guide. This guide also assumes that the reader has basic understanding of *UML Diagrams*. [To access the **User Guide** instead, click here.](#UserGuide.md)
+This **Developer Guide** aims to get developers familiarised with the design and implementation of **CLIrcuit Assistant**. The following table indicates the symbols used to aid the understanding of the guide. This guide also assumes that the reader has basic understanding of *UML Diagrams*. [To access the **User Guide** instead, click here.](UserGuide.md)
 
 | Symbol/Format | Meaning |
 |:---------------:|:--------|
@@ -93,6 +93,25 @@ The `Model`,
 * does not depend on any of the other three components.
 
 ## Implementation of Circuit Commands <a name="circ-comd"></a>
+This section provides details on the implementation of the various electronic circuit commands.
+
+There are 4 different types of components of electronic circuits that can be instantiated in the program:
+* `Resistor` - A _resistor_ component.
+* `Capacitor` - A _capacitor_ component.
+* `Inductor` - An _inductor_ component.
+* `VoltageSource` - An _Alternating Current_ Voltage Source.
+
+Each component is used within a circuit template, based on the kind of circuit instantiated.
+
+| :information_source: | The `VoltageSource` is instantiated in all Circuit Templates. |
+|----------------------|:-------------------------------------|
+
+There are four different circuit templates that can be instantiated in the program:
+
+* `LcTemplate` - Inductor-Capacitor Circuit Template
+* `RTemplate` - Resistor Circuit Template
+* `RcTemplate` - Resistor-Capacitor Template (extends `RTemplate`)
+* `LrTemplate` - Inductor-Resistor Template (extends `RTemplate`)
 
 ![CircuitCommandClass](diagrams/CircuitCommandClassDiagram.png)
 
@@ -135,7 +154,45 @@ The second sequence diagram given below shows the detailed interaction that aces
 
 The second major feature of the application is the implementation of Boolean logic commands, of which various noteworthy implementation details are explained in this section.
 
+### Implementation Considerations
+This section describes the methods taken into consideration whilst implementing the Boolean Commands.
+
+#### Rationale Behind Using Binary Heap-Like Data Structure
+Selecting the appropriate data structure for emulating a logic circuit is an important aspect to consider whilst
+building such a system. The following table depicts the properties of a Binary Heap-Like structure mapped to the 
+application's requirements.
+
+| Requirements | Property of Binary Heap |
+|:----------:|:-------------:|
+| Connects different gates together | A binary-heap, being a type of binary tree, is a _connected graph_. |
+| Easily stored | Can be stored in simple contiguous memory like an Array/ArrayList |
+| Easy to print | Nodes stored in an array, rather than a graph-like structure |
+| Inputs can be easily manipulated | Manipulating augmented values involves a simple _O(1)_ operation. |
+| Emulate 2-input logic circuit | Being a binary tree, each node can have atmost 2 children, thus recreating a 2-Input Logic Gate |
+
+Therefore, since the Binary Heap-Like data structure best-fit the requirements for the system, the data structure was selected to
+implement a Logic Circuit,
+
+#### Alternatives Considered
+The preceding section detailed on the rationale behind choosing the data structure used to emulate the Logic Circuit. 
+This section details on the alternative mechanisms considered for the system and why they would not be viable:
+
+* Simple Binary Tree: In essence, a Binary-Heap is a special kind of Binary Tree. However, it is not efficient to store
+a Binary Tree in a contiguous memory location such as an Array/ArrayList. Thereby,
+    1. Increasing complexity of storage.
+    2. Increasing difficulty of manipulating circuit at certain position.
+
+* Graph With Depth First Search: Using a graph means dealing with a more complex structure due to the lack of
+restrictions on the number of child-nodes a node can have. Thereby,
+    1. Extra considerations/checks for emulating 2-input logic circuit.
+    2. Extra checks to test if graph is connected and circuit is complete.
+
+Due to the limitations mentioned above, the Binary Heap-Like data structure was considerd to be the best method of approach.
+
 ### Binary Tree
+The previous section described the rationale behind using a special Binary Tree-like structure (Heap) for implementing the
+Boolean Commands. This section provides details on *how* the logic circuit is modeled using the selected data structure. 
+
 The Boolean `add`, `set` and `calculate` features are modeled using a generic `BinaryTree<T>` class. The `BooleanTemplate` imports this class to store and evaluate the logic circuit. 
 
 The elements of the tree are stored in a fixed `ArrayList` (size = 15) indexed in a _heap-like_ manner. That is, a left to right _level-order traversal_ will map to the indexes of the array. The following diagram represents the indexes each node in the tree corresponds to in the `ArrayList`.
@@ -351,8 +408,40 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
 ## Glossary
+The terms listed in this glossary are in alphabetical order.
 
-* *glossary item* - Definition
+* *Alternating Current* - Alternating current (AC) is an electric current which periodically reverses direction and changes its magnitude continuously with time.
+* *AND* - Also known as conjunction, AND is a basic operation in boolean algebra which may be denoted as x AND y. The 
+truth value of the operation will result in 1 (TRUE) if both x == 1 and y == 1, and 0 for other combinations of values. 
+* *Average Typing Speed* - An average typing speed is [40 words per minute](https://www.livechat.com/typing-speed-test/#/).
+* *Binary Tree* - A data structure wherein each node has maximum 2 child nodes, which are called the left and right node.
+* *Capacitor* - A passive electronic device with 2 terminals that stores electrical energy in an electric field.
+* *CG1111* - Engineering Principles and Practices I, a core module generally taken by Year 1 Computer Engineering students at NUS.
+* *Connected Graph* - A graph in which it is possible to get to every node in the graph through a series of edges.
+* *CS1231* - Discrete Mathematics, a core module generally taken by Year 1 School of Computing students at NUS.
+* *Digital Circuits* - A circuit wherein the signal must be one of 2 discrete logic levels - 1 or 0.
+* *EE2026* - Digital Design, a core module generally taken by Year 1 students in Electrical and Computer Engineering at NUS.
+* *Graph* - A data structure which consists of a finite set of nodes and a finite set of edges connecting them.
+* *Heap* - A tree based data structure where all the nodes are stored in a certain order.
+* *Inductor* - A passive electronic device with 2 terminals that stores electrical energy in a magnetic field.
+* *Leaf Node* - A node in a binary tree data structure whose left and right children are null.
+* *Level Order Traversal* - A method of processing all nodes in a tree data structure by depth (level-by-level).
+* *Logic Gate* - A virtual/physical electronic device which performs a boolean function. Usually has 2 inputs and 1 output.
+* *Mainstream OS* - For example Microsoft Windows, macOS, Unix, Linux etc.
+* *NAND* - An inverse of the AND operation. Outputs are the opposite of what an AND gate would output for a set of input values.
+* *Node* - A binary tree is made up of nodes, each which have a left and right reference, as well as hold data.
+* *NOR* - An inverse of the OR operation. Outputs the opposite truth value of what an OR gate would output. 
+* *O(1)* - An algorithm or a computational operation that is said to take constant time, irrespective of the size of input.
+* *OR* - Also known as disjunction, OR is a basic operation in boolean algebra which may be denoted as x OR y. The 
+truth value of the operation will result in 1 (TRUE) if either x == 1 or y == 1, and 0 if both x and y are 0. 
+* *Parent Node* - A node in a binary tree data structure which has one or more child nodes.
+* *Resistor* - A passive electronic device which implements electrical resistance in an electronic circuit.
+* *Sopln()* - Abbreviation for java out operation "System.out.println()", from package java.lang.
+* *Standard I/O Operation* - Common java I/O streams include System.in, System.out and System.err.
+* *XNOR* - An inverse of the XOR operation. Outputs the opposite truth value of what a XOR gate would output.
+* *XOR* - Also known as exclusive OR, XOR is a secondary operation in boolean algebra which may be denoted as x XOR y. The 
+          truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y == 1, and 0 for other combinations of values.
+ 
 
 ## Appendix: Instructions for manual testing
 ### Initial launch  
