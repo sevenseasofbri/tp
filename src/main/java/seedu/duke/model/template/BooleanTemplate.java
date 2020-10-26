@@ -183,6 +183,16 @@ public class BooleanTemplate {
     }
 
     /**
+     * Returns the binary tree circuit.
+     *
+     * @return circuit
+     */
+    public BinaryTree<Gate> getCircuit() {
+        return circuit;
+    }
+
+
+    /**
      * Returns the string representation of the BooleanTemplate.
      *
      * @return String representation.
