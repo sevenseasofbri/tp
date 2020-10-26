@@ -7,10 +7,10 @@ import seedu.duke.logic.commands.gates.CalculateBooleanCommand;
 import seedu.duke.logic.commands.gates.SetBooleanCommand;
 import seedu.duke.logic.commands.gates.TemplateBooleanCommand;
 import seedu.duke.model.gates.AndGate;
+import seedu.duke.model.gates.Gate;
 import seedu.duke.model.gates.NandGate;
 import seedu.duke.model.gates.NorGate;
 import seedu.duke.model.gates.OrGate;
-import seedu.duke.model.gates.TwoInputGate;
 import seedu.duke.model.gates.XnorGate;
 import seedu.duke.model.gates.XorGate;
 import seedu.duke.model.template.BooleanTemplate;
@@ -28,12 +28,12 @@ public class BooleanParser implements LogicParser {
      */
     public BooleanCommand parse(String[] args, String command) throws DukeException {
         switch (command) {
-        case "help":
         case SetBooleanCommand.COMMAND_WORD:
             return prepareBooleanSet(args);
         case AddBooleanCommand.COMMAND_WORD:
             return prepareBooleanAdd(args);
         case CalculateBooleanCommand.COMMAND_WORD:
+            return prepareBooleanCalculate(args);
         default:
             throw new DukeException("Invalid Command!");
         }
@@ -93,14 +93,29 @@ public class BooleanParser implements LogicParser {
         return new SetBooleanCommand(booleanTemplate, input, index);
     }
 
+    /**
+     * Extracts index number the command passed.
+     *
+     * @param arg String type command input.
+     * @return int type index.
+     * @throws DukeException If the index passed is invalid.
+     */
     private int getIndex(String arg) throws DukeException {
-        int index = arg.charAt(0) - 'A';
-        if (index < 0 || index >= 16) {
+        String capsArg = arg.toUpperCase();
+        int index = capsArg.charAt(0) - 'A';
+        if (index < 0 || index >= 16 || arg.length() > 1) {
             throw new DukeException("Invalid position");
         }
         return index;
     }
 
+    /**
+     * Returns an instance of AddBooleanCommand after parsing the user input.
+     *
+     * @param args String type user input.
+     * @return AddBooleanCommand instance to be executed.
+     * @throws DukeException If input parsed is incorrect or no template is set yet.
+     */
     private AddBooleanCommand prepareBooleanAdd(String[] args) throws DukeException {
         if (hasMinArguments(args, 3)) {
             throw new DukeException("Not enough arguments!");
@@ -111,11 +126,32 @@ public class BooleanParser implements LogicParser {
 
         int index = getIndex(args[1]);
 
-        TwoInputGate gate = getGate(args[2]);
+        Gate gate = getGate(args[2]);
         return new AddBooleanCommand(booleanTemplate, gate, index);
     }
 
-    private TwoInputGate getGate(String arg) throws DukeException {
+    /**
+     * Returns new instance of CalculateBooleanCommand after parsing user input.
+     *
+     * @param args String type user input.
+     * @return CalculateBooleanCommand instance to be executed.
+     * @throws DukeException If the template hasn't been set yet.
+     */
+    private CalculateBooleanCommand prepareBooleanCalculate(String[] args) throws DukeException {
+        if (hasNoTemplate()) {
+            throw new DukeException("No template set yet!");
+        }
+        return new CalculateBooleanCommand(booleanTemplate);
+    }
+
+    /**
+     * Parses user command to determine and return the gate instance specified.
+     *
+     * @param arg String type user input.
+     * @return Gate type object.
+     * @throws DukeException If gate specified is invalid.
+     */
+    private Gate getGate(String arg) throws DukeException {
         switch (arg.toLowerCase()) {
         case "and":
             return new AndGate();
@@ -134,8 +170,15 @@ public class BooleanParser implements LogicParser {
         }
     }
 
+    /**
+     * Returns new instance of BooleanTemplate class.
+     *
+     * @param arg String type user input.
+     * @return BooleanTemplate type instance.
+     * @throws DukeException If the gate processed is invalid.
+     */
     private BooleanTemplate getBooleanTemplate(String arg) throws DukeException {
-        TwoInputGate gate = getGate(arg);
+        Gate gate = getGate(arg);
         return new BooleanTemplate(gate);
     }
 }

@@ -1,5 +1,5 @@
 struggling CG1111 student
-help
+tutorial circuit
 template rc
 set v 5
 set r 500
@@ -21,4 +21,9 @@ calc current
 template and
 set B 1
 add C or
+set F 0
+add G xor
+set N 1
+set O 0
+calc
 bye

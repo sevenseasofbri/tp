@@ -79,8 +79,10 @@ public class LrTemplate extends RTemplate {
      */
     @Override
     public String toString() {
-        return RL_TEMPLATE + "Total Resistance: " + getResistor() + System.lineSeparator()
-                           + "Total Inductance: " + inductor + System.lineSeparator();
+        return RL_TEMPLATE
+                + "Current Voltage: " + initialPowerSupply + System.lineSeparator()
+                + "Total Resistance: " + getResistor() + System.lineSeparator()
+                + "Total Inductance: " + inductor + System.lineSeparator();
     }
 
     /**
