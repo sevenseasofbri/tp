@@ -11,7 +11,7 @@ import seedu.duke.ui.Ui;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
- public class CalculateBooleanCommandTest {
+public class CalculateBooleanCommandTest {
     private static final Ui ui = new Ui();
 
     @Test
