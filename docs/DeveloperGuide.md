@@ -93,6 +93,25 @@ The `Model`,
 * does not depend on any of the other three components.
 
 ## Implementation of Circuit Commands <a name="circ-comd"></a>
+This section provides details on the implementation of the various electronic circuit commands.
+
+There are 4 different types of components of electronic circuits that can be instantiated in the program:
+* `Resistor` - A _resistor_ component.
+* `Capacitor` - A _capacitor_ component.
+* `Inductor` - An _inductor_ component.
+* `VoltageSource` - An _Alternating Current_ Voltage Source.
+
+Each component is used within a circuit template, based on the kind of circuit instantiated.
+
+| :information_source: | The `VoltageSource` is instantiated in all Circuit Templates. |
+|----------------------|:-------------------------------------|
+
+There are four different circuit templates that can be instantiated in the program:
+
+* `LcTemplate` - Inductor-Capacitor Circuit Template
+* `RTemplate` - Resistor Circuit Template
+* `RcTemplate` - Resistor-Capacitor Template (extends `RTemplate`)
+* `LrTemplate` - Inductor-Resistor Template (extends `RTemplate`)
 
 ![CircuitClass](diagrams/CircuitClassDiagram.png)
 
@@ -351,6 +370,7 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 ## Glossary
 
 * *glossary item* - Definition
+* *Alternating Current* - Alternating current (AC) is an electric current which periodically reverses direction and changes its magnitude continuously with time.
 * *AND* - Also known as conjunction, AND is a basic operation in boolean algebra which may be denoted as x AND y. The 
 truth value of the operation will result in 1 (TRUE) if both x == 1 and y == 1, and 0 for other combinations of values. 
 * *Average Typing Speed* - An average typing speed is [40 words per minute](https://www.livechat.com/typing-speed-test/#/).
