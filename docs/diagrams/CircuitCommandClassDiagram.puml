@@ -1,18 +1,27 @@
 @startuml
 
 hide member
+
+package Command {
+
+Class "{abstract}\nCommand" as Comd
+Class "SummaryCommand" as Summary
+Class "TutorialCircuitCommand" as Help
+
 package "Circuit" {
 Class "{abstract}\nCircuitCommand" as Circuit
-Class "TemplateCircuitCommand" as Template
 Class "SetCircuitCommand" as Set
 Class "AddCircuitCommand" as Add
 Class "CalculateCircuitCommand" as Calc
-Class "TutorialCircuitCommand" as Help
+Class "TemplateCircuitCommand" as Template
 }
-Help --|> Circuit
+
+Help --|> Summary
 Template --|> Circuit
 Set --|> Circuit
 Calc --|> Circuit
 Add --|> Set
+Summary --|> Comd
+Circuit --|> Comd
 
 @enduml

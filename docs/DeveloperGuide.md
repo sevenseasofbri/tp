@@ -23,6 +23,13 @@ This **Developer Guide** aims to get developers familiarised with the design and
     * [Adding Component](#add-circ)
     * [Calculating Value](#calc-circ)
 * [Implementation of Boolean Commands](#bool-comd)
+    * [Creating Template](#temp-bool)
+    * [Setting Input](#set-bool)
+    * [Adding Gate](#add-bool)
+    * [Calculating Output](#calc-bool) 
+    * [Implementation Considerations](#implementation-considerations)
+        * [Rationale](#rationale-bool)
+        * [Alternatives Considered](#alternatives-considered)
     * [Binary Tree](#binary-tree)
         * [Initialising A BinaryTree Object](#initialising-a-binarytreet-object)
         * [Using BinaryTree isNullAtIndex(int)](#using-binarytreeisnullatindexint)
@@ -113,9 +120,11 @@ There are four different circuit templates that can be instantiated in the progr
 * `RcTemplate` - Resistor-Capacitor Template (extends `RTemplate`)
 * `LrTemplate` - Inductor-Resistor Template (extends `RTemplate`)
 
-![CircuitClass](diagrams/CircuitClassDiagram.png)
+![CircuitCommandClass](diagrams/CircuitCommandClassDiagram.png)
 
-The diagram above demonstrates the relationship between the various `CircuitCommand` objects. The various commands to be parsed are as explained in this section. While the **User Guide** explains the commands used on the CLI, this section goes into detail the classes used to execute the commands.
+The diagram above demonstrates the relationship between the various `CircuitCommand` objects. The various commands to be parsed are as explained in this section. While the **User Guide** explains the commands used on the CLI, this section goes into detail the classes used to execute the commands. The command classes also make use of the classes in the [**`Model`**](#model-component) shown in the diagram below when executing the commands.
+
+![CircuitModelClass](diagrams/CircuitModelClassDiagram.png)
 
 ### `TemplateCircuitCommand`  <a name="temp-circ"></a>
 Given below is the sequence diagram for interactions within the `logic` and `template` components for the 
@@ -150,12 +159,88 @@ The second sequence diagram given below shows the detailed interaction that aces
 
 ## Implementation of Boolean Commands <a name="bool-comd"></a>
 
-The second major feature of the application is the implementation of Boolean logic commands, of which various noteworthy implementation details are explained in this section.
+![BooleanCommandClass](diagrams/BooleanCommandClassDiagram.png)
+
+The second major feature of the application is the implementation of Boolean logic commands, of which various noteworthy implementation details are explained in this section. The above diagram demonstrates the relationships between the various `Command` objects. Notice the similarities to the [Circuit Commands in the earlier section](#implementation-of-circuit-commands).
+
+There are six different logic gates that can be instantiated in the program:
+- `or, and, nor, nand, xor, xnor`
+
+All gates can be first instantiated using the `Gate` class which has one `int input` and one `int output` as its attributes. 
+It has `setInput(int input)` and `getOutput()` as its methods, which are used to set the input of the logic gate and get the output of the gate respectively. 
+
+The six different logic gates take in two different inputs, which necessitates the need for a logic gate class to take in one more input.
+This can be achieved by instantiating the `TwoInputGate` class which inherits from the `Gate` class. It has an additional attribute `int secondInput`
+to take in the additional input and a method `setSecondInput(int input)` to set the Boolean value of either `0 or 1` to the additional input.
+
+The six different logic gates then individually inherit from the `TwoInputGate` class where the return value of their `getOutput()` function depends
+on the logic function of the gate itself. For instance, the `OrGate` which inherits from the `TwoInputGate` class has its `getOutput()` function set to `{return input | secondInput}`, 
+which represents the `or` operation.
+
+The `OrGate` can be visualised as such in the following object diagram:
+
+![InsertObjectDiagram](diagrams/OrGateObjectDiagram.png)
+ 
+The inheritance of the `OrGate` class from `TwoInputGate` class which inherits from the `Gate` class can be seen in the following class diagram:
+
+![InsertClassDiagram](diagrams/OrGateClassDiagram.png)
+
+
+There are four Boolean commands that are used in the implementation of the logic gates: `TemplateBooleanCommand, SetBooleanCommand, AddBooleanCommand`, and `CalcBooleanCommand`.
+
+### `TemplateBooleanCommand` <a name="temp-bool"></a>
+
+The `TemplateBooleanCommand` creates a Boolean template of any one of the six available logic gates. 
+
+The sequence by which the `TemplateBooleanCommand` is instantiated is as follows using the user input `template and` who wants to instantiate an `and` logic template.
+
+1. The `Parser` object takes in a String that specifies the template type: in this case, it is an `and` Boolean template.
+2. The `and` Boolean template is then prepared through the `BooleanParser` object.
+3. The `and` Boolean template is instantiated using the `TemplateBooleanCommand`.
+
+The aforementioned sequence of events can be represented in the following sequence diagram:
+
+![InsertClassDiagram](diagrams/TemplateBooleanCommand.png)
+
+### `SetBooleanCommand` <a name="set-bool"></a>
+
+The sequence of object interactions through the `SetBooleanCommand` can be represented in the following sequence diagram:
+
+![InsertSequenceDiagram](diagrams/SetBooleanCommand.png)
+
+### `AddBooleanCommand` <a name="add-bool"></a>
+
+The `AddBooleanCommand` is used to combine multiple logic gate templates to produce advanced Boolean logic gate configurations.
+For instance, an `OrGate` can be combined with an `AndGate` to produce a new logic configuration where its final output will depend on the
+Boolean values assigned to the `OrGate` and `AndGate`. This gate configuration can undergo further addition operations by `addBooleanCommand` to 
+combine another logic gate, such as `XorGate`. The combination of these three gates after the `addBooleanCommand` operations can be represented by the following object diagram:
+
+![InsertObjectDiagram](diagrams/AddBooleanCommandObjectDiagram.png)
+
+The sequence by which the `AddBooleanCommand` is instantiated to combine the logic gates is as follows:
+
+1. The `AddBooleanCommand` object calls on the `addGate` method in the instantiated `BooleanTemplate`.
+2. This will access the index of the `BinaryTree` object in the `BooleanTemplate` to store the newly added gate to the configuration.
+
+The aforementioned sequence of events can be represented in the following sequence diagram:
+
+![InsertSequeunceDiagram](diagrams/AddBooleanCommand.png)
+
+### `CalculateBooleanCommand` <a name="calc-bool"></a>
+
+The `CalculateBooleanCommand` is used to calculate the effective output of the configured logic gates stored in the `BinaryTree` is used to , which requires that all inputs be set.
+
+For instance, in a `BinaryTree` object with just two gates - `OrGate` and `AndGate` - all the inputs of the gates have to be assigned before the effective output of both the logic gates (`Input C`) can 
+be calculated.
+
+The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
+
+![InsertSequenceDiagram](diagrams/CalcBooleanCommand.png)
 
 ### Implementation Considerations
 This section describes the methods taken into consideration whilst implementing the Boolean Commands.
 
-#### Rationale Behind Using Binary Heap-Like Data Structure
+#### Rationale Behind Using Binary Heap-Like Data Structure <a name="rationale-bool"></a>
 Selecting the appropriate data structure for emulating a logic circuit is an important aspect to consider whilst
 building such a system. The following table depicts the properties of a Binary Heap-Like structure mapped to the 
 application's requirements.
@@ -267,80 +352,6 @@ not shown in the diagram. The following diagram depicts a tree wherein no parent
 H  I     J  K      L  M      N  O
 ```
 
-
-## Implementation of Logic Gate Commands
-
-There are six different logic gates that can be instantiated in the program:
-- `or, and, nor, nand, xor, xnor`
-
-All gates can be first instantiated using the `Gate` class which has one `int input` and one `int output` as its attributes. 
-It has `setInput(int input)` and `getOutput()` as its methods, which are used to set the input of the logic gate and get the output of the gate respectively. 
-
-The six different logic gates take in two different inputs, which necessitates the need for a logic gate class to take in one more input.
-This can be achieved by instantiating the `TwoInputGate` class which inherits from the `Gate` class. It has an additional attribute `int secondInput`
-to take in the additional input and a method `setSecondInput(int input)` to set the Boolean value of either `0 or 1` to the additional input.
-
-The six different logic gates then individually inherit from the `TwoInputGate` class where the return value of their `getOutput()` function depends
-on the logic function of the gate itself. For instance, the `OrGate` which inherits from the `TwoInputGate` class has its `getOutput()` function set to `{return input | secondInput}`, 
-which represents the `or` operation.
-
-The `OrGate` can be visualised as such in the following object diagram:
-
-![InsertObjectDiagram](diagrams/OrGateObjectDiagram.png)
- 
-The inheritance of the `OrGate` class from `TwoInputGate` class which inherits from the `Gate` class can be seen in the following class diagram:
-
-![InsertClassDiagram](diagrams/OrGateClassDiagram.png)
-
-
-There are four Boolean commands that are used in the implementation of the logic gates: `TemplateBooleanCommand, SetBooleanCommand, AddBooleanCommand`, and `CalcBooleanCommand`.
-#### `TemplateBooleanCommand`
-The `TemplateBooleanCommand` creates a Boolean template of any one of the six available logic gates. 
-
-The sequence by which the `TemplateBooleanCommand` is instantiated is as follows using the user input `template and` who wants to instantiate an `and` logic template.
-
-1. The `Parser` object takes in a String that specifies the template type: in this case, it is an `and` Boolean template.
-2. The `and` Boolean template is then prepared through the `BooleanParser` object.
-3. The `and` Boolean template is instantiated using the `TemplateBooleanCommand`.
-
-The aforementioned sequence of events can be represented in the following sequence diagram:
-
-![InsertClassDiagram](diagrams/TemplateBooleanCommand.png)
-
-
-The above sequence of object interactions through the SetBooleanCommand can be represented in the following sequence diagram:
-
-![InsertSequeunceDiagram](diagrams/SetBooleanCommand.png)
-
-### `AddBooleanCommand`
-
-The `AddBooleanCommand` is used to combine multiple logic gate templates to produce advanced Boolean logic gate configurations.
-For instance, an `OrGate` can be combined with an `AndGate` to produce a new logic configuration where its final output will depend on the
-Boolean values assigned to the `OrGate` and `AndGate`. This gate configuration can undergo further addition operations by `addBooleanCommand` to 
-combine another logic gate, such as `XorGate`. The combination of these three gates after the `addBooleanCommand` operations can be represented by the following object diagram:
-
-![InsertObjectDiagram](diagrams/AddBooleanCommandObjectDiagram.png)
-
-The sequence by which the `AddBooleanCommand` is instantiated to combine the logic gates is as follows:
-
-1. The `AddBooleanCommand` object calls on the `addGate` method in the instantiated `BooleanTemplate`.
-2. This will access the index of the `BinaryTree` object in the `BooleanTemplate` to store the newly added gate to the configuration.
-
-The aforementioned sequence of events can be represented in the following sequence diagram:
-
-![InsertSequeunceDiagram](diagrams/AddBooleanCommand.png)
-
-### `CalculateBooleanCommand`
-
-The `CalculateBooleanCommand` is used to calculate the effective output of the configured logic gates stored in the `BinaryTree` is used to , which requires that all inputs be set.
-
-For instance, in a `BinaryTree` object with just two gates - `OrGate` and `AndGate` - all the inputs of the gates have to be assigned before the effective output of both the logic gates (`Input C`) can 
-be calculated.
-
-The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
-
-![InsertSequeunceDiagram](diagrams/CalcBooleanCommand.png)
-
 ## Appendix: Requirements
 
 This section details the various requirements that the project needs to fulfil.
@@ -373,7 +384,7 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 |v2.0|CEG/EE Student|create a template Boolean logic gate to connect more gates to|build a logical circuit|
 |v2.0|CEG/EE Student|add logic gates to configure a Boolean logic circuit|create my own configuration of logic gates
 |v2.0|CEG/EE Student|set input values to the logic gate configuration|analyse inputs and outputs of a configuration
-|v2.0|CEG/EE Student|print the current template I am working on|find out my current configuration and make a decision
+|v3.0|CEG/EE Student|print the current template I am working on|find out my current configuration and make a decision
 
 
 ### Non-Functional Requirements
