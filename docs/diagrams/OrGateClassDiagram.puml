@@ -14,8 +14,7 @@ class State1 {
 class State2 {
     # int input = A
     # int secondInput = B
-    + int getOutput() = {return input
-| secondInput }
+    + int getOutput() = {return input | secondInput }
 
 }
 
