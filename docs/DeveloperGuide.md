@@ -229,37 +229,21 @@ The `TemplateBooleanCommand` creates a Boolean template of any one of the six av
 
 The sequence by which the `TemplateBooleanCommand` is instantiated is as follows using the user input `template and` who wants to instantiate an `and` logic template.
 
-1. The function call `parse(String template)` to `BooleanParser` takes in a `String` format of the Boolean template as such: `"template and"`.
-2. The `BooleanParser` then calls `prepareBooleanTemplate("and")`method on itself.
-3. This method then calls `getBooleanTemplate("and")` on the same `BooleanParser` object itself.
-4. This results in the method to call for another nested method - `getGate("and")` in order to obtain the gate of the template type
-specified by the user in their input. The method will then return an `AndGate()` object to this method call.
-5. This then results in the instantiation and return of the `BooleanTemplate(AndGate())` which is the boolean template of an `and` gate back to the `BooleanParser` object.
-6. `TemplateBooleanCommand(BooleanTemplate(AndGate()))` is then called in the `TemplateBooleanCommand` object.
-7. By inheritance of superclass, the `Command` object can be instantiated and by `super(BooleanTemplate(AndGate()))` in the `TemplateBooleanCommand` object, this template
-obtained is assigned to the `this.template` in the `Command` object.
+1. The `Parser` object takes in a String that specifies the template type: in this case, it is an `and` Boolean template.
+2. The `and` Boolean template is then prepared through the `BooleanParser` object.
+3. The `and` Boolean template is instantiated using the `TemplateBooleanCommand`.
 
 The aforementioned sequence of events can be represented in the following sequence diagram:
 
 ![InsertClassDiagram](diagrams/TemplateBooleanCommand.png)
 
 #### `SetBooleanCommand`
-The `setBooleanCommand` is used to set the value of one of two inputs to the logic gates, which can be either the Boolean value of `0 or 1`.
+The `SetBooleanCommand` is used to set the value of one of two inputs to the logic gates, which can be either the Boolean value of `0 or 1`.
 
-The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
+The sequence by which the `SetBooleanCommand` is instantiated is as follows:
 
-1. It is instantiated through the `execute()` function in the Parser class.
-2. The `setBooleanCommand` object will then call the `setInput(template logicGate, String gateInput, int value)` method which will take in a template, input of a logic gate as `String` data type, 
-and its Boolean value to be set as its three inputs. The function takes in a template as its first input and will instantiate the BooleanTemplate object.
-3. The `BooleanTemplate` object will then convert the input of the logic gate into the index to be stored in the binary tree of logic gates. This will depend on where the 
-logic gate is stored in the binary tree. This can be achieved by passing in the gate in `String` form to the `convertToIndex("C")` function, where in this case `"C"` is the
-input of the logic gate to be converted.
-4. The `BooleanTemplate` object will then call `insertTree` function in the instantiated `BinaryTree` object, where the `insertTree` function will take in the index of the logic gate
-stored in the `BinaryTree` and the Boolean value to be assigned to the gate as input. The binary tree containing the logic gates is stored in this object.
-5. The `BinaryTree` object will then call on the `setInput` function in the instantiated `OrGate` object with `index` of the logic gate and its Boolean value to be
-assigned as inputs.
-6. The `OrGate` object represents the `or` operation logic gate. 
-It then calls `setBoolean(int value)` function on itself to assign the Boolean value to that selected input of the logic gate.
+1. The `SetBooleanCommand` object calls on the `setInput(template, 2, 0)` method in the instantiated `BooleanTemplate`.
+2. By accessing the `BinaryTree` object in the `BooleanTemplate` that stores the gates, the input values of the `TwoInputGate` can be set. 
 
 The above sequence of object interactions through the SetBooleanCommand can be represented in the following sequence diagram:
 
@@ -268,30 +252,16 @@ The above sequence of object interactions through the SetBooleanCommand can be r
 #### `AddBooleanCommand`
 
 The `AddBooleanCommand` is used to combine multiple logic gate templates to produce advanced Boolean logic gate configurations.
-For instance, an `OrGate` can be combined with an `AndGate` to produce a new logic gate where its final output will depend on the
-Boolean values assigned to the `OrGate` and `AndGate`. The combination of both these gates can be represented by the following object diagram:
+For instance, an `OrGate` can be combined with an `AndGate` to produce a new logic configuration where its final output will depend on the
+Boolean values assigned to the `OrGate` and `AndGate`. This gate configuration can undergo further addition operations by `addBooleanCommand` to 
+combine another logic gate, such as `XorGate`. The combination of these three gates after the `addBooleanCommand` operations can be represented by the following object diagram:
 
 ![InsertObjectDiagram](diagrams/AddBooleanCommandObjectDiagram.png)
 
-The above combined logic gate configuration can also further be combined with another logic gate template (for instance, an `XorGate`) using the `AddBooleanCommand`
-again to produce an even more advanced logic gate configuration. This combination can be represented by the following
-object diagram.
-
-object diagram:
-
-![InsertObjectDiagram](diagrams/AddCommandOrAndXor.png)
-
-
 The sequence by which the `AddBooleanCommand` is instantiated to combine the logic gates is as follows:
 
-1. It is instantiated through the `execute()` function in the Parser class.
-2. The `AddBooleanCommand` object will then call on the `addGate(template, String gateInput, String logicGate)` function in the instantiated BooleanTemplate object. 
-The gateInput refers to the input of the gate where the combination of the gates will be instantiated and the logicGate represents the new gate that can be 
-included in the new combination.
-3. The `BooleanTemplate` object will then call `convertToIndex(String gateInput)` on itself to obtain the index of the input of the logic gate.
-4. Upon obtaining the index, the `BooleanTemplate` will call on the `passIndextoTree(int index)` in the instantiated `BinaryTree` object.
-6. The `AndGate` object can then be instantiated from the call of the `AddGate(index, String logicGate)` function, where in this case the second parameter is `"and"`.
-7. The `AndGate` object will then call the `setInputPosition(index)` method where its index will be set in the `BinaryTree`.
+1. The `AddBooleanCommand` object calls on the `addGate` method in the instantiated `BooleanTemplate`.
+2. This will access the index of the `BinaryTree` object in the `BooleanTemplate` to store the newly added gate to the configuration.
 
 The aforementioned sequence of events can be represented in the following sequence diagram:
 
@@ -306,15 +276,12 @@ be calculated.
 
 The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
 
-1. It is instantiated through the `execute()` function in the Parser class.
-2. The `CalcBooleanCommand` object will then call on the `calc()` method in the instantiated `BooleanTemplate` class.
-3. The `BooleanTemplate` then calls the `getGate()` method for all the gates stored in its instantiated `BinaryTree` object using a `for` loop.
-that spans for the height of the `BinaryTree`. In this case, the `BinaryTree` is stored as an `ArrayList`, which means that `getGate()` will iterate through
-the `for` loop that spans for the length of the `ArrayList`. 
-4. The `BinaryTree` object will then call the `getGateBooleanValue()` method on the instantiated `Gate` object in each of its index to get the Boolean 
-values of the inputs of that one logic gate.
-5. The `Gate` object will then call the `calcBoolean(input1,input2)` on itself to obtain the Boolean output of that logic gate. This value obtained - `booleanValue` - is then
-passed back into the `BooleanTemplate` object. The Boolean values of all the logic gates will be calculated to obtain the effective logic gate output.
+1. The `calcBooleanCommand` calls on the `calculateOuput(index)` method in the instantiated `BooleanTemplate` object.
+2. By obtaining the left and right indexes of the provided `index` and checking if they are null, 
+the inputs of the gates are then set after recursively obtaining the `output` values of those gates stored in the
+left and right indexes.
+3. The `output` of the gate configuration is then obtained by calling the `getOutput()` method in the instantiated
+`Gate` object.
 
 The aforementioned sequence of events can be represented in the following sequence diagram:
 ![InsertSequeunceDiagram](diagrams/CalcBooleanCommand.png)

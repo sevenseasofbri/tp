@@ -1,22 +1,85 @@
 @startuml
-activate CalcBooleanCommand
-->CalcBooleanCommand: execute()
+[-> CalculateBooleanCommand : execute()
+activate CalculateBooleanCommand
 
+CalculateBooleanCommand -> BooleanTemplate : calculateOutput(index)
 activate BooleanTemplate
-CalcBooleanCommand -> BooleanTempate : calc()
 
-loop BinaryTree.getHeight()
+BooleanTemplate -> BinaryTree : getRightIndex(index)
 activate BinaryTree
-BooleanTemplate -> BinaryTree: getGate()
-BinaryTree -> Gate: getGateBooleanValue()
 
+BinaryTree --> BooleanTemplate : rightIndex
+deactivate BinaryTree
+
+BooleanTemplate -> BinaryTree : getLeftIndex(index)
+activate BinaryTree
+
+BinaryTree --> BooleanTemplate : leftIndex
+deactivate BinaryTree
+
+BooleanTemplate -> BinaryTree : isNullAtIndex(rightIndex)
+activate BinaryTree
+
+BinaryTree --> BooleanTemplate : isNullAtRight
+deactivate BinaryTree
+
+BooleanTemplate -> BinaryTree : getLeftIndex(index)
+activate BinaryTree
+
+BinaryTree --> BooleanTemplate : isNullAtLeft
+deactivate BinaryTree
+
+BooleanTemplate -> BinaryTree: getT(index)
+activate BinaryTree
+
+BinaryTree -> Gate: arrayList.get(index)
 activate Gate
-Gate -> BooleanTemplate: booleanValue
+
+Gate --> BinaryTree: gate
+deactivate Gate
+
+BinaryTree --> BooleanTemplate: gate
+deactivate BinaryTree
+
+alt !isNullAtLeft
+
+BooleanTemplate -> Gate: setInput(calculateOutput(leftIndex))
+activate Gate
+
 end
 
-Gate -> Gate: calcBoolean(input1, input2)
+alt !isNullAtRight
+
+BooleanTemplate -> Gate: setSecondInput(calculateOutput(rightIndex))
+
+
+end
 
 deactivate Gate
+deactivate Gate
+
+BooleanTemplate -> BinaryTree: getT(index)
+activate BinaryTree
+
+BinaryTree -> Gate: arrayList.get(index)
+activate Gate
+
+Gate --> BinaryTree: gate
+deactivate Gate
+
+BinaryTree --> BooleanTemplate: gate
+deactivate BinaryTree
+
+BooleanTemplate -> Gate: gate.getOuput()
+activate Gate
+
+Gate --> BooleanTemplate: output
+deactivate Gate
+
+
+BooleanTemplate --> CalculateBooleanCommand: output
 deactivate BooleanTemplate
-deactivate CalcBooleanCommand
+
+[<-- CalculateBooleanCommand: output
+deactivate CalculateBooleanCommand
 @enduml
