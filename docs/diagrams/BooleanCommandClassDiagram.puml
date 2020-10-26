@@ -1,0 +1,36 @@
+@startuml
+package Gates {
+    class "Command" as State1
+    class "BooleanCommand" as State2
+    class "AddBooleanCommand" as State3
+    class “CalculateBooleanCommand" as State4
+    class “SetBooleanCommand" as State5
+    class “TemplateBooleanCommand" as State6
+}
+class State1 {
+    + execute()
+}
+class State2 {
+    # BooleanTemplate template
+}
+class State3 {
+    - Gate gate
+    - int index
+}
+class State4 {
+
+}
+class State5 {
+    - int value
+    - int index
+}
+class State6 {
+}
+
+
+State1 <-- State2
+State2 <-- State3
+State2 <-- State4
+State2 <-- State5
+State2 <-- State6
+@enduml

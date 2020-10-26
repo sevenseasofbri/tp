@@ -1,40 +1,25 @@
-
 @startuml
-activate AddBooleanCommand
+[-> ":AddBooleanCommand" : execute()
+activate ":AddBooleanCommand"
 
-->AddBooleanCommand: execute()
+":AddBooleanCommand" -> ":BooleanTemplate": addGate(template, "C", and)
+activate ":BooleanTemplate"
 
-activate BooleanTemplate
-AddBooleanCommand -> BooleanTemplate: addGate(template, "C", and)
+":BooleanTemplate" -> ":BinaryTree" : insert(idx, and)
+activate ":BinaryTree"
 
-activate BooleanTemplate
-BooleanTemplate -> BooleanTemplate: convertToIndex("C")
+":BinaryTree" --> ":BooleanTemplate"
+deactivate ":BinaryTree"
 
-activate BooleanTemplate
-BooleanTemplate -> BinaryTree: passIndextoTree(index)
+":BooleanTemplate" -> ":BooleanTemplate" : buildTopDown()
+activate ":BooleanTemplate"
 
-activate BinaryTree
-BinaryTree -> BinaryTree : getLeftIndex(index)
+":BooleanTemplate" --> ":BooleanTemplate"
+deactivate ":BooleanTemplate"
 
-activate BinaryTree
-BinaryTree -> BinaryTree : getRightIndex(index)
+":BooleanTemplate" --> ":AddBooleanCommand"
+deactivate ":BooleanTemplate"
 
-deactivate BooleanTemplate
-
-deactivate BinaryTree
-
-activate AndGate
-BinaryTree -> AndGate: addGate(leftIndex, rightIndex)
-
-deactivate BinaryTree
-
-AndGate -> AndGate: setInputPositions(leftIndex, rightIndex)
-
-
-deactivate AndGate
-
-deactivate BooleanTemplate
-
-deactivate BooleanTemplate
-deactivate AddBooleanCommand
+[<-- ":AddBooleanCommand"
+deactivate ":AddBooleanCommand"
 @enduml
