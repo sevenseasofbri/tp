@@ -1,0 +1,22 @@
+@startuml
+activate CalcBooleanCommand
+->CalcBooleanCommand: execute()
+
+activate BooleanTemplate
+CalcBooleanCommand -> BooleanTempate : calc()
+
+loop BinaryTree.getHeight()
+activate BinaryTree
+BooleanTemplate -> BinaryTree: getGate()
+BinaryTree -> Gate: getGateBooleanValue()
+
+activate Gate
+Gate -> BooleanTemplate: booleanValue
+end
+
+Gate -> Gate: calcBoolean(input1, input2)
+
+deactivate Gate
+deactivate BooleanTemplate
+deactivate CalcBooleanCommand
+@enduml

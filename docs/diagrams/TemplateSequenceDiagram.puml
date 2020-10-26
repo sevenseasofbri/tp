@@ -1,7 +1,8 @@
 @startuml
 box logic
 participant ":Parser" as Parser
-participant ":TemplateCommand" as TemplateCommand
+participant ":CircuitParser" as Circuit
+participant ":TemplateCircuitCommand" as Template
 end box
 
 box template
@@ -11,37 +12,37 @@ end box
 [-> Parser : parse("template rl")
 activate Parser
 
-Parser -> Parser : prepareTemplate("template rl")
-activate Parser
+Parser -> Circuit : prepareTemplate("template rl")
+activate Circuit
 
-Parser -> Parser : getTemplate("rl")
-activate Parser
+Circuit -> Circuit : getCircuitTemplate("rl")
+activate Circuit
 
-Parser -> LrTemplate : new LrTemplate()
+Circuit -> LrTemplate : LrTemplate()
 activate LrTemplate
 
-Parser <- LrTemplate : lr
+Circuit <-- LrTemplate : lr
 deactivate LrTemplate
 
-Parser <- Parser: lr
+Circuit <-- Circuit : lr
+deactivate Circuit
+
+Circuit -> Template : TemplateCommand(lr)
+activate Template
+
+Circuit <-- Template : command
+deactivate Template
+
+Parser <-- Circuit : command
 deactivate Parser
 
-Parser -> TemplateCommand : TemplateCommand(LrTemplate)
-activate TemplateCommand
-
-Parser <- TemplateCommand : templateCommand
-deactivate TemplateCommand
-
-Parser <- Parser : templateCommand
+[<-- Parser : command
 deactivate Parser
 
-[<- Parser : templateCommand
-deactivate Parser
+[-> Template : execute()
+activate Template
 
-[-> TemplateCommand : execute()
-activate TemplateCommand
-
-[<- TemplateCommand
-deactivate TemplateCommand
+[<-- Template
+deactivate Template
 
 @enduml

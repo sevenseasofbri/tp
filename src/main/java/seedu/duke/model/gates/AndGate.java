@@ -1,6 +1,8 @@
 package seedu.duke.model.gates;
 
-public class AndGate extends TwoInputGate {
+import seedu.duke.DukeException;
+
+public class AndGate extends Gate {
     private static final String AND = "AND";
 
     /**
@@ -9,7 +11,8 @@ public class AndGate extends TwoInputGate {
      * @return int value of the gate output.
      */
     @Override
-    public int getOutput() {
+    public int getOutput() throws DukeException {
+        checkHasSetBothInput();
         return input & secondInput;
     }
 

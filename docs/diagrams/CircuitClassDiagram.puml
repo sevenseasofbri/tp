@@ -1,0 +1,18 @@
+@startuml
+
+hide member
+package "Circuit" {
+Class "{abstract}\nCircuitCommand" as Circuit
+Class "TemplateCircuitCommand" as Template
+Class "SetCircuitCommand" as Set
+Class "AddCircuitCommand" as Add
+Class "CalculateCircuitCommand" as Calc
+Class "TutorialCircuitCommand" as Help
+}
+Help --|> Circuit
+Template --|> Circuit
+Set --|> Circuit
+Calc --|> Circuit
+Add --|> Set
+
+@enduml

@@ -100,7 +100,9 @@ public class LcTemplate extends CircuitTemplate {
      */
     @Override
     public String toString() {
-        return LC_TEMPLATE + "Total Capacitance: " + capacitor + System.lineSeparator()
+        return LC_TEMPLATE
+                + "Current Voltage: " + initialPowerSupply + System.lineSeparator()
+                + "Total Capacitance: " + capacitor + System.lineSeparator()
                 + "Total Inductance: " + inductor + System.lineSeparator();
     }
 

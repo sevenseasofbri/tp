@@ -20,38 +20,32 @@ activate Parser
 Parser -> SetCommand : SetCommand(template, "r", 500)
 activate SetCommand
 
-SetCommand -> Parser : c
+SetCommand --> Parser : c
 deactivate SetCommand
 
-Parser -> Parser : c
+Parser --> Parser : c
 deactivate Parser
 
-[<- Parser : c
+[<-- Parser : c
 deactivate Parser
 
 
 [-> SetCommand : execute()
 activate SetCommand
 
-SetCommand -> Template : template.getComponent("r")
+SetCommand -> Template : getComponent("r")
 activate Template
 
-Template -> SetCommand : comp
+Template --> SetCommand : component
 deactivate Template
 
-SetCommand -> Component : comp.setValue(500)
+SetCommand -> Component : setValue(500)
 activate Component
 
-Component -> SetCommand
+Component --> SetCommand
 deactivate Component
 
-SetCommand -> Template : template.setComponent("r",500)
-activate Template
-
-Template -> SetCommand
-deactivate Template
-
-[<- SetCommand 
+[<-- SetCommand 
 deactivate SetCommand
 
 

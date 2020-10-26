@@ -4,7 +4,7 @@ import seedu.duke.DukeException;
 import seedu.duke.logic.commands.circuit.AddCircuitCommand;
 import seedu.duke.logic.commands.circuit.CalculateCircuitCommand;
 import seedu.duke.logic.commands.circuit.CircuitCommand;
-import seedu.duke.logic.commands.circuit.HelpCircuitCommand;
+import seedu.duke.logic.commands.circuit.TutorialCircuitCommand;
 import seedu.duke.logic.commands.circuit.SetCircuitCommand;
 import seedu.duke.logic.commands.circuit.TemplateCircuitCommand;
 import seedu.duke.model.template.CircuitTemplate;
@@ -26,8 +26,6 @@ public class CircuitParser implements LogicParser {
      */
     public CircuitCommand parse(String[] args, String command) throws DukeException {
         switch (command) {
-        case HelpCircuitCommand.COMMAND_WORD:
-            return new HelpCircuitCommand();
         case SetCircuitCommand.COMMAND_WORD:
             return prepareCircuitSet(args);
         case AddCircuitCommand.COMMAND_WORD:

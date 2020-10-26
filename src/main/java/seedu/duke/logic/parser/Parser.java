@@ -4,7 +4,10 @@ import seedu.duke.DukeException;
 import seedu.duke.logic.commands.Command;
 import seedu.duke.logic.commands.ExitCommand;
 import seedu.duke.logic.commands.SummaryCommand;
+import seedu.duke.logic.commands.TutorialCommand;
 import seedu.duke.logic.commands.circuit.TemplateCircuitCommand;
+import seedu.duke.logic.commands.circuit.TutorialCircuitCommand;
+import seedu.duke.logic.commands.gates.TutorialBooleanCommand;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +38,8 @@ public class Parser {
         switch (command) {
         case SummaryCommand.COMMAND_WORD:
             return new SummaryCommand();
+        case TutorialCommand.COMMAND_WORD:
+            return prepareTutorial(args);
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
         case TemplateCircuitCommand.COMMAND_WORD:
@@ -68,6 +73,21 @@ public class Parser {
             return booleanParser.prepareBooleanTemplate(args);
         }
 
-        throw new DukeException("Invalid argument");
+        throw new DukeException("Invalid argument!");
+    }
+
+    private Command prepareTutorial(String[] args) throws DukeException {
+        if (args.length < 2) {
+            throw new DukeException("Not enough arguments!");
+        }
+        String command = args[1].toLowerCase();
+        switch (command) {
+        case "circuit":
+            return new TutorialCircuitCommand();
+        case "boolean":
+            return new TutorialBooleanCommand();
+        default:
+            throw new DukeException("Please enter valid tutorial type!");
+        }
     }
 }
