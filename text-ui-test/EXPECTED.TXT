@@ -9,8 +9,8 @@ What is your name?
 Hello struggling CG1111 student
 You have entered Tutorial Mode!
 Type 'exit' if you want to leave this mode and go back to the application.
-Lets get started! First choose a template you want to work with.You can choose from rc, rl, lc and r templates.
-eg. To select the Resistor-Capacitor circuit template, enter 'template rc.'
+Lets get started! First choose a template you want to work with. You can choose from rc, rl, lc and r templates.
+eg. To select the Resistor-Capacitor circuit template, enter 'template rc'
 	+---R-----C---+
 	|             |
 	|             |
@@ -79,11 +79,11 @@ Here's a summary of available commands:
 | Print     | print                      | print               |
 +-----------+----------------------------+---------------------+
 
-Here's a summary of the command parameters: 
+Here's a summary of the command parameters:
 +-----------+----------------------------------+-------------------------------+
 | Parameter |       Circuit Params             | Boolean Params                |
 +-----------+----------------------------------+-------------------------------+
-| TEMPLATE  | rc, rl, r, cl                    | boolean                       |
+| TEMPLATE  | rc, rl, r, cl                    | or, and, nor, nand, xor, xnor |
 | COMPONENT | r, c, l, v                       | N.A.                          |
 | CONFIG    | parallel, series                 | N.A                           |
 | EFF_VALUE | reff, ceff, leff, current, power | N.A                           |
@@ -111,7 +111,7 @@ Here's a summary of the command parameters:
 +-----------+----------------------------------+-------------------------------+
 | Parameter |       Circuit Params             | Boolean Params                |
 +-----------+----------------------------------+-------------------------------+
-| TEMPLATE  | rc, rl, r, cl                    | boolean                       |
+| TEMPLATE  | rc, rl, r, cl                    | or, and, nor, nand, xor, xnor |
 | COMPONENT | r, c, l, v                       | N.A.                          |
 | CONFIG    | parallel, series                 | N.A                           |
 | EFF_VALUE | reff, ceff, leff, current, power | N.A                           |
