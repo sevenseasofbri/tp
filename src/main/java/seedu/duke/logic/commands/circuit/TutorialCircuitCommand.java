@@ -19,7 +19,6 @@ public class TutorialCircuitCommand extends SummaryCommand implements TutorialCo
     public TutorialCircuitCommand() {
         super();
         ui = new Ui(); // Create its own Ui instance, can be a Ui subclass later on
-        summary = new SummaryCommand();
     }
 
     /**
