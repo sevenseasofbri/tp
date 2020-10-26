@@ -1,4 +1,4 @@
-struggling CG1111 student
+start
 help
 template rc
 set v 5
