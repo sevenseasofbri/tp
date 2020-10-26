@@ -271,13 +271,11 @@ The `AddBooleanCommand` is used to combine multiple logic gate templates to prod
 For instance, an `OrGate` can be combined with an `AndGate` to produce a new logic gate where its final output will depend on the
 Boolean values assigned to the `OrGate` and `AndGate`. The combination of both these gates can be represented by the following object diagram:
 
-![InsertObjectDiagram](diagrams/AddCommandOrAnd.png)
+![InsertObjectDiagram](diagrams/AddBooleanCommandObjectDiagram.png)
 
 The above combined logic gate configuration can also further be combined with another logic gate template (for instance, an `XorGate`) using the `AddBooleanCommand`
 again to produce an even more advanced logic gate configuration. This combination can be represented by the following
-object diagram:
-
-![InsertObjectDiagram](diagrams/AddCommandOrAndXOR.png)
+object diagram.
 
 The sequence by which the `AddBooleanCommand` is instantiated to combine the logic gates is as follows:
 
