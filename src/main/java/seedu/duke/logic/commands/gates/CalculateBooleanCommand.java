@@ -18,6 +18,6 @@ public class CalculateBooleanCommand extends BooleanCommand {
 
     @Override
     public String toString() {
-        return "The output of the current configuration is " + output + ".";
+        return "The output of the current configuration is " + output + ".\n" + super.toString();
     }
 }
