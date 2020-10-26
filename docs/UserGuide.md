@@ -364,3 +364,5 @@ Action | Format, Examples
 **Add Circuit** | `add CONFIG COMPONENT VALUE`<br> e.g., `add parallel c 500`
 **Add Logic Gate** | `add INPUT GATE`<br> e.g., `add C or`
 **Calculate Circuit/Logic Gate** | `calc EFF_VALUE/[]` <br> e.g., `calc ceff` <br> e.g., `calc`
+
+[]: #introduction

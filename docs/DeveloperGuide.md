@@ -1,6 +1,6 @@
 # Developer Guide
 
-This **Developer Guide** aims to get developers familiarised with the design and implementation of **CLIrcuit Assistant**. The following table indicates the symbols used to aid the understanding of the guide. This guide also assumes that the reader has basic understanding of *UML Diagrams*. [To access the **User Guide** instead, click here.](#UserGuide.md)
+This **Developer Guide** aims to get developers familiarised with the design and implementation of **CLIrcuit Assistant**. The following table indicates the symbols used to aid the understanding of the guide. This guide also assumes that the reader has basic understanding of *UML Diagrams*. [To access the **User Guide** instead, click here.](UserGuide.md)
 
 | Symbol/Format | Meaning |
 |:---------------:|:--------|
@@ -163,7 +163,8 @@ application's requirements.
 | Requirements | Property of Binary Heap |
 |:----------:|:-------------:|
 | Connects different gates together | A binary-heap, being a type of binary tree, is a _connected graph_. |
-| Easily stored |  Can be stored in simple contiguous memory like an Array/ArrayList |
+| Easily stored | Can be stored in simple contiguous memory like an Array/ArrayList |
+| Easy to print | Nodes stored in an array, rather than a graph-like structure |
 | Inputs can be easily manipulated | Manipulating augmented values involves a simple _O(1)_ operation. |
 | Emulate 2-input logic circuit | Being a binary tree, each node can have atmost 2 children, thus recreating a 2-Input Logic Gate |
 
