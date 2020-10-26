@@ -8,11 +8,15 @@ Class "SetCircuitCommand" as Set
 Class "AddCircuitCommand" as Add
 Class "CalculateCircuitCommand" as Calc
 Class "TutorialCircuitCommand" as Help
+Class "SummaryCommand" as Summary
+Class "{abstract}\nCommand" as Comd
 }
-Help --|> Circuit
+Help --|> Summary
 Template --|> Circuit
 Set --|> Circuit
 Calc --|> Circuit
 Add --|> Set
+Summary --|> Comd
+Circuit --|> Comd
 
 @enduml

@@ -1,0 +1,34 @@
+@startuml
+
+hide member
+package Component {
+class "{abstract}\nComponent" as Comp
+class "{abstract}\nLoadComponent" as Load
+class "VoltageSource" as Volt
+class "Resistor" as Resist
+class "Capacitor" as Cap
+class "Inductor" as Ind
+}
+package Template {
+class "{abstract}\nCircuitTemplate" as Circ
+class "RTemplate" as RTemp
+class "LcTemplate" as LcTemp
+class "LrTemplate" as LrTemp
+class "RcTemplate" as RcTemp
+}
+
+Load --|> Comp
+Volt --|> Comp
+Resist --|> Load
+Cap --|> Load
+Ind --|> Load
+
+RTemp --|> Circ
+LcTemp --|> Circ
+LrTemp --|> RTemp
+RcTemp --|> RTemp
+
+Circ --> "1..3" Comp
+
+
+@enduml

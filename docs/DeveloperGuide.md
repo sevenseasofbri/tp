@@ -94,9 +94,11 @@ The `Model`,
 
 ## Implementation of Circuit Commands <a name="circ-comd"></a>
 
-![CircuitClass](diagrams/CircuitClassDiagram.png)
+![CircuitCommandClass](diagrams/CircuitCommandClassDiagram.png)
 
-The diagram above demonstrates the relationship between the various `CircuitCommand` objects. The various commands to be parsed are as explained in this section. While the **User Guide** explains the commands used on the CLI, this section goes into detail the classes used to execute the commands.
+The diagram above demonstrates the relationship between the various `CircuitCommand` objects. The various commands to be parsed are as explained in this section. While the **User Guide** explains the commands used on the CLI, this section goes into detail the classes used to execute the commands. The command classes also make use of the classes in the [**`Model`**](#model-component) shown in the diagram below when executing the commands.
+
+![CircuitModelClass](diagrams/CircuitModelClassDiagram.png)
 
 ### `TemplateCircuitCommand`  <a name="temp-circ"></a>
 Given below is the sequence diagram for interactions within the `logic` and `template` components for the 
@@ -350,7 +352,7 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 
 ## Glossary
 
-* *glossary item* - Definition 
+* *glossary item* - Definition
 
 ## Appendix: Instructions for manual testing
 ### Initial launch  
