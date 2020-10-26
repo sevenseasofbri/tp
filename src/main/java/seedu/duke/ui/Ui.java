@@ -1,9 +1,6 @@
 package seedu.duke.ui;
 
-import seedu.duke.DukeException;
-
 import java.util.Scanner;
-import java.util.logging.Level;
 
 public class Ui {
     //Running into issues with runtest.bat with the following LOGO. Using regular text for now.
