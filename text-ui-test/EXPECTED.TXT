@@ -63,7 +63,6 @@ Great! You're set to use
 | |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\__ \__ \ \__ \ || (_| | | | | |_
 \_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|Enjoy! :)
  type 'exit' to exit this mode.
-
 You have exited Tutorial Mode!
 Here's a summary of available commands:
 +-----------+----------------------------+--------------------+
@@ -96,7 +95,6 @@ Current Voltage: 0.0 V
         +----+V_ac+---+
 Total Resistance: 0.0 Ω
 Total Capacitance: 0.0 µF
-
 The voltage source was changed to: 5.0 V
 The resistor was set to 200.0 Ω
 Current Voltage: 5.0 V
@@ -106,7 +104,6 @@ Current Voltage: 5.0 V
         +----+V_ac+---+
 Total Resistance: 200.0 Ω
 Total Capacitance: 0.0 µF
-
 The capacitor was set to 10.0 µF
 Current Voltage: 5.0 V
         +---R-----C---+
@@ -115,7 +112,6 @@ Current Voltage: 5.0 V
         +----+V_ac+---+
 Total Resistance: 200.0 Ω
 Total Capacitance: 10.0 µF
-
 Nice, added a 400.0 Ω
 Current Voltage: 5.0 V
         +---R-----C---+
@@ -189,5 +185,4 @@ B = 1
 C = F OR G
 F = ?
 G = ?
-
  Bye. See you next time!
