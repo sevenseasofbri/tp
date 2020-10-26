@@ -5,16 +5,17 @@ Hello from
 | |    | |      | | | '__/ __| | | | | __|   / /\ \ / __/ __| / __| __/ _` | '_ \| __|
 | |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\__ \__ \ \__ \ || (_| | | | | |_
 \_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|
+What is your name?
 Hello struggling CG1111 student
 You have entered Tutorial Mode!
 Type 'exit' if you want to leave this mode and go back to the application.
 Lets get started! First choose a template you want to work with.You can choose from rc, rl, lc and r templates.
 eg. To select the Resistor-Capacitor circuit template, enter 'template rc.'
 Current Voltage: 0.0 V
-        +---R-----C---+
-        |             |
-        |             |
-        +----+V_ac+---+
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
 Total Resistance: 0.0 Ω
 Total Capacitance: 0.0 µF
 
@@ -23,20 +24,20 @@ The voltage source was changed to: 5.0 V
 Lets set a value to resistor/capacitor/inductor! To do so, type 'set' followed by 'r' OR 'c' OR 'l' followed by a numeric VALUE. eg. 'set r 500' will set the resistor to 500Ω
 The resistor was set to 500.0 Ω
 Current Voltage: 5.0 V
-        +---R-----C---+
-        |             |
-        |             |
-        +----+V_ac+---+
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
 Total Resistance: 500.0 Ω
 Total Capacitance: 0.0 µF
 
 Lets set another value in our template! Here's the syntax for reference 'set r/l/c/v VALUE'.
 The capacitor was set to 20.0 µF
 Current Voltage: 5.0 V
-        +---R-----C---+
-        |             |
-        |             |
-        +----+V_ac+---+
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
 Total Resistance: 500.0 Ω
 Total Capacitance: 20.0 µF
 
@@ -44,10 +45,10 @@ Want to add a component in parallel/series to your current component? Lets do th
 eg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit (if any).
 Nice, added a 40.0 µF
 Current Voltage: 5.0 V
-        +---R-----C---+
-        |             |
-        |             |
-        +----+V_ac+---+
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
 Total Resistance: 500.0 Ω
 Total Capacitance: 40.0 µF
 
@@ -89,74 +90,74 @@ Here's a summary of available commands:
 +-----------+----------------------------+--------------------+
 
 Current Voltage: 0.0 V
-        +---R-----C---+
-        |             |
-        |             |
-        +----+V_ac+---+
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
 Total Resistance: 0.0 Ω
 Total Capacitance: 0.0 µF
 
 The voltage source was changed to: 5.0 V
 The resistor was set to 200.0 Ω
 Current Voltage: 5.0 V
-        +---R-----C---+
-        |             |
-        |             |
-        +----+V_ac+---+
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
 Total Resistance: 200.0 Ω
 Total Capacitance: 0.0 µF
 
 The capacitor was set to 10.0 µF
 Current Voltage: 5.0 V
-        +---R-----C---+
-        |             |
-        |             |
-        +----+V_ac+---+
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
 Total Resistance: 200.0 Ω
 Total Capacitance: 10.0 µF
 
 Nice, added a 400.0 Ω
 Current Voltage: 5.0 V
-        +---R-----C---+
-        |             |
-        |             |
-        +----+V_ac+---+
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
 Total Resistance: 400.0 Ω
 Total Capacitance: 10.0 µF
 
 Nice, added a 5.0 µF
 Current Voltage: 5.0 V
-        +---R-----C---+
-        |             |
-        |             |
-        +----+V_ac+---+
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
 Total Resistance: 400.0 Ω
 Total Capacitance: 5.0 µF
 
 Nice, added a 133.33333333333334 Ω
 Current Voltage: 5.0 V
-        +---R-----C---+
-        |             |
-        |             |
-        +----+V_ac+---+
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
 Total Resistance: 133.33333333333334 Ω
 Total Capacitance: 5.0 µF
 
 The resistor was set to 100.0 Ω
 Current Voltage: 5.0 V
-        +---R-----C---+
-        |             |
-        |             |
-        +----+V_ac+---+
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
 Total Resistance: 100.0 Ω
 Total Capacitance: 5.0 µF
 
 The capacitor was set to 2.0 µF
 Current Voltage: 5.0 V
-        +---R-----C---+
-        |             |
-        |             |
-        +----+V_ac+---+
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
 Total Resistance: 100.0 Ω
 Total Capacitance: 2.0 µF
 
