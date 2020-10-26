@@ -136,15 +136,16 @@ public class Ui {
      */
     public void promptForIntro() {
         System.out.println("Hello! Type 'start' to start the CLIrcuit Assistant");
-        boolean isNotStart = true;
         String userLine = IN.nextLine();
-        try {
-            if (!userLine.equals("start")) {
-                throw new DukeException("Invalid Command!");
+        boolean isNotStart = true;
+        while (isNotStart) {
+            if (userLine.equals("start")) {
+                showWelcome();
+                isNotStart = false;
+            } else {
+                System.out.println("Invalid Command!");
+                userLine = IN.nextLine();
             }
-            showWelcome();
-        } catch(DukeException e){
-            showError(e.getMessage());
         }
     }
 }
