@@ -4,6 +4,10 @@ import seedu.duke.DukeException;
 import seedu.duke.logic.commands.Command;
 import seedu.duke.logic.commands.ExitCommand;
 import seedu.duke.logic.commands.SummaryCommand;
+import seedu.duke.logic.commands.TutorialCommand;
+import seedu.duke.logic.commands.circuit.TemplateCircuitCommand;
+import seedu.duke.logic.commands.circuit.TutorialCircuitCommand;
+import seedu.duke.logic.commands.gates.TutorialBooleanCommand;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +18,13 @@ public class Parser {
     private static final CircuitParser circuitParser = new CircuitParser();
     private static final BooleanParser booleanParser = new BooleanParser();
 
+    /**
+     * Returns a Command object based on the input line.
+     *
+     * @param line Line of user input.
+     * @return Command object.
+     * @throws DukeException If given line is blank.
+     */
     public Command parse(String line) throws DukeException {
         // Prevent blank tasks
         if (line.isBlank()) {
@@ -25,11 +36,13 @@ public class Parser {
         String command = args[0].toLowerCase();
 
         switch (command) {
-        case "summary":
+        case SummaryCommand.COMMAND_WORD:
             return new SummaryCommand();
-        case "bye":
+        case TutorialCommand.COMMAND_WORD:
+            return prepareTutorial(args);
+        case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
-        case "template":
+        case TemplateCircuitCommand.COMMAND_WORD:
             return prepareTemplate(args);
         default:
             break;
@@ -60,11 +73,21 @@ public class Parser {
             return booleanParser.prepareBooleanTemplate(args);
         }
 
-        throw new DukeException("Invalid argument");
-
+        throw new DukeException("Invalid argument!");
     }
 
-
-
-
+    private Command prepareTutorial(String[] args) throws DukeException {
+        if (args.length < 2) {
+            throw new DukeException("Not enough arguments!");
+        }
+        String command = args[1].toLowerCase();
+        switch (command) {
+        case "circuit":
+            return new TutorialCircuitCommand();
+        case "boolean":
+            return new TutorialBooleanCommand();
+        default:
+            throw new DukeException("Please enter valid tutorial type!");
+        }
+    }
 }

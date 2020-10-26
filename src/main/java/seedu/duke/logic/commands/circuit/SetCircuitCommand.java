@@ -9,6 +9,7 @@ import seedu.duke.model.component.VoltageSource;
 import seedu.duke.model.template.CircuitTemplate;
 
 public class SetCircuitCommand extends CircuitCommand {
+    public static final String COMMAND_WORD = "set";
     protected final String component;
     protected double value;
     protected Component componentObject;

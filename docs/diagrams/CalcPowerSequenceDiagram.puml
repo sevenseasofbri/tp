@@ -18,13 +18,13 @@ activate Parser
 Parser -> CalculateCommand : calculateCommand(template, power)
 activate CalculateCommand
 
-Parser <- CalculateCommand : calc
+Parser <-- CalculateCommand : calc
 deactivate CalculateCommand
 
-Parser <- Parser: calc
+Parser <-- Parser: calc
 deactivate Parser
 
-[<- Parser : calc
+[<-- Parser : calc
 deactivate Parser
 
 [->CalculateCommand : execute()
@@ -33,16 +33,16 @@ activate CalculateCommand
 CalculateCommand -> CalculateCommand : getValue()
 activate CalculateCommand
 
-CalculateCommand -> Template : template.getPower()
+CalculateCommand -> Template : getPower()
 activate Template
 
-CalculateCommand <- Template : value
+CalculateCommand <-- Template : value
 deactivate Template
 
-CalculateCommand <- CalculateCommand : value
+CalculateCommand <-- CalculateCommand : value
 deactivate CalculateCommand
 
-[<- CalculateCommand
+[<-- CalculateCommand
 deactivate CalculateCommand
 
 @enduml

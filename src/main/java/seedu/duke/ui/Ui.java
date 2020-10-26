@@ -32,7 +32,7 @@ public class Ui {
         "Great! Say, do you think we could find effective power/current consumed by the circuit?"
             + "Or even effective resistance/inductance/capacitance? Yes!\n"
             + "Lets try it out. Type 'calc' followed by 'ceff'/'leff'/'reff'/'power'/'current' and enter. :D",
-        "Great! You're set to use\n" + "CLIrcuit Assistant" + "Enjoy! :)\n type 'exit' to exit this mode.\n"};
+        "Great! You're set to use\n" + LOGO + "Enjoy! :)\n type 'exit' to exit this mode.\n"};
 
 
     private static final Scanner IN = new Scanner(System.in);
