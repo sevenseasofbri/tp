@@ -4,34 +4,39 @@ package Gates {
     object "__:OrGate__" as State2
     object "__:AndGate__" as State3
     object “__:XorGate__" as State4
+    object “__:Gate__" as State5
+    object “__:TwoInputGate__" as State6
 }
-
 object State1 {
     - BinaryTree<Gate> circuit
     + addGate(Gate gate, int index)
 }
-
 object State2 {
-    int B = 0
-    int C = F & G = 1
-    int output = B|C = 0|1 = 1
+    + int getOutput() = {return input | secondInput}
 }
-
 object State3 {
-   int F = 1
-   int G = 1
-   int output = F & G = 1 & 1 = 1
+    + int getOutput() = {return input & secondInput}
 }
-
 object State4 {
-   int H = 0
-   int I = B|C
-   int output = H ^ I = 1
+    + int getOuput() = {return input ^ secondInput}
+}
+
+object State5 {
+   # int input
+   + void setInput()
+   + int getInput()
+}
+
+object State6 {
+   # int secondInput
+   + void setSecondInput()
+   + int getInput()
 }
 
 
-State1 -- State2
-State1 -- State3
-State1 -- State4
-
+State1 <-- State5
+State5 <-- State6
+State6 <-- State3
+State6 <-- State4
+State6 <-- State2
 @enduml
