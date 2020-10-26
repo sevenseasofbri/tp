@@ -3,6 +3,7 @@ package seedu.duke.ui;
 import seedu.duke.DukeException;
 
 import java.util.Scanner;
+import java.util.logging.Level;
 
 public class Ui {
     //Running into issues with runtest.bat with the following LOGO. Using regular text for now.
@@ -133,13 +134,17 @@ public class Ui {
     /**
      * Prompts the user to start the CLIrcuit Assistant.
      */
-    public void promptForIntro() throws DukeException {
+    public void promptForIntro() {
         System.out.println("Hello! Type 'start' to start the CLIrcuit Assistant");
+        boolean isNotStart = true;
         String userLine = IN.nextLine();
-        if (userLine.equals("start")) {
+        try {
+            if (!userLine.equals("start")) {
+                throw new DukeException("Invalid Command!");
+            }
             showWelcome();
-        } else {
-            throw new DukeException("Invalid command!");
+        } catch(DukeException e){
+            showError(e.getMessage());
         }
     }
 }
