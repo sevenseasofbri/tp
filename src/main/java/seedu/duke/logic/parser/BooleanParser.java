@@ -7,10 +7,10 @@ import seedu.duke.logic.commands.gates.CalculateBooleanCommand;
 import seedu.duke.logic.commands.gates.SetBooleanCommand;
 import seedu.duke.logic.commands.gates.TemplateBooleanCommand;
 import seedu.duke.model.gates.AndGate;
+import seedu.duke.model.gates.Gate;
 import seedu.duke.model.gates.NandGate;
 import seedu.duke.model.gates.NorGate;
 import seedu.duke.model.gates.OrGate;
-import seedu.duke.model.gates.TwoInputGate;
 import seedu.duke.model.gates.XnorGate;
 import seedu.duke.model.gates.XorGate;
 import seedu.duke.model.template.BooleanTemplate;
@@ -101,8 +101,9 @@ public class BooleanParser implements LogicParser {
      * @throws DukeException If the index passed is invalid.
      */
     private int getIndex(String arg) throws DukeException {
-        int index = arg.charAt(0) - 'A';
-        if (index < 0 || index >= 16) {
+        String capsArg = arg.toUpperCase();
+        int index = capsArg.charAt(0) - 'A';
+        if (index < 0 || index >= 16 || arg.length() > 1) {
             throw new DukeException("Invalid position");
         }
         return index;
@@ -125,7 +126,7 @@ public class BooleanParser implements LogicParser {
 
         int index = getIndex(args[1]);
 
-        TwoInputGate gate = getGate(args[2]);
+        Gate gate = getGate(args[2]);
         return new AddBooleanCommand(booleanTemplate, gate, index);
     }
 
@@ -147,10 +148,10 @@ public class BooleanParser implements LogicParser {
      * Parses user command to determine and return the gate instance specified.
      *
      * @param arg String type user input.
-     * @return TwoInputGate type object.
+     * @return Gate type object.
      * @throws DukeException If gate specified is invalid.
      */
-    private TwoInputGate getGate(String arg) throws DukeException {
+    private Gate getGate(String arg) throws DukeException {
         switch (arg.toLowerCase()) {
         case "and":
             return new AndGate();
@@ -177,7 +178,7 @@ public class BooleanParser implements LogicParser {
      * @throws DukeException If the gate processed is invalid.
      */
     private BooleanTemplate getBooleanTemplate(String arg) throws DukeException {
-        TwoInputGate gate = getGate(arg);
+        Gate gate = getGate(arg);
         return new BooleanTemplate(gate);
     }
 }
