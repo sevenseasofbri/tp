@@ -277,6 +277,11 @@ The above combined logic gate configuration can also further be combined with an
 again to produce an even more advanced logic gate configuration. This combination can be represented by the following
 object diagram.
 
+object diagram:
+
+![InsertObjectDiagram](diagrams/AddCommandOrAndXor.png)
+
+
 The sequence by which the `AddBooleanCommand` is instantiated to combine the logic gates is as follows:
 
 1. It is instantiated through the `execute()` function in the Parser class.

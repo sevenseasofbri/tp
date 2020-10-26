@@ -1,9 +1,9 @@
 @startuml
--->BooleanParser: parse("template and")
+[->Parser: parse("template and")
 
-activate BooleanParser
+activate Parser
 
-BooleanParser -> BooleanParser: prepareBooleanTemplate("and")
+Parser-> BooleanParser: prepareBooleanTemplate("and")
 
 activate BooleanParser
 
@@ -15,29 +15,25 @@ BooleanParser -> BooleanParser: getGate("and")
 
 activate BooleanParser
 
-BooleanParser -> BooleanParser: AndGate()
+BooleanParser --> BooleanParser: AndGate()
 
 deactivate BooleanParser
 
-BooleanParser -> BooleanParser: BooleanTemplate(AndGate())
-
-deactivate BooleanParser
+BooleanParser --> BooleanParser: BooleanTemplate(AndGate())
 
 deactivate BooleanParser
 
 BooleanParser -> TemplateBooleanCommand: TemplateBooleanCommand(BooleanTemplate(AndGate()))
 
-deactivate BooleanParser
-
 activate TemplateBooleanCommand
 
-TemplateBooleanCommand -> BooleanCommand: super(BooleanTemplate(AndGate()))
+TemplateBooleanCommand --> BooleanParser
+deactivate TemplateBooleanCommand 
 
-deactivate TemplateBooleanCommand
+BooleanParser --> Parser
+deactivate BooleanParser
 
-activate BooleanCommand
+[<-- Parser
+deactivate Parser
 
-BooleanCommand -> BooleanCommand: this.template = BooleanTemplate(AndGate())
-
-deactivate BooleanCommand
 @enduml
