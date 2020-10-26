@@ -15,48 +15,33 @@ public class CalculateBooleanCommandTest {
     private static final Ui ui = new Ui();
 
     @Test
-    void execute_emptyTree_throwsException() {
-        BooleanTemplate b = null;
-        try  {
-            b = new BooleanTemplate(new OrGate());
-        } catch (DukeException e) {
-            ui.showError("Error occurred while rendering object.");
-        }
+    void execute_emptyTree_throwsException() throws DukeException {
+        BooleanTemplate b = new BooleanTemplate(new OrGate());
         CalculateBooleanCommand c = new CalculateBooleanCommand(b);
         assertThrows(DukeException.class, () -> c.execute());
     }
 
     @Test
-     void execute_notEmpty_doesNotThrowException() {
-        BooleanTemplate b = null;
-        try  {
-            b = new BooleanTemplate(new OrGate());
-            b.addGate(new AndGate(), 1);
-            b.setInput(1, 2);
-            b.addGate(new XorGate(), 4);
-            b.setInput(1, 3);
-            b.setInput(0, 9);
-            b.setInput(1, 10);
-        } catch (DukeException e) {
-            ui.showError("Error occurred while rendering object.");
-        }
+     void execute_notEmpty_doesNotThrowException() throws DukeException {
+        BooleanTemplate b = new BooleanTemplate(new OrGate());
+        b.addGate(new AndGate(), 1);
+        b.setInput(1, 2);
+        b.addGate(new XorGate(), 4);
+        b.setInput(1, 3);
+        b.setInput(0, 9);
+        b.setInput(1, 10);
         CalculateBooleanCommand c = new CalculateBooleanCommand(b);
         assertDoesNotThrow(() -> c.execute());
     }
 
     @Test
-     void execute_notEmptyWithInputNotSet_throwsException() {
-        BooleanTemplate b = null;
-        try  {
-            b = new BooleanTemplate(new OrGate());
-            b.addGate(new AndGate(), 1);
-            b.addGate(new XorGate(), 4);
-            b.setInput(1, 3);
-            b.setInput(0, 9);
-            b.setInput(1, 10);
-        } catch (DukeException e) {
-            ui.showError("Error occurred while rendering object.");
-        }
+     void execute_notEmptyWithInputNotSet_throwsException() throws DukeException {
+        BooleanTemplate b = new BooleanTemplate(new OrGate());
+        b.addGate(new AndGate(), 1);
+        b.addGate(new XorGate(), 4);
+        b.setInput(1, 3);
+        b.setInput(0, 9);
+        b.setInput(1, 10);
         CalculateBooleanCommand c = new CalculateBooleanCommand(b);
         assertThrows(DukeException.class, () -> c.execute());
     }
