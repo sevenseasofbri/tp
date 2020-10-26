@@ -14,7 +14,6 @@ public class TutorialCircuitCommand extends SummaryCommand implements TutorialCo
     private static final String[] orderOfInstructions = {"template", "set v", "set", "set", "add", "calc"};
     private int numOfCommandsDone = 0;
     private final Ui ui;
-    protected SummaryCommand summary;
 
     public TutorialCircuitCommand() {
         super();
