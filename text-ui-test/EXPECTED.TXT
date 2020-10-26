@@ -65,6 +65,7 @@ Great! You're set to use
  type 'exit' to exit this mode.
 
 You have exited Tutorial Mode!
+Here's a summary of available commands:
 +-----------+----------------------------+---------------------+
 |  Command  |         Circuit            |      Boolean        |
 +-----------+----------------------------+---------------------+
