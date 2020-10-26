@@ -30,8 +30,8 @@ public class TutorialCircuitCommand extends SummaryCommand implements TutorialCo
         boolean isNotDone = true;
 
         while (isNotDone) {
-            assert numOfCommandsDone < Ui.INSTRUCTIONS.length;
-            ui.printInstruction(numOfCommandsDone);
+            assert numOfCommandsDone < Ui.CIRCUIT_INSTRUCTIONS.length;
+            ui.printCircuitInstruction(numOfCommandsDone);
             command = ui.readLine();
             try {
                 isNotDone = continueTutorial(command, ui);
