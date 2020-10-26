@@ -152,7 +152,44 @@ The second sequence diagram given below shows the detailed interaction that aces
 
 The second major feature of the application is the implementation of Boolean logic commands, of which various noteworthy implementation details are explained in this section.
 
+### Implementation Considerations
+This section describes the methods taken into consideration whilst implementing the Boolean Commands.
+
+#### Rationale Behind Using Binary Heap-Like Data Structure
+Selecting the appropriate data structure for emulating a logic circuit is an important aspect to consider whilst
+building such a system. The following table depicts the properties of a Binary Heap-Like structure mapped to the 
+application's requirements.
+
+| Requirements | Property of Binary Heap |
+|:----------:|:-------------:|
+| Connects different gates together | A binary-heap, being a type of binary tree, is a _connected graph_. |
+| Easily stored |  Can be stored in simple contiguous memory like an Array/ArrayList |
+| Inputs can be easily manipulated | Manipulating augmented values involves a simple _O(1)_ operation. |
+| Emulate 2-input logic circuit | Being a binary tree, each node can have atmost 2 children, thus recreating a 2-Input Logic Gate |
+
+Therefore, since the Binary Heap-Like data structure best-fit the requirements for the system, the data structure was selected to
+implement a Logic Circuit,
+
+#### Alternatives Considered
+The preceding section detailed on the rationale behind choosing the data structure used to emulate the Logic Circuit. 
+This section details on the alternative mechanisms considered for the system and why they would not be viable:
+
+* Simple Binary Tree: In essence, a Binary-Heap is a special kind of Binary Tree. However, it is not efficient to store
+a Binary Tree in a contiguous memory location such as an Array/ArrayList. Thereby,
+    1. Increasing complexity of storage.
+    2. Increasing difficulty of manipulating circuit at certain position.
+
+* Graph With Depth First Search: Using a graph means dealing with a more complex structure due to the lack of
+restrictions on the number of child-nodes a node can have. Thereby,
+    1. Extra considerations/checks for emulating 2-input logic circuit.
+    2. Extra checks to test if graph is connected and circuit is complete.
+
+Due to the limitations mentioned above, the Binary Heap-Like data structure was considerd to be the best method of approach.
+
 ### Binary Tree
+The previous section described the rationale behind using a special Binary Tree-like structure (Heap) for implementing the
+Boolean Commands. This section provides details on *how* the logic circuit is modeled using the selected data structure. 
+
 The Boolean `add`, `set` and `calculate` features are modeled using a generic `BinaryTree<T>` class. The `BooleanTemplate` imports this class to store and evaluate the logic circuit. 
 
 The elements of the tree are stored in a fixed `ArrayList` (size = 15) indexed in a _heap-like_ manner. That is, a left to right _level-order traversal_ will map to the indexes of the array. The following diagram represents the indexes each node in the tree corresponds to in the `ArrayList`.
