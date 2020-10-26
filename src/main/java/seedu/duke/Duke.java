@@ -22,10 +22,10 @@ public class Duke {
         parser = new Parser();
     }
 
-    public void run() {
+    public void run() throws DukeException {
         setUpLogger();
         LOGGER.info("Execution is beginning.");
-        ui.showWelcome();
+        ui.promptForIntro();
         boolean isExit = false;
         while (!isExit) {
             try {
@@ -45,7 +45,7 @@ public class Duke {
     /**
      * Main entry-point for the java.duke.Duke application.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DukeException {
         new Duke().run();
     }
 
