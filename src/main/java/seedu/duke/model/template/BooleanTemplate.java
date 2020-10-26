@@ -147,25 +147,36 @@ public class BooleanTemplate {
     }
 
     /**
+     * Calculates and returns the total output of the circuit.
+     *
+     * @return int type value output, can be 0 or 1.
+     * @throws DukeException If input values are not set.
+     */
+    public int calculateOutput() throws DukeException {
+        return calculateOutput(0);
+    }
+
+    /**
      * Recursive function which calculates the output value of the circuit at position passed.
      *
      * @param idx int type index of node.
      * @return int type value output, can be 0 or 1.
      * @throws DukeException If input values are not set.
      */
-    public int calculateOutput(int idx) throws DukeException {
+    private int calculateOutput(int idx) throws DukeException {
         if (circuit.isNullAtIndex(idx)) {
             throw new DukeException("Oops! Nothing set yet.");
         }
 
         boolean isNullAtRight = circuit.isNullAtIndex(circuit.getRightIndex(idx));
         boolean isNullAtLeft = circuit.isNullAtIndex(circuit.getLeftIndex(idx));
+        Gate gate = circuit.getT(idx);
 
         if (!isNullAtLeft) {
-            circuit.getT(idx).setInput(calculateOutput(circuit.getLeftIndex(idx)));
+            gate.setInput(calculateOutput(circuit.getLeftIndex(idx)));
         }
         if (!isNullAtRight) {
-            circuit.getT(idx).setSecondInput(calculateOutput(circuit.getRightIndex(idx)));
+            gate.setSecondInput(calculateOutput(circuit.getRightIndex(idx)));
         }
 
         return circuit.getT(idx).getOutput();
