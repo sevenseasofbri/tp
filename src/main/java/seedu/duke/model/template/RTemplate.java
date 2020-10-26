@@ -71,7 +71,8 @@ public class RTemplate extends CircuitTemplate {
      */
     @Override
     public String toString() {
-        return R_TEMPLATE + "Total Resistance: " + resistor + System.lineSeparator();
+        return "Current Voltage: " + initialPowerSupply + System.lineSeparator()
+                + R_TEMPLATE + "Total Resistance: " + resistor + System.lineSeparator();
     }
 
 

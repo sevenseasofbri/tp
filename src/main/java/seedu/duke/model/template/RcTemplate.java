@@ -82,7 +82,8 @@ public class RcTemplate extends RTemplate {
      */
     @Override
     public String toString() {
-        return RC_TEMPLATE + "Total Resistance: " + resistor + System.lineSeparator()
+        return "Current Voltage: " + initialPowerSupply + System.lineSeparator()
+                + RC_TEMPLATE + "Total Resistance: " + resistor + System.lineSeparator()
                 + "Total Capacitance: " + capacitor + System.lineSeparator();
     }
 

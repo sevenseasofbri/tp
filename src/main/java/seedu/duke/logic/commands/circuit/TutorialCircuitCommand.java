@@ -12,7 +12,7 @@ public class TutorialCircuitCommand extends CircuitCommand implements TutorialCo
             + "+-----------+----------------------------+--------------------+\n"
             + "|  Action   |           Format           |      Examples      |\n"
             + "+-----------+----------------------------+--------------------+\n"
-            + "| Help      | help                       | help               |\n"
+            + "| Summary   | summary                    | summary            |\n"
             + "| Tutorial  | tutorial MODE              | tutorial boolean   |\n"
             + "| Template  | template TEMPLATE          | template rc        |\n"
             + "| Set       | set COMPONENT VALUE        | set r 500          |\n"
