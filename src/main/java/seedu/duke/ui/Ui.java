@@ -32,7 +32,7 @@ public class Ui {
         "Great! Say, do you think we could find effective power/current consumed by the circuit?"
             + "Or even effective resistance/inductance/capacitance? Yes!\n"
             + "Lets try it out. Type 'calc' followed by 'ceff'/'leff'/'reff'/'power'/'current' and enter. :D",
-        "Great! You're set to use the ciruit builder of \n" + LOGO + "Enjoy! :)\n type 'exit' to exit this mode.\n"};
+        "Great! You're set to use the circuit builder of \n" + LOGO + "Enjoy! :)\n type 'exit' to exit this mode.\n"};
 
     public static final String[] BOOLEAN_INSTRUCTIONS = {"Lets get started! First chose a template you want to work "
             + "with. You can chose from and, or, nand, nor, xor and xnor gate templates." + System.lineSeparator()
