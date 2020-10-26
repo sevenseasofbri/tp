@@ -1,31 +1,31 @@
 @startuml
-[-> SetBooleanCommand : execute()
-activate SetBooleanCommand
+[-> ":SetBooleanCommand" : execute()
+activate ":SetBooleanCommand"
 
-SetBooleanCommand -> BooleanTemplate : setInput(template, 2, 0)
-activate BooleanTemplate
+":SetBooleanCommand" -> ":BooleanTemplate" : setInput(template, 2, 0)
+activate ":BooleanTemplate"
 
-BooleanTemplate -> BinaryTree : getT(2)
-activate BinaryTree
+":BooleanTemplate" -> ":BinaryTree" : getT(2)
+activate ":BinaryTree"
 
-BinaryTree --> BooleanTemplate : gate
-deactivate BinaryTree
+":BinaryTree" --> ":BooleanTemplate" : gate
+deactivate ":BinaryTree"
 
-BooleanTemplate -> TwoInputGate : setSecondInput(0)
-activate TwoInputGate
+":BooleanTemplate" -> ":Gate" : setSecondInput(0)
+activate ":Gate"
 
-TwoInputGate --> BooleanTemplate
-deactivate TwoInputGate
+":Gate" --> ":BooleanTemplate"
+deactivate ":Gate"
 
-BooleanTemplate -> BooleanTemplate : buildTopDown()
-activate BooleanTemplate
+":BooleanTemplate" -> ":BooleanTemplate" : buildTopDown()
+activate ":BooleanTemplate"
 
-BooleanTemplate --> BooleanTemplate
-deactivate BooleanTemplate
+":BooleanTemplate" --> ":BooleanTemplate"
+deactivate ":BooleanTemplate"
 
-BooleanTemplate --> SetBooleanCommand
-deactivate BooleanTemplate
+":BooleanTemplate" --> ":SetBooleanCommand"
+deactivate ":BooleanTemplate"
 
-[<-- SetBooleanCommand
-deactivate SetBooleanCommand
+[<-- ":SetBooleanCommand"
+deactivate ":SetBooleanCommand"
 @enduml

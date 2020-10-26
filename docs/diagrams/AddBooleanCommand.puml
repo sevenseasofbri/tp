@@ -1,28 +1,25 @@
-
 @startuml
-activate AddBooleanCommand
+[-> ":AddBooleanCommand" : execute()
+activate ":AddBooleanCommand"
 
-->AddBooleanCommand: execute()
+":AddBooleanCommand" -> ":BooleanTemplate": addGate(template, "C", and)
+activate ":BooleanTemplate"
 
-activate BooleanTemplate
-AddBooleanCommand -> BooleanTemplate: addGate(template, "C", and)
+":BooleanTemplate" -> ":BinaryTree" : insert(idx, and)
+activate ":BinaryTree"
 
+":BinaryTree" --> ":BooleanTemplate"
+deactivate ":BinaryTree"
 
-BooleanTemplate -> BinaryTree : insert(idx, and)
-activate BinaryTree
+":BooleanTemplate" -> ":BooleanTemplate" : buildTopDown()
+activate ":BooleanTemplate"
 
-BinaryTree --> BooleanTemplate
-deactivate BinaryTree
+":BooleanTemplate" --> ":BooleanTemplate"
+deactivate ":BooleanTemplate"
 
-BooleanTemplate -> BooleanTemplate : buildTopDown()
-activate BooleanTemplate
+":BooleanTemplate" --> ":AddBooleanCommand"
+deactivate ":BooleanTemplate"
 
-BooleanTemplate --> BooleanTemplate
-deactivate BooleanTemplate
-
-BooleanTemplate --> AddBooleanCommand
-deactivate BooleanTemplate
-
-<-- AddBooleanCommand
-deactivate AddBooleanCommand
+[<-- ":AddBooleanCommand"
+deactivate ":AddBooleanCommand"
 @enduml
