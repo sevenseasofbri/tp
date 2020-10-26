@@ -55,7 +55,7 @@ Total Capacitance: 40.0 µF
 Great! Say, do you think we could find effective power/current consumed by the circuit?Or even effective resistance/inductance/capacitance? Yes!
 Lets try it out. Type 'calc' followed by 'ceff'/'leff'/'reff'/'power'/'current' and enter. :D
 The power dissipated in the circuit is 0.04937852460756959W
-Great! You're set to use
+Great! You're set to use the circuit builder of
  _____ _      _____                _ _                      _     _              _
 / ____| |    |_   _|              (_) |       /\           (_)   | |            | |
 | |    | |      | |  _ __ ___ _   _ _| |_     /  \   ___ ___ _ ___| |_ __ _ _ __ | |_
