@@ -25,7 +25,7 @@ public class TutorialBooleanCommand extends SummaryCommand implements TutorialCo
         String command;
         boolean isNotDone = true;
 
-        while(isNotDone) {
+        while (isNotDone) {
             assert numberOfCommandsDone < Ui.BOOLEAN_INSTRUCTIONS.length;
             ui.printBooleanInstruction(numberOfCommandsDone);
             command = ui.readLine();
