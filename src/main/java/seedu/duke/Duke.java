@@ -45,7 +45,7 @@ public class Duke {
     /**
      * Main entry-point for the java.duke.Duke application.
      */
-    public static void main(String[] args) throws DukeException {
+    public static void main(String[] args) {
         new Duke().run();
     }
 
