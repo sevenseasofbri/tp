@@ -19,7 +19,7 @@ This **User Guide** aims to help you get familiarised with the commands used in 
 1. [Command Preface](#command-preface)
 1. [General Commands](#general-commands)
     1. [Summary of Commands](#summary)
-    1. [Printing Template](#print)
+    1. [Printing Template `[coming in v3.0]`](#print)
 1. [Circuit Action Commands](#circuit-action-commands)
     1. [Interactive Tutorial](#tut-circ)
     1. [Creating Circuit Template](#template-circ)
@@ -93,7 +93,7 @@ This command prints a summary of all commands in the application as shown in [Co
 
 Format: `summary`
 
-### Printing `template`: `print` <a name="print"></a>
+### Printing `template`: `print` [coming in v3.0] <a name="print"></a>
 
 Prints the current `template` that is set as explained in the [Command Preface](#command-preface). Nothing is printed if a `template` is not yet set. This command is useful to find out the current `template` you are working on.
 
@@ -267,7 +267,7 @@ This command sets the value of an input. The inputs can then be used in the `cal
 
 Format: `set INPUT VALUE`
 
-* The `INPUT` can be chosen only from the current `template`, which can be printed out using [`print`](#print).
+* The `INPUT` can be chosen only from the current `template`.
 * The `VALUE` can be any integer, but any non-zero integer will be treated as `true`, while 0 is treated as `false`.
 
 Example of usage:
@@ -358,7 +358,7 @@ Action | Format, Examples
 --------|------------------
 **Tutorial** | `tutorial TYPE` <br> e.g., `tutorial circuit`
 **Summary** | `summary`
-**Print Circuit/Logic Gate** | `print`
+**Print Circuit/Logic Gate<br>`[coming in v3.0]`** | `print`
 **Template Circuit/Logic Gate** | `template TEMPLATE/GATE` <br> e.g., `template rc` <br> e.g., `template and`
 **Set Circuit/Logic Gate** | `set COMPONENT/INPUT VALUE` <br> e.g., `set r 500` <br> e.g., `set B 0`
 **Add Circuit** | `add CONFIG COMPONENT VALUE`<br> e.g., `add parallel c 500`
