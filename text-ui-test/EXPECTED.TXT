@@ -220,7 +220,6 @@ G = N XOR O
 N = 1
 O = 0
 
-The output of the current configuration is 1.
           0UT
            |
      B           C
@@ -237,4 +236,5 @@ G = N XOR O
 N = 1
 O = 0
 
+The output of the above configuration is 1.
  Bye. See you next time!
