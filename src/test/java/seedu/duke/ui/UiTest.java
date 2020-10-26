@@ -9,6 +9,6 @@ public class UiTest {
     @Test
     void printInstruction_PassInvalidInstructionNumber_ThrowsException() {
         Ui ui = new Ui();
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> ui.printInstruction(8));
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> ui.printCircuitInstruction(8));
     }
 }
