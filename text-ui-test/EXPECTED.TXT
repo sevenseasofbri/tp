@@ -56,16 +56,33 @@ CLIrcuit AssistantEnjoy! :)
  type 'exit' to exit this mode.
 
 :) Have fun using CLIrcuit Assistant!
+Here's a summary of available commands:
++-----------+----------------------------+---------------------+
+|  Command  |         Circuit            |      Boolean        |
++-----------+----------------------------+---------------------+
+| Tutorial  | tutorial circuit           | tutorial boolean    |
+| Template  | template TEMPLATE          | template TEMPLATE   |
+| Summary   | summary                    | summary             |
+| Set       | set COMPONENT VALUE        | set INPUT BOOLVALUE |
+| Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
+| Calculate | calc EFF_VALUE             | calc                |
+| Exit      | exit                       | exit                |
+| Print     | print                      | print               |
++-----------+----------------------------+---------------------+
 
-+-----------+----------------------------+--------------------+
-|  Action   |           Format           |      Examples      |
-+-----------+----------------------------+--------------------+
-| Help      | help                       | help               |
-| Template  | template TEMPLATE          | template rc        |
-| Set       | set COMPONENT VALUE        | set r 500          |
-| Add       | add CONFIG COMPONENT VALUE | add parallel c 500 |
-| Calculate | calc EFF_VALUE             | calc ceff          |
-+-----------+----------------------------+--------------------+
+Here's a summary of the command parameters:
++-----------+----------------------------------+-------------------------------+
+| Parameter |       Circuit Params             | Boolean Params                |
++-----------+----------------------------------+-------------------------------+
+| TEMPLATE  | rc, rl, r, cl                    | boolean                       |
+| COMPONENT | r, c, l, v                       | N.A.                          |
+| CONFIG    | parallel, series                 | N.A                           |
+| EFF_VALUE | reff, ceff, leff, current, power | N.A                           |
+| VALUE     | any number of double datatype    | N.A                           |
+| INPUT     | N.A                              | A, B, C, D, E, F, G           |
+| GATE      | N.A                              | or, and, nor, nand, xor, xnor |
+| BOOLVALUE | N.A                              | 0, 1                          |
++-----------+----------------------------------+-------------------------------+
 
 	+---R-----C---+
 	|             |
