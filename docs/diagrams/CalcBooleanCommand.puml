@@ -46,12 +46,18 @@ alt !isNullAtLeft
 ":BooleanTemplate" -> ":Gate": setInput(calculateOutput(leftIndex))
 activate ":Gate"
 
+":Gate" --> ":BooleanTemplate"
+deactivate ":Gate"
+
 end
 
 alt !isNullAtRight
 
 ":BooleanTemplate" -> ":Gate" : setSecondInput(calculateOutput(rightIndex))
+activate ":Gate"
 
+":Gate" --> ":BooleanTemplate"
+deactivate ":Gate"
 
 end
 

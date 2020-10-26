@@ -34,9 +34,9 @@ object State6 {
 }
 
 
-State1 <-- State5
-State5 <-- State6
-State6 <-- State3
-State6 <-- State4
-State6 <-- State2
+State1 --> State5
+State5 --> State6
+State6 --> State3
+State6 --> State4
+State6 --> State2
 @enduml

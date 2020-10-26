@@ -27,8 +27,8 @@ object State5 {
    int getInput()
 }
 
-State1 --|> State5
-State5 --|> State3
-State5 --|> State4
-State5 --|> State2
+State1 --> State5
+State5 <|-- State3
+State5 <|-- State4
+State5 <|-- State2
 @enduml
