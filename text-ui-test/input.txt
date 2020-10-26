@@ -7,7 +7,16 @@ set c 20
 add parallel c 20
 calc power
 exit
-summary
+tutorial boolean
+template and
+set B 1
+set C 0
+calc
+add C NOR
+set F 0
+set G 1
+calc
+exit
 template rc
 set v 5
 set r 200
@@ -26,4 +35,5 @@ add G xor
 set N 1
 set O 0
 calc
+summary
 bye

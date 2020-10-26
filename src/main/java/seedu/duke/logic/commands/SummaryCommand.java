@@ -19,7 +19,7 @@ public class SummaryCommand extends Command {
             + "+-----------+----------------------------------+-------------------------------+\n"
             + "| Parameter |       Circuit Params             | Boolean Params                |\n"
             + "+-----------+----------------------------------+-------------------------------+\n"
-            + "| TEMPLATE  | rc, rl, r, cl                    | boolean                       |\n"
+            + "| TEMPLATE  | rc, rl, r, cl                    | or, and, nor, nand, xor, xnor |\n"
             + "| COMPONENT | r, c, l, v                       | N.A.                          |\n"
             + "| CONFIG    | parallel, series                 | N.A                           |\n"
             + "| EFF_VALUE | reff, ceff, leff, current, power | N.A                           |\n"

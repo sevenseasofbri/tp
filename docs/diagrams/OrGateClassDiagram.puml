@@ -1,0 +1,22 @@
+@startuml
+package Gates {
+    class "Gate" as State1
+    class "OrGate" as State3
+}
+
+class State1 {
+    # int input
+    # int output
+    + void setInput(int input)
+    + void getOutput()
+}
+
+class State2 {
+    # int input = A
+    # int secondInput = B
+    + int getOutput() = {return input | secondInput }
+
+}
+
+State1 --|> State2
+@enduml

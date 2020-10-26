@@ -1,6 +1,6 @@
 # Developer Guide
 
-This **Developer Guide** aims to get developers familiarised with the design and implementation of **CLIrcuit Assistant**. The following table indicates the symbols used to aid the understanding of the guide. This guide also assumes that the reader has basic understanding of *UML Diagrams*. [To access the **User Guide** instead, click here.](#UserGuide.md)
+This **Developer Guide** aims to get developers familiarised with the design and implementation of **CLIrcuit Assistant**. The following table indicates the symbols used to aid the understanding of the guide. This guide also assumes that the reader has basic understanding of *UML Diagrams*. [To access the **User Guide** instead, click here.](UserGuide.md)
 
 | Symbol/Format | Meaning |
 |:---------------:|:--------|
@@ -93,6 +93,25 @@ The `Model`,
 * does not depend on any of the other three components.
 
 ## Implementation of Circuit Commands <a name="circ-comd"></a>
+This section provides details on the implementation of the various electronic circuit commands.
+
+There are 4 different types of components of electronic circuits that can be instantiated in the program:
+* `Resistor` - A _resistor_ component.
+* `Capacitor` - A _capacitor_ component.
+* `Inductor` - An _inductor_ component.
+* `VoltageSource` - An _Alternating Current_ Voltage Source.
+
+Each component is used within a circuit template, based on the kind of circuit instantiated.
+
+| :information_source: | The `VoltageSource` is instantiated in all Circuit Templates. |
+|----------------------|:-------------------------------------|
+
+There are four different circuit templates that can be instantiated in the program:
+
+* `LcTemplate` - Inductor-Capacitor Circuit Template
+* `RTemplate` - Resistor Circuit Template
+* `RcTemplate` - Resistor-Capacitor Template (extends `RTemplate`)
+* `LrTemplate` - Inductor-Resistor Template (extends `RTemplate`)
 
 ![CircuitClass](diagrams/CircuitClassDiagram.png)
 
@@ -133,7 +152,45 @@ The second sequence diagram given below shows the detailed interaction that aces
 
 The second major feature of the application is the implementation of Boolean logic commands, of which various noteworthy implementation details are explained in this section.
 
+### Implementation Considerations
+This section describes the methods taken into consideration whilst implementing the Boolean Commands.
+
+#### Rationale Behind Using Binary Heap-Like Data Structure
+Selecting the appropriate data structure for emulating a logic circuit is an important aspect to consider whilst
+building such a system. The following table depicts the properties of a Binary Heap-Like structure mapped to the 
+application's requirements.
+
+| Requirements | Property of Binary Heap |
+|:----------:|:-------------:|
+| Connects different gates together | A binary-heap, being a type of binary tree, is a _connected graph_. |
+| Easily stored | Can be stored in simple contiguous memory like an Array/ArrayList |
+| Easy to print | Nodes stored in an array, rather than a graph-like structure |
+| Inputs can be easily manipulated | Manipulating augmented values involves a simple _O(1)_ operation. |
+| Emulate 2-input logic circuit | Being a binary tree, each node can have atmost 2 children, thus recreating a 2-Input Logic Gate |
+
+Therefore, since the Binary Heap-Like data structure best-fit the requirements for the system, the data structure was selected to
+implement a Logic Circuit,
+
+#### Alternatives Considered
+The preceding section detailed on the rationale behind choosing the data structure used to emulate the Logic Circuit. 
+This section details on the alternative mechanisms considered for the system and why they would not be viable:
+
+* Simple Binary Tree: In essence, a Binary-Heap is a special kind of Binary Tree. However, it is not efficient to store
+a Binary Tree in a contiguous memory location such as an Array/ArrayList. Thereby,
+    1. Increasing complexity of storage.
+    2. Increasing difficulty of manipulating circuit at certain position.
+
+* Graph With Depth First Search: Using a graph means dealing with a more complex structure due to the lack of
+restrictions on the number of child-nodes a node can have. Thereby,
+    1. Extra considerations/checks for emulating 2-input logic circuit.
+    2. Extra checks to test if graph is connected and circuit is complete.
+
+Due to the limitations mentioned above, the Binary Heap-Like data structure was considerd to be the best method of approach.
+
 ### Binary Tree
+The previous section described the rationale behind using a special Binary Tree-like structure (Heap) for implementing the
+Boolean Commands. This section provides details on *how* the logic circuit is modeled using the selected data structure. 
+
 The Boolean `add`, `set` and `calculate` features are modeled using a generic `BinaryTree<T>` class. The `BooleanTemplate` imports this class to store and evaluate the logic circuit. 
 
 The elements of the tree are stored in a fixed `ArrayList` (size = 15) indexed in a _heap-like_ manner. That is, a left to right _level-order traversal_ will map to the indexes of the array. The following diagram represents the indexes each node in the tree corresponds to in the `ArrayList`.
@@ -215,7 +272,7 @@ H  I     J  K      L  M      N  O
 ## Implementation of Logic Gate Commands
 
 There are six different logic gates that can be instantiated in the program:
-- `or, and, nor, nand, xor, xand`
+- `or, and, nor, nand, xor, xnor`
 
 All gates can be first instantiated using the `Gate` class which has one `int input` and one `int output` as its attributes. 
 It has `setInput(int input)` and `getOutput()` as its methods, which are used to set the input of the logic gate and get the output of the gate respectively. 
@@ -238,22 +295,19 @@ The inheritance of the `OrGate` class from `TwoInputGate` class which inherits f
 
 
 There are four Boolean commands that are used in the implementation of the logic gates: `TemplateBooleanCommand, SetBooleanCommand, AddBooleanCommand`, and `CalcBooleanCommand`.
+#### `TemplateBooleanCommand`
+The `TemplateBooleanCommand` creates a Boolean template of any one of the six available logic gates. 
 
-### `SetBooleanCommand`
-The `setBooleanCommand` is used to set the value of one of two inputs to the logic gates, which can be either the Boolean value of `0 or 1`.
+The sequence by which the `TemplateBooleanCommand` is instantiated is as follows using the user input `template and` who wants to instantiate an `and` logic template.
 
-1. It is instantiated through the `execute()` function in the Parser class.
-2. The `setBooleanCommand` object will then call the `setInput(template logicGate, String gateInput, int value)` method which will take in a template, input of a logic gate as `String` data type, 
-and its Boolean value to be set as its three inputs. The function takes in a template as its first input and will instantiate the BooleanTemplate object.
-3. The `BooleanTemplate` object will then convert the input of the logic gate into the index to be stored in the binary tree of logic gates. This will depend on where the 
-logic gate is stored in the binary tree. This can be achieved by passing in the gate in `String` form to the `convertToIndex("C")` function, where in this case `"C"` is the
-input of the logic gate to be converted.
-4. The `BooleanTemplate` object will then call `insertTree` function in the instantiated `BinaryTree` object, where the `insertTree` function will take in the index of the logic gate
-stored in the `BinaryTree` and the Boolean value to be assigned to the gate as input. The binary tree containing the logic gates is stored in this object.
-5. The `BinaryTree` object will then call on the `setInput` function in the instantiated `OrGate` object with `index` of the logic gate and its Boolean value to be
-assigned as inputs.
-6. The `OrGate` object represents the `or` operation logic gate. 
-It then calls `setBoolean(int value)` function on itself to assign the Boolean value to that selected input of the logic gate.
+1. The `Parser` object takes in a String that specifies the template type: in this case, it is an `and` Boolean template.
+2. The `and` Boolean template is then prepared through the `BooleanParser` object.
+3. The `and` Boolean template is instantiated using the `TemplateBooleanCommand`.
+
+The aforementioned sequence of events can be represented in the following sequence diagram:
+
+![InsertClassDiagram](diagrams/TemplateBooleanCommand.png)
+
 
 The above sequence of object interactions through the SetBooleanCommand can be represented in the following sequence diagram:
 
@@ -262,50 +316,30 @@ The above sequence of object interactions through the SetBooleanCommand can be r
 ### `AddBooleanCommand`
 
 The `AddBooleanCommand` is used to combine multiple logic gate templates to produce advanced Boolean logic gate configurations.
-For instance, an `OrGate` can be combined with an `AndGate` to produce a new logic gate where its final output will depend on the
-Boolean values assigned to the `OrGate` and `AndGate`. The combination of both these gates can be represented by the following object diagram:
+For instance, an `OrGate` can be combined with an `AndGate` to produce a new logic configuration where its final output will depend on the
+Boolean values assigned to the `OrGate` and `AndGate`. This gate configuration can undergo further addition operations by `addBooleanCommand` to 
+combine another logic gate, such as `XorGate`. The combination of these three gates after the `addBooleanCommand` operations can be represented by the following object diagram:
 
-![InsertObjectDiagram](diagrams/AddOrAndGates.png)
-
-The above combined logic gate configuration can also further be combined with another logic gate template (for instance, an `XorGate`) using the `AddBooleanCommand`
-again to produce an even more advanced logic gate configuration. This combination can be represented by the following
-object diagram:
-
-![InsertObjectDiagram](diagrams/AddAndOrXORGates.png)
+![InsertObjectDiagram](diagrams/AddBooleanCommandObjectDiagram.png)
 
 The sequence by which the `AddBooleanCommand` is instantiated to combine the logic gates is as follows:
 
-1. It is instantiated through the `execute()` function in the Parser class.
-2. The `AddBooleanCommand` object will then call on the `addGate(template, String gateInput, String logicGate)` function in the instantiated BooleanTemplate object. 
-The gateInput refers to the input of the gate where the combination of the gates will be instantiated and the logicGate represents the new gate that can be 
-included in the new combination.
-3. The `BooleanTemplate` object will then call `convertToIndex(String gateInput)` on itself to obtain the index of the input of the logic gate.
-4. Upon obtaining the index, the `BooleanTemplate` will call on the `passIndextoTree(int index)` in the instantiated `BinaryTree` object.
-6. The `AndGate` object can then be instantiated from the call of the `AddGate(index, String logicGate)` function, where in this case the second parameter is `"and"`.
-7. The `AndGate` object will then call the `setInputPosition(index)` method where its index will be set in the `BinaryTree`.
+1. The `AddBooleanCommand` object calls on the `addGate` method in the instantiated `BooleanTemplate`.
+2. This will access the index of the `BinaryTree` object in the `BooleanTemplate` to store the newly added gate to the configuration.
 
-![InsertSequeunceDiagram](diagrams/AddBooleanCommandSeqDiagram.png)
+The aforementioned sequence of events can be represented in the following sequence diagram:
+
+![InsertSequeunceDiagram](diagrams/AddBooleanCommand.png)
 
 ### `CalculateBooleanCommand`
 
 The `CalculateBooleanCommand` is used to calculate the effective output of the configured logic gates stored in the `BinaryTree` is used to , which requires that all inputs be set.
 
 For instance, in a `BinaryTree` object with just two gates - `OrGate` and `AndGate` - all the inputs of the gates have to be assigned before the effective output of both the logic gates (`Input C`) can 
-be calculated as follows:
-
-![InsertObjectDiagram](diagrams/CalcObjectDiagram.png)
+be calculated.
 
 The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
 
-1. It is instantiated through the `execute()` function in the Parser class.
-2. The `CalcBooleanCommand` object will then call on the `calc()` method in the instantiated `BooleanTemplate` class.
-3. The `BooleanTemplate` then calls the `getGate()` method for all the gates stored in its instantiated `BinaryTree` object using a `for` loop.
-that spans for the height of the `BinaryTree`. In this case, the `BinaryTree` is stored as an `ArrayList`, which means that `getGate()` will iterate through
-the `for` loop that spans for the length of the `ArrayList`. 
-4. The `BinaryTree` object will then call the `getGateBooleanValue()` method on the instantiated `Gate` object in each of its index to get the Boolean 
-values of the inputs of that one logic gate.
-5. The `Gate` object will then call the `calcBoolean(input1,input2)` on itself to obtain the Boolean output of that logic gate. This value obtained - `BooleanValue` - is then
-passed back into the `BooleanTemplate` object. The Boolean values of all the logic gates will be calculated to obtain the effective logic gate output.
 ![InsertSequeunceDiagram](diagrams/CalcBooleanCommand.png)
 
 ## Appendix: Requirements
@@ -350,8 +384,40 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
 ## Glossary
+The terms listed in this glossary are in alphabetical order.
 
-* *glossary item* - Definition 
+* *Alternating Current* - Alternating current (AC) is an electric current which periodically reverses direction and changes its magnitude continuously with time.
+* *AND* - Also known as conjunction, AND is a basic operation in boolean algebra which may be denoted as x AND y. The 
+truth value of the operation will result in 1 (TRUE) if both x == 1 and y == 1, and 0 for other combinations of values. 
+* *Average Typing Speed* - An average typing speed is [40 words per minute](https://www.livechat.com/typing-speed-test/#/).
+* *Binary Tree* - A data structure wherein each node has maximum 2 child nodes, which are called the left and right node.
+* *Capacitor* - A passive electronic device with 2 terminals that stores electrical energy in an electric field.
+* *CG1111* - Engineering Principles and Practices I, a core module generally taken by Year 1 Computer Engineering students at NUS.
+* *Connected Graph* - A graph in which it is possible to get to every node in the graph through a series of edges.
+* *CS1231* - Discrete Mathematics, a core module generally taken by Year 1 School of Computing students at NUS.
+* *Digital Circuits* - A circuit wherein the signal must be one of 2 discrete logic levels - 1 or 0.
+* *EE2026* - Digital Design, a core module generally taken by Year 1 students in Electrical and Computer Engineering at NUS.
+* *Graph* - A data structure which consists of a finite set of nodes and a finite set of edges connecting them.
+* *Heap* - A tree based data structure where all the nodes are stored in a certain order.
+* *Inductor* - A passive electronic device with 2 terminals that stores electrical energy in a magnetic field.
+* *Leaf Node* - A node in a binary tree data structure whose left and right children are null.
+* *Level Order Traversal* - A method of processing all nodes in a tree data structure by depth (level-by-level).
+* *Logic Gate* - A virtual/physical electronic device which performs a boolean function. Usually has 2 inputs and 1 output.
+* *Mainstream OS* - For example Microsoft Windows, macOS, Unix, Linux etc.
+* *NAND* - An inverse of the AND operation. Outputs are the opposite of what an AND gate would output for a set of input values.
+* *Node* - A binary tree is made up of nodes, each which have a left and right reference, as well as hold data.
+* *NOR* - An inverse of the OR operation. Outputs the opposite truth value of what an OR gate would output. 
+* *O(1)* - An algorithm or a computational operation that is said to take constant time, irrespective of the size of input.
+* *OR* - Also known as disjunction, OR is a basic operation in boolean algebra which may be denoted as x OR y. The 
+truth value of the operation will result in 1 (TRUE) if either x == 1 or y == 1, and 0 if both x and y are 0. 
+* *Parent Node* - A node in a binary tree data structure which has one or more child nodes.
+* *Resistor* - A passive electronic device which implements electrical resistance in an electronic circuit.
+* *Sopln()* - Abbreviation for java out operation "System.out.println()", from package java.lang.
+* *Standard I/O Operation* - Common java I/O streams include System.in, System.out and System.err.
+* *XNOR* - An inverse of the XOR operation. Outputs the opposite truth value of what a XOR gate would output.
+* *XOR* - Also known as exclusive OR, XOR is a secondary operation in boolean algebra which may be denoted as x XOR y. The 
+          truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y == 1, and 0 for other combinations of values.
+ 
 
 ## Appendix: Instructions for manual testing
 ### Initial launch  

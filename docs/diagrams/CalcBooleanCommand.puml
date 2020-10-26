@@ -1,22 +1,90 @@
 @startuml
-activate CalcBooleanCommand
-->CalcBooleanCommand: execute()
+[-> ":CalculateBooleanCommand" : execute()
+activate ":CalculateBooleanCommand"
 
-activate BooleanTemplate
-CalcBooleanCommand -> BooleanTempate : calc()
+":CalculateBooleanCommand" -> ":BooleanTemplate" : calculateOutput(index)
+activate ":BooleanTemplate"
 
-loop BinaryTree.getHeight()
-activate BinaryTree
-BooleanTemplate -> BinaryTree: getGate()
-BinaryTree -> Gate: getGateBooleanValue()
+":BooleanTemplate" -> ":BinaryTree" : getRightIndex(index)
+activate ":BinaryTree"
 
-activate Gate
-Gate -> BooleanTemplate: booleanValue
+":BinaryTree" --> ":BooleanTemplate" : rightIndex
+deactivate ":BinaryTree"
+
+":BooleanTemplate" -> ":BinaryTree" : getLeftIndex(index)
+activate ":BinaryTree"
+
+":BinaryTree" --> ":BooleanTemplate" : leftIndex
+deactivate ":BinaryTree"
+
+":BooleanTemplate" -> ":BinaryTree" : isNullAtIndex(rightIndex)
+activate ":BinaryTree"
+
+":BinaryTree" --> ":BooleanTemplate" : isNullAtRight
+deactivate ":BinaryTree"
+
+":BooleanTemplate" -> ":BinaryTree" : getLeftIndex(index)
+activate ":BinaryTree"
+
+":BinaryTree" --> ":BooleanTemplate" : isNullAtLeft
+deactivate ":BinaryTree"
+
+":BooleanTemplate" -> ":BinaryTree": getT(index)
+activate ":BinaryTree"
+
+":BinaryTree" -> ":Gate" : arrayList.get(index)
+activate ":Gate"
+
+":Gate" --> ":BinaryTree" : gate
+deactivate ":Gate"
+
+":BinaryTree" --> ":BooleanTemplate": gate
+deactivate ":BinaryTree"
+
+alt !isNullAtLeft
+
+":BooleanTemplate" -> ":Gate": setInput(calculateOutput(leftIndex))
+activate ":Gate"
+
+":Gate" --> ":BooleanTemplate"
+deactivate ":Gate"
+
 end
 
-Gate -> Gate: calcBoolean(input1, input2)
+alt !isNullAtRight
 
-deactivate Gate
-deactivate BooleanTemplate
-deactivate CalcBooleanCommand
+":BooleanTemplate" -> ":Gate" : setSecondInput(calculateOutput(rightIndex))
+activate ":Gate"
+
+":Gate" --> ":BooleanTemplate"
+deactivate ":Gate"
+
+end
+
+deactivate ":Gate"
+deactivate ":Gate"
+
+":BooleanTemplate" -> ":BinaryTree": getT(index)
+activate ":BinaryTree"
+
+":BinaryTree" -> ":Gate": arrayList.get(index)
+activate ":Gate"
+
+":Gate" --> ":BinaryTree" : gate
+deactivate ":Gate"
+
+":BinaryTree" --> ":BooleanTemplate" : gate
+deactivate ":BinaryTree"
+
+":BooleanTemplate" -> ":Gate" : gate.getOuput()
+activate ":Gate"
+
+":Gate" --> ":BooleanTemplate": output
+deactivate ":Gate"
+
+":BooleanTemplate" --> ":CalculateBooleanCommand": output
+deactivate ":BooleanTemplate"
+
+[<-- ":CalculateBooleanCommand": output
+deactivate ":CalculateBooleanCommand"
 @enduml
