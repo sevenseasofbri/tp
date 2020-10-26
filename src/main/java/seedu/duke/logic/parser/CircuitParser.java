@@ -4,7 +4,7 @@ import seedu.duke.DukeException;
 import seedu.duke.logic.commands.circuit.AddCircuitCommand;
 import seedu.duke.logic.commands.circuit.CalculateCircuitCommand;
 import seedu.duke.logic.commands.circuit.CircuitCommand;
-import seedu.duke.logic.commands.circuit.HelpCircuitCommand;
+import seedu.duke.logic.commands.circuit.TutorialCircuitCommand;
 import seedu.duke.logic.commands.circuit.SetCircuitCommand;
 import seedu.duke.logic.commands.circuit.TemplateCircuitCommand;
 import seedu.duke.model.template.CircuitTemplate;
@@ -13,32 +13,37 @@ import seedu.duke.model.template.LrTemplate;
 import seedu.duke.model.template.RTemplate;
 import seedu.duke.model.template.RcTemplate;
 
-public class CircuitParser {
+public class CircuitParser implements LogicParser {
     private static CircuitTemplate circuitTemplate = null;
 
     /**
-     * Returns a Command object based on the input line.
+     * Returns a CircuitCommand object based on the input line.
      *
      * @param args Array of arguments.
      * @param command Command as String.
-     * @return Command object.
+     * @return CircuitCommand object.
      * @throws DukeException If given line is blank.
      */
     public CircuitCommand parse(String[] args, String command) throws DukeException {
         switch (command) {
-        case "help":
-            return new HelpCircuitCommand();
-        case "set":
+        case SetCircuitCommand.COMMAND_WORD:
             return prepareCircuitSet(args);
-        case "add":
+        case AddCircuitCommand.COMMAND_WORD:
             return prepareCircuitAdd(args);
-        case "calc":
+        case CalculateCircuitCommand.COMMAND_WORD:
             return prepareCircuitCalc(args);
         default:
             throw new DukeException("Invalid Command!");
         }
     }
 
+    /**
+     * Prepares arguments for template command with BooleanTemplate.
+     *
+     * @param args Template chosen.
+     * @return TemplateBooleanCommand object.
+     * @throws DukeException If parsing error occurs.
+     */
     public TemplateCircuitCommand prepareCircuitTemplate(String[] args) throws DukeException {
         circuitTemplate = getCircuitTemplate(args[1]);
         return new TemplateCircuitCommand(circuitTemplate);

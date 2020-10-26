@@ -4,12 +4,13 @@ import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
 import seedu.duke.logic.commands.Command;
 import seedu.duke.logic.commands.ExitCommand;
+import seedu.duke.logic.commands.SummaryCommand;
 import seedu.duke.logic.commands.circuit.AddCircuitCommand;
 import seedu.duke.logic.commands.circuit.CalculateCircuitCommand;
 import seedu.duke.logic.commands.circuit.CircuitCommand;
-import seedu.duke.logic.commands.circuit.HelpCircuitCommand;
 import seedu.duke.logic.commands.circuit.SetCircuitCommand;
 import seedu.duke.logic.commands.circuit.TemplateCircuitCommand;
+import seedu.duke.logic.commands.circuit.TutorialCircuitCommand;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -24,11 +25,11 @@ class ParserTest {
     }
 
     @Test
-    void parseHelp_help_returnsHelpCommand() throws DukeException {
+    void parseTutorial_tutorialCircuit_returnsTutorialCircuitCommand() throws DukeException {
         Parser p = new Parser();
-        String line = "help";
-        CircuitCommand c = (CircuitCommand) p.parse(line);
-        assertTrue(c instanceof HelpCircuitCommand); // change to HelpCommand once done
+        String line = "tutorial circuit";
+        SummaryCommand c = (SummaryCommand) p.parse(line);
+        assertTrue(c instanceof TutorialCircuitCommand); // change to HelpCommand once done
     }
 
     @Test

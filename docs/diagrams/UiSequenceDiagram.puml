@@ -1,0 +1,9 @@
+@startuml
+
+participant ":Duke" as Duke
+participant ":Ui" as Ui
+
+Duke -> Ui : printMessage(Command)
+Duke <-- Ui : prints command
+
+@enduml

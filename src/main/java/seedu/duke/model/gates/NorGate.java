@@ -1,7 +1,9 @@
 package seedu.duke.model.gates;
 
+import seedu.duke.DukeException;
+
 public class NorGate extends OrGate {
-    private static final String NOR = "--(~|)--";
+    private static final String NOR = "NOR";
 
     /**
      * Performs bitwise NOR (~|) operation on the input instance variables.
@@ -9,7 +11,8 @@ public class NorGate extends OrGate {
      * @return int value of the gate output.
      */
     @Override
-    public int getOutput() {
+    public int getOutput() throws DukeException {
+        checkHasSetBothInput();
         return ~(super.getOutput());
     }
 

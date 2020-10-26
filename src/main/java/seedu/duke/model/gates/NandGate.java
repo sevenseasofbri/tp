@@ -1,7 +1,9 @@
 package seedu.duke.model.gates;
 
+import seedu.duke.DukeException;
+
 public class NandGate extends AndGate {
-    private static final String NAND = "--(~&|--";
+    private static final String NAND = "NAND";
 
     /**
      * Performs bitwise NAND (~&) operation on the input instance variables.
@@ -9,7 +11,7 @@ public class NandGate extends AndGate {
      * @return int value of the gate output.
      */
     @Override
-    public int getOutput() {
+    public int getOutput() throws DukeException {
         return ~(super.getOutput());
     }
 

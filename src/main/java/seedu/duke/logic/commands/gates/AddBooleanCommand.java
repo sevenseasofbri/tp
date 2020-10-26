@@ -5,6 +5,7 @@ import seedu.duke.model.gates.Gate;
 import seedu.duke.model.template.BooleanTemplate;
 
 public class AddBooleanCommand extends BooleanCommand {
+    public static final String COMMAND_WORD = "add";
     private final Gate gate;
     private final int index;
 
@@ -14,6 +15,11 @@ public class AddBooleanCommand extends BooleanCommand {
         this.index = index;
     }
 
+    /**
+     * Executes the adding of gate in BooleanTemplate.
+     *
+     * @throws DukeException If setInput throws DukeException.
+     */
     @Override
     public void execute() throws DukeException {
         template.addGate(gate, index);
