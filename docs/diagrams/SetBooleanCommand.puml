@@ -1,24 +1,31 @@
 @startuml
-activate SetBooleanCommand
+[-> ":SetBooleanCommand" : execute()
+activate ":SetBooleanCommand"
 
-->SetBooleanCommand: execute()
+":SetBooleanCommand" -> ":BooleanTemplate" : setInput(template, 2, 0)
+activate ":BooleanTemplate"
 
-activate BooleanTemplate
+":BooleanTemplate" -> ":BinaryTree" : getT(2)
+activate ":BinaryTree"
 
-SetBooleanCommand -> BooleanTemplate: setInput(template, "C", 0);
-deactivate SetBooleanCommand
+":BinaryTree" --> ":BooleanTemplate" : gate
+deactivate ":BinaryTree"
 
-BooleanTemplate -> BooleanTemplate: convertToIndex("C");
+":BooleanTemplate" -> ":Gate" : setSecondInput(0)
+activate ":Gate"
 
+":Gate" --> ":BooleanTemplate"
+deactivate ":Gate"
 
-BooleanTemplate -> BinaryTree: insertTree(index, 0)
-activate BinaryTree
-activate OrGate
+":BooleanTemplate" -> ":BooleanTemplate" : buildTopDown()
+activate ":BooleanTemplate"
 
-BinaryTree -> OrGate: setInput(index, 0)
+":BooleanTemplate" --> ":BooleanTemplate"
+deactivate ":BooleanTemplate"
 
-OrGate -> OrGate: setBoolean(0)
-deactivate OrGate
-deactivate BinaryTree
-deactivate BooleanTemplate
+":BooleanTemplate" --> ":SetBooleanCommand"
+deactivate ":BooleanTemplate"
+
+[<-- ":SetBooleanCommand"
+deactivate ":SetBooleanCommand"
 @enduml

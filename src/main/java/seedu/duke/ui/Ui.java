@@ -74,8 +74,30 @@ public class Ui {
      * Prints greeting to Duke.
      */
     private void printGreeting() {
-        System.out.println("What is your name?");
-        System.out.println("Hello " + readLine());
+        System.out.println(" ");
+        System.out.println("Welcome to the CLIrcuit Assistant!");
+        System.out.println("\n"
+                + "             +----------------------------------------+\n"
+                + "             |    Command    |     Template Name      |\n"
+                + "             +----------------------------------------+\n"
+                + "             |                Circuit                 |\n"
+                + "             +----------------------------------------+\n"
+                + "             | template r    | Resistor               |\n"
+                + "             | template rc   | Resistor-Capacitor     |\n"
+                + "             | template rl   | Resistor-Inductor      |\n"
+                + "             | template lc   | Inductor-Capacitor     |\n"
+                + "             +--------------+-------------------------+\n"
+                + "             |                Boolean                 |\n"
+                + "             +----------------------------------------+\n"
+                + "             | template or   | Or Gate                |\n"
+                + "             | template and  | And Gate               |\n"
+                + "             | template nor  | Nor Gate               |\n"
+                + "             | template xor  | Xor Gate               |\n"
+                + "             | template nand | Nand Gate              |\n"
+                + "             | template xnor | Xnor Gate              |\n"
+                + "             +--------------+-------------------------+\n"
+        );
+        System.out.println("Type one of the above template commands to get started with your template.");
     }
 
     /**
@@ -92,7 +114,9 @@ public class Ui {
      * @param message Message.
      */
     public void printMessage(String message) {
+        System.out.println("-----------------------------------------------------------");
         System.out.println(message);
+        System.out.println("-----------------------------------------------------------");
     }
 
     /**
@@ -128,5 +152,23 @@ public class Ui {
      */
     public void printBooleanInstruction(int numOfCommandsDone) {
         System.out.println(BOOLEAN_INSTRUCTIONS[numOfCommandsDone]);
+    }
+
+    /**
+     * Prompts the user to start the CLIrcuit Assistant.
+     */
+    public void promptForIntro() {
+        System.out.println("Hello! Type 'start' to start the CLIrcuit Assistant");
+        String userLine = IN.nextLine();
+        boolean isNotStart = true;
+        while (isNotStart) {
+            if (userLine.equals("start")) {
+                showWelcome();
+                isNotStart = false;
+            } else {
+                System.out.println("Invalid Command!");
+                userLine = IN.nextLine();
+            }
+        }
     }
 }

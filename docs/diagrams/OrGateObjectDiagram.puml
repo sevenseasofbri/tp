@@ -1,0 +1,11 @@
+@startuml
+package Gates {
+    object "__:OrGate__" as State1
+}
+
+object State1 {
+    # int input
+    # int secondInput
+    # int output = input|secondInput
+}
+@enduml
