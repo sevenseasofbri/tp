@@ -19,9 +19,9 @@ public class Ui {
             + "    | | |_| | || (_) | |  | | (_| | | | |  | | (_) | (_| |  __/_|\n"
             + "    |_|\\__,_|\\__\\___/|_|  |_|\\__,_|_| |_|  |_|\\___/ \\__,_|\\___(_)\n";
 
-    public static final String[] INSTRUCTIONS = {"Lets get started! First choose a template you want to work with."
-            + "You can choose from rc, rl, lc and r templates." + System.lineSeparator()
-            + "eg. To select the Resistor-Capacitor circuit template, enter 'template rc.'",
+    public static final String[] CIRCUIT_INSTRUCTIONS = {"Lets get started! First choose a template you want to work "
+            + "with. You can choose from rc, rl, lc and r templates." + System.lineSeparator()
+            + "eg. To select the Resistor-Capacitor circuit template, enter 'template rc'",
         "Lets set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts.",
         "Lets set a value to resistor/capacitor/inductor! To do so, type 'set' followed by 'r' OR 'c' OR 'l'"
             + " followed by a numeric VALUE. eg. 'set r 500' will set the resistor to 500Ω",
@@ -32,8 +32,25 @@ public class Ui {
         "Great! Say, do you think we could find effective power/current consumed by the circuit?"
             + "Or even effective resistance/inductance/capacitance? Yes!\n"
             + "Lets try it out. Type 'calc' followed by 'ceff'/'leff'/'reff'/'power'/'current' and enter. :D",
-        "Great! You're set to use\n" + LOGO + "Enjoy! :)\n type 'exit' to exit this mode.\n"};
+        "Great! You're set to use the circuit builder of \n" + LOGO + "Enjoy! :)\n type 'exit' to exit this mode.\n"};
 
+    public static final String[] BOOLEAN_INSTRUCTIONS = {"Lets get started! First chose a template you want to work "
+            + "with. You can chose from and, or, nand, nor, xor and xnor gate templates." + System.lineSeparator()
+            + "eg. To select the and gate template, enter 'template and'",
+        "Lets set a value to the input B! Type in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0. ",
+        "Now lets set a value to the input C! Type in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.",
+        "Now lets calculate the output of B GATE C. GATE here is the template you typed out earlier. Enter 'calc'.",
+        "Voila! Now you can see the output to your gate! Lets add another gate now.\n Again, you can choose from the "
+            + "gate templates list we gave you earlier.\n Just to recap the available gates are and, or, nand, nor"
+            + ",xor and xnor gate templates.\n We are now going to connect the output of ths GATE you've decided to "
+            + "input B. Enter 'add C GATE'.",
+        "Now a new gate has been added let us assign the other variables. Set input F by entering 'set F BOOLVALUE' "
+            + "where BOOLVALUE is either 1 or 0.",
+        "Now a new gate has been added let us assign the other variables. Set input G by entering 'set G BOOLVALUE' "
+            + "where BOOLVALUE is either 1 or 0.",
+        "Now lets calculate the output of F GATE G. GATE here is the template you typed out earlier. Enter 'calc'.",
+        "Great! You're set to use the boolean builder of \n" + LOGO + "Enjoy! :)\n type 'exit' to exit this mode.\n"
+    };
 
     private static final Scanner IN = new Scanner(System.in);
 
@@ -100,7 +117,16 @@ public class Ui {
      *
      * @param numOfCommandsDone Type int specifies index number.
      */
-    public void printInstruction(int numOfCommandsDone) {
-        System.out.println(INSTRUCTIONS[numOfCommandsDone]);
+    public void printCircuitInstruction(int numOfCommandsDone) {
+        System.out.println(CIRCUIT_INSTRUCTIONS[numOfCommandsDone]);
+    }
+
+    /**
+     * Prints the instruction at the specified index from the array.
+     *
+     * @param numOfCommandsDone Type int specifies index number.
+     */
+    public void printBooleanInstruction(int numOfCommandsDone) {
+        System.out.println(BOOLEAN_INSTRUCTIONS[numOfCommandsDone]);
     }
 }
