@@ -93,6 +93,112 @@ Here's a summary of the command parameters:
 | BOOLVALUE | N.A                              | 0, 1                          |
 +-----------+----------------------------------+-------------------------------+
 :) Have fun using CLIrcuit Assistant!
+You have entered Tutorial Mode!
+Type 'exit' if you want to leave this mode and go back to the application.
+Lets get started! First chose a template you want to work with. You can chose from and, or, nand, nor, xor and xnor gate templates.
+eg. To select the and gate template, enter 'template and'
+          0UT
+           |
+     B           C
+
+OUT = B AND C
+B = ?
+C = ?
+
+Lets set a value to the input B! Type in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0.
+          0UT
+           |
+     B           C
+
+OUT = B AND C
+B = 1
+C = ?
+
+Now lets set a value to the input C! Type in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.
+          0UT
+           |
+     B           C
+
+OUT = B AND C
+B = 1
+C = 0
+
+Now lets calculate the output of B GATE C. GATE here is the template you typed out earlier. Enter 'calc'.
+          0UT
+           |
+     B           C
+
+OUT = B AND C
+B = 1
+C = 0
+
+The output of the above configuration is 0.
+Voila! Now you can see the output to your gate! Lets add another gate now.
+ Again, you can choose from the gate templates list we gave you earlier.
+ Just to recap the available gates are and, or, nand, nor,xor and xnor gate templates.
+ We are now going to connect the output of ths GATE you've decided to input B. Enter 'add C GATE'.
+          0UT
+           |
+     B           C
+
+              F     G
+
+OUT = B AND C
+B = 1
+C = F NOR G
+F = ?
+G = ?
+
+Now a new gate has been added let us assign the other variables. Set input F by entering 'set F BOOLVALUE' where BOOLVALUE is either 1 or 0.
+          0UT
+           |
+     B           C
+
+              F     G
+
+OUT = B AND C
+B = 1
+C = F NOR G
+F = 0
+G = ?
+
+Now a new gate has been added let us assign the other variables. Set input G by entering 'set G BOOLVALUE' where BOOLVALUE is either 1 or 0.
+          0UT
+           |
+     B           C
+
+              F     G
+
+OUT = B AND C
+B = 1
+C = F NOR G
+F = 0
+G = 1
+
+Now lets calculate the output of F GATE G. GATE here is the template you typed out earlier. Enter 'calc'.
+          0UT
+           |
+     B           C
+
+              F     G
+
+OUT = B AND C
+B = 1
+C = F NOR G
+F = 0
+G = 1
+
+The output of the above configuration is 0.
+Great! You're set to use the boolean builder of
+ _____ _      _____                _ _                      _     _              _
+/ ____| |    |_   _|              (_) |       /\           (_)   | |            | |
+| |    | |      | |  _ __ ___ _   _ _| |_     /  \   ___ ___ _ ___| |_ __ _ _ __ | |_
+| |    | |      | | | '__/ __| | | | | __|   / /\ \ / __/ __| / __| __/ _` | '_ \| __|
+| |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\__ \__ \ \__ \ || (_| | | | | |_
+\_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|Enjoy! :)
+ type 'exit' to exit this mode.
+
+You have exited Tutorial Mode!
 Here's a summary of available commands:
 +-----------+----------------------------+---------------------+
 |  Command  |         Circuit            |      Boolean        |
@@ -120,7 +226,7 @@ Here's a summary of the command parameters:
 | GATE      | N.A                              | or, and, nor, nand, xor, xnor |
 | BOOLVALUE | N.A                              | 0, 1                          |
 +-----------+----------------------------------+-------------------------------+
-
+:) Have fun using CLIrcuit Assistant!
 	+---R-----C---+
 	|             |
 	|             |
@@ -299,4 +405,32 @@ N = 1
 O = 0
 
 The output of the above configuration is 1.
+Here's a summary of available commands:
++-----------+----------------------------+---------------------+
+|  Command  |         Circuit            |      Boolean        |
++-----------+----------------------------+---------------------+
+| Tutorial  | tutorial circuit           | tutorial boolean    |
+| Template  | template TEMPLATE          | template TEMPLATE   |
+| Summary   | summary                    | summary             |
+| Set       | set COMPONENT VALUE        | set INPUT BOOLVALUE |
+| Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
+| Calculate | calc EFF_VALUE             | calc                |
+| Exit      | exit                       | exit                |
+| Print     | print                      | print               |
++-----------+----------------------------+---------------------+
+
+Here's a summary of the command parameters:
++-----------+----------------------------------+-------------------------------+
+| Parameter |       Circuit Params             | Boolean Params                |
++-----------+----------------------------------+-------------------------------+
+| TEMPLATE  | rc, rl, r, cl                    | or, and, nor, nand, xor, xnor |
+| COMPONENT | r, c, l, v                       | N.A.                          |
+| CONFIG    | parallel, series                 | N.A                           |
+| EFF_VALUE | reff, ceff, leff, current, power | N.A                           |
+| VALUE     | any number of double datatype    | N.A                           |
+| INPUT     | N.A                              | A, B, C, D, E, F, G           |
+| GATE      | N.A                              | or, and, nor, nand, xor, xnor |
+| BOOLVALUE | N.A                              | 0, 1                          |
++-----------+----------------------------------+-------------------------------+
+
  Bye. See you next time!
