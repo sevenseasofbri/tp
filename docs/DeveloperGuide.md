@@ -215,8 +215,7 @@ When an object of the `BinaryTree<T>` class is created, it initialises the `Arra
 #### Initialising A `BinaryTree<T>` Object
 The `Logic` initialises the `BinaryTree<Gate>` object using the parameterised constructor, thus specifying the `Gate` class type root. The object diagram below depicts the initial state of the `Model` when a `BinaryTree<Gate>` object is created.
 
-![InitialBinaryTree](diagrams/Binar
-yTreeInitialObjectDiagram.png)
+![InitialBinaryTree](diagrams/BinaryTreeInitialObjectDiagram.png)
 
 The Logic uses the parameterised constructor of `BinaryTree<T>` to create the object since it requires initialisation of
 the root. Such an object is created as follows: `BinaryTree<Gate> obj = new BinaryTree(new OrGate(1,1))`. This sets the root of the Binary Tree to the object specified.
