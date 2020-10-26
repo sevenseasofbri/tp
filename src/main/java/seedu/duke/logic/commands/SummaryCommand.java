@@ -29,7 +29,6 @@ public class SummaryCommand extends Command {
             + "| BOOLVALUE | N.A                              | 0, 1                          |\n"
             + "+-----------+----------------------------------+-------------------------------+\n";
 
-
     public SummaryCommand() {
         super();
     }

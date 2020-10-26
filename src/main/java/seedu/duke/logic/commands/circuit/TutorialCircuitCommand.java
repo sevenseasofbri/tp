@@ -1,13 +1,15 @@
 package seedu.duke.logic.commands.circuit;
 
 import seedu.duke.DukeException;
+import seedu.duke.logic.commands.SummaryCommand;
 import seedu.duke.logic.commands.TutorialCommand;
 import seedu.duke.logic.parser.Parser;
 import seedu.duke.ui.Ui;
 
 import java.util.logging.Level;
 
-public class TutorialCircuitCommand extends CircuitCommand implements TutorialCommand {
+public class TutorialCircuitCommand extends SummaryCommand implements TutorialCommand {
+
     private static final Parser PARSER = new Parser();
     private static final String[] orderOfInstructions = {"template", "set v", "set", "set", "add", "calc"};
     private int numOfCommandsDone = 0;
@@ -54,12 +56,12 @@ public class TutorialCircuitCommand extends CircuitCommand implements TutorialCo
         if (command.equals("exit")) {
             return false;
         }
-        
+
         if (numOfCommandsDone >= 6 || !command.matches(orderOfInstructions[numOfCommandsDone] + "(.*)")) {
-            throw new DukeException("Bad Command! Please follow the instructions carefully."
-                    + "If you want to exit this mode, type 'exit' and press enter.");
+            throw new DukeException("Bad Command! Please follow the instructions carefully.\n"
+                    + "To exit Tutorial Mode, simply type 'exit' and press Enter.");
         }
-        
+
         CircuitCommand c = (CircuitCommand) PARSER.parse(command);
         c.execute();
         ui.printMessage(c.toString());
@@ -74,6 +76,6 @@ public class TutorialCircuitCommand extends CircuitCommand implements TutorialCo
      */
     @Override
     public String toString() {
-        return ":) Have fun using CLIrcuit Assistant!";
+        return "You have exited Tutorial Mode!\n" + super.toString() + ":) Have fun using CLIrcuit Assistant!";
     }
 }
