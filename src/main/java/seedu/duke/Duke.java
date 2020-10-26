@@ -22,7 +22,7 @@ public class Duke {
         parser = new Parser();
     }
 
-    public void run() throws DukeException {
+    public void run() {
         setUpLogger();
         LOGGER.info("Execution is beginning.");
         ui.promptForIntro();
