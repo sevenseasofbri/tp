@@ -15,6 +15,11 @@ title : User Guide
     background-image:linear-gradient(180deg, #d6e6ff, #cfe2ff);
     border-color:#bbd6fe
 }
+.alert-warning {
+	color: #856404;
+	background-image: linear-gradient(180deg, #fff5d5, #fff3cd);
+	border-color: #ffeeba
+}
 </style>
 * Table of Contents
 {:toc}
@@ -292,7 +297,7 @@ C = ?
 
 The application has the ability to combine multiple `Gate` objects to generate more complicated boolean logic gate configurations. This command allows you to set an input to a *boolean logic* `Gate`. However, the depth of the deepest *logic* `Gate` from the *root logic* `Gate` cannot exceed 3.
 
-<div markdown="span" class="alert alert-primary">
+<div markdown="span" class="alert alert-warning">
 
 :exclamation: **Warning:** The `BooleanTemplate` `Gate` depth cannot exceed 3.
 
