@@ -30,8 +30,105 @@ Welcome to the CLIrcuit Assistant!
              +--------------+-------------------------+
 
 Type one of the above template commands to get started with your template.
+You have entered Tutorial Mode!
+Type 'exit' if you want to leave this mode and go back to the application.
+Lets get started! First choose a template you want to work with. You can choose from rc, rl, lc and r templates.
+eg. To select the Resistor-Capacitor circuit template, enter 'template rc'
 -----------------------------------------------------------
-Invalid Command!
+	+---L-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Current Voltage: 0.0 V
+Total Capacitance: 0.0 µF
+Total Inductance: 0.0 µH
+
+-----------------------------------------------------------
+Lets set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts.
+-----------------------------------------------------------
+The voltage source was changed to: 220.0 V
+-----------------------------------------------------------
+Lets set a value to resistor/capacitor/inductor! To do so, type 'set' followed by 'r' OR 'c' OR 'l' followed by a numeric VALUE. eg. 'set r 500' will set the resistor to 500Ω
+-----------------------------------------------------------
+The capacitor was set to 200.0 µF
+	+---L-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Current Voltage: 220.0 V
+Total Capacitance: 200.0 µF
+Total Inductance: 0.0 µH
+
+-----------------------------------------------------------
+Lets set another value in our template! Here's the syntax for reference 'set r/l/c/v VALUE'.
+-----------------------------------------------------------
+The inductor was set to 750.0 µH
+	+---L-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Current Voltage: 220.0 V
+Total Capacitance: 200.0 µF
+Total Inductance: 750.0 µH
+
+-----------------------------------------------------------
+Want to add a component in parallel/series to your current component? Lets do that! Type in 'add' followed by 'series/parallel' then 'r'/'c'/'l' and a numeric VALUE.
+eg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit (if any).
+-----------------------------------------------------------
+Nice, added a 157.89473684210526 µH
+	+---L-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Current Voltage: 220.0 V
+Total Capacitance: 200.0 µF
+Total Inductance: 157.89473684210526 µH
+
+-----------------------------------------------------------
+Great! Say, do you think we could find effective power/current consumed by the circuit?Or even effective resistance/inductance/capacitance? Yes!
+Lets try it out. Type 'calc' followed by 'ceff'/'leff'/'reff'/'power'/'current' and enter. :D
+-----------------------------------------------------------
+The total rms current flowing through the circuit is 1.4005635434370014E-4A
+-----------------------------------------------------------
+Great! You're set to use the circuit builder of
+ _____ _      _____                _ _                      _     _              _
+/ ____| |    |_   _|              (_) |       /\           (_)   | |            | |
+| |    | |      | |  _ __ ___ _   _ _| |_     /  \   ___ ___ _ ___| |_ __ _ _ __ | |_
+| |    | |      | | | '__/ __| | | | | __|   / /\ \ / __/ __| / __| __/ _` | '_ \| __|
+| |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\__ \__ \ \__ \ || (_| | | | | |_
+\_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|Enjoy! :)
+ type 'exit' to exit this mode.
+
+-----------------------------------------------------------
+You have exited Tutorial Mode!
+Here's a summary of available commands:
++-----------+----------------------------+---------------------+
+|  Command  |         Circuit            |      Boolean        |
++-----------+----------------------------+---------------------+
+| Tutorial  | tutorial circuit           | tutorial boolean    |
+| Template  | template TEMPLATE          | template TEMPLATE   |
+| Summary   | summary                    | summary             |
+| Set       | set COMPONENT VALUE        | set INPUT BOOLVALUE |
+| Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
+| Calculate | calc EFF_VALUE             | calc                |
+| Exit      | exit                       | exit                |
+| Print     | print                      | print               |
++-----------+----------------------------+---------------------+
+
+Here's a summary of the command parameters:
++-----------+----------------------------------+-------------------------------+
+| Parameter |       Circuit Params             | Boolean Params                |
++-----------+----------------------------------+-------------------------------+
+| TEMPLATE  | rc, rl, r, cl                    | or, and, nor, nand, xor, xnor |
+| COMPONENT | r, c, l, v                       | N.A.                          |
+| CONFIG    | parallel, series                 | N.A                           |
+| EFF_VALUE | reff, ceff, leff, current, power | N.A                           |
+| VALUE     | any number of double datatype    | N.A                           |
+| INPUT     | N.A                              | A, B, C, D, E, F, G           |
+| GATE      | N.A                              | or, and, nor, nand, xor, xnor |
+| BOOLVALUE | N.A                              | 0, 1                          |
++-----------+----------------------------------+-------------------------------+
+:) Have fun using CLIrcuit Assistant!
 -----------------------------------------------------------
 -----------------------------------------------------------
 	+---R-----C---+

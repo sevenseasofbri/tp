@@ -1,5 +1,12 @@
 start
-help
+tutorial circuit
+template lc
+set v 220
+set c 200
+set l 750
+add parallel l 200
+calc current
+exit
 template rc
 set v 5
 set r 500
