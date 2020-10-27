@@ -14,26 +14,7 @@ This **User Guide** aims to help you get familiarised with the commands used in 
 
 
 ## Table of Contents
-1. [Introduction](#introduction)
-1. [Quick Start](#quick-start)
-1. [Command Preface](#command-preface)
-1. [General Commands](#general-commands)
-    1. [Summary of Commands](#summary)
-    1. [Printing Template `[coming in v3.0]`](#print)
-1. [Circuit Action Commands](#circuit-action-commands)
-    1. [Interactive Tutorial](#tut-circ)
-    1. [Creating Circuit Template](#template-circ)
-    1. [Setting Component](#set-comp)
-    1. [Adding Component](#add-comp)
-    1. [Calculating Value](#calc-circ)
-1. [Boolean Action Commands](#boolean-action-commands)
-    1. [Interactive Tutorial](#tut-logic)
-    1. [Creating Boolean Template](#template-logic)
-    1. [Setting Input](#set-input)
-    1. [Adding Gate](#add-gate)
-    1. [Calculating Output](#calc-output)
-1. [FAQ](#faq)
-1. [Command Summary](#command-summary)
+{:toc}
 
 ## Introduction
 
