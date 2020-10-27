@@ -1,4 +1,30 @@
-# Developer Guide
+---
+layout : page
+title : Developer Guide
+---
+<style>
+.alert {
+    position:relative;
+    padding:.75rem 1.25rem;
+    margin-bottom:1rem;
+    border:1px solid transparent;
+    order-radius:.25rem
+}
+.alert-primary {
+    color:#073984;
+    background-image:linear-gradient(180deg, #d6e6ff, #cfe2ff);
+    border-color:#bbd6fe
+}
+.alert-warning {
+	color: #856404;
+	background-image: linear-gradient(180deg, #fff5d5, #fff3cd);
+	border-color: #ffeeba
+}
+</style>
+* Table of Contents
+{:toc}
+
+## How To Use This Guide
 
 This **Developer Guide** aims to get developers familiarised with the design and implementation of **CLIrcuit Assistant**. The following table indicates the symbols used to aid the understanding of the guide. This guide also assumes that the reader has basic understanding of *UML Diagrams*. [To access the **User Guide** instead, click here.](UserGuide.md)
 
@@ -11,48 +37,12 @@ This **Developer Guide** aims to get developers familiarised with the design and
 |[Hyperlinked](#)|Leads to the appropriate section.|
 |`Code`|Text that appears on the CLI / in code.|
 
-## Table of Contents
-* [Setting up, getting started](#setting-up-getting-started)
-* [Design Architecture](#design)
-    * [UI component](#ui-component)
-    * [Logic component](#logic-component)
-    * [Model component](#model-component)
-* [Implementation of Circuit Commands](#circ-comd)
-    * [Creating Template](#temp-circ)
-    * [Setting Component](#set-circ)
-    * [Adding Component](#add-circ)
-    * [Calculating Value](#calc-circ)
-* [Implementation of Boolean Commands](#bool-comd)
-    * [Creating Template](#temp-bool)
-    * [Setting Input](#set-bool)
-    * [Adding Gate](#add-bool)
-    * [Calculating Output](#calc-bool) 
-    * [Implementation Considerations](#impl-cons)
-        * [Rationale](#rationale-bool)
-        * [Alternatives Considered](#alternatives-considered)
-    * [Binary Tree](#binary-tree)
-        * [Initialising A BinaryTree Object](#initialising-a-binarytreet-object)
-        * [Using BinaryTree isNullAtIndex(int)](#using-binarytreeisnullatindexint)
-        * [Using BinaryTree getParentIndex(int)](#using-binarytreegetparentindexint-t)
-        * [Using BinaryTree insert(int, T)](#using-binarytreeinsertint-t)
-        * [Using BinaryTree isLeaf(int)](#using-binarytreeisleafint)
-        * [Using BinaryTree isEmpty()](#using-binarytreeisempty)
-    * [Rendering Current Boolean Circuit State](#rendering-current-Boolean-circuit-state)
-* [Appendix: Requirements](#appendix-requirements-dorian)
-    * [Product scope](#product-scope)
-    * [User Stories](#user-stories-wira)
-    * [Non-Functional Requirements](#non-functional-requirements-dorian)
-    * [Glossary](#glossary-vishruti)
-* [Appendix: Instructions for manual testing](#appendix-instructions-for-manual-testing-dorian)
-    * [Initial launch](#initial-launch)
-    * [Creating a digital circuit](#creating-a-digital-circuit)
-    * [Creating a logic gate](#creating-a-logic-gate)
-    * [Calculating values](#calculating-values)
-    * [Exiting the program](#exiting-the-program)
-    
+--------------------------------------------------------------------------------------------------------------------
 
 ## Setting up, getting started
 Refer to the guide [*Setting up and getting started*](SettingUp.md).
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Design Architecture (Wira) <a name="design"></a>
 
@@ -109,7 +99,10 @@ The `Model`,
 * has `Component` and `Gate` within the templates.
 * does not depend on any of the other three components.
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## Implementation of Circuit Commands (Dash) <a name="circ-comd"></a>
+
 This section provides details on the implementation of the various electronic circuit commands.
 
 There are 4 different types of components of electronic circuits that can be instantiated in the program:
@@ -120,8 +113,11 @@ There are 4 different types of components of electronic circuits that can be ins
 
 Each component is used within a circuit template, based on the kind of circuit instantiated.
 
-| :information_source: | The `VoltageSource` is instantiated in all Circuit Templates. |
-|----------------------|:-------------------------------------|
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** The `VoltageSource` is instantiated in all Circuit Templates.
+
+</div>
 
 There are four different circuit templates that can be instantiated in the program:
 
@@ -180,6 +176,8 @@ The second sequence diagram given below shows the detailed interaction that aces
 ![CalcReffSequence](diagrams/CalcReffSequenceDiagram.png)
 
 <small><i>Figure 12</i></small>  
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Implementation of Boolean Commands (Praveen) <a name="bool-comd"></a>
 
@@ -401,6 +399,8 @@ not shown in the diagram. The following diagram depicts a tree wherein no parent
 H  I     J  K      L  M      N  O
 ```
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## Appendix: Requirements (Dorian)
 
 This section details the various requirements that the project needs to fulfil.
@@ -442,7 +442,10 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 2. The average user profile is assumed to be someone who possesses *at least a basic understanding of the fundamental concepts of digital circuits, its components, and Boolean logic computation* (concepts covered in CG1111, CS1231 and EE2026).
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## Glossary (Vishruti)
+
 The terms listed in this glossary are in alphabetical order.
 
 * *Alternating Current* - Alternating current (AC) is an electric current which periodically reverses direction and changes its magnitude continuously with time.
@@ -474,9 +477,9 @@ truth value of the operation will result in 1 (TRUE) if either x == 1 or y == 1,
 * *Sopln()* - Abbreviation for java out operation "System.out.println()", from package java.lang.
 * *Standard I/O Operation* - Common java I/O streams include System.in, System.out and System.err.
 * *XNOR* - An inverse of the XOR operation. Outputs the opposite truth value of what a XOR gate would output.
-* *XOR* - Also known as exclusive OR, XOR is a secondary operation in boolean algebra which may be denoted as x XOR y. The 
-          truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y == 1, and 0 for other combinations of values.
- 
+* *XOR* - Also known as exclusive OR, XOR is a secondary operation in boolean algebra which may be denoted as x XOR y. The truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y == 1, and 0  for other combinations of values.
+
+-------------------------------------------------------------------------------------------------------------------- 
 
 ## Appendix: Instructions for manual testing (Dorian)
 ### Initial launch  
@@ -495,18 +498,16 @@ The four types of components are: `r`,`c`,`l`,`v`. Note that the value inputted 
 ### Creating a logic gate 
 Similar to the creation of a digital circuit, we create a `template`, `set` values, and can `add` values.
 
-For the detailed steps, visit: https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#logic-gate-commands
+For the detailed steps, visit [Logic Gate Commands](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#logic-gate-commands).
 
 ### Calculating values
 For calculation of values, the `calc` command is used.
 
 Detailed steps on calculation for 
 
-* Digital circuits:  
-https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-circ
+* [Digital circuits](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-circ)
 
-* Logic Gates:  
-https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-output 
+* [Logic Gates](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-output) 
 
 ### Exiting the program
 Simply enter `bye` to exit the program and bid farewell to your loyal **CLIrcuit Assistant**.

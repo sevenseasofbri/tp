@@ -1,4 +1,30 @@
-# User Guide
+---
+layout : page
+title : User Guide
+---
+<style>
+.alert {
+    position:relative;
+    padding:.75rem 1.25rem;
+    margin-bottom:1rem;
+    border:1px solid transparent;
+    order-radius:.25rem
+}
+.alert-primary {
+    color:#073984;
+    background-image:linear-gradient(180deg, #d6e6ff, #cfe2ff);
+    border-color:#bbd6fe
+}
+.alert-warning {
+	color: #856404;
+	background-image: linear-gradient(180deg, #fff5d5, #fff3cd);
+	border-color: #ffeeba
+}
+</style>
+* Table of Contents
+{:toc}
+
+## How To Use This Guide
 
 This **User Guide** aims to help you get familiarised with the commands used in the Command Line Interface (CLI) application. The following table indicates the symbols used to aid the understanding of the guide. The end of this **User Guide** also gives a [summary of commands](#command-summary) used in the application.
 
@@ -11,33 +37,13 @@ This **User Guide** aims to help you get familiarised with the commands used in 
 |[Hyperlinked](#)|Leads to the appropriate section.|
 |`Code`|Text that appears on the CLI / in code.|
 
-
-
-## Table of Contents
-1. [Introduction](#introduction)
-1. [Quick Start](#quick-start)
-1. [Command Preface](#command-preface)
-1. [General Commands](#general-commands)
-    1. [Summary of Commands](#summary)
-    1. [Printing Template `[coming in v3.0]`](#print)
-1. [Circuit Action Commands](#circuit-action-commands)
-    1. [Interactive Tutorial](#tut-circ)
-    1. [Creating Circuit Template](#template-circ)
-    1. [Setting Component](#set-comp)
-    1. [Adding Component](#add-comp)
-    1. [Calculating Value](#calc-circ)
-1. [Boolean Action Commands](#boolean-action-commands)
-    1. [Interactive Tutorial](#tut-logic)
-    1. [Creating Boolean Template](#template-logic)
-    1. [Setting Input](#set-input)
-    1. [Adding Gate](#add-gate)
-    1. [Calculating Output](#calc-output)
-1. [FAQ](#faq)
-1. [Command Summary](#command-summary)
+--------------------------------------------------------------------------------------------------------------------
 
 ## Introduction
 
 **CLIrcuit Assistant** is a desktop app to implement and solve simple circuits, optimized for use via the CLI. The application is targeted at those who would simply like a resource-light and offline program to aid in analysing circuits.
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Quick Start
 
@@ -55,6 +61,8 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
 1. Use the command `help` to go through an interactive tutorial before using the application.
 1. Alternatively, you can use the command `summary` to get a list of all commands used in the application.
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## Command Preface
 
 ![Command](diagrams/CommandUserDiagram.png)
@@ -67,8 +75,11 @@ The diagram above shows the hierarchy of the types of commands in the applicatio
 
 Action commands are split into two categories - they may use the same *syntax* for some commands, but the application will continuously track the current `template` that is being worked on and automatically use the correct command to execute. Thus, if there is no current `template`, then the other commands used will not be available to run.
 
-| :information_source: | The `template` command is essential. |
-|----------------------|:-------------------------------------|
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** The `template` command is essential.
+
+</div>
 
 The commands involved with both categories are:
 
@@ -80,8 +91,13 @@ The commands involved with both categories are:
 
 The format of commands below keep to the following.
 
-| :information_source: | Words in `UPPER_CASE` are parameters. |
-|----------------------|:-------------------------------------|
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:**  Words in `UPPER_CASE` are parameters.
+
+</div>
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## General Commands
 
@@ -98,6 +114,8 @@ Format: `summary`
 Prints the current `template` that is set as explained in the [Command Preface](#command-preface). Nothing is printed if a `template` is not yet set. This command is useful to find out the current `template` you are working on.
 
 Format: `print`
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Circuit Action Commands 
 
@@ -122,7 +140,7 @@ This command creates a *circuit* `template`. This command must be used to be abl
 
 Format: `template TEMPLATE`
 
-* The `TEMPLATE` can be chosen from the following 4 - `r`, `rc`, `rl`, `lc`
+* The `TEMPLATE` can be chosen from the following 4:
     * `r` only consists of the resistor.
     * `rc` consists of the resistor and capacitor.
     * `rl` consists of the resistor and inductor.
@@ -135,12 +153,13 @@ Example of usage:
 Expected outcome:
 
 ```
-+---R-----C---+
-|             |
-|             |
-+----+V_ac+---+
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Current Voltage: 0.0 V
 Total Resistance: 0.0 Ω
-Total Inductance: 0.0 µH
+Total Capacitance: 0.0 µF
 ```
 
 ### Setting a `Component` value: `set` <a name='set-comp'></a>
@@ -167,6 +186,7 @@ The resistor was set to 500.0 Ω
 	|             |
 	|             |
 	+----+V_ac+---+
+Current Voltage: 0.0 V
 Total Resistance: 500.0 Ω
 Total Capacitance: 0.0 µF
 ```
@@ -182,18 +202,19 @@ Format: `add CONFIG COMPONENT VALUE`
 
 Example of usage:
 
-`add parallel c 500`
+`add parallel r 500`
 
 Expected Outcome:
 
 ```
-Nice, added a 500.0 µF
+Nice, added a 500.0 Ω
 	+---R-----C---+
 	|             |
 	|             |
 	+----+V_ac+---+
-Total Resistance: 500.0 Ω
-Total Capacitance: 500.0 µF
+Current Voltage: 0.0 V
+Total Resistance: 250.0 Ω
+Total Capacitance: 0.0 µF
 ```
 
 ### Calculating effective value: `calc` <a name="calc-circ"></a>
@@ -202,7 +223,7 @@ This command calculates the various effective values based on the `template` con
 
 Format: `calc EFF_VALUE`
 
-* The `EFF_VALUE` can be chosen from the following 5 - `reff`, `ceff`, `leff`, `current`, `power`
+* The `EFF_VALUE` can be chosen from the following 5:
     * `reff` is the effective resistance
     * `ceff` is the effective capacitance
     * `leff` is the effective inductance
@@ -216,8 +237,10 @@ Example of usage:
 Expected Outcome:
 
 ```
-The effective capacitance calculated is 500.0 µF
+The effective resistance calculated is 250.0 Ω
 ```
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Boolean Action Commands
 
@@ -289,9 +312,11 @@ C = ?
 
 The application has the ability to combine multiple `Gate` objects to generate more complicated boolean logic gate configurations. This command allows you to set an input to a *boolean logic* `Gate`. However, the depth of the deepest *logic* `Gate` from the *root logic* `Gate` cannot exceed 3.
 
+<div markdown="span" class="alert alert-warning">
 
-| :exclamation: | The `BooleanTemplate` `Gate` depth cannot exceed 3. |
-|---------------|:-------------------------------------|
+:exclamation: **Warning:** The `BooleanTemplate` `Gate` depth cannot exceed 3.
+
+</div>
 
 Format: `add INPUT GATE`
 
@@ -344,6 +369,8 @@ G = 0
 The output of the above configuration is 0.
 ```
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## FAQ
 
 This section details the frequently asked questions (FAQ) regarding the use of the application.
@@ -351,6 +378,8 @@ This section details the frequently asked questions (FAQ) regarding the use of t
 **Q**: How do I know the difference between the components?
 
 **A**: Pay attention in CG1111 Engineering Principles & Practice (EPP).
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Command Summary
 

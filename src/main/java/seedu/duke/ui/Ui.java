@@ -98,6 +98,10 @@ public class Ui {
                 + "             +--------------+-------------------------+\n"
         );
         System.out.println("Type one of the above template commands to get started with your template.");
+        System.out.println("You can use the tutorial command to go through our interactive tutorial.");
+        System.out.println("    Circuits: tutorial circuit\n    Boolean: tutorial boolean");
+        System.out.println("You can also use the summary command to see a list of all the commands.");
+        System.out.println("    summary");
     }
 
     /**
@@ -159,7 +163,7 @@ public class Ui {
      */
     public void promptForIntro() {
         System.out.println("Hello! Type 'start' to start the CLIrcuit Assistant");
-        String userLine = IN.nextLine();
+        String userLine = readLine();
         boolean isNotStart = true;
         while (isNotStart) {
             if (userLine.equals("start")) {
