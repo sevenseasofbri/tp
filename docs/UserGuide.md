@@ -140,7 +140,7 @@ This command creates a *circuit* `template`. This command must be used to be abl
 
 Format: `template TEMPLATE`
 
-* The `TEMPLATE` can be chosen from the following 4 - `r`, `rc`, `rl`, `lc`
+* The `TEMPLATE` can be chosen from the following 4:
     * `r` only consists of the resistor.
     * `rc` consists of the resistor and capacitor.
     * `rl` consists of the resistor and inductor.
@@ -153,12 +153,13 @@ Example of usage:
 Expected outcome:
 
 ```
-+---R-----C---+
-|             |
-|             |
-+----+V_ac+---+
+    +---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Current Voltage: 0.0 V
 Total Resistance: 0.0 Ω
-Total Inductance: 0.0 µH
+Total Capacitance: 0.0 µF
 ```
 
 ### Setting a `Component` value: `set` <a name='set-comp'></a>
@@ -185,6 +186,7 @@ The resistor was set to 500.0 Ω
 	|             |
 	|             |
 	+----+V_ac+---+
+Current Voltage: 0.0 V
 Total Resistance: 500.0 Ω
 Total Capacitance: 0.0 µF
 ```
@@ -200,18 +202,19 @@ Format: `add CONFIG COMPONENT VALUE`
 
 Example of usage:
 
-`add parallel c 500`
+`add parallel r 500`
 
 Expected Outcome:
 
 ```
-Nice, added a 500.0 µF
+Nice, added a 500.0 Ω
 	+---R-----C---+
 	|             |
 	|             |
 	+----+V_ac+---+
-Total Resistance: 500.0 Ω
-Total Capacitance: 500.0 µF
+Current Voltage: 0.0 V
+Total Resistance: 250.0 Ω
+Total Capacitance: 0.0 µF
 ```
 
 ### Calculating effective value: `calc` <a name="calc-circ"></a>
@@ -220,7 +223,7 @@ This command calculates the various effective values based on the `template` con
 
 Format: `calc EFF_VALUE`
 
-* The `EFF_VALUE` can be chosen from the following 5 - `reff`, `ceff`, `leff`, `current`, `power`
+* The `EFF_VALUE` can be chosen from the following 5:
     * `reff` is the effective resistance
     * `ceff` is the effective capacitance
     * `leff` is the effective inductance
@@ -234,7 +237,7 @@ Example of usage:
 Expected Outcome:
 
 ```
-The effective capacitance calculated is 500.0 µF
+The effective resistance calculated is 250.0 Ω
 ```
 
 --------------------------------------------------------------------------------------------------------------------
