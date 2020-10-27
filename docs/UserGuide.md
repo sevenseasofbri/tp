@@ -1,7 +1,11 @@
+---
+layout : page
+title : User Guide
+---
 * Table of Contents
 {:toc}
 
-# User Guide
+## How To Use This Guide
 
 This **User Guide** aims to help you get familiarised with the commands used in the Command Line Interface (CLI) application. The following table indicates the symbols used to aid the understanding of the guide. The end of this **User Guide** also gives a [summary of commands](#command-summary) used in the application.
 
@@ -13,7 +17,6 @@ This **User Guide** aims to help you get familiarised with the commands used in 
 |*Italicised*|Technical word.|
 |[Hyperlinked](#)|Leads to the appropriate section.|
 |`Code`|Text that appears on the CLI / in code.|
-
 
 ## Introduction
 
