@@ -1,4 +1,11 @@
-# Developer Guide
+---
+layout : page
+title : Developer Guide
+---
+* Table of Contents
+{:toc}
+
+## How To Use This Guide
 
 This **Developer Guide** aims to get developers familiarised with the design and implementation of **CLIrcuit Assistant**. The following table indicates the symbols used to aid the understanding of the guide. This guide also assumes that the reader has basic understanding of *UML Diagrams*. [To access the **User Guide** instead, click here.](UserGuide.md)
 
@@ -10,46 +17,6 @@ This **Developer Guide** aims to get developers familiarised with the design and
 |*Italicised*|Technical word.|
 |[Hyperlinked](#)|Leads to the appropriate section.|
 |`Code`|Text that appears on the CLI / in code.|
-
-## Table of Contents
-* [Setting up, getting started](#setting-up-getting-started)
-* [Design Architecture](#design)
-    * [UI component](#ui-component)
-    * [Logic component](#logic-component)
-    * [Model component](#model-component)
-* [Implementation of Circuit Commands](#circ-comd)
-    * [Creating Template](#temp-circ)
-    * [Setting Component](#set-circ)
-    * [Adding Component](#add-circ)
-    * [Calculating Value](#calc-circ)
-* [Implementation of Boolean Commands](#bool-comd)
-    * [Creating Template](#temp-bool)
-    * [Setting Input](#set-bool)
-    * [Adding Gate](#add-bool)
-    * [Calculating Output](#calc-bool) 
-    * [Implementation Considerations](#implementation-considerations)
-        * [Rationale](#rationale-bool)
-        * [Alternatives Considered](#alternatives-considered)
-    * [Binary Tree](#binary-tree)
-        * [Initialising A BinaryTree Object](#initialising-a-binarytreet-object)
-        * [Using BinaryTree isNullAtIndex(int)](#using-binarytreeisnullatindexint)
-        * [Using BinaryTree getParentIndex(int)](#using-binarytreegetparentindexint-t)
-        * [Using BinaryTree insert(int, T)](#using-binarytreeinsertint-t)
-        * [Using BinaryTree isLeaf(int)](#using-binarytreeisleafint)
-        * [Using BinaryTree isEmpty()](#using-binarytreeisempty)
-    * [Rendering Current Boolean Circuit State](#rendering-current-Boolean-circuit-state)
-* [Appendix: Requirements](#appendix-requirements)
-    * [Product scope](#product-scope)
-    * [User Stories](#user-stories)
-    * [Non-Functional Requirements](#non-functional-requirements)
-    * [Glossary](#glossary)
-* [Appendix: Instructions for manual testing](#appendix-instructions-for-manual-testing)
-    * [Initial launch](#initial-launch)
-    * [Creating a digital circuit](#creating-a-digital-circuit)
-    * [Creating a logic gate](#creating-a-logic-gate)
-    * [Calculating values](#calculating-values)
-    * [Exiting the program](#exiting-the-program)
-    
 
 ## Setting up, getting started
 Refer to the guide [*Setting up and getting started*](SettingUp.md).
@@ -318,6 +285,7 @@ the `ArrayList<T> arrayList` attribute is pre-populated with 15 `null` values. T
 operation in the list. Since `insert(int, T)` makes use of `ArrayList<T>.set(int, T)`, values in `arrayList` can be overwritten with this function.
 
 The following sequence diagram is a depiction of the events succeeding a call to `insert(1, new AndGate(1,1))`. 
+
 ![InsertSequenceDiagram](diagrams/BinaryTreeInsertSequenceDiagram.png)
 
 Post calling this function, the second element in the `arrayList` will be the `AndGate(1,1)` object.
@@ -446,18 +414,16 @@ The four types of components are: `r`,`c`,`l`,`v`. Note that the value inputted 
 ### Creating a logic gate 
 Similar to the creation of a digital circuit, we create a `template`, `set` values, and can `add` values.
 
-For the detailed steps, visit: https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#logic-gate-commands
+For the detailed steps, visit [Logic Gate Commands](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#logic-gate-commands).
 
 ### Calculating values
 For calculation of values, the `calc` command is used.
 
 Detailed steps on calculation for 
 
-* Digital circuits:  
-https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-circ
+* [Digital circuits](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-circ)
 
-* Logic Gates:  
-https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-output 
+* [Logic Gates](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-output) 
 
 ### Exiting the program
 Simply enter `bye` to exit the program and bid farewell to your loyal **CLIrcuit Assistant**.
