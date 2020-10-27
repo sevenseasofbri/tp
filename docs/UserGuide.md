@@ -50,7 +50,7 @@ The diagram above shows the hierarchy of the types of commands in the applicatio
 
 Action commands are split into two categories - they may use the same *syntax* for some commands, but the application will continuously track the current `template` that is being worked on and automatically use the correct command to execute. Thus, if there is no current `template`, then the other commands used will not be available to run.
 
-<div markdown="span" class="alert alert-primary">
+<div markdown="span" style="position:relative;padding:.75rem 1.25rem;margin-bottom:1rem;border:1px solid transparent;order-radius:.25rem">
 
 :information_source: **Note:** The `template` command is essential.
 
@@ -66,7 +66,7 @@ The commands involved with both categories are:
 
 The format of commands below keep to the following.
 
-<div markdown="span" class="alert alert-primary">
+<div markdown="span" style="position:relative;padding:.75rem 1.25rem;margin-bottom:1rem;border:1px solid transparent;order-radius:.25rem">
 
 :information_source: **Note:**  Words in `UPPER_CASE` are parameters.
 
@@ -278,7 +278,7 @@ C = ?
 
 The application has the ability to combine multiple `Gate` objects to generate more complicated boolean logic gate configurations. This command allows you to set an input to a *boolean logic* `Gate`. However, the depth of the deepest *logic* `Gate` from the *root logic* `Gate` cannot exceed 3.
 
-<div markdown="span" class="alert alert-primary">
+<div markdown="span" style="position:relative;padding:.75rem 1.25rem;margin-bottom:1rem;border:1px solid transparent;order-radius:.25rem">
 
 :exclamation: **Warning:** The `BooleanTemplate` `Gate` depth cannot exceed 3.
 
