@@ -153,7 +153,7 @@ Example of usage:
 Expected outcome:
 
 ```
-    +---R-----C---+
+	+---R-----C---+
 	|             |
 	|             |
 	+----+V_ac+---+
