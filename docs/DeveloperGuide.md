@@ -44,9 +44,11 @@ Refer to the guide [*Setting up and getting started*](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Design Architecture <a name="design"></a>
+## Design Architecture (Wira) <a name="design"></a>
 
 ![ArchitectureDiagram](diagrams/ArchitectureDiagram.png)
+
+<small><i>Figure 1</i></small>
 
 The **Architecture Design** given above explains the high-level design of the App. Given below is a quick overview of each component.
 
@@ -62,6 +64,8 @@ The rest of the app consists of three components.
 
 ![UiDiagram](diagrams/UiClassDiagram.png)
 
+<small><i>Figure 2</i></small>
+
 The `Ui` component
 
 * Reads user input as lines using `readLine()`.
@@ -70,9 +74,13 @@ The `Ui` component
 
 ![UiSequence](diagrams/UiSequenceDiagram.png)
 
+<small><i>Figure 3</i></small>
+
 ### Logic component
 
 ![LogicDiagram](diagrams/LogicClassDiagram.png)
+
+<small><i>Figure 4</i></small>
 
 1. `Logic` stores a current `Template` object in [`Model`](#model-component) that represents the current circuit configuration.
 1. `Logic` uses the `Parser` class to parse the user command.
@@ -84,6 +92,8 @@ The `Ui` component
 
 ![ModelDiagram](diagrams/ModelClassDiagram.png)
 
+<small><i>Figure 5</i></small>
+
 The `Model`,
 * includes `CircuitTemplate` and `BooleanTemplate` that can represent the current `template` in [`Logic`](#logic-component).
 * has `Component` and `Gate` within the templates.
@@ -91,7 +101,8 @@ The `Model`,
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Implementation of Circuit Commands <a name="circ-comd"></a>
+## Implementation of Circuit Commands (Dash) <a name="circ-comd"></a>
+
 This section provides details on the implementation of the various electronic circuit commands.
 
 There are 4 different types of components of electronic circuits that can be instantiated in the program:
@@ -117,9 +128,13 @@ There are four different circuit templates that can be instantiated in the progr
 
 ![CircuitCommandClass](diagrams/CircuitCommandClassDiagram.png)
 
+<small><i>Figure 6</i></small>
+
 The diagram above demonstrates the relationship between the various `CircuitCommand` objects. The various commands to be parsed are as explained in this section. While the **User Guide** explains the commands used on the CLI, this section goes into detail the classes used to execute the commands. The command classes also make use of the classes in the [**`Model`**](#model-component) shown in the diagram below when executing the commands.
 
 ![CircuitModelClass](diagrams/CircuitModelClassDiagram.png)
+
+<small><i>Figure 7</i></small>
 
 ### `TemplateCircuitCommand`  <a name="temp-circ"></a>
 Given below is the sequence diagram for interactions within the `logic` and `template` components for the 
@@ -127,36 +142,48 @@ Given below is the sequence diagram for interactions within the `logic` and `tem
 
 ![TemplateSequence](diagrams/TemplateSequenceDiagram.png)
 
+<small><i>Figure 8</i></small>
+
 ### `SetCircuitCommand` <a name="set-circ"></a>
 
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `parse("set r 500")` API call which implements the `set` command to set values of components.
 
-![SetSequence](diagrams/SetSequenceDiagram.png)  
+![SetSequence](diagrams/SetSequenceDiagram.png)
+
+<small><i>Figure 9</i></small>  
 
 ### `AddCircuitCommand` <a name="add-circ"></a>
 
 Given below is the detailed Sequence diagram for interactions within the `logic`, `template` and `component` components 
 for the `parse("add parallel c 20")` API call that implements the `add` command to add components.
 
-![AddSequence](diagrams/AddSequenceDiagram.png)  
+![AddSequence](diagrams/AddSequenceDiagram.png)
+
+<small><i>Figure 10</i></small>  
 
 ### `CalculateCircuitCommand` <a name="calc-circ"></a>
 The calculate command can be split into two distinct sequence diagrams. Given below is the sequence diagram for the
 calculate command that does not show the access of the `component` component and shows the interactions for the
 `parse("calc power")` API call that implements this version of the `calculate` command to calculate power.  
 
-![CalcPowerSequence](diagrams/CalcPowerSequenceDiagram.png)  
+![CalcPowerSequence](diagrams/CalcPowerSequenceDiagram.png)
+
+<small><i>Figure 11</i></small>  
 
 The second sequence diagram given below shows the detailed interaction that acesses the `component` class through the
 `parse("calc reff")` API call that implements this version of the `calculate` command to calculate effective resistance.
 
-![CalcReffSequence](diagrams/CalcReffSequenceDiagram.png)  
+![CalcReffSequence](diagrams/CalcReffSequenceDiagram.png)
+
+<small><i>Figure 12</i></small>  
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Implementation of Boolean Commands <a name="bool-comd"></a>
+## Implementation of Boolean Commands (Praveen) <a name="bool-comd"></a>
 
 ![BooleanCommandClass](diagrams/BooleanCommandClassDiagram.png)
+
+<small><i>Figure 13</i></small>
 
 The second major feature of the application is the implementation of Boolean logic commands, of which various noteworthy implementation details are explained in this section. The above diagram demonstrates the relationships between the various `Command` objects. Notice the similarities to the [Circuit Commands in the earlier section](#implementation-of-circuit-commands).
 
@@ -177,10 +204,14 @@ which represents the `or` operation.
 The `OrGate` can be visualised as such in the following object diagram:
 
 ![InsertObjectDiagram](diagrams/OrGateObjectDiagram.png)
+
+<small><i>Figure 14</i></small>
  
 The inheritance of the `OrGate` class from `TwoInputGate` class which inherits from the `Gate` class can be seen in the following class diagram:
 
 ![InsertClassDiagram](diagrams/OrGateClassDiagram.png)
+
+<small><i>Figure 15</i></small>
 
 
 There are four Boolean commands that are used in the implementation of the logic gates: `TemplateBooleanCommand, SetBooleanCommand, AddBooleanCommand`, and `CalcBooleanCommand`.
@@ -199,11 +230,15 @@ The aforementioned sequence of events can be represented in the following sequen
 
 ![InsertClassDiagram](diagrams/TemplateBooleanCommand.png)
 
+<small><i>Figure 16</i></small>
+
 ### `SetBooleanCommand` <a name="set-bool"></a>
 
 The sequence of object interactions through the `SetBooleanCommand` can be represented in the following sequence diagram:
 
 ![InsertSequenceDiagram](diagrams/SetBooleanCommand.png)
+
+<small><i>Figure 17</i></small>
 
 ### `AddBooleanCommand` <a name="add-bool"></a>
 
@@ -214,6 +249,8 @@ combine another logic gate, such as `XorGate`. The combination of these three ga
 
 ![InsertObjectDiagram](diagrams/AddBooleanCommandObjectDiagram.png)
 
+<small><i>Figure 18</i></small>
+
 The sequence by which the `AddBooleanCommand` is instantiated to combine the logic gates is as follows:
 
 1. The `AddBooleanCommand` object calls on the `addGate` method in the instantiated `BooleanTemplate`.
@@ -222,6 +259,8 @@ The sequence by which the `AddBooleanCommand` is instantiated to combine the log
 The aforementioned sequence of events can be represented in the following sequence diagram:
 
 ![InsertSequeunceDiagram](diagrams/AddBooleanCommand.png)
+
+<small><i>Figure 19</i></small>
 
 ### `CalculateBooleanCommand` <a name="calc-bool"></a>
 
@@ -234,7 +273,9 @@ The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
 
 ![InsertSequenceDiagram](diagrams/CalcBooleanCommand.png)
 
-### Implementation Considerations
+<small><i>Figure 20</i></small>
+
+### Implementation Considerations (Vishruti) <a name = "impl-cons"></a>
 This section describes the methods taken into consideration whilst implementing the Boolean Commands.
 
 #### Rationale Behind Using Binary Heap-Like Data Structure <a name="rationale-bool"></a>
@@ -299,6 +340,8 @@ The `Logic` initialises the `BinaryTree<Gate>` object using the parameterised co
 
 ![InitialBinaryTree](diagrams/BinaryTreeInitialObjectDiagram.png)
 
+<small><i>Figure 21</i></small>
+
 The Logic uses the parameterised constructor of `BinaryTree<T>` to create the object since it requires initialisation of
 the root. Such an object is created as follows: `BinaryTree<Gate> obj = new BinaryTree(new OrGate(1,1))`. This sets the root of the Binary Tree to the object specified.
 
@@ -318,6 +361,8 @@ The following sequence diagram is a depiction of the events succeeding a call to
 
 ![InsertSequenceDiagram](diagrams/BinaryTreeInsertSequenceDiagram.png)
 
+<small><i>Figure 22</i></small>
+
 Post calling this function, the second element in the `arrayList` will be the `AndGate(1,1)` object.
 
 #### Using `BinaryTree#isLeaf(int)`
@@ -328,12 +373,16 @@ The following sequence diagram is a depiction of the events succeeding a call to
 
 ![IsLeafSequenceDiagram](diagrams/BinaryTreeIsLeafSequence.png)
 
+<small><i>Figure 23</i></small>
+
 #### Using `BinaryTree#isEmpty`
 This is used by `BooleanTemplate` to ensure no calculations are being performed on an empty tree.
 
 The following sequence diagram showcases the events succeeding a call to `isEmpty()` on the current object of the `BinaryTree<Gate>` 
 
 ![IsEmptySequenceDiagram](diagrams/BinaryTreeIsEmptySequenceDiagram.png)
+
+<small><i>Figure 24</i></small>
  
 ### Rendering Current Boolean Circuit State
 Using a _standard I/O operation_ (Like _Sopln()_) on an object of the `BooleanTemplate` class yields the current configuration
@@ -352,7 +401,7 @@ H  I     J  K      L  M      N  O
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Appendix: Requirements
+## Appendix: Requirements (Dorian)
 
 This section details the various requirements that the project needs to fulfil.
 
@@ -371,7 +420,7 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 1. Doing labs at home because of remote learning - the App provides a quick visualisation tool for the student.
 1. Online alternatives require internet access, and some sites are slow to load with many resources needed - the App is an offline desktop application with minimal resources.
 
-### User Stories
+### User Stories (Wira)
 
 |Version| As a ... | I want to ... | So that I can ...|
 |--------|----------|---------------|------------------|
@@ -387,7 +436,7 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 |v3.0|CEG/EE Student|print the current template I am working on|find out my current configuration and make a decision
 
 
-### Non-Functional Requirements
+### Non-Functional Requirements (Dorian)
 
 1. Should work on any *mainstream OS* as long as it has Java 11 or above installed.
 2. The average user profile is assumed to be someone who possesses *at least a basic understanding of the fundamental concepts of digital circuits, its components, and Boolean logic computation* (concepts covered in CG1111, CS1231 and EE2026).
@@ -395,7 +444,8 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Glossary
+## Glossary (Vishruti)
+
 The terms listed in this glossary are in alphabetical order.
 
 * *Alternating Current* - Alternating current (AC) is an electric current which periodically reverses direction and changes its magnitude continuously with time.
@@ -431,7 +481,7 @@ truth value of the operation will result in 1 (TRUE) if either x == 1 or y == 1,
 
 -------------------------------------------------------------------------------------------------------------------- 
 
-## Appendix: Instructions for manual testing
+## Appendix: Instructions for manual testing (Dorian)
 ### Initial launch  
 1. Download the jar file and copy it into an empty folder
 2. Open a new terminal window and navigate to the same directory where your duke.jar is located
