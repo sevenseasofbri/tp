@@ -30,6 +30,11 @@ Welcome to the CLIrcuit Assistant!
              +--------------+-------------------------+
 
 Type one of the above template commands to get started with your template.
+You can use the tutorial command to go through our interactive tutorial.
+    Circuits: tutorial circuit
+    Boolean: tutorial boolean  
+You can also use the summary command to see a list of all the commands.
+    summary
 You have entered Tutorial Mode!
 Type 'exit' if you want to leave this mode and go back to the application.
 Lets get started! First choose a template you want to work with. You can choose from rc, rl, lc and r templates.
