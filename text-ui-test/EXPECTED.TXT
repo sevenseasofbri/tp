@@ -116,7 +116,7 @@ Here's a summary of available commands:
 | Set       | set COMPONENT VALUE        | set INPUT BOOLVALUE |
 | Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
 | Calculate | calc EFF_VALUE             | calc                |
-| Exit      | exit                       | exit                |
+| Exit      | bye                        | bye                 |
 +-----------+----------------------------+---------------------+
 
 Here's a summary of the command parameters:
@@ -267,7 +267,7 @@ Here's a summary of available commands:
 | Set       | set COMPONENT VALUE        | set INPUT BOOLVALUE |
 | Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
 | Calculate | calc EFF_VALUE             | calc                |
-| Exit      | exit                       | exit                |
+| Exit      | bye                        | bye                 |
 +-----------+----------------------------+---------------------+
 
 Here's a summary of the command parameters:
@@ -510,7 +510,7 @@ Here's a summary of available commands:
 | Set       | set COMPONENT VALUE        | set INPUT BOOLVALUE |
 | Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
 | Calculate | calc EFF_VALUE             | calc                |
-| Exit      | exit                       | exit                |
+| Exit      | bye                        | bye                 |
 +-----------+----------------------------+---------------------+
 
 Here's a summary of the command parameters:
