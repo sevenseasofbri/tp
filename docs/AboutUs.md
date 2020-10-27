@@ -1,8 +1,7 @@
 ---
 layout : page
-title : User Guide
+title : About Us
 ---
-# About us
 
 Display | Name | Github Profile | Portfolio 
 --------|:----:|:--------------:|:---------:
