@@ -13,7 +13,6 @@ public class SummaryCommand extends Command {
             + "| Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |\n"
             + "| Calculate | calc EFF_VALUE             | calc                |\n"
             + "| Exit      | exit                       | exit                |\n"
-            + "| Print     | print                      | print               |\n"
             + "+-----------+----------------------------+---------------------+\n";
     private static final String PARAMETER_SUMMARY = "Here's a summary of the command parameters: \n"
             + "+-----------+----------------------------------+-------------------------------+\n"
