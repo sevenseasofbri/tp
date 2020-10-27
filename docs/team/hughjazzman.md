@@ -1,4 +1,7 @@
-# Wira Azmoon - Project Portfolio Page
+---
+layout : page
+title : Wira Azmoon - Project Portfolio Page
+---
 
 ## Overview
 

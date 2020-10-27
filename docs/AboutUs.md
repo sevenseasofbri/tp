@@ -1,3 +1,7 @@
+---
+layout : page
+title : User Guide
+---
 # About us
 
 Display | Name | Github Profile | Portfolio 
