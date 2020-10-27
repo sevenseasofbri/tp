@@ -22,6 +22,9 @@ This **Developer Guide** aims to get developers familiarised with the design and
     * [Setting Component](#set-circ)
     * [Adding Component](#add-circ)
     * [Calculating Value](#calc-circ)
+    * [Implementation Considerations](#impl-cons-dash)
+        * [Rationale](#rationale-circuit-dash) 
+        * [Alternatives Considered](#alt-circuit-dash)
 * [Implementation of Boolean Commands](#bool-comd)
     * [Creating Template](#temp-bool)
     * [Setting Input](#set-bool)
@@ -179,7 +182,20 @@ The second sequence diagram given below shows the detailed interaction that aces
 
 ![CalcReffSequence](diagrams/CalcReffSequenceDiagram.png)
 
-<small><i>Figure 12</i></small>  
+<small><i>Figure 12</i></small> 
+
+### Implementation Considerations For Circuit Commands (Dash) <a name="impl-cons-dash"></a>
+This section describes the methods taken into consideration while implementing the Circuit Commands.
+
+#### Rationale Behind The Implementation of Circuit Template <a name="rationale-circuit-dash"></a>
+This section details the rationale for implimenting the circuit template as described in the prior sections. Selecting a way to build circuits is the primary purpose of the system and hence a way to design the circuit is required. Since the system is designed primarily as a command line interface, creating complex customizable circuits using a graphical interface is beyond the scope of this system. To implement a circuit four different `template` classes are used, which inherit from a superclass `template`. The four different templates are also presented as simple logos to show how the templates would look like as real life circuits. Furthermore, the function to add components to the circuit calculates the effective value with the components that are already present. For example when a resistor is added in parallel, the effective resistance of the aforementioned resistor is added to the effective resistance of the resistor already present in the circuit template. The two resistors are then replaced by one resistor with the same effective resistance. Similarly, other components are also added and abstracted into a single component of the matching component type.
+
+#### Alternatives Considered <a name="alt-circuit-dash"></a>
+This section illustrates the other alternatives considered for implementing the Circuit Template.
+
+* Linked List: A linked list implementation involves using each circuit component as a node and the connections between the nodes as wires. The head of the linked list is the voltage source and the a loop is present from the tail node number 2 (i.e index 1). However, such an approach allows users to add any component even when certain circuits are not usually built with those components. To fulfill the purpose of the system to cater to the needs of CG111 students this approach is avoided. The circuit templates on the other hand allow the user to distiguish between different circuits and do so effectively.     
+
+* Adjacency Matrix: The Adjacency matrix graph data structure is also considered as it allows connections between nodes. Each node is a component and a matrix is derived where a 1 represents a connection between the row of that element and the column of the same element. This approach is rejected due to high time complexity. For example, adding a component to the matrix requires O(V^2) time complexity where V is the number of vertices. Similarly, removing a component from the matrix also requires the same time complexity. On the other hand, the chosen implementation only requires O(1) time complexity for the same functions, leading to a more efficient and faster system.π
 
 ## Implementation of Boolean Commands (Praveen) <a name="bool-comd"></a>
 
@@ -277,7 +293,7 @@ The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
 
 <small><i>Figure 20</i></small>
 
-### Implementation Considerations (Vishruti) <a name = "impl-cons"></a>
+### Implementation Considerations For Boolean Commands (Vishruti) <a name = "impl-cons"></a>
 This section describes the methods taken into consideration whilst implementing the Boolean Commands.
 
 #### Rationale Behind Using Binary Heap-Like Data Structure <a name="rationale-bool"></a>
