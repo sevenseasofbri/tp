@@ -37,6 +37,8 @@ This **User Guide** aims to help you get familiarised with the commands used in 
 |[Hyperlinked](#)|Leads to the appropriate section.|
 |`Code`|Text that appears on the CLI / in code.|
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## Introduction
 
 **CLIrcuit Assistant** is a desktop app to implement and solve simple circuits, optimized for use via the CLI. The application is targeted at those who would simply like a resource-light and offline program to aid in analysing circuits.
@@ -91,6 +93,8 @@ The format of commands below keep to the following.
 
 </div>
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## General Commands
 
 This section details the generic commands that can be used. These commands assist you in finding out generic information regarding the application.
@@ -106,6 +110,8 @@ Format: `summary`
 Prints the current `template` that is set as explained in the [Command Preface](#command-preface). Nothing is printed if a `template` is not yet set. This command is useful to find out the current `template` you are working on.
 
 Format: `print`
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Circuit Action Commands 
 
@@ -226,6 +232,8 @@ Expected Outcome:
 ```
 The effective capacitance calculated is 500.0 µF
 ```
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Boolean Action Commands
 
@@ -354,6 +362,8 @@ G = 0
 The output of the above configuration is 0.
 ```
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## FAQ
 
 This section details the frequently asked questions (FAQ) regarding the use of the application.
@@ -361,6 +371,8 @@ This section details the frequently asked questions (FAQ) regarding the use of t
 **Q**: How do I know the difference between the components?
 
 **A**: Pay attention in CG1111 Engineering Principles & Practice (EPP).
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Command Summary
 

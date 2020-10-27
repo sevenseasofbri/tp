@@ -37,8 +37,12 @@ This **Developer Guide** aims to get developers familiarised with the design and
 |[Hyperlinked](#)|Leads to the appropriate section.|
 |`Code`|Text that appears on the CLI / in code.|
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## Setting up, getting started
 Refer to the guide [*Setting up and getting started*](SettingUp.md).
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Design Architecture <a name="design"></a>
 
@@ -84,6 +88,8 @@ The `Model`,
 * includes `CircuitTemplate` and `BooleanTemplate` that can represent the current `template` in [`Logic`](#logic-component).
 * has `Component` and `Gate` within the templates.
 * does not depend on any of the other three components.
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Implementation of Circuit Commands <a name="circ-comd"></a>
 This section provides details on the implementation of the various electronic circuit commands.
@@ -145,6 +151,8 @@ The second sequence diagram given below shows the detailed interaction that aces
 `parse("calc reff")` API call that implements this version of the `calculate` command to calculate effective resistance.
 
 ![CalcReffSequence](diagrams/CalcReffSequenceDiagram.png)  
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Implementation of Boolean Commands <a name="bool-comd"></a>
 
@@ -342,6 +350,8 @@ not shown in the diagram. The following diagram depicts a tree wherein no parent
 H  I     J  K      L  M      N  O
 ```
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## Appendix: Requirements
 
 This section details the various requirements that the project needs to fulfil.
@@ -383,6 +393,8 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 2. The average user profile is assumed to be someone who possesses *at least a basic understanding of the fundamental concepts of digital circuits, its components, and Boolean logic computation* (concepts covered in CG1111, CS1231 and EE2026).
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## Glossary
 The terms listed in this glossary are in alphabetical order.
 
@@ -415,9 +427,9 @@ truth value of the operation will result in 1 (TRUE) if either x == 1 or y == 1,
 * *Sopln()* - Abbreviation for java out operation "System.out.println()", from package java.lang.
 * *Standard I/O Operation* - Common java I/O streams include System.in, System.out and System.err.
 * *XNOR* - An inverse of the XOR operation. Outputs the opposite truth value of what a XOR gate would output.
-* *XOR* - Also known as exclusive OR, XOR is a secondary operation in boolean algebra which may be denoted as x XOR y. The 
-          truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y == 1, and 0 for other combinations of values.
- 
+* *XOR* - Also known as exclusive OR, XOR is a secondary operation in boolean algebra which may be denoted as x XOR y. The truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y == 1, and 0  for other combinations of values.
+
+-------------------------------------------------------------------------------------------------------------------- 
 
 ## Appendix: Instructions for manual testing
 ### Initial launch  
