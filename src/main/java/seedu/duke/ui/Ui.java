@@ -159,7 +159,7 @@ public class Ui {
      */
     public void promptForIntro() {
         System.out.println("Hello! Type 'start' to start the CLIrcuit Assistant");
-        String userLine = IN.nextLine();
+        String userLine = readLine();
         boolean isNotStart = true;
         while (isNotStart) {
             if (userLine.equals("start")) {
