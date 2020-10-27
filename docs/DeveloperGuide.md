@@ -11,6 +11,9 @@ This **Developer Guide** aims to get developers familiarised with the design and
 |[Hyperlinked](#)|Leads to the appropriate section.|
 |`Code`|Text that appears on the CLI / in code.|
 
+* Table of Contents
+{:toc}
+
 ## Table of Contents
 * [Setting up, getting started](#setting-up-getting-started)
 * [Design Architecture](#design)
