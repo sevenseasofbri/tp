@@ -2,6 +2,25 @@
 layout : page
 title : Developer Guide
 ---
+<style>
+.alert {
+    position:relative;
+    padding:.75rem 1.25rem;
+    margin-bottom:1rem;
+    border:1px solid transparent;
+    order-radius:.25rem
+}
+.alert-primary {
+    color:#073984;
+    background-image:linear-gradient(180deg, #d6e6ff, #cfe2ff);
+    border-color:#bbd6fe
+}
+.alert-warning {
+	color: #856404;
+	background-image: linear-gradient(180deg, #fff5d5, #fff3cd);
+	border-color: #ffeeba
+}
+</style>
 * Table of Contents
 {:toc}
 
@@ -77,8 +96,11 @@ There are 4 different types of components of electronic circuits that can be ins
 
 Each component is used within a circuit template, based on the kind of circuit instantiated.
 
-| :information_source: | The `VoltageSource` is instantiated in all Circuit Templates. |
-|----------------------|:-------------------------------------|
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:** The `VoltageSource` is instantiated in all Circuit Templates.
+
+</div>
 
 There are four different circuit templates that can be instantiated in the program:
 
