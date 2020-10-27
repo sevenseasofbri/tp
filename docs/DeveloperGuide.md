@@ -13,22 +13,22 @@ This **Developer Guide** aims to get developers familiarised with the design and
 
 ## Table of Contents
 * [Setting up, getting started](#setting-up-getting-started)
-* [Design Architecture](#design-architecture-a-namedesigna-wira)
+* [Design Architecture](#design)
     * [UI component](#ui-component)
     * [Logic component](#logic-component)
     * [Model component](#model-component)
-* [Implementation of Circuit Commands](#implementation-of-circuit-commands-a-namecirc-comda-dash)
-    * [Creating Template](#templatecircuitcommand--a-nametemp-circa)
-    * [Setting Component](#setcircuitcommand-a-nameset-circa)
-    * [Adding Component](#addcircuitcommand-a-nameadd-circa)
-    * [Calculating Value](#calculatecircuitcommand-a-namecalc-circa)
-* [Implementation of Boolean Commands](#implementation-of-boolean-commands-a-namebool-comda-praveen)
-    * [Creating Template](#templatebooleancommand-a-nametemp-boola)
-    * [Setting Input](#setbooleancommand-a-nameset-boola)
-    * [Adding Gate](#addbooleancommand-a-nameadd-boola)
-    * [Calculating Output](#calculatebooleancommand-a-namecalc-boola) 
-    * [Implementation Considerations](#implementation-considerations-a-name--impl-consa-vishruti)
-        * [Rationale](#rationale-behind-using-binary-heap-like-data-structure-a-namerationale-boola)
+* [Implementation of Circuit Commands](#circ-comd)
+    * [Creating Template](#temp-circ)
+    * [Setting Component](#set-circ)
+    * [Adding Component](#add-circ)
+    * [Calculating Value](#calc-circ)
+* [Implementation of Boolean Commands](#bool-comd)
+    * [Creating Template](#temp-bool)
+    * [Setting Input](#set-bool)
+    * [Adding Gate](#add-bool)
+    * [Calculating Output](#calc-bool) 
+    * [Implementation Considerations](#impl-cons)
+        * [Rationale](#rationale-bool)
         * [Alternatives Considered](#alternatives-considered)
     * [Binary Tree](#binary-tree)
         * [Initialising A BinaryTree Object](#initialising-a-binarytreet-object)
@@ -54,7 +54,7 @@ This **Developer Guide** aims to get developers familiarised with the design and
 ## Setting up, getting started
 Refer to the guide [*Setting up and getting started*](SettingUp.md).
 
-## Design Architecture <a name="design"></a> (Wira)
+## Design Architecture (Wira) <a name="design"></a>
 
 ![ArchitectureDiagram](diagrams/ArchitectureDiagram.png)
 
@@ -109,7 +109,7 @@ The `Model`,
 * has `Component` and `Gate` within the templates.
 * does not depend on any of the other three components.
 
-## Implementation of Circuit Commands <a name="circ-comd"></a> (Dash)
+## Implementation of Circuit Commands (Dash) <a name="circ-comd"></a>
 This section provides details on the implementation of the various electronic circuit commands.
 
 There are 4 different types of components of electronic circuits that can be instantiated in the program:
@@ -181,7 +181,7 @@ The second sequence diagram given below shows the detailed interaction that aces
 
 <small><i>Figure 12</i></small>  
 
-## Implementation of Boolean Commands <a name="bool-comd"></a> (Praveen)
+## Implementation of Boolean Commands (Praveen) <a name="bool-comd"></a>
 
 ![BooleanCommandClass](diagrams/BooleanCommandClassDiagram.png)
 
@@ -277,7 +277,7 @@ The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
 
 <small><i>Figure 20</i></small>
 
-### Implementation Considerations <a name = "impl-cons"></a> (Vishruti)
+### Implementation Considerations (Vishruti) <a name = "impl-cons"></a>
 This section describes the methods taken into consideration whilst implementing the Boolean Commands.
 
 #### Rationale Behind Using Binary Heap-Like Data Structure <a name="rationale-bool"></a>
