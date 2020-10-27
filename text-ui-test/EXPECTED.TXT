@@ -32,7 +32,7 @@ Welcome to the CLIrcuit Assistant!
 Type one of the above template commands to get started with your template.
 You can use the tutorial command to go through our interactive tutorial.
     Circuits: tutorial circuit
-    Boolean: tutorial boolean  
+    Boolean: tutorial boolean
 You can also use the summary command to see a list of all the commands.
     summary
 You have entered Tutorial Mode!
@@ -117,7 +117,6 @@ Here's a summary of available commands:
 | Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
 | Calculate | calc EFF_VALUE             | calc                |
 | Exit      | exit                       | exit                |
-| Print     | print                      | print               |
 +-----------+----------------------------+---------------------+
 
 Here's a summary of the command parameters:
@@ -269,7 +268,6 @@ Here's a summary of available commands:
 | Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
 | Calculate | calc EFF_VALUE             | calc                |
 | Exit      | exit                       | exit                |
-| Print     | print                      | print               |
 +-----------+----------------------------+---------------------+
 
 Here's a summary of the command parameters:
@@ -513,7 +511,6 @@ Here's a summary of available commands:
 | Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
 | Calculate | calc EFF_VALUE             | calc                |
 | Exit      | exit                       | exit                |
-| Print     | print                      | print               |
 +-----------+----------------------------+---------------------+
 
 Here's a summary of the command parameters:
