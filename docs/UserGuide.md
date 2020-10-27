@@ -43,6 +43,8 @@ This **User Guide** aims to help you get familiarised with the commands used in 
 
 **CLIrcuit Assistant** is a desktop app to implement and solve simple circuits, optimized for use via the CLI. The application is targeted at those who would simply like a resource-light and offline program to aid in analysing circuits.
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## Quick Start
 
 The following section will explain the steps taken to get **CLIrcuit Assistant** running on your computer.
@@ -58,6 +60,8 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
 1. Once the app starts, type a command in the command line and press enter to execute it.
 1. Use the command `help` to go through an interactive tutorial before using the application.
 1. Alternatively, you can use the command `summary` to get a list of all commands used in the application.
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Command Preface
 
