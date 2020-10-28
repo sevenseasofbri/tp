@@ -4,13 +4,16 @@
 @import "";
 
 @media print {
-    image {
+    image, svg {
         display: block;
+        page-break-before: always;
     }
     body {
         display: block;
+        page-break-before: always;
     }
     table {
         display: block;
+        page-break-before: always;
     }
 }
