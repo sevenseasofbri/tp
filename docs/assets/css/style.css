@@ -1,0 +1,16 @@
+---
+---
+
+@import "";
+
+@media print {
+    image {
+        display: block;
+    }
+    body {
+        display: block;
+    }
+    table {
+        display: block;
+    }
+}
