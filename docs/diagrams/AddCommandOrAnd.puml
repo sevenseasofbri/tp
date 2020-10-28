@@ -1,5 +1,7 @@
 @startuml
 
+!include style.puml
+
 package Gates {
     object "__:BooleanTemplate__" as State1
     object "__:OrGate__" as State2

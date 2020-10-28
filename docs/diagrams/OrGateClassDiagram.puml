@@ -1,4 +1,6 @@
 @startuml
+!include style.puml
+
 package Gates {
     class "Gate" as State1
     class "OrGate" as State3

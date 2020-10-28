@@ -1,4 +1,6 @@
 @startuml
+!include style.puml
+
 object BinaryTree
 BinaryTree : tree = ""
 

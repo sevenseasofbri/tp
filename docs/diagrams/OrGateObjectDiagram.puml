@@ -1,4 +1,6 @@
 @startuml
+!include style.puml
+
 package Gates {
     object "__:OrGate__" as State1
 }
