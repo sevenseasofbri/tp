@@ -1,13 +1,11 @@
 @startuml
-
-hide circle
-skinparam ClassAttributeIconSize 0
+!include style.puml
 
 package UI {
     Class Ui {
-        + String readline()
-        + void printMessage()
-        + void showError()
+        + readline() : String
+        + printMessage() : void
+        + showError() : void
     }
 }
 

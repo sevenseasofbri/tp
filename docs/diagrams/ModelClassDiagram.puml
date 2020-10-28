@@ -21,7 +21,6 @@ package Component {
 
 package Gate {
     Class XYZGate
-    Class "{abstract}\nTwoInputGate" as TwoInput
     Class "{abstract}\nGate" as Gate
 }
 
@@ -41,7 +40,6 @@ BooleanTemplate --> "1" BinaryTree
 BooleanTemplate --> "1..7"Gate
 BinaryTree --> "1..7" Gate
 
-XYZGate --|> TwoInput
-TwoInput --|> Gate
+XYZGate --|> Gate
 
 @enduml

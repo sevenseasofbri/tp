@@ -1,10 +1,9 @@
 @startuml
 !include style.puml
 
-object BinaryTree
-BinaryTree : tree = ""
+object "__:BinaryTree__" as BinaryTree
 
-object Gate
+object "__:Gate__" as Gate
 Gate : - input
 Gate : - secondInput
 

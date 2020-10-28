@@ -1,4 +1,6 @@
 @startuml
+
+box logic
 [->":Parser": parse("template and")
 
 activate ":Parser"
@@ -15,15 +17,15 @@ activate ":BooleanParser"
 
 activate ":BooleanParser"
 
-":BooleanParser" --> ":BooleanParser": AndGate()
+":BooleanParser" --> ":BooleanParser": gate=AndGate()
 
 deactivate ":BooleanParser"
 
-":BooleanParser" --> ":BooleanParser": BooleanTemplate(AndGate())
+":BooleanParser" --> ":BooleanParser": temp=BooleanTemplate(gate)
 
 deactivate ":BooleanParser"
 
-":BooleanParser" -> ":TemplateBooleanCommand": TemplateBooleanCommand(BooleanTemplate(AndGate()))
+":BooleanParser" -> ":TemplateBooleanCommand": TemplateBooleanCommand(temp)
 
 activate ":TemplateBooleanCommand"
 
@@ -35,4 +37,5 @@ deactivate ":BooleanParser"
 
 [<-- ":Parser"
 deactivate ":Parser"
+end box
 @enduml

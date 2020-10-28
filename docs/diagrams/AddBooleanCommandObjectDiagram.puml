@@ -1,35 +1,30 @@
 @startuml
 !include style.puml
 package Gates {
-    object "__:BooleanTemplate__" as State1
-    object "__:OrGate__" as State2
-    object "__:AndGate__" as State3
-    object “__:XorGate__" as State4
-    object “__:Gate__" as State5
+    object "__:BooleanTemplate__" as Bool
+    object "__:OrGate__" as Or
+    object "__:AndGate__" as And
+    object “__:XorGate__" as Xor
+    object “__:Gate__" as Gate
 
 }
-object State1 {
-    - BinaryTree<Gate> circuit
-    + addGate(Gate gate, int index)
+object Bool {
+    circuit
 }
-object State2 {
-    int getOutput() = {return input | secondInput}
+object Or {
 }
-object State3 {
-   int getOutput() = {return input & secondInput}
+object And {
 }
-object State4 {
-   int getOuput() = {return input ^ secondInput}
+object Xor {
 }
 
-object State5 {
-   int input
-   void setInput()
-   int getInput()
+object Gate {
+    input
+    secondInput
 }
 
-State1 --> State5
-State5 <|-- State3
-State5 <|-- State4
-State5 <|-- State2
+Bool --> "0..7" Gate
+Gate <|-- And
+Gate <|-- Xor
+Gate <|-- Or
 @enduml
