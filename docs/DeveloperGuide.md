@@ -201,15 +201,16 @@ The six different logic gates then individually inherit from the `TwoInputGate` 
 on the logic function of the gate itself. For instance, the `OrGate` which inherits from the `TwoInputGate` class has its `getOutput()` function set to `{return input | secondInput}`, 
 which represents the `or` operation.
 
+ 
+The inheritance of the `OrGate` class the `Gate` class can be seen in the following class diagram:
+
+![InsertClassDiagram](diagrams/OrGateClassDiagram.png)
+
+<small><i>Figure 14</i></small>
+
 The `OrGate` can be visualised as such in the following object diagram:
 
 ![InsertObjectDiagram](diagrams/OrGateObjectDiagram.png)
-
-<small><i>Figure 14</i></small>
- 
-The inheritance of the `OrGate` class from `TwoInputGate` class which inherits from the `Gate` class can be seen in the following class diagram:
-
-![InsertClassDiagram](diagrams/OrGateClassDiagram.png)
 
 <small><i>Figure 15</i></small>
 
@@ -474,8 +475,8 @@ truth value of the operation will result in 1 (TRUE) if both x == 1 and y == 1, 
 truth value of the operation will result in 1 (TRUE) if either x == 1 or y == 1, and 0 if both x and y are 0. 
 * *Parent Node* - A node in a binary tree data structure which has one or more child nodes.
 * *Resistor* - A passive electronic device which implements electrical resistance in an electronic circuit.
-* *Sopln()* - Abbreviation for java out operation "System.out.println()", from package java.lang.
-* *Standard I/O Operation* - Common java I/O streams include System.in, System.out and System.err.
+* *Sopln()* - Abbreviation for java out operation "`System.out.println()`", from package `java.lang`.
+* *Standard I/O Operation* - Common java I/O streams include `System.in`, `System.out` and `System.err`.
 * *XNOR* - An inverse of the XOR operation. Outputs the opposite truth value of what a XOR gate would output.
 * *XOR* - Also known as exclusive OR, XOR is a secondary operation in boolean algebra which may be denoted as x XOR y. The truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y == 1, and 0  for other combinations of values.
 

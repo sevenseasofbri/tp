@@ -34,7 +34,7 @@ Circuit <-- Template : command
 deactivate Template
 
 Parser <-- Circuit : command
-deactivate Parser
+deactivate Circuit
 
 [<-- Parser : command
 deactivate Parser

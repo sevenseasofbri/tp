@@ -38,7 +38,7 @@ activate Template
 Template -> Template : getResistor()
 activate Template
 
-Template <-- Template : r
+Template <-- Template : value
 deactivate Template
 
 CalculateCommand <-- Template : value
