@@ -226,7 +226,7 @@ The six different logic gates then individually inherit from the `TwoInputGate` 
 on the logic function of the gate itself. For instance, the `OrGate` which inherits from the `TwoInputGate` class has its `getOutput()` function set to `{return input | secondInput}`, 
 which represents the `or` operation.
 
- An instance of an `OrGate` can be visualised as such in the following object diagram:
+An instance of an `OrGate` can be visualised as such in the following object diagram:
 
 ![InsertObjectDiagram](diagrams/OrGateObjectDiagram.png)
 
