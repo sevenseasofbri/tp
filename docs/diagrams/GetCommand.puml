@@ -1,0 +1,29 @@
+@startuml
+
+group sd getCommand
+participant ":Parser" as Parser
+participant ":XYZCommand" as Comd
+
+
+[-> Parser : parse()
+activate Parser
+
+Parser -> Parser : prepareXYZ()
+activate Parser
+
+create Comd
+Parser -> Comd : new
+activate Comd
+
+Comd --> Parser : command
+deactivate Comd
+
+Parser --> Parser : command
+deactivate Parser
+
+[<-- Parser : command
+deactivate Parser
+end
+
+
+@enduml

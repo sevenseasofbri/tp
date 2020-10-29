@@ -1,0 +1,29 @@
+@startuml
+
+group sd getComponent
+participant ":XYZCommand" as Comd
+participant ":XYZCircuitTemplate" as Temp
+
+
+[-> Comd : execute()
+activate Comd
+
+Comd -> Temp : getComponent()
+activate Temp
+
+Temp -> Temp : getXYZComponent()
+activate Temp
+
+Temp --> Temp : component
+deactivate Temp
+
+Temp --> Comd : component
+deactivate Temp
+
+[<-- Comd : component
+
+
+end
+
+
+@enduml

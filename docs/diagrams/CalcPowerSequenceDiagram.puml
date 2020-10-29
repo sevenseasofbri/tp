@@ -12,17 +12,7 @@ end box
 [-> Parser : parse("calc power")
 activate Parser
 
-Parser -> Parser : prepareCalc("calc power")
-activate Parser
-
-Parser -> CalculateCommand : calculateCommand(template, power)
-activate CalculateCommand
-
-Parser <-- CalculateCommand : calc
-deactivate CalculateCommand
-
-Parser <-- Parser: calc
-deactivate Parser
+ref over Parser, CalculateCommand : getCommand
 
 [<-- Parser : calc
 deactivate Parser
