@@ -5,12 +5,12 @@ hide member
 
 package Gate {
     class "{abstract}\nGate" as Gate
-    class And
-    class Or
-    class Xor
-    class Nand
-    class Nor
-    class Xnor
+    class "AndGate" as And
+    class "OrGate" as Or
+    class "XorGate" as Xor
+    class "NandGate" as Nand
+    class "NorGate" as Nor
+    class "XnorGate" as Xnor
 }
 
 And -u-|> Gate
