@@ -201,7 +201,7 @@ The second sequence diagram given below shows the detailed interaction that aces
 
 <small><i>Figure 15</i></small>
 
-The second major feature of the application is the implementation of Boolean logic commands, of which various noteworthy implementation details are explained in this section. The above diagram demonstrates the relationships between the various `Command` objects. Notice the similarities to the [Circuit Commands in the earlier section](#implementation-of-circuit-commands).
+The second major feature of the application is the implementation of Boolean logic commands, of which various noteworthy implementation details are explained in this section. The above diagram demonstrates the relationships between the various `Command` objects. Notice the similarities to the [Circuit Commands in the earlier section](#implementation-of-circuit-commands-dash-).
 
 There are six different logic gates that can be instantiated in the program, which can be seen in the diagram below:
 
