@@ -13,40 +13,20 @@ end box
 [-> Parser : parse("add parallel c 20")
 activate Parser
 
-Parser -> Parser : prepareAdd("add parallel c 20")
-activate Parser
+ref over Parser, AddCommand : getCommand
 
-Parser -> AddCommand : AddCommand(RcTemplate,"parallel","c", 500)
-activate AddCommand
-
-Parser <-- AddCommand : add
-deactivate AddCommand
-
-Parser <-- Parser : add
-deactivate Parser
-
-[<-- Parser : add
+[<-- Parser : command
 deactivate Parser
 
 [-> AddCommand: execute()
 activate AddCommand
 
-AddCommand -> RcTemplate : getComponent("c")
-activate RcTemplate
-
-RcTemplate -> RcTemplate : getCapacitor()
-activate RcTemplate
-
-RcTemplate <-- RcTemplate : capacitor
-deactivate RcTemplate
-
-AddCommand <-- RcTemplate : capacitor
-deactivate RcTemplate
+ref over AddCommand, RcTemplate : getComponent
 
 AddCommand -> AddCommand : getNewValue()
 activate AddCommand
 
-AddCommand -> Capacitor : capacitor.addParallel(20)
+AddCommand -> Capacitor : addParallel(20)
 activate Capacitor
 
 AddCommand <-- Capacitor : value
@@ -55,7 +35,7 @@ deactivate Capacitor
 AddCommand <-- AddCommand : value
 deactivate AddCommand
 
-AddCommand -> Capacitor: capacitor.setValue(value)
+AddCommand -> Capacitor: setValue(value)
 activate Capacitor
 
 AddCommand <-- Capacitor

@@ -25,6 +25,7 @@ deactivate ":BooleanParser"
 
 deactivate ":BooleanParser"
 
+create ":TemplateBooleanCommand"
 ":BooleanParser" -> ":TemplateBooleanCommand": TemplateBooleanCommand(temp)
 
 activate ":TemplateBooleanCommand"

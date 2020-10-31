@@ -2,7 +2,7 @@
 !include style.puml
 
 object "__:OrGate__" as Or {
-    # input
-    # secondInput
+    input = 1
+    secondInput = 0
 }
 @enduml

@@ -52,7 +52,7 @@ deactivate Gate
 BT --> Bool: gate
 deactivate BT
 
-alt !isNullAtLeft
+opt !isNullAtLeft
 
 Bool -> Gate: setInput(calculateOutput(leftIndex))
 activate Gate
@@ -62,7 +62,7 @@ deactivate Gate
 
 end
 
-alt !isNullAtRight
+opt !isNullAtRight
 
 Bool -> Gate : setSecondInput(calculateOutput(rightIndex))
 activate Gate
@@ -87,7 +87,7 @@ deactivate Gate
 BT --> Bool : gate
 deactivate BT
 
-Bool -> Gate : gate.getOuput()
+Bool -> Gate : getOuput()
 activate Gate
 
 Gate --> Bool: output

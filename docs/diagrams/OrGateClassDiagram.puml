@@ -18,5 +18,5 @@ class Or {
 
 }
 
-Or --|> Gate
+Or -u-|> Gate
 @enduml

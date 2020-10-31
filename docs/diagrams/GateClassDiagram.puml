@@ -1,0 +1,24 @@
+@startuml
+!include style.puml
+
+hide member
+
+package Gate {
+    class "{abstract}\nGate" as Gate
+    class "AndGate" as And
+    class "OrGate" as Or
+    class "XorGate" as Xor
+    class "NandGate" as Nand
+    class "NorGate" as Nor
+    class "XnorGate" as Xnor
+}
+
+And -u-|> Gate
+Or -u-|> Gate
+Xor -u-|> Gate
+Nand -u-|> And
+Nor -u-|> Or
+Xnor -u-|> Xor
+
+
+@enduml

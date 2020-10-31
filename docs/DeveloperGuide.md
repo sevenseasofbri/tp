@@ -71,6 +71,7 @@ The `Ui` component
 * Reads user input as lines using `readLine()`.
 * Prints every `Command` object that is parsed using `printMessage()`.
 * Prints any user input error that might occur using `showError()`.
+* Does not depend on any of the other components.
 
 ![UiSequence](diagrams/UiSequenceDiagram.png)
 
@@ -86,18 +87,25 @@ The `Ui` component
 1. `Logic` uses the `Parser` class to parse the user command.
 1. This results in a `Command` object which is executed in `Duke`.
 1. The command execution can affect the `Model` (e.g. setting a value).
-1. In addition, the `Ui` may also perform certain actions, such as displaying help to the user.
+
+In general, the creation of `Command` objects via `Parser` can be explained by the following sequence diagram, which acts as a reference frame for `getCommand`:
+
+![getCommand](diagrams/GetCommand.png)
+
+<small><i>Figure 5</i></small>
+
+If the command does not use the reference frame, they would have their own sequence diagram to showcase the difference.
 
 ### Model component
 
 ![ModelDiagram](diagrams/ModelClassDiagram.png)
 
-<small><i>Figure 5</i></small>
+<small><i>Figure 6</i></small>
 
 The `Model`,
 * includes `CircuitTemplate` and `BooleanTemplate` that can represent the current `template` in [`Logic`](#logic-component).
 * has `Component` and `Gate` within the templates.
-* does not depend on any of the other three components.
+* does not depend on any of the other two components.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -126,15 +134,23 @@ There are four different circuit templates that can be instantiated in the progr
 * `RcTemplate` - Resistor-Capacitor Template (extends `RTemplate`)
 * `LrTemplate` - Inductor-Resistor Template (extends `RTemplate`)
 
-![CircuitCommandClass](diagrams/CircuitCommandClassDiagram.png)
-
-<small><i>Figure 6</i></small>
-
-The diagram above demonstrates the relationship between the various `CircuitCommand` objects. The various commands to be parsed are as explained in this section. While the **User Guide** explains the commands used on the CLI, this section goes into detail the classes used to execute the commands. The command classes also make use of the classes in the [**`Model`**](#model-component) shown in the diagram below when executing the commands.
-
 ![CircuitModelClass](diagrams/CircuitModelClassDiagram.png)
 
 <small><i>Figure 7</i></small>
+
+The diagram above showcases the relationships between the various `Component` and `Template` objects.
+
+![CircuitCommandClass](diagrams/CircuitCommandClassDiagram.png)
+
+<small><i>Figure 8</i></small>
+
+The diagram above demonstrates the relationship between the various `CircuitCommand` objects. The various commands to be parsed are as explained in this section. While the **User Guide** explains the commands used on the CLI, this section goes into detail the classes used to execute the commands. The command classes also make use of the classes in the [**`Model`**](#model-component) shown in the diagram below when executing the commands.
+
+For commands excluding `TemplateCircuitCommand`, the following sequence diagram will showcase how the `getComponent` reference frame occurs:
+
+![getComponent](diagrams/GetComponent.png)
+
+<small><i>Figure 9</i></small>
 
 ### `TemplateCircuitCommand`  <a name="temp-circ"></a>
 Given below is the sequence diagram for interactions within the `logic` and `template` components for the 
@@ -142,7 +158,7 @@ Given below is the sequence diagram for interactions within the `logic` and `tem
 
 ![TemplateSequence](diagrams/TemplateSequenceDiagram.png)
 
-<small><i>Figure 8</i></small>
+<small><i>Figure 10</i></small>
 
 ### `SetCircuitCommand` <a name="set-circ"></a>
 
@@ -150,7 +166,7 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ![SetSequence](diagrams/SetSequenceDiagram.png)
 
-<small><i>Figure 9</i></small>  
+<small><i>Figure 11</i></small>  
 
 ### `AddCircuitCommand` <a name="add-circ"></a>
 
@@ -159,7 +175,7 @@ for the `parse("add parallel c 20")` API call that implements the `add` command 
 
 ![AddSequence](diagrams/AddSequenceDiagram.png)
 
-<small><i>Figure 10</i></small>  
+<small><i>Figure 12</i></small>  
 
 ### `CalculateCircuitCommand` <a name="calc-circ"></a>
 The calculate command can be split into two distinct sequence diagrams. Given below is the sequence diagram for the
@@ -168,14 +184,14 @@ calculate command that does not show the access of the `component` component and
 
 ![CalcPowerSequence](diagrams/CalcPowerSequenceDiagram.png)
 
-<small><i>Figure 11</i></small>  
+<small><i>Figure 13</i></small>  
 
 The second sequence diagram given below shows the detailed interaction that acesses the `component` class through the
 `parse("calc reff")` API call that implements this version of the `calculate` command to calculate effective resistance.
 
 ![CalcReffSequence](diagrams/CalcReffSequenceDiagram.png)
 
-<small><i>Figure 12</i></small>  
+<small><i>Figure 14</i></small>  
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -183,12 +199,21 @@ The second sequence diagram given below shows the detailed interaction that aces
 
 ![BooleanCommandClass](diagrams/BooleanCommandClassDiagram.png)
 
-<small><i>Figure 13</i></small>
+<small><i>Figure 15</i></small>
 
 The second major feature of the application is the implementation of Boolean logic commands, of which various noteworthy implementation details are explained in this section. The above diagram demonstrates the relationships between the various `Command` objects. Notice the similarities to the [Circuit Commands in the earlier section](#implementation-of-circuit-commands).
 
-There are six different logic gates that can be instantiated in the program:
-- `or, and, nor, nand, xor, xnor`
+There are six different logic gates that can be instantiated in the program, which can be seen in the diagram below:
+
+![GateClass](diagrams/GateClassDiagram.png)
+
+<small><i>Figure 16</i></small>
+
+The next diagram then showcases the methods involved in the `BooleanTemplate` and `Gate` classes to work together:
+
+![BooleanTemplateClass](diagrams/BooleanTemplateClassDiagram.png)
+
+<small><i>Figure 17</i></small>
 
 All gates can be first instantiated using the `Gate` class which has one `int input` and one `int output` as its attributes. 
 It has `setInput(int input)` and `getOutput()` as its methods, which are used to set the input of the logic gate and get the output of the gate respectively. 
@@ -201,18 +226,11 @@ The six different logic gates then individually inherit from the `TwoInputGate` 
 on the logic function of the gate itself. For instance, the `OrGate` which inherits from the `TwoInputGate` class has its `getOutput()` function set to `{return input | secondInput}`, 
 which represents the `or` operation.
 
- 
-The inheritance of the `OrGate` class the `Gate` class can be seen in the following class diagram:
-
-![InsertClassDiagram](diagrams/OrGateClassDiagram.png)
-
-<small><i>Figure 14</i></small>
-
-The `OrGate` can be visualised as such in the following object diagram:
+An instance of an `OrGate` can be visualised as such in the following object diagram:
 
 ![InsertObjectDiagram](diagrams/OrGateObjectDiagram.png)
 
-<small><i>Figure 15</i></small>
+<small><i>Figure 18</i></small>
 
 
 There are four Boolean commands that are used in the implementation of the logic gates: `TemplateBooleanCommand, SetBooleanCommand, AddBooleanCommand`, and `CalcBooleanCommand`.
@@ -231,7 +249,7 @@ The aforementioned sequence of events can be represented in the following sequen
 
 ![InsertClassDiagram](diagrams/TemplateBooleanCommand.png)
 
-<small><i>Figure 16</i></small>
+<small><i>Figure 19</i></small>
 
 ### `SetBooleanCommand` <a name="set-bool"></a>
 
@@ -239,18 +257,14 @@ The sequence of object interactions through the `SetBooleanCommand` can be repre
 
 ![InsertSequenceDiagram](diagrams/SetBooleanCommand.png)
 
-<small><i>Figure 17</i></small>
+<small><i>Figure 20</i></small>
 
 ### `AddBooleanCommand` <a name="add-bool"></a>
 
 The `AddBooleanCommand` is used to combine multiple logic gate templates to produce advanced Boolean logic gate configurations.
 For instance, an `OrGate` can be combined with an `AndGate` to produce a new logic configuration where its final output will depend on the
-Boolean values assigned to the `OrGate` and `AndGate`. This gate configuration can undergo further addition operations by `addBooleanCommand` to 
-combine another logic gate, such as `XorGate`. The combination of these three gates after the `addBooleanCommand` operations can be represented by the following object diagram:
-
-![InsertObjectDiagram](diagrams/AddBooleanCommandObjectDiagram.png)
-
-<small><i>Figure 18</i></small>
+Boolean values assigned to the `OrGate` and `AndGate`. This gate configuration can undergo further addition operations by `AddBooleanCommand` to 
+combine another logic gate, such as `XorGate`. 
 
 The sequence by which the `AddBooleanCommand` is instantiated to combine the logic gates is as follows:
 
@@ -261,7 +275,7 @@ The aforementioned sequence of events can be represented in the following sequen
 
 ![InsertSequeunceDiagram](diagrams/AddBooleanCommand.png)
 
-<small><i>Figure 19</i></small>
+<small><i>Figure 21</i></small>
 
 ### `CalculateBooleanCommand` <a name="calc-bool"></a>
 
@@ -274,7 +288,7 @@ The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
 
 ![InsertSequenceDiagram](diagrams/CalcBooleanCommand.png)
 
-<small><i>Figure 20</i></small>
+<small><i>Figure 22</i></small>
 
 ### Implementation Considerations (Vishruti) <a name = "impl-cons"></a>
 This section describes the methods taken into consideration whilst implementing the Boolean Commands.
@@ -341,7 +355,7 @@ The `Logic` initialises the `BinaryTree<Gate>` object using the parameterised co
 
 ![InitialBinaryTree](diagrams/BinaryTreeInitialObjectDiagram.png)
 
-<small><i>Figure 21</i></small>
+<small><i>Figure 23</i></small>
 
 The Logic uses the parameterised constructor of `BinaryTree<T>` to create the object since it requires initialisation of
 the root. Such an object is created as follows: `BinaryTree<Gate> obj = new BinaryTree(new OrGate(1,1))`. This sets the root of the Binary Tree to the object specified.
@@ -362,7 +376,7 @@ The following sequence diagram is a depiction of the events succeeding a call to
 
 ![InsertSequenceDiagram](diagrams/BinaryTreeInsertSequenceDiagram.png)
 
-<small><i>Figure 22</i></small>
+<small><i>Figure 24</i></small>
 
 Post calling this function, the second element in the `arrayList` will be the `AndGate(1,1)` object.
 
@@ -374,7 +388,7 @@ The following sequence diagram is a depiction of the events succeeding a call to
 
 ![IsLeafSequenceDiagram](diagrams/BinaryTreeIsLeafSequence.png)
 
-<small><i>Figure 23</i></small>
+<small><i>Figure 25</i></small>
 
 #### Using `BinaryTree#isEmpty`
 This is used by `BooleanTemplate` to ensure no calculations are being performed on an empty tree.
@@ -383,7 +397,7 @@ The following sequence diagram showcases the events succeeding a call to `isEmpt
 
 ![IsEmptySequenceDiagram](diagrams/BinaryTreeIsEmptySequenceDiagram.png)
 
-<small><i>Figure 24</i></small>
+<small><i>Figure 26</i></small>
  
 ### Rendering Current Boolean Circuit State
 Using a _standard I/O operation_ (Like _Sopln()_) on an object of the `BooleanTemplate` class yields the current configuration
@@ -499,16 +513,16 @@ The four types of components are: `r`,`c`,`l`,`v`. Note that the value inputted 
 ### Creating a logic gate 
 Similar to the creation of a digital circuit, we create a `template`, `set` values, and can `add` values.
 
-For the detailed steps, visit [Logic Gate Commands](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#logic-gate-commands).
+For the detailed steps, visit [Boolean Action Commands](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#boolean-action-commands).
 
 ### Calculating values
 For calculation of values, the `calc` command is used.
 
-Detailed steps on calculation for 
+The following links provide detailed steps for calculations for the respective section:
 
-* [Digital circuits](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-circ)
+* [Circuits](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calculating-effective-value-calc-)
 
-* [Logic Gates](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-output) 
+* [Boolean](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calculating-output-calc-) 
 
 ### Exiting the program
 Simply enter `bye` to exit the program and bid farewell to your loyal **CLIrcuit Assistant**.
