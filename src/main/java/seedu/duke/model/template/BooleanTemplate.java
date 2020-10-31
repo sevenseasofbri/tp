@@ -45,13 +45,19 @@ public class BooleanTemplate {
      * @param index Index in tree.
      * @throws DukeException If index specified is out of bounds.
      */
-    public void setInput(int value, int index) throws DukeException {
+    public void setInput(boolean value, int index) throws DukeException {
         int parentIdx = circuit.getParentIndex(index);
         Gate parentGate = circuit.getT(parentIdx);
 
         //Prevent accessing null gate.
         if (parentGate == null) {
             throw new DukeException("Parent gate not set yet!");
+        }
+
+        // Prevent setting already set gate
+        Gate currentGate = circuit.getT(index);
+        if (currentGate != null) {
+            throw new DukeException("Already set as gate!");
         }
 
         if (index % 2 == 1) {
@@ -138,9 +144,11 @@ public class BooleanTemplate {
 
         // Odd index - first input, even index, 2nd input
         if (index % 2 == 1) {
-            equation += gate.isSetInput() ? gate.getInput() : "?";
+            String input = gate.getInput() ? "1" : "0";
+            equation += gate.isSetInput() ? input : "?";
         } else {
-            equation += gate.isSetSecondInput() ? gate.getSecondInput() : "?";
+            String input = gate.getInput() ? "1" : "0";
+            equation += gate.isSetSecondInput() ? input : "?";
         }
 
         return equation;
@@ -152,7 +160,7 @@ public class BooleanTemplate {
      * @return int type value output, can be 0 or 1.
      * @throws DukeException If input values are not set.
      */
-    public int calculateOutput() throws DukeException {
+    public boolean calculateOutput() throws DukeException {
         return calculateOutput(0);
     }
 
@@ -163,7 +171,7 @@ public class BooleanTemplate {
      * @return int type value output, can be 0 or 1.
      * @throws DukeException If input values are not set.
      */
-    private int calculateOutput(int idx) throws DukeException {
+    private boolean calculateOutput(int idx) throws DukeException {
         if (circuit.isNullAtIndex(idx)) {
             throw new DukeException("Oops! Nothing set yet.");
         }

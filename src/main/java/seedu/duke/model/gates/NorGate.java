@@ -11,9 +11,9 @@ public class NorGate extends OrGate {
      * @return int value of the gate output.
      */
     @Override
-    public int getOutput() throws DukeException {
+    public boolean getOutput() throws DukeException {
         checkHasSetBothInput();
-        return ~(super.getOutput());
+        return !(super.getOutput());
     }
 
     /**

@@ -1,40 +1,41 @@
 Hello! Type 'start' to start the CLIrcuit Assistant
 Hello from
- _____ _      _____                _ _                      _     _              _
-/ ____| |    |_   _|              (_) |       /\           (_)   | |            | |
+  _____ _      _____                _ _                      _      _              _
+ / ____| |    |_   _|              (_) |       /\           (_)   | |            | |
 | |    | |      | |  _ __ ___ _   _ _| |_     /  \   ___ ___ _ ___| |_ __ _ _ __ | |_
 | |    | |      | | | '__/ __| | | | | __|   / /\ \ / __/ __| / __| __/ _` | '_ \| __|
 | |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\__ \__ \ \__ \ || (_| | | | | |_
-\_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|
+ \_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|
 
 Welcome to the CLIrcuit Assistant!
 
-             +----------------------------------------+
-             |    Command    |     Template Name      |
-             +----------------------------------------+
-             |                Circuit                 |
-             +----------------------------------------+
-             | template r    | Resistor               |
-             | template rc   | Resistor-Capacitor     |
-             | template rl   | Resistor-Inductor      |
-             | template lc   | Inductor-Capacitor     |
-             +--------------+-------------------------+
-             |                Boolean                 |
-             +----------------------------------------+
-             | template or   | Or Gate                |
-             | template and  | And Gate               |
-             | template nor  | Nor Gate               |
-             | template xor  | Xor Gate               |
-             | template nand | Nand Gate              |
-             | template xnor | Xnor Gate              |
-             +--------------+-------------------------+
+Here's a summary of available commands:
++-----------+----------------------------+---------------------+
+|  Command  |         Circuit            |      Boolean        |
++-----------+----------------------------+---------------------+
+| Tutorial  | tutorial circuit           | tutorial boolean    |
+| Template  | template TEMPLATE          | template TEMPLATE   |
+| Summary   | summary                    | summary             |
+| Set       | set COMPONENT VALUE        | set INPUT BOOLVALUE |
+| Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
+| Calculate | calc EFF_VALUE             | calc                |
+| Exit      | bye                        | bye                 |
++-----------+----------------------------+---------------------+
 
-Type one of the above template commands to get started with your template.
-You can use the tutorial command to go through our interactive tutorial.
-    Circuits: tutorial circuit
-    Boolean: tutorial boolean
-You can also use the summary command to see a list of all the commands.
-    summary
+Here's a summary of the command parameters:
++-----------+----------------------------------+-------------------------------+
+| Parameter |       Circuit Params             | Boolean Params                |
++-----------+----------------------------------+-------------------------------+
+| TEMPLATE  | rc, rl, r, cl                    | or, and, nor, nand, xor, xnor |
+| COMPONENT | r, c, l, v                       | N.A.                          |
+| CONFIG    | parallel, series                 | N.A                           |
+| EFF_VALUE | reff, ceff, leff, current, power | N.A                           |
+| VALUE     | any number of double datatype    | N.A                           |
+| INPUT     | N.A                              | A, B, C, D, E, F, G           |
+| GATE      | N.A                              | or, and, nor, nand, xor, xnor |
+| BOOLVALUE | N.A                              | 0, 1                          |
++-----------+----------------------------------+-------------------------------+
+
 You have entered Tutorial Mode!
 Type 'exit' if you want to leave this mode and go back to the application.
 Lets get started! First choose a template you want to work with. You can choose from rc, rl, lc and r templates.
@@ -44,14 +45,22 @@ eg. To select the Resistor-Capacitor circuit template, enter 'template rc'
 	|             |
 	|             |
 	+----+V_ac+---+
-Current Voltage: 0.0 V
-Total Resistance: 0.0 Ω
-Total Capacitance: 0.0 µF
+Current Voltage: not set
+Total Resistance: not set
+Total Capacitance: not set
 
 -----------------------------------------------------------
 Lets set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts.
 -----------------------------------------------------------
-The voltage source was changed to: 5.0 V
+The voltage source was set to 5.0 V
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Current Voltage: 5.0 V
+Total Resistance: not set
+Total Capacitance: not set
+
 -----------------------------------------------------------
 Lets set a value to resistor/capacitor/inductor! To do so, type 'set' followed by 'r' OR 'c' OR 'l' followed by a numeric VALUE. eg. 'set r 500' will set the resistor to 500Ω
 -----------------------------------------------------------
@@ -62,7 +71,7 @@ The resistor was set to 500.0 Ω
 	+----+V_ac+---+
 Current Voltage: 5.0 V
 Total Resistance: 500.0 Ω
-Total Capacitance: 0.0 µF
+Total Capacitance: not set
 
 -----------------------------------------------------------
 Lets set another value in our template! Here's the syntax for reference 'set r/l/c/v VALUE'.
@@ -80,7 +89,7 @@ Total Capacitance: 20.0 µF
 Want to add a component in parallel/series to your current component? Lets do that! Type in 'add' followed by 'series/parallel' then 'r'/'c'/'l' and a numeric VALUE.
 eg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit (if any).
 -----------------------------------------------------------
-Nice, added a 40.0 µF
+Nice, added a 20.0 µF
 	+---R-----C---+
 	|             |
 	|             |
@@ -96,12 +105,12 @@ Lets try it out. Type 'calc' followed by 'ceff'/'leff'/'reff'/'power'/'current' 
 The power dissipated in the circuit is 0.04937852460756959W
 -----------------------------------------------------------
 Great! You're set to use the circuit builder of
- _____ _      _____                _ _                      _     _              _
-/ ____| |    |_   _|              (_) |       /\           (_)   | |            | |
+  _____ _      _____                _ _                      _      _              _
+ / ____| |    |_   _|              (_) |       /\           (_)   | |            | |
 | |    | |      | |  _ __ ___ _   _ _| |_     /  \   ___ ___ _ ___| |_ __ _ _ __ | |_
 | |    | |      | | | '__/ __| | | | | __|   / /\ \ / __/ __| / __| __/ _` | '_ \| __|
 | |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\__ \__ \ \__ \ || (_| | | | | |_
-\_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|Enjoy! :)
+ \_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|Enjoy! :)
  type 'exit' to exit this mode.
 
 -----------------------------------------------------------
@@ -167,7 +176,7 @@ Now lets set a value to the input C! Type in 'set C BOOLVLAUE' where BOOLVALUE i
 
 OUT = B AND C
 B = 1
-C = 0
+C = 1
 
 -----------------------------------------------------------
 Now lets calculate the output of B GATE C. GATE here is the template you typed out earlier. Enter 'calc'.
@@ -178,7 +187,7 @@ Now lets calculate the output of B GATE C. GATE here is the template you typed o
 
 OUT = B AND C
 B = 1
-C = 0
+C = 1
 
 The output of the above configuration is 0.
 -----------------------------------------------------------
@@ -227,7 +236,7 @@ OUT = B AND C
 B = 1
 C = F NOR G
 F = 0
-G = 1
+G = 0
 
 -----------------------------------------------------------
 Now lets calculate the output of F GATE G. GATE here is the template you typed out earlier. Enter 'calc'.
@@ -242,17 +251,17 @@ OUT = B AND C
 B = 1
 C = F NOR G
 F = 0
-G = 1
+G = 0
 
 The output of the above configuration is 0.
 -----------------------------------------------------------
 Great! You're set to use the boolean builder of
- _____ _      _____                _ _                      _     _              _
-/ ____| |    |_   _|              (_) |       /\           (_)   | |            | |
+  _____ _      _____                _ _                      _      _              _
+ / ____| |    |_   _|              (_) |       /\           (_)   | |            | |
 | |    | |      | |  _ __ ___ _   _ _| |_     /  \   ___ ___ _ ___| |_ __ _ _ __ | |_
 | |    | |      | | | '__/ __| | | | | __|   / /\ \ / __/ __| / __| __/ _` | '_ \| __|
 | |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\__ \__ \ \__ \ || (_| | | | | |_
-\_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|Enjoy! :)
+ \_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|Enjoy! :)
  type 'exit' to exit this mode.
 
 -----------------------------------------------------------
@@ -290,13 +299,21 @@ Here's a summary of the command parameters:
 	|             |
 	|             |
 	+----+V_ac+---+
-Current Voltage: 0.0 V
-Total Resistance: 0.0 Ω
-Total Capacitance: 0.0 µF
+Current Voltage: not set
+Total Resistance: not set
+Total Capacitance: not set
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-The voltage source was changed to: 5.0 V
+The voltage source was set to 5.0 V
+	+---R-----C---+
+	|             |
+	|             |
+	+----+V_ac+---+
+Current Voltage: 5.0 V
+Total Resistance: not set
+Total Capacitance: not set
+
 -----------------------------------------------------------
 -----------------------------------------------------------
 The resistor was set to 200.0 Ω
@@ -306,7 +323,7 @@ The resistor was set to 200.0 Ω
 	+----+V_ac+---+
 Current Voltage: 5.0 V
 Total Resistance: 200.0 Ω
-Total Capacitance: 0.0 µF
+Total Capacitance: not set
 
 -----------------------------------------------------------
 -----------------------------------------------------------
@@ -321,7 +338,7 @@ Total Capacitance: 10.0 µF
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-Nice, added a 400.0 Ω
+Nice, added a 200.0 Ω
 	+---R-----C---+
 	|             |
 	|             |
@@ -332,7 +349,7 @@ Total Capacitance: 10.0 µF
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-Nice, added a 5.0 µF
+Nice, added a 10.0 µF
 	+---R-----C---+
 	|             |
 	|             |
@@ -343,7 +360,7 @@ Total Capacitance: 5.0 µF
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-Nice, added a 133.33333333333334 Ω
+Nice, added a 200.0 Ω
 	+---R-----C---+
 	|             |
 	|             |
@@ -477,7 +494,7 @@ C = F OR G
 F = 0
 G = N XOR O
 N = 1
-O = 0
+O = 1
 
 -----------------------------------------------------------
 -----------------------------------------------------------
@@ -495,7 +512,7 @@ C = F OR G
 F = 0
 G = N XOR O
 N = 1
-O = 0
+O = 1
 
 The output of the above configuration is 1.
 -----------------------------------------------------------

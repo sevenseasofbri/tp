@@ -7,6 +7,7 @@ import seedu.duke.model.component.VoltageSource;
 public abstract class CircuitTemplate {
     protected VoltageSource initialPowerSupply;
     protected static final double ANGULAR_FREQUENCY = 100 * Math.PI;
+    protected static final String NOT_SET = "not set";
 
     public CircuitTemplate(double powerSupply) {
         initialPowerSupply = new VoltageSource(powerSupply);
@@ -19,6 +20,10 @@ public abstract class CircuitTemplate {
      */
     public VoltageSource getInitialPowerSupply() {
         return initialPowerSupply;
+    }
+
+    protected boolean isSetPowerSupply() {
+        return initialPowerSupply.getValue() != 0;
     }
 
     /**
@@ -54,5 +59,9 @@ public abstract class CircuitTemplate {
     }
 
     public abstract LoadComponent getComponent(String component) throws DukeException;
+
+    protected String voltageToString() {
+        return "Current Voltage: " + (isSetPowerSupply() ? initialPowerSupply : NOT_SET) + System.lineSeparator();
+    }
 
 }

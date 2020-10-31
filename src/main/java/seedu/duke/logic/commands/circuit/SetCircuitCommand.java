@@ -44,13 +44,10 @@ public class SetCircuitCommand extends CircuitCommand {
      */
     @Override
     public String toString() {
-        if (componentObject instanceof VoltageSource) {
-            return "The voltage source was changed to: " + componentObject;
-        }
-
         String componentName = "";
-
-        if (componentObject instanceof Resistor) {
+        if (componentObject instanceof VoltageSource) {
+            componentName = "voltage source";
+        } else if (componentObject instanceof Resistor) {
             componentName = "resistor";
         } else if (componentObject instanceof Capacitor) {
             componentName = "capacitor";
