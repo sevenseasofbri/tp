@@ -147,7 +147,7 @@ public class BooleanTemplate {
             String input = gate.getInput() ? "1" : "0";
             equation += gate.isSetInput() ? input : "?";
         } else {
-            String input = gate.getInput() ? "1" : "0";
+            String input = gate.getSecondInput() ? "1" : "0";
             equation += gate.isSetSecondInput() ? input : "?";
         }
 
