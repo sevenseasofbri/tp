@@ -11,7 +11,7 @@ public class OrGate extends Gate {
      * @return int value of the gate output.
      */
     @Override
-    public int getOutput() throws DukeException {
+    public boolean getOutput() throws DukeException {
         checkHasSetBothInput();
         return input | secondInput;
     }

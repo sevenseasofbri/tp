@@ -11,8 +11,8 @@ public class NandGate extends AndGate {
      * @return int value of the gate output.
      */
     @Override
-    public int getOutput() throws DukeException {
-        return ~(super.getOutput());
+    public boolean getOutput() throws DukeException {
+        return !(super.getOutput());
     }
 
     /**

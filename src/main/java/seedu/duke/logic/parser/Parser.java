@@ -60,10 +60,11 @@ public class Parser {
             throw new DukeException("Not enough arguments!");
         }
 
-        boolean isCircuitTemplate = args[1].equals("r") || args[1].equals("rc")
-                || args[1].equals("rl") || args[1].equals("lc");
-        boolean isBooleanTemplate = args[1].equals("and") || args[1].equals("or") || args[1].equals("xor")
-                || args[1].equals("nand") || args[1].equals("nor") || args[1].equals("xnor");
+        String firstArg = args[1].toLowerCase();
+        boolean isCircuitTemplate = firstArg.equals("r") || firstArg.equals("rc")
+                || firstArg.equals("rl") || firstArg.equals("lc");
+        boolean isBooleanTemplate = firstArg.equals("and") || firstArg.equals("or") || firstArg.equals("xor")
+                || firstArg.equals("nand") || firstArg.equals("nor") || firstArg.equals("xnor");
 
         if (isCircuitTemplate) {
             isCircuit = true;
