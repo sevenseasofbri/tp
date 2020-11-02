@@ -13,9 +13,9 @@ public class NorGate extends OrGate {
      * @throws InputsNotSetException If both inputs aren't set yet.
      */
     @Override
-    public int getOutput() throws InputsNotSetException {
+    public boolean getOutput() throws InputsNotSetException {
         checkHasSetBothInput();
-        return ~(super.getOutput());
+        return !(super.getOutput());
     }
 
     /**

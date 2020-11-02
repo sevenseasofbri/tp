@@ -13,8 +13,8 @@ public class XnorGate extends XorGate {
      * @throws InputsNotSetException If both inputs aren't set yet.
      */
     @Override
-    public int getOutput() throws InputsNotSetException {
-        return ~(super.getOutput());
+    public boolean getOutput() throws InputsNotSetException {
+        return !(super.getOutput());
     }
 
     /**

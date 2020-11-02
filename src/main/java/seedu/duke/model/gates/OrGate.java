@@ -13,7 +13,7 @@ public class OrGate extends Gate {
      * @throws InputsNotSetException If both inputs aren't set yet.
      */
     @Override
-    public int getOutput() throws InputsNotSetException {
+    public boolean getOutput() throws InputsNotSetException {
         checkHasSetBothInput();
         return input | secondInput;
     }

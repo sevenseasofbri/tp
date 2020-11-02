@@ -1,13 +1,19 @@
 package seedu.duke.logic.commands.circuit;
 
+import seedu.duke.Duke;
 import seedu.duke.DukeException;
+import seedu.duke.model.component.Capacitor;
+import seedu.duke.model.component.Inductor;
 import seedu.duke.model.component.LoadComponent;
+import seedu.duke.model.component.Resistor;
 import seedu.duke.model.template.CircuitTemplate;
 
 public class AddCircuitCommand extends SetCircuitCommand {
     public static final String COMMAND_WORD = "add";
     private final String config;
     private LoadComponent loadComponent;
+    private LoadComponent oldLoadComponent;
+    private double oldValue;
 
     public AddCircuitCommand(CircuitTemplate template, String config, String component, double value) {
         super(template, component, value);
@@ -21,8 +27,23 @@ public class AddCircuitCommand extends SetCircuitCommand {
     @Override
     public void execute() throws DukeException {
         loadComponent = template.getComponent(component);
+        if (loadComponent.getValue() == 0) {
+            throw new DukeException("Component not yet set!");
+        }
+        oldValue = value;
+        oldLoadComponent = createCopyComponent();
         value = getNewValue();
         super.execute();
+    }
+
+    private LoadComponent createCopyComponent() {
+        if (loadComponent instanceof Resistor) {
+            return new Resistor(oldValue);
+        } else if (loadComponent instanceof Inductor) {
+            return new Inductor(oldValue);
+        } else {
+            return new Capacitor(oldValue);
+        }
     }
 
     private double getNewValue() throws DukeException {
@@ -41,6 +62,6 @@ public class AddCircuitCommand extends SetCircuitCommand {
      */
     @Override
     public String toString() {
-        return "Nice, added a " + loadComponent + '\n' + template;
+        return "Nice, added a " + oldLoadComponent + '\n' + template;
     }
 }

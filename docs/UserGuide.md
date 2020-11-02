@@ -232,7 +232,7 @@ Format: `calc EFF_VALUE`
 
 Example of usage:
 
-`calc ceff`
+`calc reff`
 
 Expected Outcome:
 
@@ -310,11 +310,11 @@ C = ?
 
 ### Adding `Gate`: `add` <a name="add-gate"></a>
 
-The application has the ability to combine multiple `Gate` objects to generate more complicated boolean logic gate configurations. This command allows you to set an input to a *boolean logic* `Gate`. However, the depth of the deepest *logic* `Gate` from the *root logic* `Gate` cannot exceed 3.
+The application has the ability to combine multiple `Gate` objects to generate more complicated boolean logic gate configurations. This command allows you to set an input to a *boolean logic* `Gate`. However, the depth of the deepest *logic* `Gate` from the *root logic* `Gate` cannot exceed 2.
 
 <div markdown="span" class="alert alert-warning">
 
-:exclamation: **Warning:** The `BooleanTemplate` `Gate` depth cannot exceed 3.
+:exclamation: **Warning:** The `BooleanTemplate` `Gate` depth cannot exceed 2.
 
 </div>
 

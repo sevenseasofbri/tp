@@ -72,6 +72,15 @@ public class LrTemplate extends RTemplate {
         }
     }
 
+    protected boolean isSetInductor() {
+        return inductor.getValue() != 0;
+    }
+
+    protected String inductorToString() {
+        return "Total Inductance: " + (isSetInductor() ? inductor : NOT_SET) + System.lineSeparator();
+    }
+
+
     /**
      * Returns String consisting of total inductance and resistance values of the LrTemplate object.
      *
@@ -79,10 +88,7 @@ public class LrTemplate extends RTemplate {
      */
     @Override
     public String toString() {
-        return RL_TEMPLATE
-                + "Current Voltage: " + initialPowerSupply + System.lineSeparator()
-                + "Total Resistance: " + getResistor() + System.lineSeparator()
-                + "Total Inductance: " + inductor + System.lineSeparator();
+        return RL_TEMPLATE + voltageToString() + resistorToString() + inductorToString();
     }
 
     /**

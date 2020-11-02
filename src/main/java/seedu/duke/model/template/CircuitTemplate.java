@@ -3,10 +3,12 @@ package seedu.duke.model.template;
 import seedu.duke.DukeException;
 import seedu.duke.model.component.LoadComponent;
 import seedu.duke.model.component.VoltageSource;
+import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
 
 public abstract class CircuitTemplate {
     protected VoltageSource initialPowerSupply;
     protected static final double ANGULAR_FREQUENCY = 100 * Math.PI;
+    protected static final String NOT_SET = "not set";
 
     public CircuitTemplate(double powerSupply) {
         initialPowerSupply = new VoltageSource(powerSupply);
@@ -21,12 +23,16 @@ public abstract class CircuitTemplate {
         return initialPowerSupply;
     }
 
+    protected boolean isSetPowerSupply() {
+        return initialPowerSupply.getValue() != 0;
+    }
+
     /**
      * Sets value of the voltage source.
      *
      * @param value double value to be set to the component.
      */
-    public void setInitialPowerSupply(double value) {
+    public void setInitialPowerSupply(double value) throws ZeroComponentException {
         initialPowerSupply.setValue(value);
     }
 
@@ -54,5 +60,9 @@ public abstract class CircuitTemplate {
     }
 
     public abstract LoadComponent getComponent(String component) throws DukeException;
+
+    protected String voltageToString() {
+        return "Current Voltage: " + (isSetPowerSupply() ? initialPowerSupply : NOT_SET) + System.lineSeparator();
+    }
 
 }

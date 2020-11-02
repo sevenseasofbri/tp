@@ -13,6 +13,8 @@ public class LcTemplate extends CircuitTemplate {
                                                 + "\t+----+V_ac+---+\n";
     private final Inductor inductor;
     private final Capacitor capacitor;
+    private boolean isSetInductor = false;
+    private boolean isSetCapacitor = false;
 
 
     public LcTemplate(double capacitance, double inductance, double powerSupply) {
@@ -77,6 +79,14 @@ public class LcTemplate extends CircuitTemplate {
         capacitor.setValue(value);
     }
 
+    protected boolean isSetInductor() {
+        return inductor.getValue() != 0;
+    }
+
+    protected boolean isSetCapacitor() {
+        return capacitor.getValue() != 0;
+    }
+
     /**
      * Sets the value of the inductor in the Lc Template circuit to the value specified.
      *
@@ -93,6 +103,14 @@ public class LcTemplate extends CircuitTemplate {
         }
     }
 
+    protected String inductorToString() {
+        return "Total Inductance: " + (isSetInductor() ? inductor : NOT_SET) + System.lineSeparator();
+    }
+
+    protected String capacitorToString() {
+        return "Total Capacitance: " + (isSetCapacitor() ? capacitor : NOT_SET) + System.lineSeparator();
+    }
+
     /**
      * Returns String consisting of total inductance and capacitance values of the LcTemplate object.
      *
@@ -100,10 +118,7 @@ public class LcTemplate extends CircuitTemplate {
      */
     @Override
     public String toString() {
-        return LC_TEMPLATE
-                + "Current Voltage: " + initialPowerSupply + System.lineSeparator()
-                + "Total Capacitance: " + capacitor + System.lineSeparator()
-                + "Total Inductance: " + inductor + System.lineSeparator();
+        return LC_TEMPLATE + voltageToString() + capacitorToString() + inductorToString();
     }
 
     /**

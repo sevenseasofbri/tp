@@ -10,6 +10,7 @@ import seedu.duke.model.gates.XorGate;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -32,7 +33,7 @@ public class BinaryTreeTest {
     @Test
     void getRoot_emptyTree_returnsNull() {
         BinaryTree<Gate> tree = new BinaryTree();
-        assertEquals(null, tree.getRoot());
+        assertNull(tree.getRoot());
     }
 
     @Test
@@ -49,8 +50,12 @@ public class BinaryTreeTest {
     }
 
     @Test
+<<<<<<< HEAD
     void getT_nonEmptyTree_validIndex_returnsValueAtIndex() {
         OrGate gate = new OrGate();
+=======
+    void getT_nonEmptyTree_returnsValueAtIndex() {
+>>>>>>> ed6c014bebb3baa3fae6e96ee6a87cc3fef8adbf
         BinaryTree<Gate> tree = new BinaryTree(new OrGate());
         assertDoesNotThrow(() -> tree.getT(0));
     }
@@ -96,7 +101,7 @@ public class BinaryTreeTest {
     @Test
     void isNullAtIndex_Index_returnsTrue() {
         BinaryTree<Gate> tree = new BinaryTree();
-        assertEquals(true, tree.isNullAtIndex(0));
+        assertTrue(tree.isNullAtIndex(0));
     }
 
     @Test

@@ -1,6 +1,5 @@
 package seedu.duke.model.gates;
 
-import seedu.duke.DukeException;
 import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
 
 public class NandGate extends AndGate {
@@ -13,8 +12,8 @@ public class NandGate extends AndGate {
      * @throws InputsNotSetException If both inputs aren't set yet.
      */
     @Override
-    public int getOutput() throws InputsNotSetException {
-        return ~(super.getOutput());
+    public boolean getOutput() throws InputsNotSetException {
+        return !(super.getOutput());
     }
 
     /**
