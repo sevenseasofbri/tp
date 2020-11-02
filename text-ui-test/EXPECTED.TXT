@@ -431,6 +431,9 @@ C = ?
 Index specified is out of bounds!
 -----------------------------------------------------------
 -----------------------------------------------------------
+Invalid position chosen! Make sure the single letter position specified is depicted in the current logic diagram.
+-----------------------------------------------------------
+-----------------------------------------------------------
 Invalid input chosen! You should only choose 0 or 1 as input.
 -----------------------------------------------------------
 -----------------------------------------------------------

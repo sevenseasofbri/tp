@@ -36,6 +36,7 @@ calc current
 template hey
 template and
 set a 2
+set q 1
 set b 0.5
 add
 set B 1
