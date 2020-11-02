@@ -1,4 +1,6 @@
 start
+tutorial
+hello
 tutorial circuit
 template rc
 set v 5
@@ -7,6 +9,7 @@ set c 20
 add parallel c 20
 calc power
 exit
+set v 5
 tutorial boolean
 template and
 set B 1
@@ -17,17 +20,24 @@ set F 0
 set G 1
 calc
 exit
+set B 1
 template rc
+set v -999
 set v 5
 set r 200
 set c 10
 add series r 200
 add series c 10
 add parallel r 200
+add parallel l 100
 set r 100
 set c 2
 calc current
+template hey
 template and
+set a 2
+set b 0.5
+add
 set B 1
 add C or
 set F 0

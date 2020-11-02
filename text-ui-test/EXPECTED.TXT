@@ -36,6 +36,12 @@ Here's a summary of the command parameters:
 | BOOLVALUE | N.A                              | 0, 1                          |
 +-----------+----------------------------------+-------------------------------+
 
+-----------------------------------------------------------
+Not enough arguments! The command used needs 2 arguments.
+-----------------------------------------------------------
+-----------------------------------------------------------
+Invalid Command! Use the command 'summary' to take a look at all the available commands.
+-----------------------------------------------------------
 You have entered Tutorial Mode!
 Type 'exit' if you want to leave this mode and go back to the application.
 Lets get started! First choose a template you want to work with. You can choose from rc, rl, lc and r templates.
@@ -142,6 +148,9 @@ Here's a summary of the command parameters:
 | BOOLVALUE | N.A                              | 0, 1                          |
 +-----------+----------------------------------+-------------------------------+
 :) Have fun using CLIrcuit Assistant!
+-----------------------------------------------------------
+-----------------------------------------------------------
+No template set yet! Use the 'summary' command to see the available templates.
 -----------------------------------------------------------
 You have entered Tutorial Mode!
 Type 'exit' if you want to leave this mode and go back to the application.
@@ -295,6 +304,9 @@ Here's a summary of the command parameters:
 :) Have fun using CLIrcuit Assistant!
 -----------------------------------------------------------
 -----------------------------------------------------------
+No template set yet! Use the 'summary' command to see the available templates.
+-----------------------------------------------------------
+-----------------------------------------------------------
 	+---R-----C---+
 	|             |
 	|             |
@@ -303,6 +315,9 @@ Current Voltage: not set
 Total Resistance: not set
 Total Capacitance: not set
 
+-----------------------------------------------------------
+-----------------------------------------------------------
+Invalid number! You should use a positive number.
 -----------------------------------------------------------
 -----------------------------------------------------------
 The voltage source was set to 5.0 V
@@ -371,6 +386,9 @@ Total Capacitance: 5.0 µF
 
 -----------------------------------------------------------
 -----------------------------------------------------------
+Invalid component
+-----------------------------------------------------------
+-----------------------------------------------------------
 The resistor was set to 100.0 Ω
 	+---R-----C---+
 	|             |
@@ -396,6 +414,10 @@ Total Capacitance: 2.0 µF
 The total rms current flowing through the circuit is 0.0031354096992368807A
 -----------------------------------------------------------
 -----------------------------------------------------------
+Invalid argument! Please follow the format for the command being used.
+You can use the command 'summary' to take a look at all the commands.
+-----------------------------------------------------------
+-----------------------------------------------------------
           0UT
            |
      B           C
@@ -404,6 +426,15 @@ OUT = B AND C
 B = ?
 C = ?
 
+-----------------------------------------------------------
+-----------------------------------------------------------
+Index specified is out of bounds!
+-----------------------------------------------------------
+-----------------------------------------------------------
+Invalid input chosen! You should only choose 0 or 1 as input.
+-----------------------------------------------------------
+-----------------------------------------------------------
+Not enough arguments! The command used needs 3 arguments.
 -----------------------------------------------------------
 -----------------------------------------------------------
           0UT

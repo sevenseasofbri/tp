@@ -6,6 +6,13 @@ import seedu.duke.logic.commands.gates.BooleanCommand;
 import seedu.duke.logic.commands.gates.CalculateBooleanCommand;
 import seedu.duke.logic.commands.gates.SetBooleanCommand;
 import seedu.duke.logic.commands.gates.TemplateBooleanCommand;
+import seedu.duke.logic.parser.exceptions.InvalidCommandException;
+import seedu.duke.logic.parser.exceptions.InvalidGateException;
+import seedu.duke.logic.parser.exceptions.InvalidInputException;
+import seedu.duke.logic.parser.exceptions.InvalidPositionException;
+import seedu.duke.logic.parser.exceptions.NoTemplateException;
+import seedu.duke.logic.parser.exceptions.NotEnoughArgumentsException;
+import seedu.duke.logic.parser.exceptions.ParserException;
 import seedu.duke.model.gates.AndGate;
 import seedu.duke.model.gates.Gate;
 import seedu.duke.model.gates.NandGate;
@@ -16,7 +23,7 @@ import seedu.duke.model.gates.XorGate;
 import seedu.duke.model.template.BooleanTemplate;
 
 public class BooleanParser implements LogicParser {
-    private static BooleanTemplate booleanTemplate;
+    private BooleanTemplate booleanTemplate;
 
     /**
      * Returns a BooleanCommand object based on the input line.
@@ -33,9 +40,9 @@ public class BooleanParser implements LogicParser {
         case AddBooleanCommand.COMMAND_WORD:
             return prepareBooleanAdd(args);
         case CalculateBooleanCommand.COMMAND_WORD:
-            return prepareBooleanCalculate(args);
+            return prepareBooleanCalculate();
         default:
-            throw new DukeException("Invalid Command!");
+            throw new InvalidCommandException();
         }
     }
 
@@ -73,17 +80,17 @@ public class BooleanParser implements LogicParser {
      *
      * @param args User Input arguments.
      * @return SetBooleanCommand object to be executed.
-     * @throws DukeException If input parsed incorrectly, or no template set yet.
+     * @throws ParserException If input parsed incorrectly, or no template set yet.
      */
-    private SetBooleanCommand prepareBooleanSet(String[] args) throws DukeException {
+    private SetBooleanCommand prepareBooleanSet(String[] args) throws ParserException {
         if (hasMinArguments(args, 3)) {
-            throw new DukeException("Not enough arguments!");
+            throw new NotEnoughArgumentsException(3);
         }
         if (!isValidInput(args[2])) {
-            throw new DukeException("Invalid input");
+            throw new InvalidInputException();
         }
         if (hasNoTemplate()) {
-            throw new DukeException("No template set yet!");
+            throw new NoTemplateException();
         }
 
         int index = getIndex(args[1]);
@@ -98,13 +105,13 @@ public class BooleanParser implements LogicParser {
      *
      * @param arg String type command input.
      * @return int type index.
-     * @throws DukeException If the index passed is invalid.
+     * @throws InvalidPositionException If the index passed is invalid.
      */
-    private int getIndex(String arg) throws DukeException {
+    private int getIndex(String arg) throws InvalidPositionException {
         String capsArg = arg.toUpperCase();
         int index = capsArg.charAt(0) - 'A';
         if (index < 0 || index >= 16 || arg.length() > 1) {
-            throw new DukeException("Invalid position");
+            throw new InvalidPositionException();
         }
         return index;
     }
@@ -114,14 +121,14 @@ public class BooleanParser implements LogicParser {
      *
      * @param args String type user input.
      * @return AddBooleanCommand instance to be executed.
-     * @throws DukeException If input parsed is incorrect or no template is set yet.
+     * @throws ParserException If input parsed is incorrect or no template is set yet.
      */
-    private AddBooleanCommand prepareBooleanAdd(String[] args) throws DukeException {
+    private AddBooleanCommand prepareBooleanAdd(String[] args) throws ParserException {
         if (hasMinArguments(args, 3)) {
-            throw new DukeException("Not enough arguments!");
+            throw new NotEnoughArgumentsException(3);
         }
         if (hasNoTemplate()) {
-            throw new DukeException("No template set yet!");
+            throw new NoTemplateException();
         }
 
         int index = getIndex(args[1]);
@@ -133,13 +140,12 @@ public class BooleanParser implements LogicParser {
     /**
      * Returns new instance of CalculateBooleanCommand after parsing user input.
      *
-     * @param args String type user input.
      * @return CalculateBooleanCommand instance to be executed.
-     * @throws DukeException If the template hasn't been set yet.
+     * @throws NoTemplateException If the template hasn't been set yet.
      */
-    private CalculateBooleanCommand prepareBooleanCalculate(String[] args) throws DukeException {
+    private CalculateBooleanCommand prepareBooleanCalculate() throws NoTemplateException {
         if (hasNoTemplate()) {
-            throw new DukeException("No template set yet!");
+            throw new NoTemplateException();
         }
         return new CalculateBooleanCommand(booleanTemplate);
     }
@@ -149,9 +155,9 @@ public class BooleanParser implements LogicParser {
      *
      * @param arg String type user input.
      * @return Gate type object.
-     * @throws DukeException If gate specified is invalid.
+     * @throws InvalidGateException If gate specified is invalid.
      */
-    private Gate getGate(String arg) throws DukeException {
+    private Gate getGate(String arg) throws InvalidGateException {
         switch (arg.toLowerCase()) {
         case "and":
             return new AndGate();
@@ -166,7 +172,7 @@ public class BooleanParser implements LogicParser {
         case "xnor":
             return new XnorGate();
         default:
-            throw new DukeException("Invalid Gate!");
+            throw new InvalidGateException();
         }
     }
 
@@ -175,7 +181,7 @@ public class BooleanParser implements LogicParser {
      *
      * @param arg String type user input.
      * @return BooleanTemplate type instance.
-     * @throws DukeException If the gate processed is invalid.
+     * @throws DukeException If the gate processed is invalid or BooleanTemplate cannot be created.
      */
     private BooleanTemplate getBooleanTemplate(String arg) throws DukeException {
         Gate gate = getGate(arg);
