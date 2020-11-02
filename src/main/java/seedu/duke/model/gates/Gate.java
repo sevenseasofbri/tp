@@ -1,6 +1,7 @@
 package seedu.duke.model.gates;
 
 import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
 
 public abstract class Gate {
     protected int output;
@@ -22,9 +23,9 @@ public abstract class Gate {
      * Returns output of gate.
      *
      * @return int type output value.
-     * @throws DukeException If the inputs aren't set.
+     * @throws InputsNotSetException If the inputs aren't set.
      */
-    public abstract int getOutput() throws DukeException;
+    public abstract int getOutput() throws InputsNotSetException;
 
     public void setInput(int input) {
         this.input = input;
@@ -80,11 +81,11 @@ public abstract class Gate {
     /**
      * Checks is input has been set or not.
      *
-     * @throws DukeException If an input is not set.
+     * @throws InputsNotSetException If an input is not set.
      */
-    protected void checkHasSetBothInput() throws DukeException {
+    protected void checkHasSetBothInput() throws InputsNotSetException {
         if (!(isSetSecondInput && isSetInput)) {
-            throw new DukeException("Input(s) not set yet!");
+            throw new InputsNotSetException("Input(s) not set yet!");
         }
     }
 

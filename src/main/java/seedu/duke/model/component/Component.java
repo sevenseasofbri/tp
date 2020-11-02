@@ -1,5 +1,7 @@
 package seedu.duke.model.component;
 
+import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
+
 public abstract class Component {
     protected double value;
     protected String siUnit;
@@ -15,7 +17,6 @@ public abstract class Component {
      * @return Value of Component.
      */
     public double getValue() {
-        assert value > 0 : "Value has been incorrectly read.";
         return value;
     }
 
@@ -24,11 +25,11 @@ public abstract class Component {
      *
      * @param value Value of Component.
      */
-    public void setValue(double value) {
+    public void setValue(double value) throws ZeroComponentException {
         if (value < 0) {
-            throw new ArithmeticException("You tried to enter a negative value!");
+            throw new ZeroComponentException("You tried to set a negative value!");
         } else if (value == 0) {
-            throw new ArithmeticException("You tried to enter a zero value!");
+            throw new ZeroComponentException("You tried to set a zero value!");
         }
         this.value = value;
     }

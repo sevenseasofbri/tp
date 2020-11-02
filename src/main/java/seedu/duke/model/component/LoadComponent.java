@@ -1,6 +1,6 @@
 package seedu.duke.model.component;
 
-import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
 
 public abstract class LoadComponent extends Component {
     protected boolean isDirectSeries;
@@ -9,20 +9,22 @@ public abstract class LoadComponent extends Component {
         super(value);
     }
 
-    private double addDirect(double otherValue) throws DukeException {
-        assert value > 0 : "Value has been incorrectly read.";
+    private double addDirect(double otherValue) throws ZeroComponentException {
         if (otherValue <= 0) {
-            throw new DukeException("Invalid value (<=0)");
+            throw new ZeroComponentException(":( You have attempted to add a component with a value <=0!");
         }
         return value + otherValue;
     }
 
-    private double addReciprocal(double otherValue) throws DukeException {
-        assert value > 0 : "Value has been incorrectly read.";
+    private double addReciprocal(double otherValue) throws ZeroComponentException {
         if (otherValue <= 0) {
-            throw new DukeException("Invalid value (<=0)");
+            throw new ZeroComponentException(":( You have attempted to add a component with a value <=0!");
         }
-        return 1 / ((1 / value) + (1 / otherValue));
+        if (value != 0) {
+            return 1 / ((1 / value) + (1 / otherValue));
+        } else {
+            return otherValue;
+        }
     }
 
     /**
@@ -30,9 +32,9 @@ public abstract class LoadComponent extends Component {
      *
      * @param otherValue Component value.
      * @return Effective value.
-     * @throws DukeException If value or otherValue is non-positive.
+     * @throws ZeroComponentException If value or otherValue is <=0.
      */
-    public double addSeries(double otherValue) throws DukeException {
+    public double addSeries(double otherValue) throws ZeroComponentException {
         if (isDirectSeries) {
             return addDirect(otherValue);
         } else {
@@ -45,9 +47,9 @@ public abstract class LoadComponent extends Component {
      *
      * @param otherValue Component value.
      * @return Effective value.
-     * @throws DukeException If value or otherValue is non-positive.
+     * @throws ZeroComponentException If value or otherValue is non-positive.
      */
-    public double addParallel(double otherValue) throws DukeException {
+    public double addParallel(double otherValue) throws ZeroComponentException {
         if (!isDirectSeries) {
             return addDirect(otherValue);
         } else {
