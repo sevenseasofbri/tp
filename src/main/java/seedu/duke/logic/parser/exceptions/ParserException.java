@@ -6,6 +6,4 @@ public abstract class ParserException extends DukeException {
     public ParserException(String s) {
         super(s);
     }
-
-
 }
