@@ -447,12 +447,15 @@ The output of the above configuration is 0.
 This section details the **frequently asked questions (FAQ)** regarding the use of the application.
 
 **Q**: How do I know the difference between the components?
+
 **A**: Pay attention in CG1111 Engineering Principles & Practice (EPP).
 
 **Q**: How do I know what each logic gate does?
+
 **A**: Pay attention in EE2026 Digital Design.
 
 **Q**: Why is the interactive tutorial so restrictive?
+
 **A**: This is by design. Once you get the hang of the app, you can exit the tutorial to use the commands proper.
 
 --------------------------------------------------------------------------------------------------------------------

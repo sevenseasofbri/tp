@@ -15,16 +15,9 @@ Prerequisites: JDK 11 (use the exact version), update Intellij to the most recen
    > Task :classes
    
    > Task :Duke.main()
-   Hello from
-               / ____| |    |_   _|              (_) |       /\\           (_)   | |            | |
-               | |    | |      | |  _ __ ___ _   _ _| |_     /  \\   ___ ___ _ ___| |_ __ _ _ __ | |_
-               | |    | |      | | | '__/ __| | | | | __|   / /\\ \\ / __/ __| / __| __/ _` | '_ \\| __|
-               | |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\\\__ \\__ \\ \\__ \\ || (_| | | | | |_
-               \\_____|______|_____|_|  \\___|\\__,_|_|\\__| /_/    \\_\\___/___/_|___/\\__\\__,_|_| |_|\\__|
-   
-   What is your name?
+   Hello! Type 'start' to start the CLIrcuit Assistant
    ```
-   Type some word and press enter to let the execution proceed to the end.
+   Type `start` and press enter to let the execution proceed to the end.
 
 ## Build automation using Gradle
 
