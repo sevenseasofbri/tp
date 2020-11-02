@@ -1,7 +1,7 @@
 package seedu.duke.logic.commands.circuit;
 
-import seedu.duke.Duke;
 import seedu.duke.DukeException;
+import seedu.duke.logic.commands.exceptions.ComponentNotSetException;
 import seedu.duke.model.component.Capacitor;
 import seedu.duke.model.component.Inductor;
 import seedu.duke.model.component.LoadComponent;
@@ -28,7 +28,7 @@ public class AddCircuitCommand extends SetCircuitCommand {
     public void execute() throws DukeException {
         loadComponent = template.getComponent(component);
         if (loadComponent.getValue() == 0) {
-            throw new DukeException("Component not yet set!");
+            throw new ComponentNotSetException();
         }
         oldValue = value;
         oldLoadComponent = createCopyComponent();

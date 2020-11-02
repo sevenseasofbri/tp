@@ -8,15 +8,19 @@ import seedu.duke.logic.commands.TutorialCommand;
 import seedu.duke.logic.commands.circuit.TemplateCircuitCommand;
 import seedu.duke.logic.commands.circuit.TutorialCircuitCommand;
 import seedu.duke.logic.commands.gates.TutorialBooleanCommand;
+import seedu.duke.logic.parser.exceptions.InvalidArgumentException;
+import seedu.duke.logic.parser.exceptions.InvalidCommandException;
+import seedu.duke.logic.parser.exceptions.InvalidTemplateException;
+import seedu.duke.logic.parser.exceptions.NotEnoughArgumentsException;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Parser {
     private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-    private static boolean isCircuit = true;
-    private static final CircuitParser circuitParser = new CircuitParser();
-    private static final BooleanParser booleanParser = new BooleanParser();
+    private boolean isCircuit = true;
+    private final CircuitParser circuitParser = new CircuitParser();
+    private final BooleanParser booleanParser = new BooleanParser();
 
     /**
      * Returns a Command object based on the input line.
@@ -29,7 +33,7 @@ public class Parser {
         // Prevent blank tasks
         if (line.isBlank()) {
             LOGGER.log(Level.WARNING, "Blank line entered.");
-            throw new DukeException("Invalid command!");
+            throw new InvalidCommandException();
         }
         // split by whitespace
         String[] args = line.split("\\s+");
@@ -57,7 +61,7 @@ public class Parser {
 
     private Command prepareTemplate(String[] args) throws DukeException {
         if (args.length < 2) {
-            throw new DukeException("Not enough arguments!");
+            throw new NotEnoughArgumentsException(2);
         }
 
         String firstArg = args[1].toLowerCase();
@@ -74,12 +78,12 @@ public class Parser {
             return booleanParser.prepareBooleanTemplate(args);
         }
 
-        throw new DukeException("Invalid argument!");
+        throw new InvalidArgumentException();
     }
 
     private Command prepareTutorial(String[] args) throws DukeException {
         if (args.length < 2) {
-            throw new DukeException("Not enough arguments!");
+            throw new NotEnoughArgumentsException(2);
         }
         String command = args[1].toLowerCase();
         switch (command) {
@@ -88,7 +92,7 @@ public class Parser {
         case "boolean":
             return new TutorialBooleanCommand();
         default:
-            throw new DukeException("Please enter valid tutorial type!");
+            throw new InvalidTemplateException();
         }
     }
 }
