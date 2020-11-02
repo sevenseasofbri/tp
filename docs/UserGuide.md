@@ -20,6 +20,11 @@ title : User Guide
 	background-image: linear-gradient(180deg, #fff5d5, #fff3cd);
 	border-color: #ffeeba
 }
+.alert-tip {
+    color: #000000;
+	background-image: linear-gradient(180deg, #DCECDC, #DCECDC);
+	border-color: #DCDCDC
+}
 </style>
 * Table of Contents
 {:toc}
@@ -32,6 +37,7 @@ This **User Guide** aims to help you get familiarised with the commands used in 
 |:---------------:|:--------|
 |:information_source:|An informational source.|
 |:exclamation:|A warning.|
+|:bulb:|A tip.|
 |**Bolded**|A keyword.|
 |*Italicised*|Technical word.|
 |[Hyperlinked](#)|Leads to the appropriate section.|
@@ -361,9 +367,9 @@ C = ?
 
 The application has the ability to combine multiple `Gate` objects to generate more complicated boolean logic gate configurations. This command allows you to set an input to a boolean logic `Gate`. You can also change an existing gate if needed. However, the depth of the deepest logic `Gate` from the root logic `Gate` cannot exceed 2.
 
-<div markdown="span" class="alert alert-primary">
+<div markdown="span" class="alert alert-tip">
 
-:information_source: **Note:**  You can use this command to change an existing `Gate`.
+:bulb: **Tip:**  You can use this command to change an existing `Gate`.
 
 </div>
 
