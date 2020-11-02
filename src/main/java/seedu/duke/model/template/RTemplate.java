@@ -53,6 +53,10 @@ public class RTemplate extends CircuitTemplate {
         resistor.setValue(value);
     }
 
+    protected boolean isSetResistor() {
+        return resistor.getValue() != 0;
+    }
+
     /**
      * Sets the value of the resistor in the circuit to the value specified.
      *
@@ -64,6 +68,10 @@ public class RTemplate extends CircuitTemplate {
         setResistor(value);
     }
 
+    protected String resistorToString() {
+        return "Total Resistance: " + (isSetResistor() ? resistor : NOT_SET) + System.lineSeparator();
+    }
+
     /**
      * Returns String consisting of total inductance and resistance values of the LrTemplate object.
      *
@@ -71,9 +79,7 @@ public class RTemplate extends CircuitTemplate {
      */
     @Override
     public String toString() {
-        return R_TEMPLATE
-                + "Current Voltage: " + initialPowerSupply + System.lineSeparator()
-                + "Total Resistance: " + resistor + System.lineSeparator();
+        return R_TEMPLATE + voltageToString() + resistorToString();
     }
 
 

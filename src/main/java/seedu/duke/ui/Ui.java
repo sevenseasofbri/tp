@@ -1,16 +1,18 @@
 package seedu.duke.ui;
 
+import seedu.duke.logic.commands.SummaryCommand;
+
 import java.util.Scanner;
 
 public class Ui {
     //Running into issues with runtest.bat with the following LOGO. Using regular text for now.
-    private static final String LOGO = " _____ _      _____                _ _                      _  "
-            + "   _              _   \n"
-            + "/ ____| |    |_   _|              (_) |       /\\           (_)   | |            | |\n"
+    private static final String LOGO = "  _____ _      _____                _ _                      _  "
+            + "    _              _   \n"
+            + " / ____| |    |_   _|              (_) |       /\\           (_)   | |            | |\n"
             + "| |    | |      | |  _ __ ___ _   _ _| |_     /  \\   ___ ___ _ ___| |_ __ _ _ __ | |_\n"
             + "| |    | |      | | | '__/ __| | | | | __|   / /\\ \\ / __/ __| / __| __/ _` | '_ \\| __|\n"
             + "| |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\\\__ \\__ \\ \\__ \\ || (_| | | | | |_\n"
-            + "\\_____|______|_____|_|  \\___|\\__,_|_|\\__| /_/    \\_\\___/___/_|___/\\__\\__,_|_| |_|\\__|";
+            + " \\_____|______|_____|_|  \\___|\\__,_|_|\\__| /_/    \\_\\___/___/_|___/\\__\\__,_|_| |_|\\__|";
 
     private static final String TUTORIAL = "  _______    _             _       _   __  __           _      _ \n"
             + " |__   __|  | |           (_)     | | |  \\/  |         | |    | |\n"
@@ -75,33 +77,8 @@ public class Ui {
      */
     private void printGreeting() {
         System.out.println(" ");
-        System.out.println("Welcome to the CLIrcuit Assistant!");
-        System.out.println("\n"
-                + "             +----------------------------------------+\n"
-                + "             |    Command    |     Template Name      |\n"
-                + "             +----------------------------------------+\n"
-                + "             |                Circuit                 |\n"
-                + "             +----------------------------------------+\n"
-                + "             | template r    | Resistor               |\n"
-                + "             | template rc   | Resistor-Capacitor     |\n"
-                + "             | template rl   | Resistor-Inductor      |\n"
-                + "             | template lc   | Inductor-Capacitor     |\n"
-                + "             +--------------+-------------------------+\n"
-                + "             |                Boolean                 |\n"
-                + "             +----------------------------------------+\n"
-                + "             | template or   | Or Gate                |\n"
-                + "             | template and  | And Gate               |\n"
-                + "             | template nor  | Nor Gate               |\n"
-                + "             | template xor  | Xor Gate               |\n"
-                + "             | template nand | Nand Gate              |\n"
-                + "             | template xnor | Xnor Gate              |\n"
-                + "             +--------------+-------------------------+\n"
-        );
-        System.out.println("Type one of the above template commands to get started with your template.");
-        System.out.println("You can use the tutorial command to go through our interactive tutorial.");
-        System.out.println("    Circuits: tutorial circuit\n    Boolean: tutorial boolean");
-        System.out.println("You can also use the summary command to see a list of all the commands.");
-        System.out.println("    summary");
+        System.out.println("Welcome to the CLIrcuit Assistant!\n");
+        System.out.println(new SummaryCommand());
     }
 
     /**

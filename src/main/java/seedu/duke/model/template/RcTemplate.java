@@ -75,6 +75,14 @@ public class RcTemplate extends RTemplate {
         }
     }
 
+    protected boolean isSetCapacitor() {
+        return capacitor.getValue() != 0;
+    }
+
+    protected String capacitorToString() {
+        return "Total Capacitance: " + (isSetCapacitor() ? capacitor : NOT_SET) + System.lineSeparator();
+    }
+
     /**
      * Returns String consisting of total capacitance and resistance values of the RcTemplate object.
      *
@@ -82,10 +90,7 @@ public class RcTemplate extends RTemplate {
      */
     @Override
     public String toString() {
-        return RC_TEMPLATE
-                + "Current Voltage: " + initialPowerSupply + System.lineSeparator()
-                + "Total Resistance: " + resistor + System.lineSeparator()
-                + "Total Capacitance: " + capacitor + System.lineSeparator();
+        return RC_TEMPLATE + voltageToString() + resistorToString() + capacitorToString();
     }
 
     /**

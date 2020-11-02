@@ -88,7 +88,7 @@ public class BooleanParser implements LogicParser {
 
         int index = getIndex(args[1]);
 
-        int input = Integer.parseInt(args[2]) == 0 ? 0 : 1;
+        boolean input = Integer.parseInt(args[2]) != 0;
 
         return new SetBooleanCommand(booleanTemplate, input, index);
     }
