@@ -176,7 +176,7 @@ Now lets set a value to the input C! Type in 'set C BOOLVLAUE' where BOOLVALUE i
 
 OUT = B AND C
 B = 1
-C = 1
+C = 0
 
 -----------------------------------------------------------
 Now lets calculate the output of B GATE C. GATE here is the template you typed out earlier. Enter 'calc'.
@@ -187,7 +187,7 @@ Now lets calculate the output of B GATE C. GATE here is the template you typed o
 
 OUT = B AND C
 B = 1
-C = 1
+C = 0
 
 The output of the above configuration is 0.
 -----------------------------------------------------------
@@ -236,7 +236,7 @@ OUT = B AND C
 B = 1
 C = F NOR G
 F = 0
-G = 0
+G = 1
 
 -----------------------------------------------------------
 Now lets calculate the output of F GATE G. GATE here is the template you typed out earlier. Enter 'calc'.
@@ -251,7 +251,7 @@ OUT = B AND C
 B = 1
 C = F NOR G
 F = 0
-G = 0
+G = 1
 
 The output of the above configuration is 0.
 -----------------------------------------------------------
@@ -494,7 +494,7 @@ C = F OR G
 F = 0
 G = N XOR O
 N = 1
-O = 1
+O = 0
 
 -----------------------------------------------------------
 -----------------------------------------------------------
@@ -512,7 +512,7 @@ C = F OR G
 F = 0
 G = N XOR O
 N = 1
-O = 1
+O = 0
 
 The output of the above configuration is 1.
 -----------------------------------------------------------
