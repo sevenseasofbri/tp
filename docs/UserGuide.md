@@ -47,7 +47,7 @@ This **User Guide** aims to help you get familiarised with the commands used in 
 
 ## 2. Introduction
 
-**CLIrcuit Assistant** is a desktop app to implement and solve simple **circuits** and **logic gate configurations**, optimized for use via the CLI. The application is targeted at those who would simply like a resource-light and offline program to aid in analysing circuits.
+**CLIrcuit Assistant** is a desktop app to implement and solve simple **circuits** and **logic gate configurations**, optimized for use via the *CLI*. The application is targeted at those who would simply like a resource-light and offline program to aid in analysing circuits.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
 
 1. Ensure that you have Java 11 or above installed.
 1. Download the latest version of `Duke` from [the releases](https://github.com/AY2021S1-CS2113T-W13-3/tp/releases).
-1. Double click `jar` file to start the application. 
+1. Double click the `jar` file to start the application. 
     1. If the above step does not open the app, then open your *terminal* and make sure you are in the folder with the `jar` file. 
     1. Type the following command: 
         ```
@@ -106,7 +106,7 @@ The format of commands below keep to the following.
 
 <div markdown="span" class="alert alert-primary">
 
-:information_source: **Note:**  Given a command to be parsed to require n arguments, any argument after the nth argument will be ignored.
+:information_source: **Note:**  Given a command parsed to require *n* arguments, any argument after the *n*th argument will be ignored.
 
 </div>
 
@@ -216,7 +216,7 @@ Total Capacitance: 0.0 µF
 
 ### 6.3 Adding a component <a name="add-comp"></a>
 
-This command adds a component, in a specific configuration, to the current circuit template. This allows you to quickly obtain calculations to your chosen configurations. Only *load components* can be added - you cannot add a *voltage source*.
+This command adds a component, in a specific configuration - either *in parallel* or *in series* - to the current circuit template. This allows you to quickly obtain calculations to your chosen configurations. Only *load components* can be added - you cannot add a *voltage source*.
 
 <div markdown="span" class="alert alert-warning">
 
@@ -226,7 +226,7 @@ This command adds a component, in a specific configuration, to the current circu
 
 <div markdown="span" class="alert alert-warning">
 
-:exclamation: **Warning:** You cannot add a voltage source `v` to any template.
+:exclamation: **Warning:** You cannot add a new *voltage source* `v` to any template.
 
 </div>
 
@@ -266,7 +266,7 @@ This command calculates the various effective values based on the `template` con
 
 <div markdown="span" class="alert alert-primary">
 
-:information_source: **Note:**  If a component is not yet set, its effective value, as well as the current and power flowing through the power supply, will default to 0.
+:information_source: **Note:**  If a component is not yet set, its effective value, as well as the *current* and *power* flowing through the power supply, will default to 0.
 
 </div>
 
@@ -333,7 +333,7 @@ Here, `OUT` represents the output of the boolean template. The letters `B` and `
 
 ### 7.2 Setting an input value <a name='set-input'></a>
 
-This command sets the value of an input. The inputs will then be used in the `calc` command to give the output of the boolean template. The input must be a *leaf* of the tree seen in the diagram - it cannot be out of bounds or already set as a gate.
+This command sets the value of an input. The inputs will then be used in the `calc` command to give the output of the boolean template. The input must not have already been set as a `Gate` and must be part of the diagram.
 
 <div markdown="span" class="alert alert-warning">
 
@@ -365,7 +365,7 @@ C = ?
 
 ### 7.3 Adding a Gate <a name="add-gate"></a>
 
-The application has the ability to combine multiple `Gate` objects to generate more complicated boolean logic gate configurations. This command allows you to set an input to a boolean logic `Gate`. You can also change an existing gate if needed. However, the depth of the deepest logic `Gate` from the root logic `Gate` cannot exceed 2.
+The application has the ability to combine multiple `Gate` objects to generate more complicated boolean logic gate configurations. This command allows you to set an input to a boolean logic `Gate`. You can also change an existing gate if needed. However, the depth of the deepest logic `Gate` from the *root* logic `Gate` (at the top) cannot exceed 2.
 
 <div markdown="span" class="alert alert-tip">
 
@@ -375,13 +375,13 @@ The application has the ability to combine multiple `Gate` objects to generate m
 
 <div markdown="span" class="alert alert-warning">
 
-:exclamation: **Warning:** The `BooleanTemplate` `Gate` depth cannot exceed 2.
+:exclamation: **Warning:** The `Gate` depth cannot exceed 2.
 
 </div>
 
 <div markdown="span" class="alert alert-primary">
 
-:information_source: **Note:**  The current implementation only allows the tree to be 3 levels deep, counting from 0 at the top.
+:information_source: **Note:**  The current implementation only allows the `Gate` objects to be 3 levels deep, counting from 0 at the top.
 
 </div>
 
