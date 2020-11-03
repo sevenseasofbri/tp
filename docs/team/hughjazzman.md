@@ -67,7 +67,7 @@ Introduced the Add Component feature, refactored the `Component` classes, added 
 
 * **PR**: [#36](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/36), [#39](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/39), [#106](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/106)
 
-Updated various classes mentioned [above](#add-comp). Added classes `AddCommand` and `SetCommand` and JUnit Tests `ParserTest`.
+Updated various classes mentioned [above](#add-components-and-command-classes-). Added classes `AddCommand` and `SetCommand` and JUnit Tests `ParserTest`.
 
 #### Ui Architecture, Assertions
 
