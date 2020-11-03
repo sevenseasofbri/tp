@@ -48,8 +48,7 @@ title : Wira Azmoon - Project Portfolio Page
 
 #### Code & User Guide Setup 
 
-* **Issues**: #1
-* **PRs**: #8
+* **PR**: [#8](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/8)
 
 Set up the skeleton code used in the project, including the following classes:
 
@@ -60,80 +59,65 @@ Set up the skeleton code used in the project, including the following classes:
 
 #### Add Components and Command Classes <a name="add-comp"></a>
 
-* **Issues**: #3, #4, #5, #22
-* **PRs** : #24, #25
+* **PRs** : [#24](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/24), [#25](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/25)
 
 Introduced the Add Component feature, refactored the `Component` classes, added the classes within the `command` package, updated the `Parser` class, and update some `Template` classes, as well as `Ui` and `Duke`. JavaDoc was also added to `Command.execute()` methods.
 
 #### Add/Set Commands & JUnit Tests
 
-* **Issues**: #4, #6, #22, #29, #72
-* **PR**: #36, #39, #106
+* **PR**: [#36](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/36), [#39](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/39), [#106](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/106)
 
 Updated various classes mentioned [above](#add-comp). Added classes `AddCommand` and `SetCommand` and JUnit Tests `ParserTest`.
 
 #### Ui Architecture, Assertions
 
-* **Issue**: #47
-* **PR**: #49
+* **PR**: [#49](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/49)
 
 Refactored code according to updated Design Architecture - reduced coupling between `Ui` and `Command` to follow Architecture in updated [**Developer Guide**](DeveloperGuide.md). Added assertions to make the code more defensive.
 
 #### Boolean Commands Setup
 
-* **Issue**: #64
-* **PR**: #53, #71, #82
+* **PR**: [#53](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/53), [#71](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/71), [#82](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/82)
 
 Added/Updated classes in the `commands.gates`, `model.component`, `model.binarytree` packages, as well as updated the `BooleanParser` to handle new commands.
 
 
 #### Boolean Commands Functionalities
 
-* **Issues**: #55, #64, #65, #66, #68
-* **PR**: #83
+* **PR**: [#83](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/83)
 
-Added functionalities for `BooleanCommand` and subclasses:
-
-* `TemplateBooleanCommand`
-* `AddBooleanCommand`
-* `SetBooleanCommand`
-* `CalculateBooleanCommand`
+Added functionalities for `BooleanCommand` and its subclasses.
 
 #### PED Bugs
 
-* **Issues**: #123, #136, #139, #140, #145, #146, #148, #149, #150, #151, #152, #153
-* **PR**: #156
+* **PR**: [#156](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/156)
 
-Squashed bugs found in the PE Dry Run. These included high severity bugs such as #148, #149, #150, #151, #152, #153, with some other medium and low severity bugs as well.
+Squashed bugs found in the PE Dry Run. These included high severity bugs such as [#148](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/148), [#151](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/151), with some other medium and low severity bugs as well.
 
 ### User Guide
 
-* **Issues**: #2, #37, #86, #154
-* **PRs**: #9, #45, #59, #61, #91, #109, #158
+* **PRs**: [#9](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/9), [#45](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/45), [#59](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/59), [#61](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/61), [#91](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/91), [#109](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/109), [#158](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/158)
 
-Set up the first draft of User Guide for the project, starting with all commands discussed in the initial group meeting in #9, #45. Updated User Guide with v2.0 commands in #59, and updated their expected outcomes in #61. Numerous PED Bugs were also squashed in #158, with many of them being high severity, as can be seen in #154.
+Set up the first draft of User Guide for the project, starting with all commands discussed in the initial group meeting in [#9](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/9), [#45](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/45). Updated User Guide with v2.0 commands in [#59](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/59), and updated their expected outcomes in [#61](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/61). Numerous PED Bugs were also squashed in [#158](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/158), with many of them being high severity, as can be seen in [#154](https://github.com/AY2021S1-CS2113T-W13-3/tp/issues/154).
 
 
 
 ### Developer Guide
 
-* **Issues**: #40, #81, #118, #120
-* **PR**: #45, #50, #59, #61, #91, #109, #113, #119, #121
+* **PR**: [#45](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/45), [#50](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/50), [#59](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/59), [#61](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/61), [#91](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/91), [#109](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/109), [#113](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/113), [#119](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/119), [#121](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/121)
 
-Created structure of Developer Guide, starting with Architecture in #45. Created UML Diagrams with the help of PlantUML, including Class Diagrams found in the Architecture and Sequence Diagram for `SetCircuitCommand`. As the IC for documentation, improvements were also made to diagrams made by other group members, such as the Class Diagrams found under the Implementation of Boolean Commands. User Stories discussed by the group were also added into its own section.
+Created structure of Developer Guide, starting with Architecture in [#45](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/45). Created UML Diagrams with the help of PlantUML, including Class Diagrams found in the Architecture and Sequence Diagram for `SetCircuitCommand`. As the IC for documentation, improvements were also made to diagrams made by other group members, such as the Class Diagrams found under the Implementation of Boolean Commands. User Stories discussed by the group were also added into its own section.
 
 
 
 ### Review/Mentoring
 
-* **PRs Reviewed**: #11, #13, #15, #17, #19, #21, #23, #26, #27, #28, #30, #31, #32, #34, #38, #41, #42, #44, #46, #48, #54, #56, #58, #60, #62, #63, #73, #74, #75, #77, #90, #92, #93, #94, #100, #101, #102, #103, #105, #108, #111, #112, #114, #115, #122
+Almost all PRs were reviewed, with the notable ones listed below:
 
-#### Notable Reviews
-
-* #19, #21, #27, #34, #35: Spotted minor fixes
-* #23, #26, #38, #41, #43, #51, #56, #62, #63, #90, #93, #100: Gave minor suggestions accepted by teammate
-* #42, #54, #92: Gave a number of suggestions accepted by teammate
-* #75: Gave many suggestions accepted by teammate, taking the role of **PlantUML expert**
+* [#19](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/19), [#21](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/21), [#27](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/27), [#34](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/32), [#35](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/35): Spotted minor fixes
+* [#23](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/23), [#26](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/26), [#38](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/38), [#41](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/41), [#43](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/43), [#51](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/51), [#56](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/56), [#62](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/62), [#63](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/63), [#90](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/90), [#93](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/93), [#100](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/100): Gave minor suggestions accepted by teammate
+* [#42](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/42), [#54](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/54), [#92](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/92): Gave a number of suggestions accepted by teammate
+* [#75](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/75): Gave many suggestions accepted by teammate, taking the role of **PlantUML expert**
 
 ### Beyond Project Team
 
