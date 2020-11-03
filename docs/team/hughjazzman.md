@@ -73,7 +73,7 @@ Updated various classes mentioned [above](#add-components-and-command-classes-).
 
 * **PR**: [#49](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/49)
 
-Refactored code according to updated Design Architecture - reduced coupling between `Ui` and `Command` to follow Architecture in updated [**Developer Guide**](DeveloperGuide.md). Added assertions to make the code more defensive.
+Refactored code according to updated Design Architecture - reduced coupling between `Ui` and `Command` to follow Architecture in updated [**Developer Guide**](../DeveloperGuide.md). Added assertions to make the code more defensive.
 
 #### Boolean Commands Setup
 
