@@ -2,6 +2,8 @@ package seedu.duke.model.template;
 
 import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
+import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -12,7 +14,7 @@ class LcTemplateTest {
     @Test
     void calcImpedance_zeroCapacitance_expectException() {
         LcTemplate t = new LcTemplate();
-        assertThrows(AssertionError.class, t::calcImpedance);
+        assertThrows(TemplateComponentsNotSetException.class, t::calcImpedance);
     }
 
     @Test
@@ -25,14 +27,14 @@ class LcTemplateTest {
     }
 
     @Test
-    void getInductor_lCValueEqualsOne_returnsInductor() {
+    void getInductor_lCValueEqualsOne_returnsInductor() throws ZeroComponentException {
         LcTemplate t = new LcTemplate(1, 1, 1);
         t.setInductor(5);
         assertEquals(5, t.getInductor().getValue(), DELTA);
     }
 
     @Test
-    void setComponent_lCValueEqualsOne_setInductorValue() {
+    void setComponent_lCValueEqualsOne_setInductorValue() throws ZeroComponentException {
         LcTemplate t = new LcTemplate();
         t.setComponent("l", 5);
         assertEquals(5, t.getInductor().getValue(), DELTA);
@@ -45,7 +47,7 @@ class LcTemplateTest {
     }
 
     @Test
-    void setComponent_cValueEqualsFive_setCapacitorValue() {
+    void setComponent_cValueEqualsFive_setCapacitorValue() throws ZeroComponentException {
         LcTemplate t = new LcTemplate();
         t.setComponent("c", 5);
         assertEquals(5, t.getCapacitor().getValue(), DELTA);

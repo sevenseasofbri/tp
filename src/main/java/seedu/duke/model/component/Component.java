@@ -27,7 +27,7 @@ public abstract class Component {
      */
     public void setValue(double value) throws ZeroComponentException {
         if (value <= 0) {
-           throw new ZeroComponentException();
+            throw new ZeroComponentException();
         }
         this.value = value;
     }

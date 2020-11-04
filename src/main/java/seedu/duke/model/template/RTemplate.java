@@ -1,6 +1,5 @@
 package seedu.duke.model.template;
 
-import seedu.duke.DukeException;
 import seedu.duke.model.component.LoadComponent;
 import seedu.duke.model.component.Resistor;
 import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
@@ -33,7 +32,7 @@ public class RTemplate extends CircuitTemplate {
     @Override
     public double calcImpedance() throws TemplateComponentsNotSetException {
         if (resistor.getValue() == 0) {
-            throw new TemplateComponentsNotSetException("Component(s) not set yet.");
+            throw new TemplateComponentsNotSetException();
         }
         return resistor.getValue();
     }
@@ -96,7 +95,7 @@ public class RTemplate extends CircuitTemplate {
     @Override
     public LoadComponent getComponent(String component) throws InvalidComponentException {
         if (!component.equals("r")) {
-            throw new InvalidComponentException("Invalid component");
+            throw new InvalidComponentException(component);
         }
         return getResistor();
     }

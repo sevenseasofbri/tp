@@ -1,7 +1,7 @@
 package seedu.duke.model.exceptions.templateexceptions;
 
 public class TemplateComponentsNotSetException extends TemplateException {
-    public TemplateComponentsNotSetException(String s) {
-        super(s);
+    public TemplateComponentsNotSetException() {
+        super("Component(s) in the circuit haven't been set yet! :(");
     }
 }

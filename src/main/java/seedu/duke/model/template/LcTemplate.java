@@ -1,6 +1,5 @@
 package seedu.duke.model.template;
 
-import seedu.duke.DukeException;
 import seedu.duke.model.component.Capacitor;
 import seedu.duke.model.component.Inductor;
 import seedu.duke.model.component.LoadComponent;
@@ -38,7 +37,7 @@ public class LcTemplate extends CircuitTemplate {
         double inductance = inductor.getValue() * Math.pow(10, -6);
         double capacitance = capacitor.getValue() * Math.pow(10, -6);
         if (inductance == 0 || capacitance == 0) {
-            throw new TemplateComponentsNotSetException("Component(s) not set yet.");
+            throw new TemplateComponentsNotSetException();
         }
         return ANGULAR_FREQUENCY * Math.abs(inductance - (1 / capacitance));
     }
@@ -135,7 +134,7 @@ public class LcTemplate extends CircuitTemplate {
         } else if (component.equals("c")) {
             return getCapacitor();
         } else {
-            throw new InvalidComponentException("Invalid component");
+            throw new InvalidComponentException(component);
         }
     }
 }

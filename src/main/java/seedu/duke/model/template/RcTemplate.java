@@ -1,6 +1,5 @@
 package seedu.duke.model.template;
 
-import seedu.duke.DukeException;
 import seedu.duke.model.component.Capacitor;
 import seedu.duke.model.component.LoadComponent;
 import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
@@ -38,7 +37,7 @@ public class RcTemplate extends RTemplate {
         double resistance = super.calcImpedance();
         double capacitance = capacitor.getValue() * Math.pow(10, -6);
         if (capacitance == 0) {
-            throw new TemplateComponentsNotSetException("Component(s) not set yet.");
+            throw new TemplateComponentsNotSetException();
         }
         return Math.sqrt(Math.pow(resistance, 2)
                 + (1 / Math.pow((ANGULAR_FREQUENCY * capacitance), 2)));

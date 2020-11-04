@@ -1,6 +1,5 @@
 package seedu.duke.model.template;
 
-import seedu.duke.DukeException;
 import seedu.duke.model.component.Inductor;
 import seedu.duke.model.component.LoadComponent;
 import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
@@ -35,7 +34,7 @@ public class LrTemplate extends RTemplate {
         double resistance = super.calcImpedance();
         double inductance = inductor.getValue() * Math.pow(10, -6);
         if (inductance == 0) {
-            throw new TemplateComponentsNotSetException("Component(s) not set yet.");
+            throw new TemplateComponentsNotSetException();
         }
         return Math.sqrt(Math.pow(resistance, 2)
                 + Math.pow(inductance * ANGULAR_FREQUENCY, 2));

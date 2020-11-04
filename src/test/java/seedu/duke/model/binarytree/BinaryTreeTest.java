@@ -50,20 +50,10 @@ public class BinaryTreeTest {
     }
 
     @Test
-<<<<<<< HEAD
-    void getT_nonEmptyTree_validIndex_returnsValueAtIndex() {
-        OrGate gate = new OrGate();
-=======
+
     void getT_nonEmptyTree_returnsValueAtIndex() {
->>>>>>> ed6c014bebb3baa3fae6e96ee6a87cc3fef8adbf
         BinaryTree<Gate> tree = new BinaryTree(new OrGate());
         assertDoesNotThrow(() -> tree.getT(0));
-    }
-
-    @Test
-    void getT_nonEmptyTree_invalidIndex_throwsException() {
-        BinaryTree<Gate> tree = new BinaryTree<>(new XorGate());
-        assertThrows(BinaryTreeInvalidIndexException.class, () -> tree.getT(2));
     }
 
     @Test
