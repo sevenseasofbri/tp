@@ -37,10 +37,10 @@ Here's a summary of the command parameters:
 +-----------+----------------------------------+-------------------------------+
 
 -----------------------------------------------------------
-Not enough arguments!
+Not enough arguments! The command used needs 2 arguments.
 -----------------------------------------------------------
 -----------------------------------------------------------
-Invalid Command!
+Invalid Command! Use the command 'summary' to take a look at all the available commands.
 -----------------------------------------------------------
 You have entered Tutorial Mode!
 Type 'exit' if you want to leave this mode and go back to the application.
@@ -150,15 +150,7 @@ Here's a summary of the command parameters:
 :) Have fun using CLIrcuit Assistant!
 -----------------------------------------------------------
 -----------------------------------------------------------
-The voltage source was set to 5.0 V
-	+---R-----C---+
-	|             |
-	|             |
-	+----+V_ac+---+
-Current Voltage: 5.0 V
-Total Resistance: 500.0 Ω
-Total Capacitance: 40.0 µF
-
+No template set yet! Use the 'summary' command to see the available templates.
 -----------------------------------------------------------
 You have entered Tutorial Mode!
 Type 'exit' if you want to leave this mode and go back to the application.
@@ -312,18 +304,7 @@ Here's a summary of the command parameters:
 :) Have fun using CLIrcuit Assistant!
 -----------------------------------------------------------
 -----------------------------------------------------------
-          0UT
-           |
-     B           C
-
-              F     G
-
-OUT = B AND C
-B = 1
-C = F NOR G
-F = 0
-G = 1
-
+No template set yet! Use the 'summary' command to see the available templates.
 -----------------------------------------------------------
 -----------------------------------------------------------
 	+---R-----C---+
@@ -336,7 +317,7 @@ Total Capacitance: not set
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-Invalid argument
+Invalid number! You should use a positive number.
 -----------------------------------------------------------
 -----------------------------------------------------------
 The voltage source was set to 5.0 V
@@ -434,7 +415,8 @@ Total Capacitance: 2.0 µF
 The total rms current flowing through the circuit is 0.0031354096992368807A
 -----------------------------------------------------------
 -----------------------------------------------------------
-Invalid argument!
+Invalid argument! Please follow the format for the command being used.
+You can use the command 'summary' to take a look at all the commands.
 -----------------------------------------------------------
 -----------------------------------------------------------
           0UT
@@ -450,13 +432,13 @@ C = ?
 Position specified is out of bounds!
 -----------------------------------------------------------
 -----------------------------------------------------------
-Invalid position
+Invalid position chosen! Make sure the single letter position specified is depicted in the current logic diagram.
 -----------------------------------------------------------
 -----------------------------------------------------------
-Invalid input
+Invalid input chosen! You should only choose 0 or 1 as input.
 -----------------------------------------------------------
 -----------------------------------------------------------
-Not enough arguments!
+Not enough arguments! The command used needs 3 arguments.
 -----------------------------------------------------------
 -----------------------------------------------------------
           0UT

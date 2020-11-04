@@ -10,10 +10,6 @@ public abstract class BooleanCommand extends Command {
         this.template = template;
     }
 
-    protected BooleanCommand() {
-        this(null);
-    }
-
     @Override
     public String toString() {
         return template.toString();
