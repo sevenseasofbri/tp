@@ -2,6 +2,7 @@ package seedu.duke.model.template;
 
 import seedu.duke.DukeException;
 import seedu.duke.model.binarytree.BinaryTree;
+import seedu.duke.model.exceptions.binarytreeexceptions.BinaryTreeInvalidIndexException;
 import seedu.duke.model.gates.Gate;
 
 public class BooleanTemplate {
@@ -117,7 +118,7 @@ public class BooleanTemplate {
      * @return String equation of gate.
      * @throws DukeException If index error occurs.
      */
-    private String getGateEquation(int index) throws DukeException {
+    private String getGateEquation(int index) throws BinaryTreeInvalidIndexException {
         Gate gate = circuit.getT(index);
 
         char letter = (char) (index + ASCII_A);
@@ -132,9 +133,9 @@ public class BooleanTemplate {
      *
      * @param index Index of input chosen.
      * @return String equation of input.
-     * @throws DukeException If index error occurs.
+     * @throws BinaryTreeInvalidIndexException If index error occurs.
      */
-    private String getInputEquation(int index) throws DukeException {
+    private String getInputEquation(int index) throws BinaryTreeInvalidIndexException {
         int parentIndex = circuit.getParentIndex(index);
 
         Gate gate = circuit.getT(parentIndex);

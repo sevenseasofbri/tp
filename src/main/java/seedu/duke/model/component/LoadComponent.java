@@ -11,14 +11,14 @@ public abstract class LoadComponent extends Component {
 
     private double addDirect(double otherValue) throws ZeroComponentException {
         if (otherValue <= 0) {
-            throw new ZeroComponentException(":( You have attempted to add a component with a value <=0!");
+            throw new ZeroComponentException();
         }
         return value + otherValue;
     }
 
     private double addReciprocal(double otherValue) throws ZeroComponentException {
         if (otherValue <= 0) {
-            throw new ZeroComponentException(":( You have attempted to add a component with a value <=0!");
+            throw new ZeroComponentException();
         }
         if (value != 0) {
             return 1 / ((1 / value) + (1 / otherValue));

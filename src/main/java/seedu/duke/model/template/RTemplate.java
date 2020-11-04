@@ -3,6 +3,9 @@ package seedu.duke.model.template;
 import seedu.duke.DukeException;
 import seedu.duke.model.component.LoadComponent;
 import seedu.duke.model.component.Resistor;
+import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
+import seedu.duke.model.exceptions.templateexceptions.InvalidComponentException;
+import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 
 public class RTemplate extends CircuitTemplate {
     private static final String R_TEMPLATE =
@@ -25,12 +28,12 @@ public class RTemplate extends CircuitTemplate {
      * Returns impedance of Resistor.
      *
      * @return impedance of Resistor.
-     * @throws DukeException If component values are not yet set.
+     * @throws TemplateComponentsNotSetException If component values are not yet set.
      */
     @Override
-    public double calcImpedance() throws DukeException {
+    public double calcImpedance() throws TemplateComponentsNotSetException {
         if (resistor.getValue() == 0) {
-            throw new DukeException("Component(s) not set yet.");
+            throw new TemplateComponentsNotSetException("Component(s) not set yet.");
         }
         return resistor.getValue();
     }
@@ -49,7 +52,7 @@ public class RTemplate extends CircuitTemplate {
      *
      * @param value double type value to be set to the resistor in the circuit.
      */
-    protected void setResistor(double value) {
+    protected void setResistor(double value) throws ZeroComponentException {
         resistor.setValue(value);
     }
 
@@ -64,7 +67,7 @@ public class RTemplate extends CircuitTemplate {
      * @param value double type value to be set to the resistor in the circuit.
      */
     @Override
-    public void setComponent(String s, double value) {
+    public void setComponent(String s, double value) throws ZeroComponentException {
         setResistor(value);
     }
 
@@ -88,12 +91,12 @@ public class RTemplate extends CircuitTemplate {
      *
      * @param component String representing the component.
      * @return LoadComponent object.
-     * @throws DukeException If input String does not match a component.
+     * @throws InvalidComponentException If input String does not match a component.
      */
     @Override
-    public LoadComponent getComponent(String component) throws DukeException {
+    public LoadComponent getComponent(String component) throws InvalidComponentException {
         if (!component.equals("r")) {
-            throw new DukeException("Invalid component");
+            throw new InvalidComponentException("Invalid component");
         }
         return getResistor();
     }

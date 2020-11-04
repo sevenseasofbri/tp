@@ -26,10 +26,8 @@ public abstract class Component {
      * @param value Value of Component.
      */
     public void setValue(double value) throws ZeroComponentException {
-        if (value < 0) {
-            throw new ZeroComponentException("You tried to set a negative value!");
-        } else if (value == 0) {
-            throw new ZeroComponentException("You tried to set a zero value!");
+        if (value <= 0) {
+           throw new ZeroComponentException();
         }
         this.value = value;
     }

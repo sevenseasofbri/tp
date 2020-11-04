@@ -1,7 +1,7 @@
 package seedu.duke.model.exceptions.binarytreeexceptions;
 
 public class BinaryTreeInvalidIndexException extends BinaryTreeException {
-    public BinaryTreeInvalidIndexException(String s) {
-        super(s);
+    public BinaryTreeInvalidIndexException() {
+        super("Index specified is out of bounds!");
     }
 }

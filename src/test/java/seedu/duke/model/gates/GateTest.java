@@ -1,7 +1,6 @@
 package seedu.duke.model.gates;
 
 import org.junit.jupiter.api.Test;
-import seedu.duke.DukeException;
 import seedu.duke.model.exceptions.gatesexceptions.GateException;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

@@ -56,13 +56,13 @@ public class BinaryTree<T> {
 
         boolean hasParent = !isNullAtIndex(parentIndex);
         boolean isRoot = idx == 0;
-        boolean isSet = !isNullAtIndex(idx);
+
         // Not the root or has no parent
-        boolean isExisting = isRoot || (hasParent && isSet);
+        boolean isExisting = isRoot || (hasParent);
 
         // If out of bounds or does not exist currently
         if (isOutOfBounds(idx) || !isExisting) {
-            throw new BinaryTreeInvalidIndexException("Index specified is out of bounds!");
+            throw new BinaryTreeInvalidIndexException();
         }
         return arrayList.get(idx);
     }
@@ -76,7 +76,7 @@ public class BinaryTree<T> {
      */
     public void insert(int idx, T t) throws BinaryTreeInvalidIndexException {
         if (isOutOfBounds(idx) || isNullAtIndex(getParentIndex(idx))) {
-            throw new BinaryTreeInvalidIndexException("Index specified is out of bounds!");
+            throw new BinaryTreeInvalidIndexException();
         }
         arrayList.set(idx, t);
     }
