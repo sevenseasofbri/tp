@@ -65,7 +65,7 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
         ```
 1. Once the app starts, type a command in the command line and press enter to execute it.
 1. Use the command `tutorial circuit` or `tutorial boolean` to go through an [interactive tutorial](#52-interactive-tutorial) before using the application.
-1. Alternatively, you can use the command [`summary`](#summary) to get a list of all commands used in the application.
+1. Alternatively, you can use the command [`summary`](#51-summary-of-commands-) to get a list of all commands used in the application.
 1. Note that a *logging* file `appLog.log` will be created in the same directory that `duke.jar` is run from. For further information regarding *logging*, you can refer to the [**Developer Guide**](DeveloperGuide.md).
 
 --------------------------------------------------------------------------------------------------------------------
@@ -179,7 +179,7 @@ Total Capacitance: 0.0 µF
 
 ### 6.2 Setting a component value <a name='set-comp'></a>
 
-This command sets the value of a component. The component must be part of the current circuit template. Units correspond to the component involved - *resistors* in *ohms*, *capacitors* in *microfarads*, and *inductors* in *microhenries*. The values would need to be set to perform calculations or analysis such as in the [`calc`](#calc-circ) command.
+This command sets the value of a component. The component must be part of the current circuit template. Units correspond to the component involved - *resistors* in *ohms*, *capacitors* in *microfarads*, and *inductors* in *microhenries*. The values would need to be set to perform calculations or analysis such as in the [`calc`](#64-calculating-effective-value-) command.
 
 <div markdown="span" class="alert alert-warning">
 
@@ -241,7 +241,7 @@ This command adds a component, in a specific configuration - either *in parallel
 |`add CONFIG COMPONENT VALUE`|
 
 * The `CONFIG` can be chosen from the 2 - `series` and `parallel`.
-* The `COMPONENT` and `VALUE` are as explained above under [Set component value](#set-comp), except that `COMPONENT` cannot be the voltage source `v`.
+* The `COMPONENT` and `VALUE` are as explained above under [Set component value](#62-setting-a-component-value-), except that `COMPONENT` cannot be the voltage source `v`.
 
 Example of usage:
 
@@ -395,8 +395,8 @@ The application has the ability to combine multiple `Gate` objects to generate m
 |:-:|
 |`add INPUT GATE`|
 
-* The `INPUT` is as explained above in [Set](#set-input).
-* The `GATE` is as explained above in [Template](#template-logic).
+* The `INPUT` is as explained above in [Set](#72-setting-an-input-value-).
+* The `GATE` is as explained above in [Template](#71-creating-a-boolean-template-).
 
 Example of usage:
 

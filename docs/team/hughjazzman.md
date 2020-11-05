@@ -43,6 +43,8 @@ title : Wira Azmoon - Project Portfolio Page
 
 [This is the RepoSense report of the code contributed.](https://nus-cs2113-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=hughjazzman&sort=groupTitle&sortWithin=title&since=2020-09-27&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
 
+<div style="page-break-after: always;"></div>
+
 ### Enhancements Implemented
 
 
@@ -120,6 +122,8 @@ Almost all PRs were reviewed, with the notable ones listed below:
 * [Wildcard Imports](https://github.com/nus-cs2113-AY2021S1/forum/issues/36#issuecomment-687758900)
 * [Static vs Instance Classes](https://github.com/nus-cs2113-AY2021S1/forum/issues/88#issuecomment-708482154)
 
+<div style="page-break-after: always;"></div>
+
 ### Extract: User Guide - Adding a Gate
 
 To aid the user in understanding the User Guide, informational boxes such as below are put in the appropriate commands:
@@ -143,6 +147,8 @@ To aid the user in understanding the User Guide, informational boxes such as bel
 :information_source: **Note:**  The current implementation only allows the `Gate` objects to be 3 levels deep, counting from 0 at the top.
 
 </div>
+
+<div style="page-break-after: always;"></div>
 
 ### Extract: Developer Guide - Logic Class and Sequence Diagrams
 
