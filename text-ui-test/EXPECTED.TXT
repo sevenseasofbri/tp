@@ -88,6 +88,14 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	eg. 'set r 500' will set the resistor to 500Ω.
 -----------------------------------------------------------
 -----------------------------------------------------------
+	Bad Command! Please follow the instructions carefully.
+	To exit Tutorial Mode, simply type 'exit' and press Enter.
+-----------------------------------------------------------
+-----------------------------------------------------------
+	Lets set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve number in ohms(Ω).
+	eg. 'set r 500' will set the resistor to 500Ω.
+-----------------------------------------------------------
+-----------------------------------------------------------
 	The resistor was set to 500.0 Ω
 	+---R-----C---+
 	|             |
@@ -112,6 +120,15 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	Total Resistance: 500.0 Ω
 	Total Capacitance: 20.0 µF
 
+-----------------------------------------------------------
+-----------------------------------------------------------
+	Want to add a component in parallel/series to your current component? Lets do that with the capacitor! Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF).
+	eg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit.
+	Do remember though, this can be done with resistors, capacitors and inductors in the application based on the template chosen! :)
+-----------------------------------------------------------
+-----------------------------------------------------------
+	Bad Command! Please follow the instructions carefully.
+	To exit Tutorial Mode, simply type 'exit' and press Enter.
 -----------------------------------------------------------
 -----------------------------------------------------------
 	Want to add a component in parallel/series to your current component? Lets do that with the capacitor! Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF).
