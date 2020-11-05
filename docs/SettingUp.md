@@ -1,4 +1,7 @@
-# Duke project template
+---
+layout : page
+title : Duke Project Template
+---
 
 This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
 

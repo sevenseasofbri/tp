@@ -1,0 +1,46 @@
+@startuml
+
+group sd setIndex
+participant ":BooleanTemplate" as Bool
+participant ":Gate" as Gate
+
+
+
+opt !isNullAtLeft
+
+Bool -> Bool : calculateOutput(leftIndex)
+activate Bool
+
+note right of Bool: calculateOutput is called recursively
+
+Bool --> Bool : leftOutput
+deactivate Bool
+
+Bool -> Gate: setInput(leftOutput)
+activate Gate
+
+Gate --> Bool
+deactivate Gate
+
+end
+
+opt !isNullAtRight
+
+Bool -> Bool : calculateOutput(rightIndex)
+activate Bool
+
+note right of Bool: calculateOutput is called recursively
+
+Bool --> Bool : rightOutput
+deactivate Bool
+
+Bool -> Gate: setInput(rightOutput)
+activate Gate
+
+Gate --> Bool
+deactivate Gate
+
+
+end
+end
+@enduml
