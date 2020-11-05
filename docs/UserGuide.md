@@ -47,7 +47,15 @@ This **User Guide** aims to help you get familiarised with the commands used in 
 
 ## 2. Introduction
 
-**CLIrcuit Assistant** is a desktop app to implement and solve simple **circuits** and **logic gate configurations**, optimized for use via the *CLI*. The application is targeted at those who would simply like a resource-light and offline program to aid in analysing circuits.
+**CLIrcuit Assistant** is a desktop app to implement and solve simple **circuits** and **logic gate configurations**, optimized for use via the *CLI*. The application is targeted at those who would simply like a resource-light and offline program to aid in analysing circuits. 
+
+At its current implementation, this application has no storage feature. More information on this can be found in the [**Developer Guide**](DeveloperGuide.md#storage-wira).
+
+<div markdown="span" class="alert alert-primary">
+
+:information_source: **Note:**  This application has no storage feature.
+
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 

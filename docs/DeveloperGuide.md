@@ -450,6 +450,16 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 |v2.0|CEG/EE Student|set input values to the logic gate configuration|analyse inputs and outputs of a configuration
 |v3.0|CEG/EE Student|print the current template I am working on|find out my current configuration and make a decision
 
+### Storage (Wira)
+
+While many other applications under CS2113 implement a storage feature, our app does not include one in the current implementation at v2.1 with the following rationale:
+
+* The focus is on the representation of template circuits and how the users would interact with them. Obtaining the circuit configuration from the user's side is an easy process and therefore it would not be necessary for a user to store the circuits for future reference.
+* The application is, in a sense, equivalent to a calculator. It aims to assist the user in performing quick circuit calculations.
+* [Constraints involved](https://nus-cs2113-ay2021s1.github.io/website/admin/tp-constraints.html) include requiring the storage file to be human editable. Since there is no data file to break the constraint, the constraint is fulfiled.
+
+It is perhaps possible for a future iteration (v3.0 onwards) to implement the feature, but it was not considered an important feature according to our **User Stories**.
+
 
 ### Non-Functional Requirements (Dorian)
 
