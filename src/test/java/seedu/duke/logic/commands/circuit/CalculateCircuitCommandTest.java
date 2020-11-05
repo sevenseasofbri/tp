@@ -2,6 +2,7 @@ package seedu.duke.logic.commands.circuit;
 
 import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 import seedu.duke.model.template.LcTemplate;
 import seedu.duke.model.template.LrTemplate;
 import seedu.duke.model.template.RTemplate;
@@ -35,7 +36,7 @@ public class CalculateCircuitCommandTest {
     @Test
     void execute_calcCurrentWithZeroValueComponents_expectException() {
         CalculateCircuitCommand c = new CalculateCircuitCommand(LR_TEMPLATE, CURRENT);
-        assertThrows(AssertionError.class, c::execute);
+        assertThrows(TemplateComponentsNotSetException.class, c::execute);
     }
 
     @Test

@@ -2,6 +2,8 @@ package seedu.duke.model.template;
 
 import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
+import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -12,7 +14,7 @@ class RTemplateTest {
     @Test
     void calcImpedance_zeroCapacitance_expectException() {
         RcTemplate t = new RcTemplate();
-        assertThrows(AssertionError.class, t::calcImpedance);
+        assertThrows(TemplateComponentsNotSetException.class, t::calcImpedance);
     }
 
     @Test
@@ -22,14 +24,14 @@ class RTemplateTest {
     }
 
     @Test
-    void setCapacitor_rValueEqualsFive_returnsResistor() {
+    void setCapacitor_rValueEqualsFive_returnsResistor() throws ZeroComponentException {
         RTemplate t = new RTemplate(1, 1);
         t.setResistor(5);
         assertEquals(5, t.getResistor().getValue(), DELTA);
     }
 
     @Test
-    void setComponent_rValueEqualsFive_getResistorValue() {
+    void setComponent_rValueEqualsFive_getResistorValue() throws ZeroComponentException {
         RTemplate t = new RTemplate();
         t.setComponent("r", 5);
         assertEquals(5, t.getResistor().getValue(), DELTA);

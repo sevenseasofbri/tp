@@ -55,6 +55,6 @@ public class SetCircuitCommand extends CircuitCommand {
             componentName = "inductor";
         }
 
-        return "The " + componentName + " was set to " + componentObject + '\n' + template;
+        return "The " + componentName + " was set to " + componentObject + "\n\t" + template;
     }
 }

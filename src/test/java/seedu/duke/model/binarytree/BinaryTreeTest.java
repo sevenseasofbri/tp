@@ -1,10 +1,11 @@
 package seedu.duke.model.binarytree;
 
 import org.junit.jupiter.api.Test;
-import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.binarytreeexceptions.BinaryTreeInvalidIndexException;
 import seedu.duke.model.gates.AndGate;
 import seedu.duke.model.gates.Gate;
 import seedu.duke.model.gates.OrGate;
+import seedu.duke.model.gates.XorGate;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -45,10 +46,11 @@ public class BinaryTreeTest {
     @Test
     void getT_emptyTree_throwException() {
         BinaryTree<Gate> tree = new BinaryTree();
-        assertThrows(DukeException.class, () -> tree.getT(1));
+        assertThrows(BinaryTreeInvalidIndexException.class, () -> tree.getT(1));
     }
 
     @Test
+
     void getT_nonEmptyTree_returnsValueAtIndex() {
         BinaryTree<Gate> tree = new BinaryTree(new OrGate());
         assertDoesNotThrow(() -> tree.getT(0));
@@ -59,6 +61,13 @@ public class BinaryTreeTest {
         BinaryTree<Gate> tree = new BinaryTree(new OrGate());
         AndGate gate = new AndGate();
         assertDoesNotThrow(() -> tree.insert(2, gate));
+    }
+
+    @Test
+    void insert_valueAtInvalidIndex_throwsException() {
+        BinaryTree<Gate> tree = new BinaryTree<>(new OrGate());
+        AndGate gate = new AndGate();
+        assertThrows(BinaryTreeInvalidIndexException.class, () -> tree.insert(4, gate));
     }
 
     @Test

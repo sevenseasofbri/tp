@@ -2,23 +2,30 @@ package seedu.duke.model.template;
 
 import seedu.duke.DukeException;
 import seedu.duke.model.binarytree.BinaryTree;
+import seedu.duke.model.exceptions.binarytreeexceptions.BinaryTreeInvalidIndexException;
+import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
+import seedu.duke.model.exceptions.templateexceptions.GateSetException;
+import seedu.duke.model.exceptions.templateexceptions.GatesToChannelsException;
+import seedu.duke.model.exceptions.templateexceptions.InputNotSetException;
+import seedu.duke.model.exceptions.templateexceptions.ParentGateNotSetException;
+import seedu.duke.model.exceptions.templateexceptions.TemplateException;
 import seedu.duke.model.gates.Gate;
 
 public class BooleanTemplate {
     private static final String FULL_TREE = "          0UT \n"
-            + "           |     \n"
-            + "     B           C\n"
-            + "                     \n"
-            + "  D     E     F     G\n"
-            + "                      \n"
-            + "H   I J   K L   M N   O";
+            + "\t           |     \n"
+            + "\t     B           C\n"
+            + "\t                     \n"
+            + "\t  D     E     F     G\n"
+            + "\t                      \n"
+            + "\tH   I J   K L   M N   O";
     private static final int ASCII_A = 65;
     /** BinaryTree object to represent the logic circuit. **/
     private final BinaryTree<Gate> circuit;
     /** String representation of the template. **/
     private String currentConfig = "";
 
-    public BooleanTemplate(Gate gate) throws DukeException {
+    public BooleanTemplate(Gate gate) throws BinaryTreeInvalidIndexException {
         circuit = new BinaryTree<>(gate);
         buildTopDown();
     }
@@ -28,11 +35,12 @@ public class BooleanTemplate {
      *
      * @param gate Gate object.
      * @param index Index in tree.
-     * @throws DukeException If index specified is out of bounds.
+     * @throws TemplateException If index specified cannot be assigned to a Gate.
+     * @throws BinaryTreeInvalidIndexException If index specified is out of bounds.
      */
-    public void addGate(Gate gate, int index) throws DukeException {
+    public void addGate(Gate gate, int index) throws TemplateException, BinaryTreeInvalidIndexException {
         if (index > 6) {
-            throw new DukeException("Cannot add gates to channels H, I, J, K, L, M, N, O! Try setting them instead.");
+            throw new GatesToChannelsException();
         }
         circuit.insert(index, gate);
         buildTopDown();
@@ -43,21 +51,22 @@ public class BooleanTemplate {
      *
      * @param value Input value.
      * @param index Index in tree.
-     * @throws DukeException If index specified is out of bounds.
+     * @throws TemplateException If index specified does not have a parent or tries to overwrite a gate.
+     * @throws BinaryTreeInvalidIndexException If index error occurs.
      */
-    public void setInput(boolean value, int index) throws DukeException {
+    public void setInput(boolean value, int index) throws TemplateException, BinaryTreeInvalidIndexException {
         int parentIdx = circuit.getParentIndex(index);
         Gate parentGate = circuit.getT(parentIdx);
 
         //Prevent accessing null gate.
         if (parentGate == null) {
-            throw new DukeException("Parent gate not set yet!");
+            throw new ParentGateNotSetException();
         }
 
         // Prevent setting already set gate
         Gate currentGate = circuit.getT(index);
         if (currentGate != null) {
-            throw new DukeException("Already set as gate!");
+            throw new GateSetException();
         }
 
         if (index % 2 == 1) {
@@ -83,9 +92,9 @@ public class BooleanTemplate {
     /**
      * Builds currentConfig, the String representation of the template.
      *
-     * @throws DukeException If index error occurs.
+     * @throws BinaryTreeInvalidIndexException If index error occurs.
      */
-    private void buildTopDown() throws DukeException {
+    private void buildTopDown() throws BinaryTreeInvalidIndexException {
         currentConfig = FULL_TREE;
         int treeSize = circuit.arrayList.size();
 
@@ -115,9 +124,9 @@ public class BooleanTemplate {
      *
      * @param index Index of gate chosen.
      * @return String equation of gate.
-     * @throws DukeException If index error occurs.
+     * @throws BinaryTreeInvalidIndexException If index error occurs.
      */
-    private String getGateEquation(int index) throws DukeException {
+    private String getGateEquation(int index) throws BinaryTreeInvalidIndexException {
         Gate gate = circuit.getT(index);
 
         char letter = (char) (index + ASCII_A);
@@ -132,9 +141,9 @@ public class BooleanTemplate {
      *
      * @param index Index of input chosen.
      * @return String equation of input.
-     * @throws DukeException If index error occurs.
+     * @throws BinaryTreeInvalidIndexException If index error occurs.
      */
-    private String getInputEquation(int index) throws DukeException {
+    private String getInputEquation(int index) throws BinaryTreeInvalidIndexException {
         int parentIndex = circuit.getParentIndex(index);
 
         Gate gate = circuit.getT(parentIndex);
@@ -169,11 +178,14 @@ public class BooleanTemplate {
      *
      * @param idx int type index of node.
      * @return int type value output, can be 0 or 1.
-     * @throws DukeException If input values are not set.
+     * @throws InputsNotSetException If input values are not set for the gates.
+     * @throws BinaryTreeInvalidIndexException If index error occurs
+     * @throws InputsNotSetException If the gates/their inputs are not set.
      */
-    private boolean calculateOutput(int idx) throws DukeException {
+    private boolean calculateOutput(int idx) throws TemplateException, BinaryTreeInvalidIndexException,
+            InputsNotSetException {
         if (circuit.isNullAtIndex(idx)) {
-            throw new DukeException("Oops! Nothing set yet.");
+            throw new InputNotSetException();
         }
 
         boolean isNullAtRight = circuit.isNullAtIndex(circuit.getRightIndex(idx));
@@ -187,7 +199,7 @@ public class BooleanTemplate {
             gate.setSecondInput(calculateOutput(circuit.getRightIndex(idx)));
         }
 
-        return circuit.getT(idx).getOutput();
+        return gate.getOutput();
     }
 
     /**

@@ -2,6 +2,7 @@ package seedu.duke.logic.commands.circuit;
 
 import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
 import seedu.duke.model.template.RcTemplate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,7 +23,7 @@ class SetCircuitCommandTest {
     void execute_BadCommand_expectException() {
         RcTemplate t = new RcTemplate(100, 100, 100);
         SetCircuitCommand c = new SetCircuitCommand(t, "v", -100);
-        assertThrows(ArithmeticException.class, c::execute);
+        assertThrows(ZeroComponentException.class, c::execute);
     }
 
 

@@ -19,6 +19,6 @@ public class CalculateBooleanCommand extends BooleanCommand {
     @Override
     public String toString() {
         return super.toString() + System.lineSeparator()
-                + "The output of the above configuration is " + (output ? "1" : "0") + ".";
+                + "\tThe output of the above configuration is " + (output ? "1" : "0") + ".";
     }
 }

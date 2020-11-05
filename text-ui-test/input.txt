@@ -4,8 +4,10 @@ hello
 tutorial circuit
 template rc
 set v 5
+set l 220
 set r 500
 set c 20
+add parallel r 30
 add parallel c 20
 calc power
 exit

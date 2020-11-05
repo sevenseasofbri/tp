@@ -2,6 +2,7 @@ package seedu.duke.model.component;
 
 import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -11,13 +12,13 @@ class LoadComponentTest {
     @Test
     void addSeries_zeroCapacitance_expectException() {
         Capacitor c = new Capacitor(100);
-        assertThrows(DukeException.class, () -> c.addSeries(0));
+        assertThrows(ZeroComponentException.class, () -> c.addSeries(0));
     }
 
     @Test
     void addSeries_negativeCapacitance_expectException() {
         Capacitor c = new Capacitor(100);
-        assertThrows(DukeException.class, () -> c.addSeries(-200));
+        assertThrows(ZeroComponentException.class, () -> c.addSeries(-200));
     }
 
     @Test
@@ -29,13 +30,13 @@ class LoadComponentTest {
     @Test
     void addParallel_zeroCapacitance_expectException() {
         Capacitor c = new Capacitor(100);
-        assertThrows(DukeException.class, () -> c.addParallel(0));
+        assertThrows(ZeroComponentException.class, () -> c.addParallel(0));
     }
 
     @Test
     void addParallel_negativeCapacitance_expectException() {
         Capacitor c = new Capacitor(100);
-        assertThrows(DukeException.class, () -> c.addParallel(-200));
+        assertThrows(ZeroComponentException.class, () -> c.addParallel(-200));
     }
 
     @Test
@@ -48,13 +49,13 @@ class LoadComponentTest {
     @Test
     void addParallel_zeroResistance_expectException() {
         Resistor r = new Resistor(100);
-        assertThrows(DukeException.class, () -> r.addParallel(0));
+        assertThrows(ZeroComponentException.class, () -> r.addParallel(0));
     }
 
     @Test
     void addParallel_negativeResistance_expectException() {
         Resistor r = new Resistor(100);
-        assertThrows(DukeException.class, () -> r.addParallel(-200));
+        assertThrows(ZeroComponentException.class, () -> r.addParallel(-200));
     }
 
     @Test
@@ -66,13 +67,13 @@ class LoadComponentTest {
     @Test
     void addSeries_zeroResistance_expectException() {
         Resistor r = new Resistor(100);
-        assertThrows(DukeException.class, () -> r.addSeries(0));
+        assertThrows(ZeroComponentException.class, () -> r.addSeries(0));
     }
 
     @Test
     void addSeries_negativeResistance_expectException() {
         Resistor r = new Resistor(100);
-        assertThrows(DukeException.class, () -> r.addSeries(-200));
+        assertThrows(ZeroComponentException.class, () -> r.addSeries(-200));
     }
 
     @Test
@@ -84,13 +85,13 @@ class LoadComponentTest {
     @Test
     void addParallel_zeroInductance_expectException() {
         Inductor l = new Inductor(100);
-        assertThrows(DukeException.class, () -> l.addParallel(0));
+        assertThrows(ZeroComponentException.class, () -> l.addParallel(0));
     }
 
     @Test
     void addParallel_negativeInductance_expectException() {
         Inductor l = new Inductor(100);
-        assertThrows(DukeException.class, () -> l.addParallel(-200));
+        assertThrows(ZeroComponentException.class, () -> l.addParallel(-200));
     }
 
     @Test
@@ -102,13 +103,13 @@ class LoadComponentTest {
     @Test
     void addSeries_zeroInductance_expectException() {
         Inductor l = new Inductor(100);
-        assertThrows(DukeException.class, () -> l.addSeries(0));
+        assertThrows(ZeroComponentException.class, () -> l.addSeries(0));
     }
 
     @Test
     void addSeries_negativeInductance_expectException() {
         Inductor l = new Inductor(100);
-        assertThrows(DukeException.class, () -> l.addSeries(-200));
+        assertThrows(ZeroComponentException.class, () -> l.addSeries(-200));
     }
 
     @Test

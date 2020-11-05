@@ -1,6 +1,6 @@
 package seedu.duke.model.gates;
 
-import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
 
 public class NandGate extends AndGate {
     private static final String NAND = "NAND";
@@ -8,10 +8,11 @@ public class NandGate extends AndGate {
     /**
      * Performs bitwise NAND (~&) operation on the input instance variables.
      *
-     * @return int value of the gate output.
+     * @return boolean value of the gate output.
+     * @throws InputsNotSetException If both inputs aren't set yet.
      */
     @Override
-    public boolean getOutput() throws DukeException {
+    public boolean getOutput() throws InputsNotSetException {
         return !(super.getOutput());
     }
 
