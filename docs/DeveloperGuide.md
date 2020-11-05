@@ -24,6 +24,8 @@ title : Developer Guide
 * Table of Contents
 {:toc}
 
+<div style="page-break-after: always;"></div>
+
 ## How To Use This Guide
 
 This **Developer Guide** aims to get developers familiarised with the design and implementation of **CLIrcuit Assistant**. The following table indicates the symbols used to aid the understanding of the guide. This guide also assumes that the reader has basic understanding of *UML Diagrams*. [To access the **User Guide** instead, click here.](UserGuide.md)
@@ -43,6 +45,8 @@ This **Developer Guide** aims to get developers familiarised with the design and
 Refer to the guide [*Setting up and getting started*](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Design Architecture (Wira) <a name="design"></a>
 
@@ -88,6 +92,8 @@ The `Ui` component
 1. This results in a `Command` object which is executed in `Duke`.
 1. The command execution can affect the `Model` (e.g. setting a value).
 
+<div style="page-break-after: always;"></div>
+
 In general, the creation of `Command` objects via `Parser` can be explained by the following sequence diagram, which acts as a reference frame for `getCommand`:
 
 ![getCommand](diagrams/GetCommand.png)
@@ -108,6 +114,8 @@ The `Model`,
 * does not depend on any of the other two components.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Implementation of Circuit Commands (Dash) <a name="circ-comd"></a>
 
@@ -152,6 +160,8 @@ For commands excluding `TemplateCircuitCommand`, the following sequence diagram 
 
 <small><i>Figure 9</i></small>
 
+<div style="page-break-after: always;"></div>
+
 ### `TemplateCircuitCommand`  <a name="temp-circ"></a>
 Given below is the sequence diagram for interactions within the `logic` and `template` components for the 
 `parse(template rl)` API call that implements the `template` command to create templates.
@@ -160,6 +170,8 @@ Given below is the sequence diagram for interactions within the `logic` and `tem
 
 <small><i>Figure 10</i></small>
 
+<div style="page-break-after: always;"></div>
+
 ### `SetCircuitCommand` <a name="set-circ"></a>
 
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `parse("set r 500")` API call which implements the `set` command to set values of components.
@@ -167,6 +179,8 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 ![SetSequence](diagrams/SetSequenceDiagram.png)
 
 <small><i>Figure 11</i></small>  
+
+<div style="page-break-after: always;"></div>
 
 ### `AddCircuitCommand` <a name="add-circ"></a>
 
@@ -177,6 +191,8 @@ for the `parse("add parallel c 20")` API call that implements the `add` command 
 
 <small><i>Figure 12</i></small>  
 
+<div style="page-break-after: always;"></div>
+
 ### `CalculateCircuitCommand` <a name="calc-circ"></a>
 The calculate command can be split into two distinct sequence diagrams. Given below is the sequence diagram for the
 calculate command that does not show the access of the `component` component and shows the interactions for the
@@ -186,7 +202,9 @@ calculate command that does not show the access of the `component` component and
 
 <small><i>Figure 13</i></small>  
 
-The second sequence diagram given below shows the detailed interaction that acesses the `component` class through the
+<div style="page-break-after: always;"></div>
+
+The second sequence diagram given below shows the detailed interaction that accesses the `component` class through the
 `parse("calc reff")` API call that implements this version of the `calculate` command to calculate effective resistance.
 
 ![CalcReffSequence](diagrams/CalcReffSequenceDiagram.png)
@@ -194,6 +212,8 @@ The second sequence diagram given below shows the detailed interaction that aces
 <small><i>Figure 14</i></small>  
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Implementation of Boolean Commands (Praveen) <a name="bool-comd"></a>
 
@@ -208,6 +228,8 @@ There are six different logic gates that can be instantiated in the program, whi
 ![GateClass](diagrams/GateClassDiagram.png)
 
 <small><i>Figure 16</i></small>
+
+<div style="page-break-after: always;"></div>
 
 The next diagram then showcases the methods involved in the `BooleanTemplate` and `Gate` classes to work together:
 
@@ -232,8 +254,7 @@ An instance of an `OrGate` can be visualised as such in the following object dia
 
 <small><i>Figure 18</i></small>
 
-
-There are four Boolean commands that are used in the implementation of the logic gates: `TemplateBooleanCommand, SetBooleanCommand, AddBooleanCommand`, and `CalcBooleanCommand`.
+<div style="page-break-after: always;"></div>
 
 ### `TemplateBooleanCommand` <a name="temp-bool"></a>
 
@@ -251,6 +272,8 @@ The aforementioned sequence of events can be represented in the following sequen
 
 <small><i>Figure 19</i></small>
 
+<div style="page-break-after: always;"></div>
+
 ### `SetBooleanCommand` <a name="set-bool"></a>
 
 The sequence of object interactions through the `SetBooleanCommand` can be represented in the following sequence diagram:
@@ -258,6 +281,8 @@ The sequence of object interactions through the `SetBooleanCommand` can be repre
 ![InsertSequenceDiagram](diagrams/SetBooleanCommand.png)
 
 <small><i>Figure 20</i></small>
+
+<div style="page-break-after: always;"></div>
 
 ### `AddBooleanCommand` <a name="add-bool"></a>
 
@@ -271,6 +296,8 @@ The sequence by which the `AddBooleanCommand` is instantiated to combine the log
 1. The `AddBooleanCommand` object calls on the `addGate` method in the instantiated `BooleanTemplate`.
 2. This will access the index of the `BinaryTree` object in the `BooleanTemplate` to store the newly added gate to the configuration.
 
+<div style="page-break-after: always;"></div>
+
 The aforementioned sequence of events can be represented in the following sequence diagram:
 
 ![InsertSequeunceDiagram](diagrams/AddBooleanCommand.png)
@@ -279,7 +306,7 @@ The aforementioned sequence of events can be represented in the following sequen
 
 ### `CalculateBooleanCommand` <a name="calc-bool"></a>
 
-The `CalculateBooleanCommand` is used to calculate the effective output of the configured logic gates stored in the `BinaryTree` is used to , which requires that all inputs be set.
+The `CalculateBooleanCommand` is used to calculate the effective output of the configured logic gates stored in the `BinaryTree`, which requires that all inputs be set.
 
 For instance, in a `BinaryTree` object with just two gates - `OrGate` and `AndGate` - all the inputs of the gates have to be assigned before the effective output of both the logic gates (`Input C`) can 
 be calculated.
@@ -290,6 +317,8 @@ The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
 
 <small><i>Figure 22</i></small>
 
+<div style="page-break-after: always;"></div>
+
 The `checkIndex` and `setIndex` reference frames are also shown below. Note that `setIndex` possibly contains recursive `calculateOutput()` calls.
 
 ![CheckIndex](diagrams/CheckIndexSequence.png)
@@ -299,6 +328,8 @@ The `checkIndex` and `setIndex` reference frames are also shown below. Note that
 ![SetIndex](diagrams/SetIndexSequence.png)
 
 <small><i>Figure 24 (Wira)</i></small>
+
+<div style="page-break-after: always;"></div>
 
 ### Implementation Considerations (Vishruti) <a name = "impl-cons"></a>
 This section describes the methods taken into consideration whilst implementing the Boolean Commands.
@@ -335,6 +366,8 @@ restrictions on the number of child-nodes a node can have. Thereby,
 
 Due to the limitations mentioned above, the Binary Heap-Like data structure was considerd to be the best method of approach.
 
+<div style="page-break-after: always;"></div>
+
 ### Binary Tree
 The previous section described the rationale behind using a special Binary Tree-like structure (Heap) for implementing the
 Boolean Commands. This section provides details on *how* the logic circuit is modeled using the selected data structure. 
@@ -360,6 +393,8 @@ The operations exposed to the `Logic` in this `Model` include:
 
 When an object of the `BinaryTree<T>` class is created, it initialises the `ArrayList<T>` instance to 15 `null` values. This will be further discussed in the section detailing the `insert()` function.
 
+<div style="page-break-after: always;"></div>
+
 #### Initialising A `BinaryTree<T>` Object
 The `Logic` initialises the `BinaryTree<Gate>` object using the parameterised constructor, thus specifying the `Gate` class type root. The object diagram below depicts the initial state of the `Model` when a `BinaryTree<Gate>` object is created.
 
@@ -377,6 +412,8 @@ is also extensively used in other internal operations in `BinaryTree<T>` for che
 #### Using `BinaryTree#getParentIndex(int, T)`
 Similar to `isNullAtIndex(int)`, this method is used in rendering the current configuration of the circuit in String format.
 
+<div style="page-break-after: always;"></div>
+
 #### Using `BinaryTree#insert(int, T)`
 In order to enable the ability to populate the `ArrayList<T>` at any node which has a non-null parent node
 the `ArrayList<T> arrayList` attribute is pre-populated with 15 `null` values. The same attribute is modified in the insert()
@@ -389,6 +426,8 @@ The following sequence diagram is a depiction of the events succeeding a call to
 <small><i>Figure 26</i></small>
 
 Post calling this function, the second element in the `arrayList` will be the `AndGate(1,1)` object.
+
+<div style="page-break-after: always;"></div>
 
 #### Using `BinaryTree#isLeaf(int)`
 This function is used by the Logic class `BooleanTemplate` to calculate output values in the digital circuit. It 
@@ -409,6 +448,8 @@ The following sequence diagram showcases the events succeeding a call to `isEmpt
 
 <small><i>Figure 28</i></small>
  
+<div style="page-break-after: always;"></div>
+
 ### Rendering Current Boolean Circuit State
 Using a _standard I/O operation_ (Like _Sopln()_) on an object of the `BooleanTemplate` class yields the current configuration
 of the system.
@@ -425,6 +466,8 @@ H  I     J  K      L  M      N  O
 ```
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Appendix: Requirements (Dorian)
 
@@ -470,7 +513,6 @@ While many other applications under CS2113 implement a storage feature, our app 
 
 It is perhaps possible for a future iteration (v3.0 onwards) to implement the feature, but it was not considered an important feature according to our **User Stories**.
 
-
 ### Non-Functional Requirements (Dorian)
 
 1. Should work on any *mainstream OS* as long as it has Java 11 or above installed.
@@ -478,6 +520,8 @@ It is perhaps possible for a future iteration (v3.0 onwards) to implement the fe
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Glossary (Vishruti)
 
@@ -509,6 +553,9 @@ truth value of the operation will result in 1 (TRUE) if both x == 1 and y == 1, 
 truth value of the operation will result in 1 (TRUE) if either x == 1 or y == 1, and 0 if both x and y are 0. 
 * *Parent Node* - A node in a binary tree data structure which has one or more child nodes.
 * *Resistor* - A passive electronic device which implements electrical resistance in an electronic circuit.
+
+<div style="page-break-after: always;"></div>
+
 * *Sopln()* - Abbreviation for java out operation "`System.out.println()`", from package `java.lang`.
 * *Standard I/O Operation* - Common java I/O streams include `System.in`, `System.out` and `System.err`.
 * *XNOR* - An inverse of the XOR operation. Outputs the opposite truth value of what a XOR gate would output.
