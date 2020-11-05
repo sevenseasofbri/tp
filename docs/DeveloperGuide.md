@@ -290,6 +290,16 @@ The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
 
 <small><i>Figure 22</i></small>
 
+The `checkIndex` and `setIndex` reference frames are also shown below. Note that `setIndex` possibly contains recursive `calculateOutput()` calls.
+
+![CheckIndex](diagrams/CheckIndexSequence.png)
+
+<small><i>Figure 23 (Wira)</i></small>
+
+![SetIndex](diagrams/SetIndexSequence.png)
+
+<small><i>Figure 24 (Wira)</i></small>
+
 ### Implementation Considerations (Vishruti) <a name = "impl-cons"></a>
 This section describes the methods taken into consideration whilst implementing the Boolean Commands.
 
@@ -355,7 +365,7 @@ The `Logic` initialises the `BinaryTree<Gate>` object using the parameterised co
 
 ![InitialBinaryTree](diagrams/BinaryTreeInitialObjectDiagram.png)
 
-<small><i>Figure 23</i></small>
+<small><i>Figure 25</i></small>
 
 The Logic uses the parameterised constructor of `BinaryTree<T>` to create the object since it requires initialisation of
 the root. Such an object is created as follows: `BinaryTree<Gate> obj = new BinaryTree(new OrGate(1,1))`. This sets the root of the Binary Tree to the object specified.
@@ -376,7 +386,7 @@ The following sequence diagram is a depiction of the events succeeding a call to
 
 ![InsertSequenceDiagram](diagrams/BinaryTreeInsertSequenceDiagram.png)
 
-<small><i>Figure 24</i></small>
+<small><i>Figure 26</i></small>
 
 Post calling this function, the second element in the `arrayList` will be the `AndGate(1,1)` object.
 
@@ -388,7 +398,7 @@ The following sequence diagram is a depiction of the events succeeding a call to
 
 ![IsLeafSequenceDiagram](diagrams/BinaryTreeIsLeafSequence.png)
 
-<small><i>Figure 25</i></small>
+<small><i>Figure 27</i></small>
 
 #### Using `BinaryTree#isEmpty`
 This is used by `BooleanTemplate` to ensure no calculations are being performed on an empty tree.
@@ -397,7 +407,7 @@ The following sequence diagram showcases the events succeeding a call to `isEmpt
 
 ![IsEmptySequenceDiagram](diagrams/BinaryTreeIsEmptySequenceDiagram.png)
 
-<small><i>Figure 26</i></small>
+<small><i>Figure 28</i></small>
  
 ### Rendering Current Boolean Circuit State
 Using a _standard I/O operation_ (Like _Sopln()_) on an object of the `BooleanTemplate` class yields the current configuration

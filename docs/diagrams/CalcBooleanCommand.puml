@@ -16,29 +16,7 @@ activate Calc
 Calc -> Bool : calculateOutput(index)
 activate Bool
 
-Bool -> BT : getRightIndex(index)
-activate BT
-
-BT --> Bool : rightIndex
-deactivate BT
-
-Bool -> BT : getLeftIndex(index)
-activate BT
-
-BT --> Bool : leftIndex
-deactivate BT
-
-Bool -> BT : isNullAtIndex(rightIndex)
-activate BT
-
-BT --> Bool : isNullAtRight
-deactivate BT
-
-Bool -> BT : getLeftIndex(index)
-activate BT
-
-BT --> Bool : isNullAtLeft
-deactivate BT
+ref over Bool, BT : checkIndex
 
 Bool -> BT: getT(index)
 activate BT
@@ -52,42 +30,9 @@ deactivate Gate
 BT --> Bool: gate
 deactivate BT
 
-opt !isNullAtLeft
+ref over Bool, Gate : setIndex
 
-Bool -> Gate: setInput(calculateOutput(leftIndex))
-activate Gate
-
-Gate --> Bool
-deactivate Gate
-
-end
-
-opt !isNullAtRight
-
-Bool -> Gate : setSecondInput(calculateOutput(rightIndex))
-activate Gate
-
-Gate --> Bool
-deactivate Gate
-
-end
-
-deactivate Gate
-deactivate Gate
-
-Bool -> BT: getT(index)
-activate BT
-
-BT -> Gate: arrayList.get(index)
-activate Gate
-
-Gate --> BT : gate
-deactivate Gate
-
-BT --> Bool : gate
-deactivate BT
-
-Bool -> Gate : getOuput()
+Bool -> Gate : getOutput()
 activate Gate
 
 Gate --> Bool: output
