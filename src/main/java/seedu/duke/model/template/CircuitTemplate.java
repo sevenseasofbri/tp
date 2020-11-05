@@ -63,7 +63,7 @@ public abstract class CircuitTemplate {
     public abstract LoadComponent getComponent(String component) throws InvalidComponentException;
 
     protected String voltageToString() {
-        return "Current Voltage: " + (isSetPowerSupply() ? initialPowerSupply : NOT_SET) + System.lineSeparator();
+        return "\tCurrent Voltage: " + (isSetPowerSupply() ? initialPowerSupply : NOT_SET) + System.lineSeparator();
     }
 
 }

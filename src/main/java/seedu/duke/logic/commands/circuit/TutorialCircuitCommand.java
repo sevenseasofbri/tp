@@ -11,7 +11,8 @@ import java.util.logging.Level;
 
 public class TutorialCircuitCommand extends SummaryCommand implements TutorialCommand {
     private final Parser parser = new Parser();
-    private static final String[] orderOfInstructions = {"template", "set v", "set", "set", "add", "calc"};
+    private static final String[] orderOfInstructions = {"template rc", "set v", "set r", "set c", "add parallel c",
+        "calc"};
     private int numOfCommandsDone = 0;
     private final Ui ui;
 
@@ -56,7 +57,6 @@ public class TutorialCircuitCommand extends SummaryCommand implements TutorialCo
         if (command.equals("exit")) {
             return false;
         }
-
         if (numOfCommandsDone >= 6 || !command.matches(orderOfInstructions[numOfCommandsDone] + "(.*)")) {
             throw new IncorrectCommandException();
         }

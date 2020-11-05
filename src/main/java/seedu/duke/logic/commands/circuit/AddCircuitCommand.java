@@ -62,6 +62,6 @@ public class AddCircuitCommand extends SetCircuitCommand {
      */
     @Override
     public String toString() {
-        return "Nice, added a " + oldLoadComponent + '\n' + template;
+        return "Nice, added a " + oldLoadComponent + "\n\t" + template;
     }
 }

@@ -9,7 +9,7 @@ import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetEx
 
 public class RcTemplate extends RTemplate {
 
-    private static final String RC_TEMPLATE = "\t+---R-----C---+\n"
+    private static final String RC_TEMPLATE = "+---R-----C---+\n"
                                             + "\t|             |\n"
                                             + "\t|             |\n"
                                             + "\t+----+V_ac+---+\n";
@@ -82,7 +82,7 @@ public class RcTemplate extends RTemplate {
     }
 
     protected String capacitorToString() {
-        return "Total Capacitance: " + (isSetCapacitor() ? capacitor : NOT_SET) + System.lineSeparator();
+        return "\tTotal Capacitance: " + (isSetCapacitor() ? capacitor : NOT_SET) + System.lineSeparator();
     }
 
     /**

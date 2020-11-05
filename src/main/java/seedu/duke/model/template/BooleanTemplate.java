@@ -13,12 +13,12 @@ import seedu.duke.model.gates.Gate;
 
 public class BooleanTemplate {
     private static final String FULL_TREE = "          0UT \n"
-            + "           |     \n"
-            + "     B           C\n"
-            + "                     \n"
-            + "  D     E     F     G\n"
-            + "                      \n"
-            + "H   I J   K L   M N   O";
+            + "\t           |     \n"
+            + "\t     B           C\n"
+            + "\t                     \n"
+            + "\t  D     E     F     G\n"
+            + "\t                      \n"
+            + "\tH   I J   K L   M N   O";
     private static final int ASCII_A = 65;
     /** BinaryTree object to represent the logic circuit. **/
     private final BinaryTree<Gate> circuit;
@@ -199,7 +199,7 @@ public class BooleanTemplate {
             gate.setSecondInput(calculateOutput(circuit.getRightIndex(idx)));
         }
 
-        return circuit.getT(idx).getOutput();
+        return gate.getOutput();
     }
 
     /**

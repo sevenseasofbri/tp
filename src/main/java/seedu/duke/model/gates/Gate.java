@@ -21,7 +21,7 @@ public abstract class Gate {
     /**
      * Returns output of gate.
      *
-     * @return int type output value.
+     * @return boolean type output value.
      * @throws InputsNotSetException If the inputs aren't set.
      */
     public abstract boolean getOutput() throws InputsNotSetException;

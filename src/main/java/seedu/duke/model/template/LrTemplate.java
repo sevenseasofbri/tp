@@ -7,7 +7,7 @@ import seedu.duke.model.exceptions.templateexceptions.InvalidComponentException;
 import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 
 public class LrTemplate extends RTemplate {
-    private static final String RL_TEMPLATE = "\t+---R-----L---+\n"
+    private static final String RL_TEMPLATE = "+---R-----L---+\n"
                                             + "\t|             |\n"
                                             + "\t|             |\n"
                                             + "\t+----+V_ac+---+\n";
@@ -79,7 +79,7 @@ public class LrTemplate extends RTemplate {
     }
 
     protected String inductorToString() {
-        return "Total Inductance: " + (isSetInductor() ? inductor : NOT_SET) + System.lineSeparator();
+        return "\tTotal Inductance: " + (isSetInductor() ? inductor : NOT_SET) + System.lineSeparator();
     }
 
 

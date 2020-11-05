@@ -9,7 +9,7 @@ import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetEx
 
 public class LcTemplate extends CircuitTemplate {
 
-    private static final String LC_TEMPLATE = "\t+---L-----C---+\n"
+    private static final String LC_TEMPLATE = "+---L-----C---+\n"
                                                 + "\t|             |\n"
                                                 + "\t|             |\n"
                                                 + "\t+----+V_ac+---+\n";
@@ -103,11 +103,11 @@ public class LcTemplate extends CircuitTemplate {
     }
 
     protected String inductorToString() {
-        return "Total Inductance: " + (isSetInductor() ? inductor : NOT_SET) + System.lineSeparator();
+        return "\tTotal Inductance: " + (isSetInductor() ? inductor : NOT_SET) + System.lineSeparator();
     }
 
     protected String capacitorToString() {
-        return "Total Capacitance: " + (isSetCapacitor() ? capacitor : NOT_SET) + System.lineSeparator();
+        return "\tTotal Capacitance: " + (isSetCapacitor() ? capacitor : NOT_SET) + System.lineSeparator();
     }
 
     /**

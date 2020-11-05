@@ -8,7 +8,7 @@ import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetEx
 
 public class RTemplate extends CircuitTemplate {
     private static final String R_TEMPLATE =
-              "\t+---R---------+\n"
+              "+---R---------+\n"
             + "\t|             |\n"
             + "\t|             |\n"
             + "\t+----+V_ac+---+\n";
@@ -71,7 +71,7 @@ public class RTemplate extends CircuitTemplate {
     }
 
     protected String resistorToString() {
-        return "Total Resistance: " + (isSetResistor() ? resistor : NOT_SET) + System.lineSeparator();
+        return "\tTotal Resistance: " + (isSetResistor() ? resistor : NOT_SET) + System.lineSeparator();
     }
 
     /**
