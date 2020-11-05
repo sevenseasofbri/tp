@@ -533,16 +533,16 @@ The four types of components are: `r`,`c`,`l`,`v`. Note that the value inputted 
 ### Creating a logic gate 
 Similar to the creation of a digital circuit, we create a `template`, `set` values, and can `add` values.
 
-For the detailed steps, visit [Boolean Action Commands](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#boolean-action-commands).
+For the detailed steps, visit [Boolean Action Commands](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#7-boolean-action-commands).
 
 ### Calculating values
 For calculation of values, the `calc` command is used.
 
 The following links provide detailed steps for calculations for the respective section:
 
-* [Circuits](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calculating-effective-value-calc-)
+* [Circuits](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#64-calculating-effective-value-)
 
-* [Boolean](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calculating-output-calc-) 
+* [Boolean](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#74-calculating-output-) 
 
 ### Exiting the program
 Simply enter `bye` to exit the program and bid farewell to your loyal **CLIrcuit Assistant**.
