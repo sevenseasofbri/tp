@@ -216,7 +216,13 @@ Total Capacitance: 0.0 µF
 
 ### 6.3 Adding a component <a name="add-comp"></a>
 
-This command adds a component, in a specific configuration - either *in parallel* or *in series* - to the current circuit template. This allows you to quickly obtain calculations to your chosen configurations. Only *load components* can be added - you cannot add a *voltage source*.
+This command adds a component, in a specific configuration - either *in parallel* or *in series* - to the current circuit template. This allows you to quickly obtain calculations to your chosen configurations. Only *load components* can be added - you cannot add a *voltage source*. You should only add a component after it has already been set.
+
+<div markdown="span" class="alert alert-tip">
+
+:bulb: **Tip:**  You can add components as long as there is already a value set using the `set` command.
+
+</div>
 
 <div markdown="span" class="alert alert-warning">
 

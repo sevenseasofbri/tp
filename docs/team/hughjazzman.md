@@ -46,9 +46,9 @@ title : Wira Azmoon - Project Portfolio Page
 ### Enhancements Implemented
 
 
-#### Code & User Guide Setup 
+#### Code, Packages Setup
 
-* **PR**: [#8](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/8)
+* **PR**: [#8](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/8), [#24](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/24), [#25](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/25)
 
 Set up the skeleton code used in the project, including the following classes:
 
@@ -57,34 +57,21 @@ Set up the skeleton code used in the project, including the following classes:
 * `Command`
 * `Component`
 
-#### Add Components and Command Classes <a name="add-comp"></a>
-
-* **PRs** : [#24](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/24), [#25](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/25)
-
 Introduced the Add Component feature, refactored the `Component` classes, added the classes within the `command` package, updated the `Parser` class, and update some `Template` classes, as well as `Ui` and `Duke`. JavaDoc was also added to `Command.execute()` methods.
 
-#### Add/Set Commands & JUnit Tests
+#### Unit Testing & Assertions
 
-* **PR**: [#36](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/36), [#39](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/39), [#106](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/106)
+* **PR**: [#36](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/36), [#39](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/39), [#106](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/106), [#49](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/49)
 
 Updated various classes mentioned [above](#add-components-and-command-classes-). Added classes `AddCommand` and `SetCommand` and JUnit Tests `ParserTest`.
-
-#### Ui Architecture, Assertions
-
-* **PR**: [#49](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/49)
 
 Refactored code according to updated Design Architecture - reduced coupling between `Ui` and `Command` to follow Architecture in updated [**Developer Guide**](../DeveloperGuide.md). Added assertions to make the code more defensive.
 
 #### Boolean Commands Setup
 
-* **PR**: [#53](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/53), [#71](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/71), [#82](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/82)
+* **PR**: [#53](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/53), [#71](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/71), [#82](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/82), [#83](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/83)
 
 Added/Updated classes in the `commands.gates`, `model.component`, `model.binarytree` packages, as well as updated the `BooleanParser` to handle new commands.
-
-
-#### Boolean Commands Functionalities
-
-* **PR**: [#83](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/83)
 
 Added functionalities for `BooleanCommand` and its subclasses.
 
