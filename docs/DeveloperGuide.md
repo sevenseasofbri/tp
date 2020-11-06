@@ -542,15 +542,14 @@ truth value of the operation will result in 1 (TRUE) if either x == 1 or y == 1,
 * *Parent Node* - A node in a binary tree data structure which has one or more child nodes.
 * *Resistor* - A passive electronic device which implements electrical resistance in an electronic circuit.
 * *Sopln()* - Abbreviation for java out operation "System.out.println()", from package java.lang.
-* *Standard I/O Operation* - Common java I/O streams include System.in, System.out and System.err.
-* *XNOR* - An inverse of the XOR operation. Outputs the opposite truth value of what a XOR gate would output.
-<<<<<<< HEAD
-* *XOR* - Also known as exclusive OR, XOR is a secondary operation in boolean algebra which may be denoted as x XOR y. The 
-          truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y == 1, and 0 for other combinations of values.
+* *Space Complexity* - Space complexity of an algorithm quantifies the amount of space or memory taken by an 
+algorithm to run as a function of the length of the input.   
+* *Standard I/O Operation* - Common java I/O streams include System.in, System.out and System.err.    
 * *Time Complexity* - Time complexity of an algorithm quantifies the amount of time taken by an algorithm to run as a 
 function of the length of the input.
-* *Space Complexity* - Space complexity of an algorithm quantifies the amount of space or memory taken by an 
-algorithm to run as a function of the length of the input.          
+* *XNOR* - An inverse of the XOR operation. Outputs the opposite truth value of what a XOR gate would output.
+* *XOR* - Also known as exclusive OR, XOR is a secondary operation in boolean algebra which may be denoted as x XOR y. The 
+truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y == 1, and 0 for other combinations of values.   
 
 
 ## Appendix: Instructions for manual testing (Dorian)
