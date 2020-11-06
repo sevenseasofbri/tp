@@ -549,7 +549,7 @@ truth value of the operation will result in 1 (TRUE) if either x == 1 or y == 1,
           truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y == 1, and 0 for other combinations of values.
 * *Time Complexity* - Time complexity of an algorithm quantifies the amount of time taken by an algorithm to run as a 
 function of the length of the input.
-* *Space Complexity* - Similarly, Space complexity of an algorithm quantifies the amount of space or memory taken by an 
+* *Space Complexity* - Space complexity of an algorithm quantifies the amount of space or memory taken by an 
 algorithm to run as a function of the length of the input.          
 
 
