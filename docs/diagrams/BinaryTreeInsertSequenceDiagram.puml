@@ -17,7 +17,7 @@ BinaryTree -> BinaryTree : isNullAtIndex \n (getParentIndex(idx))
 BinaryTree -> BinaryTree : getParentIndex(idx)
 return parent_idx
 return false
-alt valid index and parent is not null
+opt valid index and parent is not null
 return set successfully
 end
 @enduml
