@@ -218,9 +218,7 @@ To exit Tutorial Mode, simply type 'exit' and press Enter.
 
 This section details how the commands are used with a **circuit template**. You can use this section to build simple template circuits which may have a *voltage source* with *load components* such as *resistors*, *capacitors*, or *inductors*. 
 
-It may be important to note that the circuit diagrams shown in the expected outputs are simplified circuits, even when adding components. For example, adding a resistor in parallel to a template that contains a resistor will change the effective resistance in the circuit, but it will not update the diagram to show a second resistor.
-
-{diagram}
+It may be important to note that the circuit diagrams shown in the expected outputs are simplified circuits, even when [adding components](#63-adding-a-component). For example, adding a resistor in parallel to a template that contains a resistor will change the effective resistance in the circuit, but it will not dynamically update the visualised diagram to show a second resistor.
 
 <div markdown="span" class="alert alert-primary">
 
@@ -242,21 +240,9 @@ This command creates a circuit template. This command must be used to be able to
     * `rl` consists of the resistor and inductor.
     * `lc` consists of the inductor and capacitor.
 
-Example of usage:
+The diagram below shows an example when using the `template rc` command.
 
-`template rc`
-
-Expected outcome:
-
-```
-	+---R-----C---+
-	|             |
-	|             |
-	+----+V_ac+---+
-Current Voltage: 0.0 V
-Total Resistance: 0.0 Ω
-Total Capacitance: 0.0 µF
-```
+![Simplified](diagrams/SimplifiedCircuit.png)
 
 ### 6.2 Setting a component value <a name='set-comp'></a>
 
@@ -525,7 +511,7 @@ This section details the **frequently asked questions (FAQ)** regarding the use 
 
 **Q**: Why does using the `add` command for the circuit template give me a "Component not yet set" error?
 
-**A**: You have to first set the component involved using the [`set` command]().
+**A**: You have to first set the component involved using the [`set` command](#62-setting-a-component-value).
 
 --------------------------------------------------------------------------------------------------------------------
 
