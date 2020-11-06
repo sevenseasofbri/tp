@@ -150,67 +150,26 @@ To aid the user, this command starts the interactive tutorial for either the [Ci
 
 Once you have entered the interactive tutorial, you are to follow the instructions provided to them as follows:
 
-The interactive tutorial for circuit commands in `tutorial circuit` is as follows:
-```
-You have entered
-  _______    _             _       _   __  __           _      _
- |__   __|  | |           (_)     | | |  \/  |         | |    | |
-    | |_   _| |_ ___  _ __ _  __ _| | | \  / | ___   __| | ___| |
-    | | | | | __/ _ \| '__| |/ _` | | | |\/| |/ _ \ / _` |/ _ \ |
-    | | |_| | || (_) | |  | | (_| | | | |  | | (_) | (_| |  __/_|
-    |_|\__,_|\__\___/|_|  |_|\__,_|_| |_|  |_|\___/ \__,_|\___(_)
+![InsertImage](diagrams/TutorialMode.png)
 
-Type 'exit' if you want to leave this mode and go back to the application.
+The proceeding instructions will depend on whether you have chosen `tutorial circuit` or `tutorial boolean`.
 
-Let's get started! First we will choose a template to work with. In the app you can choose from rc, rl, lc, and r templates.
-However, for this tutorial, we will use a Resistor-Capacitor template.
-To select the Resistor-Capacitor circuit template, enter 'template rc'
-```
-The interactive tutorial for boolean commands in `tutorial boolean` is as follows:
-
-
-```
-You have entered
-  _______    _             _       _   __  __           _      _
- |__   __|  | |           (_)     | | |  \/  |         | |    | |
-    | |_   _| |_ ___  _ __ _  __ _| | | \  / | ___   __| | ___| |
-    | | | | | __/ _ \| '__| |/ _` | | | |\/| |/ _ \ / _` |/ _ \ |
-    | | |_| | || (_) | |  | | (_| | | | |  | | (_) | (_| |  __/_|
-    |_|\__,_|\__\___/|_|  |_|\__,_|_| |_|  |_|\___/ \__,_|\___(_)
-
-Type 'exit' if you want to leave this mode and go back to the application.
-Lets get started! First chose a template you want to work with. You can chose from and, or, nand, nor, xor and xnor gate templates.
-eg. To select the and gate template, enter 'template and'
-```
 When you have entered the tutorial, you will be required to type in the commands in the terminal
 for each step of the tutorial as per the instructions given to them. 
 
+
 You will be required to do this until you have
-reached the end of the tutorial where you will be asked to exit as follows:
+reached the end of the tutorial.
 
-```
-Hooray! You're set to use the circuit builder of 
-  _____ _      _____                _ _                      _     _              _   
- / ____| |    |_   _|              (_) |       /\           (_)   | |            | |
-| |    | |      | |  _ __ ___ _   _ _| |_     /  \   ___ ___ _ ___| |_ __ _ _ __ | |_
-| |    | |      | | | '__/ __| | | | | __|   / /\ \ / __/ __| / __| __/ _` | '_ \| __|
-| |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\__ \__ \ \__ \ || (_| | | | | |_
- \_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|
-
-Enjoy! :)
-type 'exit' to exit this mode.
-```
 When you have typed in a command that is inconsistent with what is required as per the tutorial's
 instruction for that particular step, an invalid command message will be returned until you type 
 in the correct command in the terminal line as shown below. 
 
+![InsertImage](diagrams/BadCommand.png)
+
 You may also choose to exit the program at that point of 
 time instead.
 
-```
-Bad Command! Please follow the instructions carefully.
-To exit Tutorial Mode, simply type 'exit' and press Enter.
-```
 
 --------------------------------------------------------------------------------------------------------------------
 
