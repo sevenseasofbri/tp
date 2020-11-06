@@ -74,7 +74,7 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
 1. Once the app starts, type a command in the command line and press enter to execute it.
 1. Use the command `tutorial circuit` or `tutorial boolean` to go through an [interactive tutorial](#52-interactive-tutorial) before using the application.
 1. Alternatively, you can use the command [`summary`](#51-summary-of-commands-) to get a list of all commands used in the application.
-1. Note that a *logging* file `appLog.log` will be created in the same directory that `duke.jar` is run from. For further information regarding *logging*, you can refer to the [**Developer Guide**](DeveloperGuide.md).
+1. Note that a *logging* file `appLog.txt` will be created in the same directory that `duke.jar` is run from. For further information regarding *logging*, you can refer to the [**Developer Guide**](DeveloperGuide.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -82,11 +82,13 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
 
 ![Command](diagrams/CommandUserDiagram.png)
 
-The diagram above shows the hierarchy of the types of commands in the application. [If you are looking for the summary of commands, it can be found at the end of this guide](#9-command-summary). In this **User Guide**, you can find the following sections listed below:
+The diagram above shows the hierarchy of the types of commands in the application. [If you are looking for the summary of commands used within the CLI app, it can be found at the end of this guide](#9-command-summary). In this **User Guide**, you can find the following sections listed below:
 
 * [General Commands](#5-general-commands)
 * [Circuit Action Commands](#6-circuit-action-commands)
 * [Boolean Action Commands](#7-boolean-action-commands)
+
+General commands are commands which are not specific to features available using the action commands.
 
 Action commands are split into **two categories** - they may use the same *syntax* for some commands, but the application will continuously track the current `template` that is being worked on and automatically use the correct command to execute. Thus, if there is no current `template`, then the other commands used will not be available to run.
 
@@ -98,7 +100,6 @@ Action commands are split into **two categories** - they may use the same *synta
 
 The commands involved with both categories are:
 
-* `tutorial`
 * `template`
 * `set`
 * `add`
@@ -191,7 +192,11 @@ time instead.
 
 ## 6. Circuit Action Commands 
 
-This section details how the commands are used with a **circuit template**. You can use this section to build simple template circuits which may have *resistors*, *capacitors*, or *inductors*. It may be important to note that the circuit diagrams shown in the expected outputs are simplified circuits, even when adding components. For example, adding a resistor in parallel to a template that contains a resistor will change the effective resistance in the circuit, but it will not update the diagram to show a second resistor.
+This section details how the commands are used with a **circuit template**. You can use this section to build simple template circuits which may have a *voltage source* with *load components* such as *resistors*, *capacitors*, or *inductors*. 
+
+It may be important to note that the circuit diagrams shown in the expected outputs are simplified circuits, even when adding components. For example, adding a resistor in parallel to a template that contains a resistor will change the effective resistance in the circuit, but it will not update the diagram to show a second resistor.
+
+{diagram}
 
 <div markdown="span" class="alert alert-primary">
 
@@ -231,7 +236,7 @@ Total Capacitance: 0.0 µF
 
 ### 6.2 Setting a component value <a name='set-comp'></a>
 
-This command sets the value of a component. The component must be part of the current circuit template. Units correspond to the component involved - *resistors* in *ohms*, *capacitors* in *microfarads*, and *inductors* in *microhenries*. The values would need to be set to perform calculations or analysis such as in the [`calc`](#64-calculating-effective-value-) command.
+This command sets the value of a component. The component must be part of the current circuit template. Units correspond to the component involved - *resistors* in *ohms*, *capacitors* in *microfarads*, and *inductors* in *microhenries*. The values would need to be set to perform calculations or analysis such as in the [`calc` command](#64-calculating-effective-value-).
 
 <div markdown="span" class="alert alert-warning">
 
@@ -353,7 +358,7 @@ The effective resistance calculated is 250.0 Ω
 
 ## 7. Boolean Action Commands
 
-This section details how the commands are used with a **boolean template**. You can use this section to build simple logic circuits which may be made up of various gates such as `AND`, `OR`, and `XOR` gates.
+This section details how the commands are used with a **boolean template**. You can use this section to build simple logic circuits which may be made up of various *gates* such as `AND`, `OR`, and `XOR` *gates*.
 
 ### 7.1 Creating a boolean template <a name='template-logic'></a>
 
@@ -369,7 +374,7 @@ This command creates a boolean template. Similar to the [circuit template](#6-ci
 |:-:|
 |`template GATE`|
 
-* Logic Gate `GATE` can be chosen from the following:
+* The `GATE` can be chosen from the following:
     * `and`, `or`, `xor`, `nand`, `nor`, `xnor`
 
 Example of usage:
@@ -395,7 +400,7 @@ This command sets the value of an input. The inputs will then be used in the `ca
 
 <div markdown="span" class="alert alert-warning">
 
-:exclamation: **Warning:** The `INPUT` must exist in the diagram, and must not have already been set as a `GATE`.
+:exclamation: **Warning:** The `INPUT` must exist in the diagram, and must not have already been set as a `Gate`.
 
 </div>
 
@@ -404,7 +409,7 @@ This command sets the value of an input. The inputs will then be used in the `ca
 |`set INPUT VALUE`|
 
 * The `INPUT` can be chosen only from the current `template`.
-* The `VALUE` can be any integer, but any non-zero integer will be treated as `1`, while 0 is treated as `0`.
+* The `VALUE` can be any *integer*, but any valid non-zero *integer* will be treated as `1`, while 0 is treated as `0`. Valid *integers* are defined as the *Java* `int` type.
 
 Example of usage:
 
@@ -423,7 +428,7 @@ C = ?
 
 ### 7.3 Adding a Gate <a name="add-gate"></a>
 
-The application has the ability to combine multiple `Gate` objects to generate more complicated boolean logic gate configurations. This command allows you to set an input to a boolean logic `Gate`. You can also change an existing gate if needed. However, the depth of the deepest logic `Gate` from the *root* logic `Gate` (at the top) cannot exceed 2.
+The application has the ability to combine multiple `Gate` objects to generate more complicated boolean *logic gate* configurations. This command allows you to set an input to a boolean logic `Gate`. You can also change an existing gate if needed. However, the depth of the deepest logic `Gate` from the *root* logic `Gate` (at the top) cannot exceed 2.
 
 <div markdown="span" class="alert alert-tip">
 
@@ -439,7 +444,7 @@ The application has the ability to combine multiple `Gate` objects to generate m
 
 <div markdown="span" class="alert alert-primary">
 
-:information_source: **Note:**  The current implementation only allows the `Gate` objects to be 3 levels deep, counting from 0 at the top.
+:information_source: **Note:**  The current implementation only allows the `Gate` objects to be 2 levels deep, counting from 0 at the top. This means you may see inputs up to the 3rd level, up to the letter `O`.
 
 </div>
 
@@ -471,7 +476,7 @@ G = ?
 
 ### 7.4 Calculating output <a name="calc-output"></a>
 
-This command calculates the output of the configured logic gates, and requires that all inputs of the circuit are set. The output is represented by `OUT` in the printed `template`.
+This command calculates the output of the configured logic *gates*, and requires that all inputs of the circuit are set. The output is represented by `OUT` in the printed `template`.
 
 <div markdown="span" class="alert alert-warning">
 
@@ -520,7 +525,7 @@ This section details the **frequently asked questions (FAQ)** regarding the use 
 
 **Q**: Why is the interactive tutorial so restrictive?
 
-**A**: This is by design. Once you get the hang of the app, you can exit the tutorial to use the commands proper.
+**A**: This is by design. Once you get the hang of the application, you can exit the tutorial to use the commands proper.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -535,3 +540,19 @@ Action | Format, Examples
 **Add Circuit** | `add CONFIG COMPONENT VALUE`<br> e.g., `add parallel c 500`
 **Add Logic Gate** | `add INPUT GATE`<br> e.g., `add C or`
 **Calculate Circuit/Logic Gate** | `calc EFF_VALUE/[]` <br> e.g., `calc ceff` <br> e.g., `calc`
+
+## 10. Glossary
+
+This section explains certain technical terms used in the guide which may require more detail.
+
+* *Command Line Interface (CLI)* - Text-based user interface which the application uses to interact with the user
+* *logging* - Keeping a record of information about events which take place, specific to the application
+* *syntax* - Rules in which a command must be run
+* *voltage source* - A device which can maintain a fixed voltage
+* *load components* - A component which consumes electric power
+* *resistors* - A component which provides electrical resistance
+* *capacitors* - A component which stores electrical energy in an electrical field
+* *inductors* - A component which stores energy in a magnetic field when electric *current* flows throw it
+* *current* - Flow of electric charge in a circuit
+* *power* - Rate at which electrical energy is transferred by a circuit
+* *logic gate* - Physical electronic device implementing a Boolean function
