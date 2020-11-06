@@ -107,14 +107,24 @@ public class BooleanTemplate {
 
         // Get all equations
         StringBuilder equations = new StringBuilder();
+        // Add 2 newlines
         equations.append(System.lineSeparator()).append(System.lineSeparator());
-        equations.append("OUT = B ").append(circuit.getRoot()).append(" C").append(System.lineSeparator());
+        // Add the first line "OUT = B <Gate> C"
+        equations.append("\tOUT = B ").append(circuit.getRoot()).append(" C")
+                .append(System.lineSeparator()).append('\t');
+
         for (int i = 1; i < treeSize; i++) {
-            if (isOutput(i)) {
-                equations.append(getGateEquation(i)).append(System.lineSeparator());
-            } else if (isInput(i)) {
-                equations.append(getInputEquation(i)).append(System.lineSeparator());
+            if (!isInputOutput(i)) {
+                continue;
             }
+            String currentEquation = "";
+            if (isOutput(i)) {
+                currentEquation = getGateEquation(i);
+            } else if (isInput(i)) {
+                currentEquation = getInputEquation(i);
+            }
+            // Add subsequent lines' equations
+            equations.append(currentEquation).append(System.lineSeparator()).append('\t');
         }
         currentConfig = currentConfig.stripTrailing() + equations;
     }

@@ -213,37 +213,40 @@ Let's get started! First chose a template you want to work with.
 	However for this tutorial, we will use an and gate template.
 	To select the and gate, enter 'template and'.
 -----------------------------------------------------------
+	New Boolean template chosen with AND gate at the root.
 	          0UT
 	           |
 	     B           C
 
-OUT = B AND C
-B = ?
-C = ?
+	OUT = B AND C
+	B = ?
+	C = ?
 
 -----------------------------------------------------------
 Let's set a value to the input B!
 	Type in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0.
 -----------------------------------------------------------
+	Successfully set B to 1
 	          0UT
 	           |
 	     B           C
 
-OUT = B AND C
-B = 1
-C = ?
+	OUT = B AND C
+	B = 1
+	C = ?
 
 -----------------------------------------------------------
 Now let's set a value to the input C!
 	Type in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.
 -----------------------------------------------------------
+	Successfully set C to 0
 	          0UT
 	           |
 	     B           C
 
-OUT = B AND C
-B = 1
-C = 0
+	OUT = B AND C
+	B = 1
+	C = 0
 
 -----------------------------------------------------------
 Now let's calculate the output of B GATE C.
@@ -253,9 +256,9 @@ Now let's calculate the output of B GATE C.
 	           |
 	     B           C
 
-OUT = B AND C
-B = 1
-C = 0
+	OUT = B AND C
+	B = 1
+	C = 0
 
 	The output of the above configuration is 0.
 -----------------------------------------------------------
@@ -265,49 +268,52 @@ Voila! Now you can see the output to your gate! Let's add another gate now.
 	We are now going to connect the output of the GATE you've decided to input B.
 	Enter 'add C GATE' where GATE can be one of the following: and, or, nand, nor, xor, xnor.
 -----------------------------------------------------------
+	Nice, added NOR at C
 	          0UT
 	           |
 	     B           C
 
 	              F     G
 
-OUT = B AND C
-B = 1
-C = F NOR G
-F = ?
-G = ?
+	OUT = B AND C
+	B = 1
+	C = F NOR G
+	F = ?
+	G = ?
 
 -----------------------------------------------------------
 Now a new gate has been added! Let us assign the other variables.
 	Set input F by entering 'set F BOOLVALUE' where BOOLVALUE is either 1 or 0.
 -----------------------------------------------------------
+	Successfully set F to 0
 	          0UT
 	           |
 	     B           C
 
 	              F     G
 
-OUT = B AND C
-B = 1
-C = F NOR G
-F = 0
-G = ?
+	OUT = B AND C
+	B = 1
+	C = F NOR G
+	F = 0
+	G = ?
 
 -----------------------------------------------------------
 Now a new gate has been added! Let us assign the other variables.
 	Set input G by entering 'set G BOOLVALUE' where BOOLVALUE is either 1 or 0.
 -----------------------------------------------------------
+	Successfully set G to 1
 	          0UT
 	           |
 	     B           C
 
 	              F     G
 
-OUT = B AND C
-B = 1
-C = F NOR G
-F = 0
-G = 1
+	OUT = B AND C
+	B = 1
+	C = F NOR G
+	F = 0
+	G = 1
 
 -----------------------------------------------------------
 Now let's calculate the output of the whole configuration. Enter 'calc'.
@@ -318,11 +324,11 @@ Now let's calculate the output of the whole configuration. Enter 'calc'.
 
 	              F     G
 
-OUT = B AND C
-B = 1
-C = F NOR G
-F = 0
-G = 1
+	OUT = B AND C
+	B = 1
+	C = F NOR G
+	F = 0
+	G = 1
 
 	The output of the above configuration is 0.
 -----------------------------------------------------------
@@ -482,13 +488,14 @@ Great! You're set to use the boolean builder of
 	You can use the command 'summary' to take a look at all the commands.
 -----------------------------------------------------------
 -----------------------------------------------------------
+	New Boolean template chosen with AND gate at the root.
 	          0UT
 	           |
 	     B           C
 
-OUT = B AND C
-B = ?
-C = ?
+	OUT = B AND C
+	B = ?
+	C = ?
 
 -----------------------------------------------------------
 -----------------------------------------------------------
@@ -504,41 +511,101 @@ C = ?
 	Not enough arguments! The command used needs 3 arguments.
 -----------------------------------------------------------
 -----------------------------------------------------------
+	Successfully set B to 1
 	          0UT
 	           |
 	     B           C
 
-OUT = B AND C
-B = 1
-C = ?
+	OUT = B AND C
+	B = 1
+	C = ?
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-	          0UT
-	           |
-	     B           C
-
-	              F     G
-
-OUT = B AND C
-B = 1
-C = F OR G
-F = ?
-G = ?
-
------------------------------------------------------------
------------------------------------------------------------
+	Nice, added OR at C
 	          0UT
 	           |
 	     B           C
 
 	              F     G
 
-OUT = B AND C
-B = 1
-C = F OR G
-F = 0
-G = ?
+	OUT = B AND C
+	B = 1
+	C = F OR G
+	F = ?
+	G = ?
+
+-----------------------------------------------------------
+-----------------------------------------------------------
+	Successfully set F to 0
+	          0UT
+	           |
+	     B           C
+
+	              F     G
+
+	OUT = B AND C
+	B = 1
+	C = F OR G
+	F = 0
+	G = ?
+
+-----------------------------------------------------------
+-----------------------------------------------------------
+	Nice, added XOR at G
+	          0UT
+	           |
+	     B           C
+
+	              F     G
+
+	                  N   O
+
+	OUT = B AND C
+	B = 1
+	C = F OR G
+	F = 0
+	G = N XOR O
+	N = ?
+	O = ?
+
+-----------------------------------------------------------
+-----------------------------------------------------------
+	Successfully set N to 1
+	          0UT
+	           |
+	     B           C
+
+	              F     G
+
+	                  N   O
+
+	OUT = B AND C
+	B = 1
+	C = F OR G
+	F = 0
+	G = N XOR O
+	N = 1
+	O = ?
+
+-----------------------------------------------------------
+-----------------------------------------------------------
+	Successfully set O to 0
+	          0UT
+	           |
+	     B           C
+
+	              F     G
+
+	                  N   O
+
+	OUT = B AND C
+	B = 1
+	C = F OR G
+	F = 0
+	G = N XOR O
+	N = 1
+	O = 0
 
 -----------------------------------------------------------
 -----------------------------------------------------------
@@ -550,67 +617,13 @@ G = ?
 
 	                  N   O
 
-OUT = B AND C
-B = 1
-C = F OR G
-F = 0
-G = N XOR O
-N = ?
-O = ?
-
------------------------------------------------------------
------------------------------------------------------------
-	          0UT
-	           |
-	     B           C
-
-	              F     G
-
-	                  N   O
-
-OUT = B AND C
-B = 1
-C = F OR G
-F = 0
-G = N XOR O
-N = 1
-O = ?
-
------------------------------------------------------------
------------------------------------------------------------
-	          0UT
-	           |
-	     B           C
-
-	              F     G
-
-	                  N   O
-
-OUT = B AND C
-B = 1
-C = F OR G
-F = 0
-G = N XOR O
-N = 1
-O = 0
-
------------------------------------------------------------
------------------------------------------------------------
-	          0UT
-	           |
-	     B           C
-
-	              F     G
-
-	                  N   O
-
-OUT = B AND C
-B = 1
-C = F OR G
-F = 0
-G = N XOR O
-N = 1
-O = 0
+	OUT = B AND C
+	B = 1
+	C = F OR G
+	F = 0
+	G = N XOR O
+	N = 1
+	O = 0
 
 	The output of the above configuration is 1.
 -----------------------------------------------------------
