@@ -1,6 +1,6 @@
 package seedu.duke.model.gates;
 
-import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
 
 public class OrGate extends Gate {
     private static final String OR = "OR";
@@ -8,10 +8,11 @@ public class OrGate extends Gate {
     /**
      * Performs bitwise OR (|) operation on the input instance variables.
      *
-     * @return int value of the gate output.
+     * @return boolean value of the gate output.
+     * @throws InputsNotSetException If both inputs aren't set yet.
      */
     @Override
-    public int getOutput() throws DukeException {
+    public boolean getOutput() throws InputsNotSetException {
         checkHasSetBothInput();
         return input | secondInput;
     }

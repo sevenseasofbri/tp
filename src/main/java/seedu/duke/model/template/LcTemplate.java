@@ -1,19 +1,20 @@
 package seedu.duke.model.template;
 
-import seedu.duke.DukeException;
 import seedu.duke.model.component.Capacitor;
 import seedu.duke.model.component.Inductor;
 import seedu.duke.model.component.LoadComponent;
+import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
+import seedu.duke.model.exceptions.templateexceptions.InvalidComponentException;
+import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 
 public class LcTemplate extends CircuitTemplate {
 
-    private static final String LC_TEMPLATE = "\t+---L-----C---+\n"
+    private static final String LC_TEMPLATE = "+---L-----C---+\n"
                                                 + "\t|             |\n"
                                                 + "\t|             |\n"
                                                 + "\t+----+V_ac+---+\n";
     private final Inductor inductor;
     private final Capacitor capacitor;
-
 
     public LcTemplate(double capacitance, double inductance, double powerSupply) {
         super(powerSupply);
@@ -29,14 +30,14 @@ public class LcTemplate extends CircuitTemplate {
      * Returns the impedance of LC circuit.
      *
      * @return Impedance of LC circuit
-     * @throws DukeException If component values are not yet set.
+     * @throws TemplateComponentsNotSetException If component values are not yet set.
      */
     @Override
-    public double calcImpedance() throws DukeException {
+    public double calcImpedance() throws TemplateComponentsNotSetException {
         double inductance = inductor.getValue() * Math.pow(10, -6);
         double capacitance = capacitor.getValue() * Math.pow(10, -6);
         if (inductance == 0 || capacitance == 0) {
-            throw new DukeException("Component(s) not set yet.");
+            throw new TemplateComponentsNotSetException();
         }
         return ANGULAR_FREQUENCY * Math.abs(inductance - (1 / capacitance));
     }
@@ -64,7 +65,7 @@ public class LcTemplate extends CircuitTemplate {
      *
      * @param value double type value to be set to the inductor in the circuit.
      */
-    protected void setInductor(double value) {
+    protected void setInductor(double value) throws ZeroComponentException {
         inductor.setValue(value);
     }
 
@@ -73,8 +74,16 @@ public class LcTemplate extends CircuitTemplate {
      *
      * @param value double type value to be set to the capacitor in the circuit.
      */
-    protected void setCapacitor(double value) {
+    protected void setCapacitor(double value) throws ZeroComponentException {
         capacitor.setValue(value);
+    }
+
+    protected boolean isSetInductor() {
+        return inductor.getValue() != 0;
+    }
+
+    protected boolean isSetCapacitor() {
+        return capacitor.getValue() != 0;
     }
 
     /**
@@ -84,13 +93,21 @@ public class LcTemplate extends CircuitTemplate {
      * @param value double type value to be set to the resistor in the circuit.
      */
     @Override
-    public void setComponent(String s, double value) {
+    public void setComponent(String s, double value) throws ZeroComponentException {
         assert s.equals("l") || s.equals("c");
         if (s.equals("l")) {
             setInductor(value);
         } else {
             setCapacitor(value);
         }
+    }
+
+    protected String inductorToString() {
+        return "\tTotal Inductance: " + (isSetInductor() ? inductor : NOT_SET) + System.lineSeparator();
+    }
+
+    protected String capacitorToString() {
+        return "\tTotal Capacitance: " + (isSetCapacitor() ? capacitor : NOT_SET) + System.lineSeparator();
     }
 
     /**
@@ -100,10 +117,7 @@ public class LcTemplate extends CircuitTemplate {
      */
     @Override
     public String toString() {
-        return LC_TEMPLATE
-                + "Current Voltage: " + initialPowerSupply + System.lineSeparator()
-                + "Total Capacitance: " + capacitor + System.lineSeparator()
-                + "Total Inductance: " + inductor + System.lineSeparator();
+        return LC_TEMPLATE + voltageToString() + capacitorToString() + inductorToString();
     }
 
     /**
@@ -111,16 +125,16 @@ public class LcTemplate extends CircuitTemplate {
      *
      * @param component String representing the component.
      * @return LoadComponent object.
-     * @throws DukeException If input String does not match a component.
+     * @throws InvalidComponentException If input String does not match a component.
      */
     @Override
-    public LoadComponent getComponent(String component) throws DukeException {
+    public LoadComponent getComponent(String component) throws InvalidComponentException {
         if (component.equals("l")) {
             return getInductor();
         } else if (component.equals("c")) {
             return getCapacitor();
         } else {
-            throw new DukeException("Invalid component");
+            throw new InvalidComponentException(component);
         }
     }
 }

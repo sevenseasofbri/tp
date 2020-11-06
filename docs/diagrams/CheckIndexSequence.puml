@@ -1,0 +1,34 @@
+@startuml
+
+group sd checkIndex
+participant ":BooleanTemplate" as Bool
+participant ":BinaryTree" as BT
+
+Bool -> BT : getRightIndex(index)
+activate BT
+
+BT --> Bool : rightIndex
+deactivate BT
+
+Bool -> BT : getLeftIndex(index)
+activate BT
+
+BT --> Bool : leftIndex
+deactivate BT
+
+Bool -> BT : isNullAtIndex(rightIndex)
+activate BT
+
+BT --> Bool : isNullAtRight
+deactivate BT
+
+Bool -> BT : getLeftIndex(index)
+activate BT
+
+BT --> Bool : isNullAtLeft
+deactivate BT
+
+end
+
+
+@enduml

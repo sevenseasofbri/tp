@@ -1,36 +1,29 @@
 @startuml
+!include style.puml
+
+hide member
+
+package Command {
+
+class "{abstract}\nCommand" as Command
+class "SummaryCommand" as Summary
+class "TutorialBooleanCommand" as Tutorial
+
 package Gates {
-    class "Command" as State1
-    class "BooleanCommand" as State2
-    class "AddBooleanCommand" as State3
-    class “CalculateBooleanCommand" as State4
-    class “SetBooleanCommand" as State5
-    class “TemplateBooleanCommand" as State6
+    class "{abstract}\nBooleanCommand" as Bool
+    class "AddBooleanCommand" as Add
+    class "CalculateBooleanCommand" as Calc
+    class "SetBooleanCommand" as Set
+    class "TemplateBooleanCommand" as Template
 }
-class State1 {
-    + execute()
-}
-class State2 {
-    # BooleanTemplate template
-}
-class State3 {
-    - Gate gate
-    - int index
-}
-class State4 {
-
-}
-class State5 {
-    - int value
-    - int index
-}
-class State6 {
 }
 
+Bool -u-|> Command
+Add -u-|> Bool
+Set -u-|> Bool
+Template -u-|> Bool
+Calc -u-|> Bool
+Summary -u-|> Command
+Tutorial -u-|> Summary
 
-State1 <-- State2
-State2 <-- State3
-State2 <-- State4
-State2 <-- State5
-State2 <-- State6
 @enduml

@@ -1,12 +1,14 @@
 package seedu.duke.model.template;
 
-import seedu.duke.DukeException;
 import seedu.duke.model.component.LoadComponent;
 import seedu.duke.model.component.Resistor;
+import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
+import seedu.duke.model.exceptions.templateexceptions.InvalidComponentException;
+import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 
 public class RTemplate extends CircuitTemplate {
     private static final String R_TEMPLATE =
-              "\t+---R---------+\n"
+              "+---R---------+\n"
             + "\t|             |\n"
             + "\t|             |\n"
             + "\t+----+V_ac+---+\n";
@@ -25,12 +27,12 @@ public class RTemplate extends CircuitTemplate {
      * Returns impedance of Resistor.
      *
      * @return impedance of Resistor.
-     * @throws DukeException If component values are not yet set.
+     * @throws TemplateComponentsNotSetException If component values are not yet set.
      */
     @Override
-    public double calcImpedance() throws DukeException {
+    public double calcImpedance() throws TemplateComponentsNotSetException {
         if (resistor.getValue() == 0) {
-            throw new DukeException("Component(s) not set yet.");
+            throw new TemplateComponentsNotSetException();
         }
         return resistor.getValue();
     }
@@ -49,8 +51,12 @@ public class RTemplate extends CircuitTemplate {
      *
      * @param value double type value to be set to the resistor in the circuit.
      */
-    protected void setResistor(double value) {
+    protected void setResistor(double value) throws ZeroComponentException {
         resistor.setValue(value);
+    }
+
+    protected boolean isSetResistor() {
+        return resistor.getValue() != 0;
     }
 
     /**
@@ -60,8 +66,12 @@ public class RTemplate extends CircuitTemplate {
      * @param value double type value to be set to the resistor in the circuit.
      */
     @Override
-    public void setComponent(String s, double value) {
+    public void setComponent(String s, double value) throws ZeroComponentException {
         setResistor(value);
+    }
+
+    protected String resistorToString() {
+        return "\tTotal Resistance: " + (isSetResistor() ? resistor : NOT_SET) + System.lineSeparator();
     }
 
     /**
@@ -71,9 +81,7 @@ public class RTemplate extends CircuitTemplate {
      */
     @Override
     public String toString() {
-        return R_TEMPLATE
-                + "Current Voltage: " + initialPowerSupply + System.lineSeparator()
-                + "Total Resistance: " + resistor + System.lineSeparator();
+        return R_TEMPLATE + voltageToString() + resistorToString();
     }
 
 
@@ -82,12 +90,12 @@ public class RTemplate extends CircuitTemplate {
      *
      * @param component String representing the component.
      * @return LoadComponent object.
-     * @throws DukeException If input String does not match a component.
+     * @throws InvalidComponentException If input String does not match a component.
      */
     @Override
-    public LoadComponent getComponent(String component) throws DukeException {
+    public LoadComponent getComponent(String component) throws InvalidComponentException {
         if (!component.equals("r")) {
-            throw new DukeException("Invalid component");
+            throw new InvalidComponentException(component);
         }
         return getResistor();
     }

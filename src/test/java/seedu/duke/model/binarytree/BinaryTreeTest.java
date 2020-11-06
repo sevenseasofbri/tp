@@ -1,14 +1,18 @@
 package seedu.duke.model.binarytree;
 
 import org.junit.jupiter.api.Test;
-import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.binarytreeexceptions.BinaryTreeInvalidIndexException;
 import seedu.duke.model.gates.AndGate;
 import seedu.duke.model.gates.Gate;
 import seedu.duke.model.gates.OrGate;
+import seedu.duke.model.gates.XorGate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class BinaryTreeTest {
@@ -16,20 +20,20 @@ public class BinaryTreeTest {
     @Test
     void isEmpty_emptyTree_returnsTrue() {
         BinaryTree<Gate> tree = new BinaryTree();
-        assertEquals(true, tree.isEmpty());
+        assertTrue(tree.isEmpty());
     }
 
     @Test
     void isEmpty_nonEmptyTree_returnsFalse() {
         BinaryTree<Gate> tree = new BinaryTree(new OrGate());
-        assertEquals(false, tree.isEmpty());
+        assertFalse(tree.isEmpty());
     }
 
 
     @Test
     void getRoot_emptyTree_returnsNull() {
         BinaryTree<Gate> tree = new BinaryTree();
-        assertEquals(null, tree.getRoot());
+        assertNull(tree.getRoot());
     }
 
     @Test
@@ -42,12 +46,12 @@ public class BinaryTreeTest {
     @Test
     void getT_emptyTree_throwException() {
         BinaryTree<Gate> tree = new BinaryTree();
-        assertThrows(DukeException.class, () -> tree.getT(1));
+        assertThrows(BinaryTreeInvalidIndexException.class, () -> tree.getT(1));
     }
 
     @Test
+
     void getT_nonEmptyTree_returnsValueAtIndex() {
-        OrGate gate = new OrGate();
         BinaryTree<Gate> tree = new BinaryTree(new OrGate());
         assertDoesNotThrow(() -> tree.getT(0));
     }
@@ -57,6 +61,13 @@ public class BinaryTreeTest {
         BinaryTree<Gate> tree = new BinaryTree(new OrGate());
         AndGate gate = new AndGate();
         assertDoesNotThrow(() -> tree.insert(2, gate));
+    }
+
+    @Test
+    void insert_valueAtInvalidIndex_throwsException() {
+        BinaryTree<Gate> tree = new BinaryTree<>(new OrGate());
+        AndGate gate = new AndGate();
+        assertThrows(BinaryTreeInvalidIndexException.class, () -> tree.insert(4, gate));
     }
 
     @Test
@@ -80,26 +91,26 @@ public class BinaryTreeTest {
     @Test
     void isNullAtIndex_Index_returnsTrue() {
         BinaryTree<Gate> tree = new BinaryTree();
-        assertEquals(true, tree.isNullAtIndex(0));
+        assertTrue(tree.isNullAtIndex(0));
     }
 
     @Test
     void isNullAtIndex_Index_returnsFalse() {
         BinaryTree<Gate> tree = new BinaryTree(new OrGate());
-        assertEquals(false, tree.isNullAtIndex(0));
+        assertFalse(tree.isNullAtIndex(0));
     }
 
     @Test
     void isLeaf_Index_returnsTrue() {
         BinaryTree<Gate> tree = new BinaryTree(new OrGate());
-        assertEquals(true, tree.isLeaf(0));
+        assertTrue(tree.isLeaf(0));
     }
 
     @Test
     void isLeaf_Index_returnsFalse() {
         BinaryTree<Gate> tree = new BinaryTree(new OrGate());
         assertDoesNotThrow(() -> tree.insert(1, new AndGate()));
-        assertEquals(false, tree.isLeaf(0));
+        assertFalse(tree.isLeaf(0));
     }
 
 }

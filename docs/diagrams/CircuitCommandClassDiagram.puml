@@ -1,0 +1,28 @@
+@startuml
+!include style.puml
+
+hide member
+
+package Command {
+
+Class "{abstract}\nCommand" as Comd
+Class "SummaryCommand" as Summary
+Class "TutorialCircuitCommand" as Help
+
+package "Circuit" {
+Class "{abstract}\nCircuitCommand" as Circuit
+Class "SetCircuitCommand" as Set
+Class "AddCircuitCommand" as Add
+Class "CalculateCircuitCommand" as Calc
+Class "TemplateCircuitCommand" as Template
+}
+
+Help -u-|> Summary
+Template -u-|> Circuit
+Set -u-|> Circuit
+Calc -u-|> Circuit
+Add -u-|> Set
+Summary -u-|> Comd
+Circuit -u-|> Comd
+
+@enduml

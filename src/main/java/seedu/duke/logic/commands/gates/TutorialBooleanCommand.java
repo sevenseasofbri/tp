@@ -3,6 +3,7 @@ package seedu.duke.logic.commands.gates;
 import seedu.duke.DukeException;
 import seedu.duke.logic.commands.SummaryCommand;
 import seedu.duke.logic.commands.TutorialCommand;
+import seedu.duke.logic.commands.exceptions.IncorrectCommandException;
 import seedu.duke.logic.parser.Parser;
 import seedu.duke.ui.Ui;
 
@@ -33,7 +34,7 @@ public class TutorialBooleanCommand extends SummaryCommand implements TutorialCo
             try {
                 isNotDone = continueTutorial(command, ui);
             } catch (DukeException e) {
-                LOGGER.log(Level.FINE, "Bad Command DukeExcpetion thrown");
+                LOGGER.log(Level.FINE, "Bad Command DukeException thrown");
                 ui.showError(e.getMessage());
             }
         }
@@ -46,10 +47,9 @@ public class TutorialBooleanCommand extends SummaryCommand implements TutorialCo
             return false;
         }
         if (numberOfCommandsDone >= 8 || !command.matches(orderOfInstructions[numberOfCommandsDone] + "(.*)")) {
-            throw new DukeException("Bad Command! Please follow the instructions carefully.\n"
-                    + "To exit Tutorial Mode, simply type 'exit' and press Enter.");
+            throw new IncorrectCommandException();
         }
-        BooleanCommand b = (BooleanCommand) PARSER.parse(command);;
+        BooleanCommand b = (BooleanCommand) PARSER.parse(command);
         b.execute();
         ui.printMessage(b.toString());
         numberOfCommandsDone++;

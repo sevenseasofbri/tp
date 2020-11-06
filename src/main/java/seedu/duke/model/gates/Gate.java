@@ -1,32 +1,32 @@
 package seedu.duke.model.gates;
 
-import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
 
 public abstract class Gate {
-    protected int output;
-    protected int input;
-    protected int secondInput;
+    protected boolean output;
+    protected boolean input;
+    protected boolean secondInput;
     protected boolean isSetInput = false;
     protected boolean isSetSecondInput = false;
 
-    public Gate(int input, int secondInput) {
+    public Gate(boolean input, boolean secondInput) {
         this.input = input;
         this.secondInput = secondInput;
     }
 
     public Gate() {
-        this(-1, -1);
+        this(false, false);
     }
 
     /**
      * Returns output of gate.
      *
-     * @return int type output value.
-     * @throws DukeException If the inputs aren't set.
+     * @return boolean type output value.
+     * @throws InputsNotSetException If the inputs aren't set.
      */
-    public abstract int getOutput() throws DukeException;
+    public abstract boolean getOutput() throws InputsNotSetException;
 
-    public void setInput(int input) {
+    public void setInput(boolean input) {
         this.input = input;
         isSetInput = true;
     }
@@ -36,7 +36,7 @@ public abstract class Gate {
      *
      * @param input int type value that can be either 0 or 1.
      */
-    public void setSecondInput(int input) {
+    public void setSecondInput(boolean input) {
         secondInput = input;
         isSetSecondInput = true;
     }
@@ -46,7 +46,7 @@ public abstract class Gate {
      *
      * @return int input
      */
-    public int getInput() {
+    public boolean getInput() {
         return input;
     }
 
@@ -55,7 +55,7 @@ public abstract class Gate {
      *
      * @return int second input
      */
-    public int getSecondInput() {
+    public boolean getSecondInput() {
         return secondInput;
     }
 
@@ -80,11 +80,11 @@ public abstract class Gate {
     /**
      * Checks is input has been set or not.
      *
-     * @throws DukeException If an input is not set.
+     * @throws InputsNotSetException If an input is not set.
      */
-    protected void checkHasSetBothInput() throws DukeException {
+    protected void checkHasSetBothInput() throws InputsNotSetException {
         if (!(isSetSecondInput && isSetInput)) {
-            throw new DukeException("Input(s) not set yet!");
+            throw new InputsNotSetException();
         }
     }
 

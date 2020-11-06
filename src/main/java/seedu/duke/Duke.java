@@ -45,7 +45,7 @@ public class Duke {
     /**
      * Main entry-point for the java.duke.Duke application.
      */
-    public static void main(String[] args) throws DukeException {
+    public static void main(String[] args) {
         new Duke().run();
     }
 
@@ -58,7 +58,7 @@ public class Duke {
         LOGGER.addHandler(ch);
 
         try {
-            FileHandler fh = new FileHandler("appLog.log");
+            FileHandler fh = new FileHandler("appLog.txt");
             fh.setLevel(Level.FINE);
             LOGGER.addHandler(fh);
         } catch (IOException e) {
