@@ -9,7 +9,7 @@ end box
 autoactivate on
 BooleanTemplate -> BinaryTree : isLeaf(1)
 
-alt non-null node AND null children
+opt non-null node AND null children
 return true
 
 end

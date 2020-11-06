@@ -20,25 +20,26 @@ public class Ui {
             + "\t    | | |_| | || (_) | |  | | (_| | | | |  | | (_) | (_| |  __/_|\n"
             + "\t    |_|\\__,_|\\__\\___/|_|  |_|\\__,_|_| |_|  |_|\\___/ \\__,_|\\___(_)\n";
 
-    public static final String[] CIRCUIT_INSTRUCTIONS = {"Let's get started! First we will choose a template to work "
-            + "with. In the app you can choose from rc, rl, lc, and r templates." + System.lineSeparator() + "\tHowever"
-            + ", for this tutorial, we will use a Resistor-Capacitor template." + System.lineSeparator()
-            + "\tTo select the Resistor-Capacitor circuit template, enter 'template rc'",
-        "Let's set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts."
-            + System.lineSeparator() + "\teg. set v 220 will set the power source to a value of 220 volts.",
-        "Let's set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve number in ohms(Ω)."
-            + System.lineSeparator() + "\teg. 'set r 500' will set the resistor to a value of 500Ω.",
-        "Let's set a value to the capacitor! To do so, type 'set c VALUE' , where VALUE is a +ve number in "
-            + "microfarads(µF)." + System.lineSeparator() + "\teg. 'set c 900' will set the capacitor to 900µF.",
-        "Want to add a component in parallel/series to your current component? Let's do that with the capacitor! "
-            + "Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF)." + System.lineSeparator()
-            + "\teg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit."
-            + System.lineSeparator() + "\tDo remember though, this can be done with resistors, capacitors and"
-            + " inductors in the application based on the template chosen! :)",
-        "Great! Say, do you think we could find effective power OR current consumed by the circuit? Yes!"
-            + System.lineSeparator() + "\tType in 'calc power' to calculate total power dissipated in watts(W) OR"
-            + " type 'calc current' to calculate total current flowing through the circuit in amperes(A).",
-        "Hooray! You're set to use the circuit builder of \n" + LOGO + "Enjoy! :)\n \ttype 'exit' to exit this mode."
+    // The instructions to the circuit tutorial.
+    public static final String[] CIRCUIT_INSTRUCTIONS = {"Lets get started! First we will choose a template to work "
+            + "with.\n\tIn the app you can choose from rc, rl, lc and r templates\n\tHowever,"
+            + " for this tutorial, we will use a Resistor-Capacitor template."
+            + "\n\tTo select the Resistor-Capacitor circuit template, enter 'template rc'",
+        "Let's set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve\n\tnumber in volts."
+            + "\n\teg. set v 220 will set the power source to 220 volts.",
+        "Let's set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve\n\tnumber in ohms(Ω)."
+            + "\n\teg. 'set r 500' will set the resistor to 500Ω.",
+        "Let's set a value to the capacitor! To do so, type 'set c VALUE' , where VALUE is a +ve\n\tnumber in "
+            + "microfarads(µF).\n\teg. 'set c 900' will set the capacitor to 900µF.",
+        "Want to add a component in parallel/series to your current component? Lets do that with the\n\tcapacitor! "
+            + "Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF)."
+            + "\n\teg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit."
+            + "\n\tDo remember though, this can be done with resistors, capacitors and"
+            + " inductors in the\n\tapplication based on the template chosen! :)",
+        "Great! Say, do you think we could find effective power OR current consumed by the circuit?\n\tYes!"
+            + "\n\tType in 'calc power' to calculate total power dissipated in watts(W) OR"
+            + " type 'calc current'\n\tto calculate total current flowing through the circuit in amperes(A).",
+        "Hooray! You're set to use the circuit builder of \n" + LOGO + "\n\tEnjoy! :) type 'exit' to exit this mode."
             + "\n"};
 
     public static final String[] BOOLEAN_INSTRUCTIONS = {"Let's get started! First chose a template you want to work "
@@ -59,7 +60,6 @@ public class Ui {
         "Now let's calculate the output of the whole configuration. Enter 'calc'.",
         "Great! You're set to use the boolean builder of \n" + LOGO
             + "\n\tEnjoy! :)\n\t type 'exit' to exit this mode.\n"
-
     };
 
     private static final Scanner IN = new Scanner(System.in);
@@ -86,7 +86,7 @@ public class Ui {
     private void printGreeting() {
         System.out.println("\t ");
         System.out.println("\tI am a desktop app that implements and solves simple electronic and logic "
-                + "circuits, optimized for use via the Command Line Interface (CLI)! :D \n");
+                + "\n\tcircuits, optimized for use via the Command Line Interface (CLI)! :D \n");
         System.out.println(new SummaryCommand());
     }
 
@@ -104,9 +104,9 @@ public class Ui {
      * @param message Message.
      */
     public void printMessage(String message) {
-        System.out.println("-----------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------------------");
         System.out.println("\t" + message);
-        System.out.println("-----------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------------------");
     }
 
     /**
@@ -141,7 +141,7 @@ public class Ui {
      * @param numOfCommandsDone Type int specifies index number.
      */
     public void printBooleanInstruction(int numOfCommandsDone) {
-        System.out.println(BOOLEAN_INSTRUCTIONS[numOfCommandsDone]);
+        printMessage(BOOLEAN_INSTRUCTIONS[numOfCommandsDone]);
     }
 
     /**

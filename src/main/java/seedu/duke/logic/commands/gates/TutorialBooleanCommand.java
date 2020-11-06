@@ -58,6 +58,6 @@ public class TutorialBooleanCommand extends SummaryCommand implements TutorialCo
 
     @Override
     public String toString() {
-        return "You have exited Tutorial Mode!\n" + super.toString() + ":) Have fun using CLIrcuit Assistant!";
+        return "You have exited Tutorial Mode!\n" + super.toString() + "\t:) Have fun using CLIrcuit Assistant!";
     }
 }
