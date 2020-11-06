@@ -156,7 +156,6 @@ You have entered
     |_|\__,_|\__\___/|_|  |_|\__,_|_| |_|  |_|\___/ \__,_|\___(_)
 
 Type 'exit' if you want to leave this mode and go back to the application.
-
 Let's get started! First we will choose a template to work with. In the app you can choose from rc, rl, lc, and r templates.
 However, for this tutorial, we will use a Resistor-Capacitor template.
 To select the Resistor-Capacitor circuit template, enter 'template rc'
