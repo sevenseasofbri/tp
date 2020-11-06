@@ -228,7 +228,7 @@ This section describes the methods taken into consideration while implementing t
 This section details the rationale for implimenting the circuit template as described in the prior sections. Selecting a way to build circuits is the primary purpose of the system and hence a way to design the circuit is required. Since the system is designed primarily as a command line interface, creating complex customizable circuits using a graphical interface is beyond the scope of this system. To implement a circuit four different `template` classes are used, which inherit from a superclass `template`. The four different templates are also presented as simple logos to show how the templates would look like as real life circuits. Furthermore, the function to add components to the circuit calculates the effective value with the components that are already present. For example when a resistor is added in parallel, the effective resistance of the aforementioned resistor is added to the effective resistance of the resistor already present in the circuit template. The two resistors are then replaced by one resistor with the same effective resistance. Similarly, other components are also added and abstracted into a single component of the matching component type.
 
 #### Alternatives Considered <a name="alt-circuit-dash"></a>
-This section illustrates the other alternatives considered for implementing the Circuit Template.
+This section illustrates the alternatives considered for implementing the Circuit Template.
 
 * Linked List: A linked list implementation involves using each circuit component as a node and the connections between 
 the nodes as wires. The head of the linked list is the voltage source and the a loop is present from the tail node 
