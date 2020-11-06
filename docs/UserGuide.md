@@ -134,6 +134,10 @@ This command prints a summary of all commands in the application as shown in [Co
 |:-:|
 |`summary`|
 
+The image below shows the expected summary table shown with the command `summary`.
+
+![Summary](diagrams/Summary.png)
+
 ### 5.2 Interactive Tutorial
 
 To aid the user, this command starts the interactive tutorial for either the [Circuit Action Commands](#6-circuit-action-commands) or [Boolean Action Commands](#7-boolean-action-commands) based on the parameter specified. 
@@ -519,9 +523,9 @@ This section details the **frequently asked questions (FAQ)** regarding the use 
 
 **A**: This is by design. Once you get the hang of the application, you can exit the tutorial to use the commands proper.
 
-**Q**: Why does using the `add` command give me a "Component not yet set" error?
+**Q**: Why does using the `add` command for the circuit template give me a "Component not yet set" error?
 
-**A**: You have to first set the component involved using the `set` command.
+**A**: You have to first set the component involved using the [`set` command]().
 
 --------------------------------------------------------------------------------------------------------------------
 
