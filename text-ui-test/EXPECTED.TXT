@@ -24,7 +24,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 	Here's a summary of the command parameters:
 	+-----------+----------------------------------+-------------------------------+
-	| Parameter |       Circuit Params             | Boolean Params                |
+	| Parameter |       Circuit Params             |        Boolean Params         |
 	+-----------+----------------------------------+-------------------------------+
 	| TEMPLATE  | rc, rl, r, cl                    | or, and, nor, nand, xor, xnor |
 	| COMPONENT | r, c, l, v                       | N.A.                          |
@@ -181,7 +181,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 	Here's a summary of the command parameters:
 	+-----------+----------------------------------+-------------------------------+
-	| Parameter |       Circuit Params             | Boolean Params                |
+	| Parameter |       Circuit Params             |        Boolean Params         |
 	+-----------+----------------------------------+-------------------------------+
 	| TEMPLATE  | rc, rl, r, cl                    | or, and, nor, nand, xor, xnor |
 	| COMPONENT | r, c, l, v                       | N.A.                          |
@@ -209,9 +209,9 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	Type 'exit' if you want to leave this mode and go back to the application.
 -----------------------------------------------------------
 Let's get started! First chose a template you want to work with.
-    You can chose from and, or, nand, nor, xor and xnor gate templates.
- 	However for this tutorial, we will use an and gate template.
- 	To select the and gate,enter 'template and'.
+	You can chose from and, or, nand, nor, xor and xnor gate templates.
+	However for this tutorial, we will use an and gate template.
+	To select the and gate, enter 'template and'.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -223,7 +223,7 @@ C = ?
 
 -----------------------------------------------------------
 Let's set a value to the input B!
-    Type in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0.
+	Type in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -235,7 +235,7 @@ C = ?
 
 -----------------------------------------------------------
 Now let's set a value to the input C!
-    Type in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.
+	Type in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -247,7 +247,7 @@ C = 0
 
 -----------------------------------------------------------
 Now let's calculate the output of B GATE C.
-    GATE here is the template you typed out earlier. Enter 'calc'.
+	GATE here is the template you typed out earlier. Enter 'calc'.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -260,10 +260,10 @@ C = 0
 	The output of the above configuration is 0.
 -----------------------------------------------------------
 Voila! Now you can see the output to your gate! Let's add another gate now.
-    Again, you can choose from the gate templates list we gave you earlier.
-    Just to recap, the available gates are and, or, nand, nor, xor, and xnor gate templates.
-    We are now going to connect the output of the GATE you've decided to input B.
-    Enter 'add C GATE' where GATE can be one of the following: and, or, nand, nor, xor, xnor.
+	Again, you can choose from the gate templates list we gave you earlier.
+	Just to recap, the available gates are and, or, nand, nor, xor, and xnor gate templates.
+	We are now going to connect the output of the GATE you've decided to input B.
+	Enter 'add C GATE' where GATE can be one of the following: and, or, nand, nor, xor, xnor.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -279,7 +279,7 @@ G = ?
 
 -----------------------------------------------------------
 Now a new gate has been added! Let us assign the other variables.
-    Set input F by entering 'set F BOOLVALUE' where BOOLVALUE is either 1 or 0.
+	Set input F by entering 'set F BOOLVALUE' where BOOLVALUE is either 1 or 0.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -295,7 +295,7 @@ G = ?
 
 -----------------------------------------------------------
 Now a new gate has been added! Let us assign the other variables.
-    Set input G by entering 'set G BOOLVALUE' where BOOLVALUE is either 1 or 0.
+	Set input G by entering 'set G BOOLVALUE' where BOOLVALUE is either 1 or 0.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -333,8 +333,8 @@ Great! You're set to use the boolean builder of
 	| |    | |      | | | '__/ __| | | | | __|   / /\ \ / __/ __| / __| __/ _` | '_ \| __|
 	| |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\__ \__ \ \__ \ || (_| | | | | |_
 	 \_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|
-    Enjoy! :)
-    type 'exit' to exit this mode.
+	Enjoy! :)
+	 type 'exit' to exit this mode.
 
 -----------------------------------------------------------
 	You have exited Tutorial Mode!
@@ -353,7 +353,7 @@ Great! You're set to use the boolean builder of
 
 	Here's a summary of the command parameters:
 	+-----------+----------------------------------+-------------------------------+
-	| Parameter |       Circuit Params             | Boolean Params                |
+	| Parameter |       Circuit Params             |        Boolean Params         |
 	+-----------+----------------------------------+-------------------------------+
 	| TEMPLATE  | rc, rl, r, cl                    | or, and, nor, nand, xor, xnor |
 	| COMPONENT | r, c, l, v                       | N.A.                          |
@@ -630,7 +630,7 @@ O = 0
 
 	Here's a summary of the command parameters:
 	+-----------+----------------------------------+-------------------------------+
-	| Parameter |       Circuit Params             | Boolean Params                |
+	| Parameter |       Circuit Params             |        Boolean Params         |
 	+-----------+----------------------------------+-------------------------------+
 	| TEMPLATE  | rc, rl, r, cl                    | or, and, nor, nand, xor, xnor |
 	| COMPONENT | r, c, l, v                       | N.A.                          |
