@@ -54,7 +54,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	Type 'exit' if you want to leave this mode and go back to the application.
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Lets get started! First we will choose a template to work with. In the app you can choose from rc, rl, lc and r templates.
+	Let's get started! First we will choose a template to work with. In the app you can choose from rc, rl, lc and r templates.
 	However, for this tutorial, we will use a Resistor-Capacitor template.
 	To select the Resistor-Capacitor circuit template, enter 'template rc'
 -----------------------------------------------------------
@@ -69,7 +69,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Lets set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts.
+	Let's set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts.
 	eg. set v 220 will set the power source to 220 volts.
 -----------------------------------------------------------
 -----------------------------------------------------------
@@ -84,7 +84,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Lets set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve number in ohms(Ω).
+	Let's set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve number in ohms(Ω).
 	eg. 'set r 500' will set the resistor to 500Ω.
 -----------------------------------------------------------
 -----------------------------------------------------------
@@ -92,7 +92,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	To exit Tutorial Mode, simply type 'exit' and press Enter.
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Lets set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve number in ohms(Ω).
+	Let's set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve number in ohms(Ω).
 	eg. 'set r 500' will set the resistor to 500Ω.
 -----------------------------------------------------------
 -----------------------------------------------------------
@@ -107,7 +107,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Lets set a value to the capacitor! To do so, type 'set c VALUE' , where VALUE is a +ve number in microfarads(µF).
+	Let's set a value to the capacitor! To do so, type 'set c VALUE' , where VALUE is a +ve number in microfarads(µF).
 	eg. 'set c 900' will set the capacitor to 900µF.
 -----------------------------------------------------------
 -----------------------------------------------------------
@@ -122,7 +122,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Want to add a component in parallel/series to your current component? Lets do that with the capacitor! Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF).
+	Want to add a component in parallel/series to your current component? Let's do that with the capacitor! Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF).
 	eg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit.
 	Do remember though, this can be done with resistors, capacitors and inductors in the application based on the template chosen! :)
 -----------------------------------------------------------
@@ -131,7 +131,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	To exit Tutorial Mode, simply type 'exit' and press Enter.
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Want to add a component in parallel/series to your current component? Lets do that with the capacitor! Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF).
+	Want to add a component in parallel/series to your current component? Let's do that with the capacitor! Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF).
 	eg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit.
 	Do remember though, this can be done with resistors, capacitors and inductors in the application based on the template chosen! :)
 -----------------------------------------------------------

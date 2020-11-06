@@ -30,7 +30,7 @@ public class Ui {
             + System.lineSeparator() + "\teg. 'set r 500' will set the resistor to a value of 500Ω.",
         "Let's set a value to the capacitor! To do so, type 'set c VALUE' , where VALUE is a +ve number in "
             + "microfarads(µF)." + System.lineSeparator() + "\teg. 'set c 900' will set the capacitor to 900µF.",
-        "Want to add a component in parallel/series to your current component? Lets do that with the capacitor! "
+        "Want to add a component in parallel/series to your current component? Let's do that with the capacitor! "
             + "Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF)." + System.lineSeparator()
             + "\teg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit."
             + System.lineSeparator() + "\tDo remember though, this can be done with resistors, capacitors and"
