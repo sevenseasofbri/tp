@@ -145,7 +145,7 @@ To aid the user, this command starts the interactive tutorial for either the [Ci
 
 Once you have entered the interactive tutorial, you are to follow the instructions provided to them as follows:
 
-![InsertImage](UserGuide/TutorialMode.png)
+![InsertImage](diagrams/TutorialMode.png)
 
 When you have entered the tutorial, you will be required to type in the commands in the terminal
 for each step of the tutorial as per the instructions given to them. 
@@ -157,7 +157,7 @@ When you have typed in a command that is inconsistent with what is required as p
 instruction for that particular step, an invalid command message will be returned until you type 
 in the correct command in the terminal line as shown below. 
 
-![InsertImage](UserGuide/BadCommand.png)
+![InsertImage](diagrams/BadCommand.png)
 
 You may also choose to exit the program at that point of 
 time instead.
