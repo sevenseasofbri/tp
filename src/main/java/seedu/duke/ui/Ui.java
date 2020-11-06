@@ -41,14 +41,14 @@ public class Ui {
         "Hooray! You're set to use the circuit builder of \n" + LOGO + "Enjoy! :)\n \ttype 'exit' to exit this mode."
             + "\n"};
 
-    public static final String[] BOOLEAN_INSTRUCTIONS = {"Lets get started! First chose a template you want to work "
+    public static final String[] BOOLEAN_INSTRUCTIONS = {"Let's get started! First chose a template you want to work "
             + "with. You can chose from and, or, nand, nor, xor and xnor gate templates." + System.lineSeparator()
             + "eg. To select the and gate template, enter 'template and'." + System.lineSeparator()
             + "The tutorial will always ask you for prompts until you choose to exit the program.",
-        "Lets set a value to the input B! Type in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0. ",
-        "Now lets set a value to the input C! Type in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.",
-        "Now lets calculate the output of B GATE C. GATE here is the template you typed out earlier. Enter 'calc'.",
-        "Voila! Now you can see the output to your gate! Lets add another gate now.\n Again, you can choose from the "
+        "Let's set a value to the input B! Type in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0. ",
+        "Now let's set a value to the input C! Type in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.",
+        "Now let's calculate the output of B GATE C. GATE here is the template you typed out earlier. Enter 'calc'.",
+        "Voila! Now you can see the output to your gate! Let's add another gate now.\n Again, you can choose from the "
             + "gate templates list we gave you earlier.\n Just to recap, the available gates are and, or, nand, nor"
             + " ,xor and xnor gate templates.\n We are now going to connect the output of the GATE you've decided to "
             + "input B.\n Enter 'add C GATE' where GATE can be one of the following: and, or, nand, nor, xor, xnor.",

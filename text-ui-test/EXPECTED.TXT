@@ -208,8 +208,9 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 	Type 'exit' if you want to leave this mode and go back to the application.
 -----------------------------------------------------------
-Lets get started! First chose a template you want to work with. You can chose from and, or, nand, nor, xor and xnor gate templates.
-eg. To select the and gate template, enter 'template and'
+Let's get started! First chose a template you want to work with. You can chose from and, or, nand, nor, xor and xnor gate templates.
+eg. To select the and gate template, enter 'template and'.
+The tutorial will always ask you for prompts until you choose to exit the program.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -220,7 +221,7 @@ B = ?
 C = ?
 
 -----------------------------------------------------------
-Lets set a value to the input B! Type in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0.
+Let's set a value to the input B! Type in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -231,7 +232,7 @@ B = 1
 C = ?
 
 -----------------------------------------------------------
-Now lets set a value to the input C! Type in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.
+Now let's set a value to the input C! Type in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -242,7 +243,7 @@ B = 1
 C = 0
 
 -----------------------------------------------------------
-Now lets calculate the output of B GATE C. GATE here is the template you typed out earlier. Enter 'calc'.
+Now let's calculate the output of B GATE C. GATE here is the template you typed out earlier. Enter 'calc'.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -254,10 +255,11 @@ C = 0
 
 	The output of the above configuration is 0.
 -----------------------------------------------------------
-Voila! Now you can see the output to your gate! Lets add another gate now.
+Voila! Now you can see the output to your gate! Let's add another gate now.
  Again, you can choose from the gate templates list we gave you earlier.
- Just to recap the available gates are and, or, nand, nor,xor and xnor gate templates.
- We are now going to connect the output of ths GATE you've decided to input B. Enter 'add C GATE'.
+ Just to recap, the available gates are and, or, nand, nor ,xor and xnor gate templates.
+ We are now going to connect the output of the GATE you've decided to input B.
+ Enter 'add C GATE' where GATE can be one of the following: and, or, nand, nor, xor, xnor.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -272,7 +274,8 @@ F = ?
 G = ?
 
 -----------------------------------------------------------
-Now a new gate has been added let us assign the other variables. Set input F by entering 'set F BOOLVALUE' where BOOLVALUE is either 1 or 0.
+Now a new gate has been added! Let us assign the other variables.
+Set input F by entering 'set F BOOLVALUE' where BOOLVALUE is either 1 or 0.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -287,7 +290,8 @@ F = 0
 G = ?
 
 -----------------------------------------------------------
-Now a new gate has been added let us assign the other variables. Set input G by entering 'set G BOOLVALUE' where BOOLVALUE is either 1 or 0.
+Now a new gate has been added! Let us assign the other variables.
+ Set input G by entering 'set G BOOLVALUE' where BOOLVALUE is either 1 or 0.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -302,7 +306,7 @@ F = 0
 G = 1
 
 -----------------------------------------------------------
-Now lets calculate the output of F GATE G. GATE here is the template you typed out earlier. Enter 'calc'.
+Now let's calculate the output of F GATE G. GATE here is the template you typed out earlier. Enter 'calc'.
 -----------------------------------------------------------
 	          0UT
 	           |
