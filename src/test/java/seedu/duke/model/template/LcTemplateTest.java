@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class LcTemplateTest {
+    //@@author PraveenElango
     public static final double DELTA = 1e-15;
 
     @Test
@@ -66,6 +67,7 @@ class LcTemplateTest {
         double power = 1 * 1 / t.calcImpedance();
         assertEquals(power, t.getPower());
     }
+    //@@author
 
 
 

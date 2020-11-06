@@ -23,4 +23,15 @@ public class SetBooleanCommand extends BooleanCommand {
     public void execute() throws DukeException {
         template.setInput(value, index);
     }
+
+    /**
+     * Returns String representation of SetBooleanCommand.
+     *
+     * @return String representation.
+     */
+    @Override
+    public String toString() {
+        return "Successfully set " + (char)(index + 'A') + " to " + (value ? "1" : "0") + System.lineSeparator()
+                + '\t' + super.toString();
+    }
 }

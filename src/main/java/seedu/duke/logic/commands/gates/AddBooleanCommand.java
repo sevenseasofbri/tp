@@ -24,4 +24,14 @@ public class AddBooleanCommand extends BooleanCommand {
     public void execute() throws DukeException {
         template.addGate(gate, index);
     }
+
+    /**
+     * Returns the String representation of the AddBooleanCommand.
+     *
+     * @return String representation.
+     */
+    @Override
+    public String toString() {
+        return "Nice, added " + gate + " at " + (char)(index + 'A') + System.lineSeparator() + '\t' + super.toString();
+    }
 }

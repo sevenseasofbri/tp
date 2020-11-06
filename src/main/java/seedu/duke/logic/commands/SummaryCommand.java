@@ -16,7 +16,7 @@ public class SummaryCommand extends Command {
             + "\t+-----------+----------------------------+---------------------+\n";
     private static final String PARAMETER_SUMMARY = "\tHere's a summary of the command parameters: \n"
             + "\t+-----------+----------------------------------+-------------------------------+\n"
-            + "\t| Parameter |       Circuit Params             | Boolean Params                |\n"
+            + "\t| Parameter |       Circuit Params             |        Boolean Params         |\n"
             + "\t+-----------+----------------------------------+-------------------------------+\n"
             + "\t| TEMPLATE  | rc, rl, r, cl                    | or, and, nor, nand, xor, xnor |\n"
             + "\t| COMPONENT | r, c, l, v                       | N.A.                          |\n"

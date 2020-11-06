@@ -74,7 +74,7 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
 1. Once the app starts, type a command in the command line and press enter to execute it.
 1. Use the command `tutorial circuit` or `tutorial boolean` to go through an [interactive tutorial](#52-interactive-tutorial) before using the application.
 1. Alternatively, you can use the command [`summary`](#51-summary-of-commands-) to get a list of all commands used in the application.
-1. Note that a *logging* file `appLog.log` will be created in the same directory that `duke.jar` is run from. For further information regarding *logging*, you can refer to the [**Developer Guide**](DeveloperGuide.md).
+1. Note that a *logging* file `appLog.txt` will be created in the same directory that `duke.jar` is run from. For further information regarding *logging*, you can refer to the [**Developer Guide**](DeveloperGuide.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -82,11 +82,13 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
 
 ![Command](diagrams/CommandUserDiagram.png)
 
-The diagram above shows the hierarchy of the types of commands in the application. [If you are looking for the summary of commands, it can be found at the end of this guide](#9-command-summary). In this **User Guide**, you can find the following sections listed below:
+The diagram above shows the hierarchy of the types of commands in the application. [If you are looking for the summary of commands used within the CLI app, it can be found at the end of this guide](#9-command-summary). In this **User Guide**, you can find the following sections listed below:
 
 * [General Commands](#5-general-commands)
 * [Circuit Action Commands](#6-circuit-action-commands)
 * [Boolean Action Commands](#7-boolean-action-commands)
+
+General commands are commands which are not specific to features available using the action commands.
 
 Action commands are split into **two categories** - they may use the same *syntax* for some commands, but the application will continuously track the current `template` that is being worked on and automatically use the correct command to execute. Thus, if there is no current `template`, then the other commands used will not be available to run.
 
@@ -98,7 +100,6 @@ Action commands are split into **two categories** - they may use the same *synta
 
 The commands involved with both categories are:
 
-* `tutorial`
 * `template`
 * `set`
 * `add`
@@ -133,6 +134,10 @@ This command prints a summary of all commands in the application as shown in [Co
 |:-:|
 |`summary`|
 
+The image below shows the expected summary table shown with the command `summary`.
+
+![Summary](diagrams/Summary.png)
+
 ### 5.2 Interactive Tutorial
 
 To aid the user, this command starts the interactive tutorial for either the [Circuit Action Commands](#6-circuit-action-commands) or [Boolean Action Commands](#7-boolean-action-commands) based on the parameter specified. 
@@ -143,11 +148,77 @@ To aid the user, this command starts the interactive tutorial for either the [Ci
 
 * `TYPE` can be either `circuit` or `boolean`.
 
+Once you have entered the interactive tutorial, you are to follow the instructions provided to them as follows:
+
+The interactive tutorial for circuit commands in `tutorial circuit` is as follows:
+```
+You have entered
+  _______    _             _       _   __  __           _      _
+ |__   __|  | |           (_)     | | |  \/  |         | |    | |
+    | |_   _| |_ ___  _ __ _  __ _| | | \  / | ___   __| | ___| |
+    | | | | | __/ _ \| '__| |/ _` | | | |\/| |/ _ \ / _` |/ _ \ |
+    | | |_| | || (_) | |  | | (_| | | | |  | | (_) | (_| |  __/_|
+    |_|\__,_|\__\___/|_|  |_|\__,_|_| |_|  |_|\___/ \__,_|\___(_)
+
+Type 'exit' if you want to leave this mode and go back to the application.
+
+Let's get started! First we will choose a template to work with. In the app you can choose from rc, rl, lc, and r templates.
+However, for this tutorial, we will use a Resistor-Capacitor template.
+To select the Resistor-Capacitor circuit template, enter 'template rc'
+```
+The interactive tutorial for boolean commands in `tutorial boolean` is as follows:
+
+
+```
+You have entered
+  _______    _             _       _   __  __           _      _
+ |__   __|  | |           (_)     | | |  \/  |         | |    | |
+    | |_   _| |_ ___  _ __ _  __ _| | | \  / | ___   __| | ___| |
+    | | | | | __/ _ \| '__| |/ _` | | | |\/| |/ _ \ / _` |/ _ \ |
+    | | |_| | || (_) | |  | | (_| | | | |  | | (_) | (_| |  __/_|
+    |_|\__,_|\__\___/|_|  |_|\__,_|_| |_|  |_|\___/ \__,_|\___(_)
+
+Type 'exit' if you want to leave this mode and go back to the application.
+Lets get started! First chose a template you want to work with. You can chose from and, or, nand, nor, xor and xnor gate templates.
+eg. To select the and gate template, enter 'template and'
+```
+When you have entered the tutorial, you will be required to type in the commands in the terminal
+for each step of the tutorial as per the instructions given to them. 
+
+You will be required to do this until you have
+reached the end of the tutorial where you will be asked to exit as follows:
+
+```
+Hooray! You're set to use the circuit builder of 
+  _____ _      _____                _ _                      _     _              _   
+ / ____| |    |_   _|              (_) |       /\           (_)   | |            | |
+| |    | |      | |  _ __ ___ _   _ _| |_     /  \   ___ ___ _ ___| |_ __ _ _ __ | |_
+| |    | |      | | | '__/ __| | | | | __|   / /\ \ / __/ __| / __| __/ _` | '_ \| __|
+| |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\__ \__ \ \__ \ || (_| | | | | |_
+ \_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|
+
+Enjoy! :)
+type 'exit' to exit this mode.
+```
+When you have typed in a command that is inconsistent with what is required as per the tutorial's
+instruction for that particular step, an invalid command message will be returned until you type 
+in the correct command in the terminal line as shown below. 
+
+You may also choose to exit the program at that point of 
+time instead.
+
+```
+Bad Command! Please follow the instructions carefully.
+To exit Tutorial Mode, simply type 'exit' and press Enter.
+```
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## 6. Circuit Action Commands 
 
-This section details how the commands are used with a **circuit template**. You can use this section to build simple template circuits which may have *resistors*, *capacitors*, or *inductors*. It may be important to note that the circuit diagrams shown in the expected outputs are simplified circuits, even when adding components. For example, adding a resistor in parallel to a template that contains a resistor will change the effective resistance in the circuit, but it will not update the diagram to show a second resistor.
+This section details how the commands are used with a **circuit template**. You can use this section to build simple template circuits which may have a *voltage source* with *load components* such as *resistors*, *capacitors*, or *inductors*. 
+
+It may be important to note that the circuit diagrams shown in the expected outputs are simplified circuits, even when [adding components](#63-adding-a-component). For example, adding a resistor in parallel to a template that contains a resistor will change the effective resistance in the circuit, but it will not dynamically update the visualised diagram to show a second resistor.
 
 <div markdown="span" class="alert alert-primary">
 
@@ -169,25 +240,13 @@ This command creates a circuit template. This command must be used to be able to
     * `rl` consists of the resistor and inductor.
     * `lc` consists of the inductor and capacitor.
 
-Example of usage:
+The diagram below shows an example when using the `template rc` command.
 
-`template rc`
-
-Expected outcome:
-
-```
-	+---R-----C---+
-	|             |
-	|             |
-	+----+V_ac+---+
-Current Voltage: 0.0 V
-Total Resistance: 0.0 Ω
-Total Capacitance: 0.0 µF
-```
+![Simplified](diagrams/SimplifiedCircuit.png)
 
 ### 6.2 Setting a component value <a name='set-comp'></a>
 
-This command sets the value of a component. The component must be part of the current circuit template. Units correspond to the component involved - *resistors* in *ohms*, *capacitors* in *microfarads*, and *inductors* in *microhenries*. The values would need to be set to perform calculations or analysis such as in the [`calc`](#64-calculating-effective-value-) command.
+This command sets the value of a component. The component must be part of the current circuit template. Units correspond to the component involved - *resistors* in *ohms*, *capacitors* in *microfarads*, and *inductors* in *microhenries*. The values would need to be set to perform calculations or analysis such as in the [`calc` command](#64-calculating-effective-value-).
 
 <div markdown="span" class="alert alert-warning">
 
@@ -251,22 +310,9 @@ This command adds a component, in a specific configuration - either *in parallel
 * The `CONFIG` can be chosen from the 2 - `series` and `parallel`.
 * The `COMPONENT` and `VALUE` are as explained above under [Set component value](#62-setting-a-component-value-), except that `COMPONENT` cannot be the voltage source `v`.
 
-Example of usage:
+The image below shows an example of using the command `add parallel r 500` on a template.
 
-`add parallel r 500`
-
-Expected Outcome:
-
-```
-Nice, added a 500.0 Ω
-	+---R-----C---+
-	|             |
-	|             |
-	+----+V_ac+---+
-Current Voltage: 0.0 V
-Total Resistance: 250.0 Ω
-Total Capacitance: 0.0 µF
-```
+![AddCircuit](diagrams/AddCircuitLabel.png)
 
 ### 6.4 Calculating effective value <a name="calc-circ"></a>
 
@@ -309,7 +355,7 @@ The effective resistance calculated is 250.0 Ω
 
 ## 7. Boolean Action Commands
 
-This section details how the commands are used with a **boolean template**. You can use this section to build simple logic circuits which may be made up of various gates such as `AND`, `OR`, and `XOR` gates.
+This section details how the commands are used with a **boolean template**. You can use this section to build simple logic circuits which may be made up of various *gates* such as `AND`, `OR`, and `XOR` *gates*.
 
 ### 7.1 Creating a boolean template <a name='template-logic'></a>
 
@@ -325,7 +371,7 @@ This command creates a boolean template. Similar to the [circuit template](#6-ci
 |:-:|
 |`template GATE`|
 
-* Logic Gate `GATE` can be chosen from the following:
+* The `GATE` can be chosen from the following:
     * `and`, `or`, `xor`, `nand`, `nor`, `xnor`
 
 Example of usage:
@@ -351,7 +397,7 @@ This command sets the value of an input. The inputs will then be used in the `ca
 
 <div markdown="span" class="alert alert-warning">
 
-:exclamation: **Warning:** The `INPUT` must exist in the diagram, and must not have already been set as a `GATE`.
+:exclamation: **Warning:** The `INPUT` must exist in the diagram, and must not have already been set as a `Gate`.
 
 </div>
 
@@ -360,7 +406,7 @@ This command sets the value of an input. The inputs will then be used in the `ca
 |`set INPUT VALUE`|
 
 * The `INPUT` can be chosen only from the current `template`.
-* The `VALUE` can be any integer, but any non-zero integer will be treated as `1`, while 0 is treated as `0`.
+* The `VALUE` can be any *integer*, but any valid non-zero *integer* will be treated as `1`, while 0 is treated as `0`. Valid *integers* are defined as the *Java* `int` type.
 
 Example of usage:
 
@@ -379,7 +425,7 @@ C = ?
 
 ### 7.3 Adding a Gate <a name="add-gate"></a>
 
-The application has the ability to combine multiple `Gate` objects to generate more complicated boolean logic gate configurations. This command allows you to set an input to a boolean logic `Gate`. You can also change an existing gate if needed. However, the depth of the deepest logic `Gate` from the *root* logic `Gate` (at the top) cannot exceed 2.
+The application has the ability to combine multiple `Gate` objects to generate more complicated boolean *logic gate* configurations. This command allows you to set an input to a boolean logic `Gate`. You can also change an existing gate if needed. However, the depth of the deepest logic `Gate` from the *root* logic `Gate` (at the top) cannot exceed 2.
 
 <div markdown="span" class="alert alert-tip">
 
@@ -395,7 +441,7 @@ The application has the ability to combine multiple `Gate` objects to generate m
 
 <div markdown="span" class="alert alert-primary">
 
-:information_source: **Note:**  The current implementation only allows the `Gate` objects to be 3 levels deep, counting from 0 at the top.
+:information_source: **Note:**  The current implementation only allows the `Gate` objects to be 2 levels deep, counting from 0 at the top. This means you may see inputs up to the 3rd level, up to the letter `O`.
 
 </div>
 
@@ -406,28 +452,13 @@ The application has the ability to combine multiple `Gate` objects to generate m
 * The `INPUT` is as explained above in [Set](#72-setting-an-input-value-).
 * The `GATE` is as explained above in [Template](#71-creating-a-boolean-template-).
 
-Example of usage:
+The image below shows an example of using the command `set C or` on the template shown.
 
-`add C or`
-
-Expected Outcome:
-
-```
-      OUT
-       |
-   B       C
-         F   G
-
-OUT = B AND C
-B = 0
-C = F OR G
-F = ?
-G = ?
-```
+![AddBoolean](diagrams/AddBooleanLabel.png)
 
 ### 7.4 Calculating output <a name="calc-output"></a>
 
-This command calculates the output of the configured logic gates, and requires that all inputs of the circuit are set. The output is represented by `OUT` in the printed `template`.
+This command calculates the output of the configured logic *gates*, and requires that all inputs of the circuit are set. The output is represented by `OUT` in the printed `template`.
 
 <div markdown="span" class="alert alert-warning">
 
@@ -476,11 +507,17 @@ This section details the **frequently asked questions (FAQ)** regarding the use 
 
 **Q**: Why is the interactive tutorial so restrictive?
 
-**A**: This is by design. Once you get the hang of the app, you can exit the tutorial to use the commands proper.
+**A**: This is by design. Once you get the hang of the application, you can exit the tutorial to use the commands proper.
+
+**Q**: Why does using the `add` command for the circuit template give me a "Component not yet set" error?
+
+**A**: You have to first set the component involved using the [`set` command](#62-setting-a-component-value).
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## 9. Command Summary
+
+This section summarises the commands used in the application.
 
 Action | Format, Examples
 --------|------------------
@@ -491,3 +528,25 @@ Action | Format, Examples
 **Add Circuit** | `add CONFIG COMPONENT VALUE`<br> e.g., `add parallel c 500`
 **Add Logic Gate** | `add INPUT GATE`<br> e.g., `add C or`
 **Calculate Circuit/Logic Gate** | `calc EFF_VALUE/[]` <br> e.g., `calc ceff` <br> e.g., `calc`
+
+--------------------------------------------------------------------------------------------------------------------
+
+## 10. Glossary
+
+This section explains certain technical terms used in the guide which may require more detail.
+
+Term | Explanation
+-|-
+*capacitors* | A component which stores electrical energy in an electrical field
+*Command Line Interface (CLI)* | Text-based user interface which the application uses to interact with the user
+*current* | Flow of electric charge in a circuit
+*inductors* | A component which stores energy in a magnetic field when electric *current* flows throw it
+*integer* | A whole number 
+*load components* | A component which consumes electric power
+*logging* | Keeping a record of information about events which take place, specific to the application
+*logic gate* | Physical electronic device implementing a Boolean function
+*power* | Rate at which electrical energy is transferred by a circuit
+*resistors* | A component which provides electrical resistance
+*root* | A point of reference for which other points can be traced back to
+*syntax* | Rules in which a command must be run
+*voltage source* | A device which can maintain a fixed voltage

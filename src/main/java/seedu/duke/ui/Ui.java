@@ -20,16 +20,16 @@ public class Ui {
             + "\t    | | |_| | || (_) | |  | | (_| | | | |  | | (_) | (_| |  __/_|\n"
             + "\t    |_|\\__,_|\\__\\___/|_|  |_|\\__,_|_| |_|  |_|\\___/ \\__,_|\\___(_)\n";
 
-    // The instructions to
+    // The instructions to the circuit tutorial.
     public static final String[] CIRCUIT_INSTRUCTIONS = {"Lets get started! First we will choose a template to work "
             + "with.\n\tIn the app you can choose from rc, rl, lc and r templates\n\tHowever,"
             + " for this tutorial, we will use a Resistor-Capacitor template."
             + "\n\tTo select the Resistor-Capacitor circuit template, enter 'template rc'",
-        "Lets set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve\n\tnumber in volts."
+        "Let's set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve\n\tnumber in volts."
             + "\n\teg. set v 220 will set the power source to 220 volts.",
-        "Lets set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve\n\tnumber in ohms(Ω)."
+        "Let's set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve\n\tnumber in ohms(Ω)."
             + "\n\teg. 'set r 500' will set the resistor to 500Ω.",
-        "Lets set a value to the capacitor! To do so, type 'set c VALUE' , where VALUE is a +ve\n\tnumber in "
+        "Let's set a value to the capacitor! To do so, type 'set c VALUE' , where VALUE is a +ve\n\tnumber in "
             + "microfarads(µF).\n\teg. 'set c 900' will set the capacitor to 900µF.",
         "Want to add a component in parallel/series to your current component? Lets do that with the\n\tcapacitor! "
             + "Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF)."
@@ -42,22 +42,24 @@ public class Ui {
         "Hooray! You're set to use the circuit builder of \n" + LOGO + "\n\tEnjoy! :) type 'exit' to exit this mode."
             + "\n"};
 
-    public static final String[] BOOLEAN_INSTRUCTIONS = {"Lets get started! First chose a template you want to work "
-            + "with. You can chose from and, or, nand, nor, xor and xnor gate templates." + System.lineSeparator()
-            + "eg. To select the and gate template, enter 'template and'",
-        "Lets set a value to the input B! Type in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0. ",
-        "Now lets set a value to the input C! Type in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.",
-        "Now lets calculate the output of B GATE C. GATE here is the template you typed out earlier. Enter 'calc'.",
-        "Voila! Now you can see the output to your gate! Lets add another gate now.\n Again, you can choose from the "
-            + "gate templates list we gave you earlier.\n Just to recap the available gates are and, or, nand, nor"
-            + ",xor and xnor gate templates.\n We are now going to connect the output of ths GATE you've decided to "
-            + "input B. Enter 'add C GATE'.",
-        "Now a new gate has been added let us assign the other variables. Set input F by entering 'set F BOOLVALUE' "
-            + "where BOOLVALUE is either 1 or 0.",
-        "Now a new gate has been added let us assign the other variables. Set input G by entering 'set G BOOLVALUE' "
-            + "where BOOLVALUE is either 1 or 0.",
-        "Now lets calculate the output of F GATE G. GATE here is the template you typed out earlier. Enter 'calc'.",
-        "Great! You're set to use the boolean builder of \n" + LOGO + "\n\tEnjoy! :)\n type 'exit' to exit this mode.\n"
+    public static final String[] BOOLEAN_INSTRUCTIONS = {"Let's get started! First chose a template you want to work "
+            + "with.\n\tYou can chose from and, or, nand, nor, xor and xnor gate templates." + System.lineSeparator()
+            + "\tHowever for this tutorial, we will use an and gate template.\n\tTo select the and gate, "
+            + "enter 'template and'.",
+        "Let's set a value to the input B!\n\tType in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0. ",
+        "Now let's set a value to the input C!\n\tType in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.",
+        "Now let's calculate the output of B GATE C.\n\tGATE here is the template you typed out earlier. Enter 'calc'.",
+        "Voila! Now you can see the output to your gate! Let's add another gate now.\n\tAgain, you can choose from the "
+            + "gate templates list we gave you earlier.\n\tJust to recap, the available gates are and, or, nand, nor, "
+            + "xor, and xnor gate templates.\n\tWe are now going to connect the output of the GATE you've decided to"
+            + " input B.\n\tEnter 'add C GATE' where GATE can be one of the following: and, or, nand, nor, xor, xnor.",
+        "Now a new gate has been added! Let us assign the other variables.\n\tSet input F by entering 'set F BOOLVALUE'"
+            + " where BOOLVALUE is either 1 or 0.",
+        "Now a new gate has been added! Let us assign the other variables.\n\tSet input G by entering 'set G BOOLVALUE'"
+            + " where BOOLVALUE is either 1 or 0.",
+        "Now let's calculate the output of the whole configuration. Enter 'calc'.",
+        "Great! You're set to use the boolean builder of \n" + LOGO
+            + "\n\tEnjoy! :)\n\t type 'exit' to exit this mode.\n"
     };
 
     private static final Scanner IN = new Scanner(System.in);
@@ -139,7 +141,7 @@ public class Ui {
      * @param numOfCommandsDone Type int specifies index number.
      */
     public void printBooleanInstruction(int numOfCommandsDone) {
-        System.out.println(BOOLEAN_INSTRUCTIONS[numOfCommandsDone]);
+        printMessage(BOOLEAN_INSTRUCTIONS[numOfCommandsDone]);
     }
 
     /**
