@@ -1,7 +1,7 @@
 @echo off
 setlocal enableextensions
 pushd %~dp0
-
+RUN
 cd ..
 call gradlew clean shadowJar
 
