@@ -210,6 +210,8 @@ The second sequence diagram given below shows the detailed interaction that acce
 
 ![CalcReffSequence](diagrams/CalcReffSequenceDiagram.png)
 
+<small><i>Figure 14</i></small>  
+
 ### Implementation Considerations For Circuit Commands (Dash) <a name="impl-cons-dash"></a>
 This section describes the methods taken into consideration while implementing the Circuit Commands.
 
