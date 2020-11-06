@@ -213,6 +213,7 @@ The second sequence diagram given below shows the detailed interaction that acce
 
 --------------------------------------------------------------------------------------------------------------------
 
+
 <div style="page-break-after: always;"></div>
 
 ## Implementation of Boolean Commands (Praveen) <a name="bool-comd"></a>

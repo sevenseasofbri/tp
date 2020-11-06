@@ -54,7 +54,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	Type 'exit' if you want to leave this mode and go back to the application.
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Lets get started! First we will choose a template to work with. In the app you can choose from rc, rl, lc and r templates.
+	Let's get started! First we will choose a template to work with. In the app you can choose from rc, rl, lc, and r templates.
 	However, for this tutorial, we will use a Resistor-Capacitor template.
 	To select the Resistor-Capacitor circuit template, enter 'template rc'
 -----------------------------------------------------------
@@ -69,8 +69,8 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Lets set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts.
-	eg. set v 220 will set the power source to 220 volts.
+	Let's set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts.
+	eg. set v 220 will set the power source to a value of 220 volts.
 -----------------------------------------------------------
 -----------------------------------------------------------
 	The voltage source was set to 5.0 V
@@ -84,16 +84,16 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Lets set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve number in ohms(Ω).
-	eg. 'set r 500' will set the resistor to 500Ω.
+	Let's set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve number in ohms(Ω).
+	eg. 'set r 500' will set the resistor to a value of 500Ω.
 -----------------------------------------------------------
 -----------------------------------------------------------
 	Bad Command! Please follow the instructions carefully.
 	To exit Tutorial Mode, simply type 'exit' and press Enter.
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Lets set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve number in ohms(Ω).
-	eg. 'set r 500' will set the resistor to 500Ω.
+	Let's set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve number in ohms(Ω).
+	eg. 'set r 500' will set the resistor to a value of 500Ω.
 -----------------------------------------------------------
 -----------------------------------------------------------
 	The resistor was set to 500.0 Ω
@@ -107,7 +107,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Lets set a value to the capacitor! To do so, type 'set c VALUE' , where VALUE is a +ve number in microfarads(µF).
+	Let's set a value to the capacitor! To do so, type 'set c VALUE' , where VALUE is a +ve number in microfarads(µF).
 	eg. 'set c 900' will set the capacitor to 900µF.
 -----------------------------------------------------------
 -----------------------------------------------------------
@@ -122,7 +122,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Want to add a component in parallel/series to your current component? Lets do that with the capacitor! Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF).
+	Want to add a component in parallel/series to your current component? Let's do that with the capacitor! Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF).
 	eg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit.
 	Do remember though, this can be done with resistors, capacitors and inductors in the application based on the template chosen! :)
 -----------------------------------------------------------
@@ -131,7 +131,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	To exit Tutorial Mode, simply type 'exit' and press Enter.
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Want to add a component in parallel/series to your current component? Lets do that with the capacitor! Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF).
+	Want to add a component in parallel/series to your current component? Let's do that with the capacitor! Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF).
 	eg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit.
 	Do remember though, this can be done with resistors, capacitors and inductors in the application based on the template chosen! :)
 -----------------------------------------------------------
@@ -208,8 +208,10 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 	Type 'exit' if you want to leave this mode and go back to the application.
 -----------------------------------------------------------
-Lets get started! First chose a template you want to work with. You can chose from and, or, nand, nor, xor and xnor gate templates.
-eg. To select the and gate template, enter 'template and'
+Let's get started! First chose a template you want to work with.
+    You can chose from and, or, nand, nor, xor and xnor gate templates.
+ 	However for this tutorial, we will use an and gate template.
+ 	To select the and gate,enter 'template and'.
 -----------------------------------------------------------
 	New Boolean template chosen with AND gate at the root.
 	          0UT
@@ -221,7 +223,8 @@ eg. To select the and gate template, enter 'template and'
 	C = ?
 
 -----------------------------------------------------------
-Lets set a value to the input B! Type in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0.
+Let's set a value to the input B!
+    Type in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0.
 -----------------------------------------------------------
 	Successfully set B to 1
 	          0UT
@@ -233,7 +236,8 @@ Lets set a value to the input B! Type in 'set B BOOLVALUE' where BOOLVALUE is ei
 	C = ?
 
 -----------------------------------------------------------
-Now lets set a value to the input C! Type in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.
+Now let's set a value to the input C!
+    Type in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.
 -----------------------------------------------------------
 	Successfully set C to 0
 	          0UT
@@ -245,7 +249,8 @@ Now lets set a value to the input C! Type in 'set C BOOLVLAUE' where BOOLVALUE i
 	C = 0
 
 -----------------------------------------------------------
-Now lets calculate the output of B GATE C. GATE here is the template you typed out earlier. Enter 'calc'.
+Now let's calculate the output of B GATE C.
+    GATE here is the template you typed out earlier. Enter 'calc'.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -257,10 +262,11 @@ Now lets calculate the output of B GATE C. GATE here is the template you typed o
 
 	The output of the above configuration is 0.
 -----------------------------------------------------------
-Voila! Now you can see the output to your gate! Lets add another gate now.
- Again, you can choose from the gate templates list we gave you earlier.
- Just to recap the available gates are and, or, nand, nor,xor and xnor gate templates.
- We are now going to connect the output of ths GATE you've decided to input B. Enter 'add C GATE'.
+Voila! Now you can see the output to your gate! Let's add another gate now.
+    Again, you can choose from the gate templates list we gave you earlier.
+    Just to recap, the available gates are and, or, nand, nor, xor, and xnor gate templates.
+    We are now going to connect the output of the GATE you've decided to input B.
+    Enter 'add C GATE' where GATE can be one of the following: and, or, nand, nor, xor, xnor.
 -----------------------------------------------------------
 	Nice, added NOR at C
 	          0UT
@@ -276,7 +282,8 @@ Voila! Now you can see the output to your gate! Lets add another gate now.
 	G = ?
 
 -----------------------------------------------------------
-Now a new gate has been added let us assign the other variables. Set input F by entering 'set F BOOLVALUE' where BOOLVALUE is either 1 or 0.
+Now a new gate has been added! Let us assign the other variables.
+    Set input F by entering 'set F BOOLVALUE' where BOOLVALUE is either 1 or 0.
 -----------------------------------------------------------
 	Successfully set F to 0
 	          0UT
@@ -292,7 +299,8 @@ Now a new gate has been added let us assign the other variables. Set input F by 
 	G = ?
 
 -----------------------------------------------------------
-Now a new gate has been added let us assign the other variables. Set input G by entering 'set G BOOLVALUE' where BOOLVALUE is either 1 or 0.
+Now a new gate has been added! Let us assign the other variables.
+    Set input G by entering 'set G BOOLVALUE' where BOOLVALUE is either 1 or 0.
 -----------------------------------------------------------
 	Successfully set G to 1
 	          0UT
@@ -308,7 +316,7 @@ Now a new gate has been added let us assign the other variables. Set input G by 
 	G = 1
 
 -----------------------------------------------------------
-Now lets calculate the output of F GATE G. GATE here is the template you typed out earlier. Enter 'calc'.
+Now let's calculate the output of the whole configuration. Enter 'calc'.
 -----------------------------------------------------------
 	          0UT
 	           |
@@ -330,8 +338,9 @@ Great! You're set to use the boolean builder of
 	| |    | |      | |  _ __ ___ _   _ _| |_     /  \   ___ ___ _ ___| |_ __ _ _ __ | |_
 	| |    | |      | | | '__/ __| | | | | __|   / /\ \ / __/ __| / __| __/ _` | '_ \| __|
 	| |____| |____ _| |_| | | (__| |_| | | |_   / ____ \\__ \__ \ \__ \ || (_| | | | | |_
-	 \_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|Enjoy! :)
- type 'exit' to exit this mode.
+	 \_____|______|_____|_|  \___|\__,_|_|\__| /_/    \_\___/___/_|___/\__\__,_|_| |_|\__|
+    Enjoy! :)
+    type 'exit' to exit this mode.
 
 -----------------------------------------------------------
 	You have exited Tutorial Mode!
