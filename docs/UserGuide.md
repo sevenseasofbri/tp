@@ -563,6 +563,8 @@ Action | Format, Examples
 **Add Logic Gate** | `add INPUT GATE`<br> e.g., `add C or`
 **Calculate Circuit/Logic Gate** | `calc EFF_VALUE/[]` <br> e.g., `calc ceff` <br> e.g., `calc`
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## 10. Glossary
 
 This section explains certain technical terms used in the guide which may require more detail.

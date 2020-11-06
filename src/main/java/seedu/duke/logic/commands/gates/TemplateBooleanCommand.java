@@ -13,4 +13,10 @@ public class TemplateBooleanCommand extends BooleanCommand {
     public void execute() {
 
     }
+
+    @Override
+    public String toString() {
+        return "New Boolean template chosen with " + template.getCircuit().getRoot() + " gate at the root."
+                + System.lineSeparator() + '\t' + super.toString();
+    }
 }
