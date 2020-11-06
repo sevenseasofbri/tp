@@ -320,22 +320,9 @@ This command adds a component, in a specific configuration - either *in parallel
 * The `CONFIG` can be chosen from the 2 - `series` and `parallel`.
 * The `COMPONENT` and `VALUE` are as explained above under [Set component value](#62-setting-a-component-value-), except that `COMPONENT` cannot be the voltage source `v`.
 
-Example of usage:
+The image below shows an example of using the command `add parallel r 500` on a template.
 
-`add parallel r 500`
-
-Expected Outcome:
-
-```
-Nice, added a 500.0 Ω
-	+---R-----C---+
-	|             |
-	|             |
-	+----+V_ac+---+
-Current Voltage: 0.0 V
-Total Resistance: 250.0 Ω
-Total Capacitance: 0.0 µF
-```
+![AddCircuit](diagrams/AddCircuitLabel.png)
 
 ### 6.4 Calculating effective value <a name="calc-circ"></a>
 
@@ -475,24 +462,9 @@ The application has the ability to combine multiple `Gate` objects to generate m
 * The `INPUT` is as explained above in [Set](#72-setting-an-input-value-).
 * The `GATE` is as explained above in [Template](#71-creating-a-boolean-template-).
 
-Example of usage:
+The image below shows an example of using the command `set C or` on the template shown.
 
-`add C or`
-
-Expected Outcome:
-
-```
-      OUT
-       |
-   B       C
-         F   G
-
-OUT = B AND C
-B = 0
-C = F OR G
-F = ?
-G = ?
-```
+![AddBoolean](diagrams/AddBooleanLabel.png)
 
 ### 7.4 Calculating output <a name="calc-output"></a>
 
@@ -546,6 +518,10 @@ This section details the **frequently asked questions (FAQ)** regarding the use 
 **Q**: Why is the interactive tutorial so restrictive?
 
 **A**: This is by design. Once you get the hang of the application, you can exit the tutorial to use the commands proper.
+
+**Q**: Why does using the `add` command give me a "Component not yet set" error?
+
+**A**: You have to first set the component involved using the `set` command.
 
 --------------------------------------------------------------------------------------------------------------------
 
