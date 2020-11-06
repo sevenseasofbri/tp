@@ -12,7 +12,8 @@ import java.util.logging.Level;
 public class TutorialBooleanCommand extends SummaryCommand implements TutorialCommand {
     private static final Parser PARSER = new Parser();
     private int numberOfCommandsDone = 0;
-    private static final String[] orderOfInstructions = {"template", "set", "set", "calc", "add", "set", "set", "calc"};
+    private static final String[] orderOfInstructions = {"template and", "set B", "set C", "calc",
+        "add C", "set F", "set G", "calc"};
     private final Ui ui;
 
     public TutorialBooleanCommand() {
