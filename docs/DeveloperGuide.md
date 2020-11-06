@@ -193,9 +193,19 @@ This section details the rationale for implimenting the circuit template as desc
 #### Alternatives Considered <a name="alt-circuit-dash"></a>
 This section illustrates the other alternatives considered for implementing the Circuit Template.
 
-* Linked List: A linked list implementation involves using each circuit component as a node and the connections between the nodes as wires. The head of the linked list is the voltage source and the a loop is present from the tail node number 2 (i.e index 1). However, such an approach allows users to add any component even when certain circuits are not usually built with those components. To fulfill the purpose of the system to cater to the needs of CG111 students this approach is avoided. The circuit templates on the other hand allow the user to distiguish between different circuits and do so effectively.     
+* Linked List: A linked list implementation involves using each circuit component as a node and the connections between 
+the nodes as wires. The head of the linked list is the voltage source and the a loop is present from the tail node 
+number 2 (i.e index 1). However, such an approach does not allow users to simulate the circuit effectively so this 
+approach is not followed. The circuit templates on the other hand not only allow the user to distinguish between 
+different types of circuits but they also provide an efficient way of storing the various parameters related to a circuit.
 
-* Adjacency Matrix: The Adjacency matrix graph data structure is also considered as it allows connections between nodes. Each node is a component and a matrix is derived where a 1 represents a connection between the row of that element and the column of the same element. This approach is rejected due to high time complexity. For example, adding a component to the matrix requires O(V^2) time complexity where V is the number of vertices. Similarly, removing a component from the matrix also requires the same time complexity. On the other hand, the chosen implementation only requires O(1) time complexity for the same functions, leading to a more efficient and faster system.π
+* Adjacency Matrix: The Adjacency matrix graph data structure is also considered as it allows connections between nodes.
+ Each node is a component and a matrix is derived where a 1 represents a connection between the row of that element and
+ the column of the same element. This approach is rejected due to high time complexity. For example, adding a component
+ to the matrix requires O(V^2) time complexity where V is the number of vertices. Similarly, removing a component from 
+ the matrix also requires the same time complexity. On the other hand, the chosen implementation only requires O(1) 
+ time complexity for the same functions, leading to a more efficient and faster system. Furthermore, issues with space
+ complexity also hinder the use of an adjacency matrix to represent circuit templates.
 
 ## Implementation of Boolean Commands (Praveen) <a name="bool-comd"></a>
 
@@ -492,6 +502,10 @@ truth value of the operation will result in 1 (TRUE) if either x == 1 or y == 1,
 * *XNOR* - An inverse of the XOR operation. Outputs the opposite truth value of what a XOR gate would output.
 * *XOR* - Also known as exclusive OR, XOR is a secondary operation in boolean algebra which may be denoted as x XOR y. The 
           truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y == 1, and 0 for other combinations of values.
+* *Time Complexity* - Time complexity of an algorithm quantifies the amount of time taken by an algorithm to run as a 
+function of the length of the input.
+* *Space Complexity* - Similarly, Space complexity of an algorithm quantifies the amount of space or memory taken by an 
+algorithm to run as a function of the length of the input.          
  
 
 ## Appendix: Instructions for manual testing (Dorian)
