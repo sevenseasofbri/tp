@@ -50,12 +50,12 @@ public class Ui {
         "Now let's calculate the output of B GATE C.\n\tGATE here is the template you typed out earlier. Enter 'calc'.",
         "Voila! Now you can see the output to your gate! Let's add another gate now.\n\tAgain, you can choose from the "
             + "gate templates list we gave you earlier.\n\tJust to recap, the available gates are and, or, nand, nor, "
-            + "xor, and xnor gate templates.\n\tWe are now going to connect the output of the GATE you've decided to "
-            + "input B.\n\tEnter 'add C GATE' where GATE can be one of the following: and, or, nand, nor, xor, xnor.",
-        "Now a new gate has been added! Let us assign the other variables.\n\tSet input F by entering 'set F BOOLVALUE' "
-            + "where BOOLVALUE is either 1 or 0.",
-        "Now a new gate has been added! Let us assign the other variables.\n\tSet input G by entering 'set G BOOLVALUE' "
-            + "where BOOLVALUE is either 1 or 0.",
+            + "xor, and xnor gate templates.\n\tWe are now going to connect the output of the GATE you've decided to"
+            + " input B.\n\tEnter 'add C GATE' where GATE can be one of the following: and, or, nand, nor, xor, xnor.",
+        "Now a new gate has been added! Let us assign the other variables.\n\tSet input F by entering 'set F BOOLVALUE'"
+            + " where BOOLVALUE is either 1 or 0.",
+        "Now a new gate has been added! Let us assign the other variables.\n\tSet input G by entering 'set G BOOLVALUE'"
+            + " where BOOLVALUE is either 1 or 0.",
         "Now let's calculate the output of the whole configuration. Enter 'calc'.",
         "Great! You're set to use the boolean builder of \n" + LOGO
             + "\n\tEnjoy! :)\n\t type 'exit' to exit this mode.\n"
