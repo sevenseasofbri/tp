@@ -147,8 +147,11 @@ Once you have entered the interactive tutorial, you are to follow the instructio
 
 ![InsertImage](diagrams/TutorialMode.png)
 
+The proceeding instructions will depend on whether you have chosen `tutorial circuit` or `tutorial boolean`.
+
 When you have entered the tutorial, you will be required to type in the commands in the terminal
 for each step of the tutorial as per the instructions given to them. 
+
 
 You will be required to do this until you have
 reached the end of the tutorial.
