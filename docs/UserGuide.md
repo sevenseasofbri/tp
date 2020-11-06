@@ -174,7 +174,7 @@ You have entered
 
 Type 'exit' if you want to leave this mode and go back to the application.
 Lets get started! First chose a template you want to work with. You can chose from and, or, nand, nor, xor and xnor gate templates.
-eg. To select the and gate template, enter 'template and'
+eg. To select the and gate template, enter 'template and'.
 ```
 When you have entered the tutorial, you will be required to type in the commands in the terminal
 for each step of the tutorial as per the instructions given to them. 
