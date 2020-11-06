@@ -9,6 +9,10 @@ import seedu.duke.ui.Ui;
 
 import java.util.logging.Level;
 
+/**
+ * The TutorialCircuitCommand class inherits from the SummaryCommand and implements the TutorialCommand interface
+ * It is used to go through the full interactive tutorial.
+ */
 public class TutorialCircuitCommand extends SummaryCommand implements TutorialCommand {
     private final Parser parser = new Parser();
     private static final String[] orderOfInstructions = {"template rc", "set v", "set r", "set c", "add parallel c",
