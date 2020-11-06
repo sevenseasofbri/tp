@@ -515,41 +515,38 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 
 The terms listed in this glossary are in alphabetical order.
 
-* *Alternating Current* - Alternating current (AC) is an electric current which periodically reverses direction and changes its magnitude continuously with time.
-* *AND* - Also known as conjunction, AND is a basic operation in boolean algebra which may be denoted as x AND y. The 
-truth value of the operation will result in 1 (TRUE) if both x == 1 and y == 1, and 0 for other combinations of values. 
-* *Average Typing Speed* - An average typing speed is [40 words per minute](https://www.livechat.com/typing-speed-test/#/).
-* *Binary Tree* - A data structure wherein each node has maximum 2 child nodes, which are called the left and right node.
-* *Capacitor* - A passive electronic device with 2 terminals that stores electrical energy in an electric field.
-* *CG1111* - Engineering Principles and Practices I, a core module generally taken by Year 1 Computer Engineering students at NUS.
-* *Connected Graph* - A graph in which it is possible to get to every node in the graph through a series of edges.
-* *CS1231* - Discrete Mathematics, a core module generally taken by Year 1 School of Computing students at NUS.
-* *Digital Circuits* - A circuit wherein the signal must be one of 2 discrete logic levels - 1 or 0.
-* *EE2026* - Digital Design, a core module generally taken by Year 1 students in Electrical and Computer Engineering at NUS.
-* *Graph* - A data structure which consists of a finite set of nodes and a finite set of edges connecting them.
-* *Heap* - A tree based data structure where all the nodes are stored in a certain order.
-* *Inductor* - A passive electronic device with 2 terminals that stores electrical energy in a magnetic field.
-* *Leaf Node* - A node in a binary tree data structure whose left and right children are null.
-* *Level Order Traversal* - A method of processing all nodes in a tree data structure by depth (level-by-level).
-* *Logic Gate* - A virtual/physical electronic device which performs a boolean function. Usually has 2 inputs and 1 output.
-* *Mainstream OS* - For example Microsoft Windows, macOS, Unix, Linux etc.
-* *NAND* - An inverse of the AND operation. Outputs are the opposite of what an AND gate would output for a set of input values.
-* *Node* - A binary tree is made up of nodes, each which have a left and right reference, as well as hold data.
-* *NOR* - An inverse of the OR operation. Outputs the opposite truth value of what an OR gate would output. 
-* *O(1)* - An algorithm or a computational operation that is said to take constant time, irrespective of the size of input.
-* *OR* - Also known as disjunction, OR is a basic operation in boolean algebra which may be denoted as x OR y. The 
-truth value of the operation will result in 1 (TRUE) if either x == 1 or y == 1, and 0 if both x and y are 0. 
-* *Parent Node* - A node in a binary tree data structure which has one or more child nodes.
-* *Resistor* - A passive electronic device which implements electrical resistance in an electronic circuit.
-* *Sopln()* - Abbreviation for java out operation "System.out.println()", from package java.lang.
-* *Space Complexity* - Space complexity of an algorithm quantifies the amount of space or memory taken by an 
-algorithm to run as a function of the length of the input.   
-* *Standard I/O Operation* - Common java I/O streams include System.in, System.out and System.err.    
-* *Time Complexity* - Time complexity of an algorithm quantifies the amount of time taken by an algorithm to run as a 
-function of the length of the input.
-* *XNOR* - An inverse of the XOR operation. Outputs the opposite truth value of what a XOR gate would output.
-* *XOR* - Also known as exclusive OR, XOR is a secondary operation in boolean algebra which may be denoted as x XOR y. The 
-truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y == 1, and 0 for other combinations of values.   
+Term | Explanation
+-|-
+ *Alternating Current* | Alternating current (AC) is an electric current which periodically reverses direction and changes its magnitude continuously with time.
+ *AND* | Also known as conjunction, AND is a basic operation in boolean algebra which may be denoted as x AND y. <br>The truth value of the operation will result in 1 (TRUE) if both x == 1 and y == 1, and 0 for other combinations of values. 
+ *Average Typing Speed* | An average typing speed is [40 words per minute](https://www.livechat.com/typing-speed-test/#/).
+ *Binary Tree* | A data structure wherein each node has maximum 2 child nodes, which are called the left and right node.
+ *Capacitor* | A passive electronic device with 2 terminals that stores electrical energy in an electric field.
+ *CG1111* | Engineering Principles and Practices I, a core module generally taken by Year 1 Computer Engineering students at NUS.
+ *Connected Graph* | A graph in which it is possible to get to every node in the graph through a series of edges.
+ *CS1231* | Discrete Mathematics, a core module generally taken by Year 1 School of Computing students at NUS.
+ *Digital Circuits* | A circuit wherein the signal must be one of 2 discrete logic levels - 1 or 0.
+ *EE2026* | Digital Design, a core module generally taken by Year 1 students in Electrical and Computer Engineering at NUS.
+ *Graph* | A data structure which consists of a finite set of nodes and a finite set of edges connecting them.
+ *Heap* | A tree based data structure where all the nodes are stored in a certain order.
+ *Inductor* | A passive electronic device with 2 terminals that stores electrical energy in a magnetic field.
+ *Leaf Node* | A node in a binary tree data structure whose left and right children are null.
+ *Level Order Traversal* | A method of processing all nodes in a tree data structure by depth (level-by-level).
+ *Logic Gate* | A virtual/physical electronic device which performs a boolean function. Usually has 2 inputs and 1 output.
+ *Mainstream OS* | For example Microsoft Windows, macOS, Unix, Linux etc.
+ *NAND* | An inverse of the AND operation. Outputs are the opposite of what an AND gate would output for a set of input values.
+ *Node* | A binary tree is made up of nodes, each which have a left and right reference, as well as hold data.
+ *NOR* | An inverse of the OR operation. Outputs the opposite truth value of what an OR gate would output. 
+ *O(1)* | An algorithm or a computational operation that is said to take constant time, irrespective of the size of input.
+ *OR* | Also known as disjunction, OR is a basic operation in boolean algebra which may be denoted as x OR y. <br> The truth value of the operation will result in 1 (TRUE) if either x == 1 or y == 1, and 0 if both x and y are 0. 
+ *Parent Node* | A node in a binary tree data structure which has one or more child nodes.
+ *Resistor* | A passive electronic device which implements electrical resistance in an electronic circuit.
+ *Sopln()* | Abbreviation for java out operation "`System.out.println()`", from package `java.lang`.
+ *Standard I/O Operation* | Common java I/O streams include `System.in`, `System.out` and `System.err`.
+ *XNOR* | An inverse of the XOR operation. Outputs the opposite truth value of what a XOR gate would output.
+ *XOR* | Also known as exclusive OR, XOR is a secondary operation in boolean algebra which may be denoted as x XOR y. <br> The truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y == 1, and 0  for other combinations of values.
+
+ -------------------------------------------------------------------------------------------------------------------- 
 
 
 ## Appendix: Instructions for manual testing (Dorian)
