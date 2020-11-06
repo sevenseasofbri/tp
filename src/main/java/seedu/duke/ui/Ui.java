@@ -21,8 +21,8 @@ public class Ui {
             + "\t    |_|\\__,_|\\__\\___/|_|  |_|\\__,_|_| |_|  |_|\\___/ \\__,_|\\___(_)\n";
 
     public static final String[] CIRCUIT_INSTRUCTIONS = {"Let's get started! First we will choose a template to work "
-            + "with. In the app you can choose from rc, rl, lc, and r templates." + System.lineSeparator() + "\tHowever,"
-            + " for this tutorial, we will use a Resistor-Capacitor template." + System.lineSeparator()
+            + "with. In the app you can choose from rc, rl, lc, and r templates." + System.lineSeparator() + "\tHowever"
+            + ", for this tutorial, we will use a Resistor-Capacitor template." + System.lineSeparator()
             + "\tTo select the Resistor-Capacitor circuit template, enter 'template rc'",
         "Let's set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts."
             + System.lineSeparator() + "\teg. set v 220 will set the power source to a value of 220 volts.",
@@ -52,8 +52,8 @@ public class Ui {
             + "gate templates list we gave you earlier.\n Just to recap, the available gates are and, or, nand, nor"
             + " ,xor and xnor gate templates.\n We are now going to connect the output of the GATE you've decided to "
             + "input B.\n Enter 'add C GATE' where GATE can be one of the following: and, or, nand, nor, xor, xnor.",
-        "Now a new gate has been added! Let us assign the other variables.\n" +
-                "Set input F by entering 'set F BOOLVALUE' "
+        "Now a new gate has been added! Let us assign the other variables.\n"
+                + "Set input F by entering 'set F BOOLVALUE' "
             + "where BOOLVALUE is either 1 or 0.",
         "Now a new gate has been added! Let us assign the other variables.\n Set input G by entering 'set G BOOLVALUE' "
             + "where BOOLVALUE is either 1 or 0.",
