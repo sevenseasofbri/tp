@@ -11,17 +11,21 @@ import seedu.duke.logic.commands.circuit.CircuitCommand;
 import seedu.duke.logic.commands.circuit.SetCircuitCommand;
 import seedu.duke.logic.commands.circuit.TemplateCircuitCommand;
 import seedu.duke.logic.commands.circuit.TutorialCircuitCommand;
+import seedu.duke.logic.parser.exceptions.InvalidArgumentException;
+import seedu.duke.logic.parser.exceptions.InvalidCommandException;
+import seedu.duke.logic.parser.exceptions.InvalidNumberException;
+import seedu.duke.logic.parser.exceptions.NotEnoughArgumentsException;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class ParserTest {
+class CircuitParserTest {
 
     @Test
     void parse_noLine_expectException() {
         Parser p = new Parser();
         String line = "";
-        assertThrows(DukeException.class, () -> p.parse(line));
+        assertThrows(InvalidCommandException.class, () -> p.parse(line));
     }
 
     @Test
@@ -48,14 +52,14 @@ class ParserTest {
     void parseTemplate_noTemplate_expectException() {
         Parser p = new Parser();
         String line = "template";
-        assertThrows(DukeException.class, () -> p.parse(line));
+        assertThrows(NotEnoughArgumentsException.class, () -> p.parse(line));
     }
 
     @Test
     void parseTemplate_wrongArgument_expectException() {
         Parser p = new Parser();
         String line = "template haha";
-        assertThrows(DukeException.class, () -> p.parse(line));
+        assertThrows(InvalidArgumentException.class, () -> p.parse(line));
     }
 
     @Test
@@ -72,7 +76,7 @@ class ParserTest {
         Parser p = new Parser();
         p.parse("template rl");
         String line = "set r ";
-        assertThrows(DukeException.class, () -> p.parse(line));
+        assertThrows(NotEnoughArgumentsException.class, () -> p.parse(line));
     }
 
     @Test
@@ -80,7 +84,7 @@ class ParserTest {
         Parser p = new Parser();
         p.parse("template rl");
         String line = "set r -500";
-        assertThrows(DukeException.class, () -> p.parse(line));
+        assertThrows(InvalidNumberException.class, () -> p.parse(line));
     }
 
     @Test
@@ -88,7 +92,7 @@ class ParserTest {
         Parser p = new Parser();
         p.parse("template rl");
         String line = "set r yolo";
-        assertThrows(DukeException.class, () -> p.parse(line));
+        assertThrows(InvalidNumberException.class, () -> p.parse(line));
     }
 
     @Test
@@ -160,6 +164,6 @@ class ParserTest {
     void parse_invalidCommand_expectException() {
         Parser p = new Parser();
         String line = "invaliddd";
-        assertThrows(DukeException.class, () -> p.parse(line));
+        assertThrows(InvalidCommandException.class, () -> p.parse(line));
     }
 }

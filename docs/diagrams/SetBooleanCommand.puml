@@ -1,31 +1,42 @@
 @startuml
-[-> ":SetBooleanCommand" : execute()
-activate ":SetBooleanCommand"
 
-":SetBooleanCommand" -> ":BooleanTemplate" : setInput(template, 2, 0)
-activate ":BooleanTemplate"
+box logic
+participant ":SetBooleanCommand" as Set
+end box
 
-":BooleanTemplate" -> ":BinaryTree" : getT(2)
-activate ":BinaryTree"
+box model
+participant ":BooleanTemplate" as Bool
+participant ":BinaryTree" as BT
+participant ":Gate" as Gate
+end box
 
-":BinaryTree" --> ":BooleanTemplate" : gate
-deactivate ":BinaryTree"
+[-> Set : execute()
+activate Set
 
-":BooleanTemplate" -> ":Gate" : setSecondInput(0)
-activate ":Gate"
+Set -> Bool : setInput(template, 2, 0)
+activate Bool
 
-":Gate" --> ":BooleanTemplate"
-deactivate ":Gate"
+Bool -> BT : getT(2)
+activate BT
 
-":BooleanTemplate" -> ":BooleanTemplate" : buildTopDown()
-activate ":BooleanTemplate"
+BT --> Bool : gate
+deactivate BT
 
-":BooleanTemplate" --> ":BooleanTemplate"
-deactivate ":BooleanTemplate"
+Bool -> Gate : setSecondInput(0)
+activate Gate
 
-":BooleanTemplate" --> ":SetBooleanCommand"
-deactivate ":BooleanTemplate"
+Gate --> Bool
+deactivate Gate
 
-[<-- ":SetBooleanCommand"
-deactivate ":SetBooleanCommand"
+Bool -> Bool : buildTopDown()
+activate Bool
+
+Bool --> Bool
+deactivate Bool
+
+Bool --> Set
+deactivate Bool
+
+[<-- Set
+deactivate Set
 @enduml

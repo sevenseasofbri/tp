@@ -10,7 +10,4 @@ public abstract class CircuitCommand extends Command {
         this.template = template;
     }
 
-    protected CircuitCommand() {
-        this(null);
-    }
 }

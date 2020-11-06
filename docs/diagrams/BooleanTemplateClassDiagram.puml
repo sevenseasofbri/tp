@@ -1,0 +1,38 @@
+@startuml
+!include style.puml
+
+package Gates {
+    class "BooleanTemplate" as Bool
+    class XYZGate
+    class "{abstract}\nGate" as Gate
+
+}
+
+class Bool {
+    - circuit : BinaryTree<Gate>
+    + addGate(Gate, int) : void
+    + setInput(int, int) : void
+    + calculateOutput() : int
+    + getCircuit() : BinaryTree<Gate>
+}
+
+class Gate {
+    # input : int
+    # secondInput : int
+    + setInput(int) : void
+    + setSecondInput(int) : void
+    + getInput() : int
+    + getSecondInput() : int
+    + isSetInput() : boolean
+    + isSetSecondInput() : boolean
+    + getOutput() : int {abstract}
+}
+
+class XYZGate {
+    + getOutput() : int
+}
+
+
+Bool --> Gate
+Gate <|-- XYZGate
+@enduml

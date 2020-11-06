@@ -4,9 +4,14 @@ import seedu.duke.DukeException;
 import seedu.duke.logic.commands.circuit.AddCircuitCommand;
 import seedu.duke.logic.commands.circuit.CalculateCircuitCommand;
 import seedu.duke.logic.commands.circuit.CircuitCommand;
-import seedu.duke.logic.commands.circuit.TutorialCircuitCommand;
 import seedu.duke.logic.commands.circuit.SetCircuitCommand;
 import seedu.duke.logic.commands.circuit.TemplateCircuitCommand;
+import seedu.duke.logic.parser.exceptions.InvalidArgumentException;
+import seedu.duke.logic.parser.exceptions.InvalidCommandException;
+import seedu.duke.logic.parser.exceptions.InvalidNumberException;
+import seedu.duke.logic.parser.exceptions.InvalidTemplateException;
+import seedu.duke.logic.parser.exceptions.NoTemplateException;
+import seedu.duke.logic.parser.exceptions.NotEnoughArgumentsException;
 import seedu.duke.model.template.CircuitTemplate;
 import seedu.duke.model.template.LcTemplate;
 import seedu.duke.model.template.LrTemplate;
@@ -14,7 +19,7 @@ import seedu.duke.model.template.RTemplate;
 import seedu.duke.model.template.RcTemplate;
 
 public class CircuitParser implements LogicParser {
-    private static CircuitTemplate circuitTemplate = null;
+    private CircuitTemplate circuitTemplate = null;
 
     /**
      * Returns a CircuitCommand object based on the input line.
@@ -33,7 +38,7 @@ public class CircuitParser implements LogicParser {
         case CalculateCircuitCommand.COMMAND_WORD:
             return prepareCircuitCalc(args);
         default:
-            throw new DukeException("Invalid Command!");
+            throw new InvalidCommandException();
         }
     }
 
@@ -56,11 +61,11 @@ public class CircuitParser implements LogicParser {
 
     //@@author hughjazzman-reused
     //Reused from https://stackoverflow.com/a/1102916 with minor modifications
-    private boolean isNumeric(String str) {
+    private boolean isNotNumeric(String str) {
         try {
-            return Double.parseDouble(str) > 0;
+            return !(Double.parseDouble(str) > 0);
         } catch (NumberFormatException e) {
-            return false;
+            return true;
         }
     }
     //@@author
@@ -82,19 +87,22 @@ public class CircuitParser implements LogicParser {
         case "lc":
             return new LcTemplate();
         default:
-            throw new DukeException("Invalid Template!");
+            throw new InvalidTemplateException();
         }
     }
 
     private CircuitCommand prepareCircuitSet(String[] args) throws DukeException {
         if (hasMinArguments(args, 3)) {
-            throw new DukeException("Not enough arguments!");
+            throw new NotEnoughArgumentsException(3);
         }
         if (hasNoTemplate()) {
-            throw new DukeException("No template set yet!");
+            throw new NoTemplateException();
         }
-        if (!(isComponent(args[1]) && isNumeric(args[2]))) {
-            throw new DukeException("Invalid argument");
+        if (!isComponent(args[1])) {
+            throw new InvalidArgumentException();
+        }
+        if (isNotNumeric(args[2])) {
+            throw new InvalidNumberException();
         }
 
         double value = Double.parseDouble(args[2]);
@@ -108,17 +116,20 @@ public class CircuitParser implements LogicParser {
 
     private CircuitCommand prepareCircuitAdd(String[] args) throws DukeException {
         if (hasMinArguments(args, 4)) {
-            throw new DukeException("Not enough arguments!");
+            throw new NotEnoughArgumentsException(4);
         }
         if (hasNoTemplate()) {
-            throw new DukeException("No template set yet!");
+            throw new NoTemplateException();
         }
 
         boolean isConfig = args[1].equals("parallel") || args[1].equals("series");
-        boolean isValid = isConfig && isComponent(args[2]) && isNumeric(args[3]);
+        boolean isValid = isConfig && isComponent(args[2]);
 
         if (!isValid) {
-            throw new DukeException("Invalid argument");
+            throw new InvalidArgumentException();
+        }
+        if (isNotNumeric(args[3])) {
+            throw new InvalidNumberException();
         }
 
         double value = Double.parseDouble(args[3]);
@@ -128,17 +139,17 @@ public class CircuitParser implements LogicParser {
 
     private CircuitCommand prepareCircuitCalc(String[] args) throws DukeException {
         if (hasMinArguments(args, 2)) {
-            throw new DukeException("Not enough arguments!");
+            throw new NotEnoughArgumentsException(2);
         }
         if (hasNoTemplate()) {
-            throw new DukeException("No template set yet!");
+            throw new NoTemplateException();
         }
 
         boolean isCalc = args[1].equals("reff") || args[1].equals("ceff") || args[1].equals("leff")
                 || args[1].equals("current") || args[1].equals("power");
 
         if (!isCalc) {
-            throw new DukeException("Invalid argument");
+            throw new InvalidArgumentException();
         }
         return new CalculateCircuitCommand(circuitTemplate, args[1]);
     }

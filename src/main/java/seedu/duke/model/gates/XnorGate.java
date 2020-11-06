@@ -1,6 +1,6 @@
 package seedu.duke.model.gates;
 
-import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
 
 public class XnorGate extends XorGate {
     private static final String XNOR = "XNOR";
@@ -8,11 +8,12 @@ public class XnorGate extends XorGate {
     /**
      * Performs bitwise XNOR (~^) operation on the input instance variables.
      *
-     * @return int value of the gate output.
+     * @return boolean value of the gate output.
+     * @throws InputsNotSetException If both inputs aren't set yet.
      */
     @Override
-    public int getOutput() throws DukeException {
-        return ~(super.getOutput());
+    public boolean getOutput() throws InputsNotSetException {
+        return !(super.getOutput());
     }
 
     /**

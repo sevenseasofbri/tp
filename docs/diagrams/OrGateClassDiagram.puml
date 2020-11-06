@@ -1,22 +1,22 @@
 @startuml
+!include style.puml
+
 package Gates {
-    class "Gate" as State1
-    class "OrGate" as State3
+    class "Gate" as Gate
+    class "OrGate" as Or
 }
 
-class State1 {
-    # int input
-    # int output
-    + void setInput(int input)
-    + void getOutput()
+class Gate {
+    # input : int
+    # output : int
+    + setInput(int) : void
+    + setSecondInput(int) : void
 }
 
-class State2 {
-    # int input = A
-    # int secondInput = B
-    + int getOutput() = {return input | secondInput }
+class Or {
+    + getOutput() : int
 
 }
 
-State1 --|> State2
+Or -u-|> Gate
 @enduml

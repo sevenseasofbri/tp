@@ -5,10 +5,10 @@ import seedu.duke.model.template.BooleanTemplate;
 
 public class SetBooleanCommand extends BooleanCommand {
     public static final String COMMAND_WORD = "set";
-    private final int value;
+    private final boolean value;
     private final int index;
 
-    public SetBooleanCommand(BooleanTemplate booleanTemplate, int value, int index) {
+    public SetBooleanCommand(BooleanTemplate booleanTemplate, boolean value, int index) {
         super(booleanTemplate);
         this.value = value;
         this.index = index;
@@ -22,5 +22,16 @@ public class SetBooleanCommand extends BooleanCommand {
     @Override
     public void execute() throws DukeException {
         template.setInput(value, index);
+    }
+
+    /**
+     * Returns String representation of SetBooleanCommand.
+     *
+     * @return String representation.
+     */
+    @Override
+    public String toString() {
+        return "Successfully set " + (char)(index + 'A') + " to " + (value ? "1" : "0") + System.lineSeparator()
+                + '\t' + super.toString();
     }
 }
