@@ -54,7 +54,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	Type 'exit' if you want to leave this mode and go back to the application.
 -----------------------------------------------------------
 -----------------------------------------------------------
-	Let's get started! First we will choose a template to work with. In the app you can choose from rc, rl, lc and r templates.
+	Let's get started! First we will choose a template to work with. In the app you can choose from rc, rl, lc, and r templates.
 	However, for this tutorial, we will use a Resistor-Capacitor template.
 	To select the Resistor-Capacitor circuit template, enter 'template rc'
 -----------------------------------------------------------
