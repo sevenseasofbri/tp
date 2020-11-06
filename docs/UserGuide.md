@@ -551,6 +551,8 @@ This section details the **frequently asked questions (FAQ)** regarding the use 
 
 ## 9. Command Summary
 
+This section summarises the commands used in the application.
+
 Action | Format, Examples
 --------|------------------
 **Tutorial** | `tutorial TYPE` <br> e.g., `tutorial circuit`
@@ -565,14 +567,18 @@ Action | Format, Examples
 
 This section explains certain technical terms used in the guide which may require more detail.
 
-* *Command Line Interface (CLI)* - Text-based user interface which the application uses to interact with the user
-* *logging* - Keeping a record of information about events which take place, specific to the application
-* *syntax* - Rules in which a command must be run
-* *voltage source* - A device which can maintain a fixed voltage
-* *load components* - A component which consumes electric power
-* *resistors* - A component which provides electrical resistance
-* *capacitors* - A component which stores electrical energy in an electrical field
-* *inductors* - A component which stores energy in a magnetic field when electric *current* flows throw it
-* *current* - Flow of electric charge in a circuit
-* *power* - Rate at which electrical energy is transferred by a circuit
-* *logic gate* - Physical electronic device implementing a Boolean function
+Term | Explanation
+-|-
+*capacitors* | A component which stores electrical energy in an electrical field
+*Command Line Interface (CLI)* | Text-based user interface which the application uses to interact with the user
+*current* | Flow of electric charge in a circuit
+*inductors* | A component which stores energy in a magnetic field when electric *current* flows throw it
+*integer* | A whole number 
+*load components* | A component which consumes electric power
+*logging* | Keeping a record of information about events which take place, specific to the application
+*logic gate* | Physical electronic device implementing a Boolean function
+*power* | Rate at which electrical energy is transferred by a circuit
+*resistors* | A component which provides electrical resistance
+*root* | A point of reference for which other points can be traced back to
+*syntax* | Rules in which a command must be run
+*voltage source* | A device which can maintain a fixed voltage
