@@ -42,21 +42,22 @@ public class Ui {
             + "\n"};
 
     public static final String[] BOOLEAN_INSTRUCTIONS = {"Lets get started! First chose a template you want to work "
-            + "with. You can chose from and, or, nand, nor, xor and xnor gate templates." + System.lineSeparator()
-            + "eg. To select the and gate template, enter 'template and'",
-        "Lets set a value to the input B! Type in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0. ",
-        "Now lets set a value to the input C! Type in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.",
-        "Now lets calculate the output of B GATE C. GATE here is the template you typed out earlier. Enter 'calc'.",
-        "Voila! Now you can see the output to your gate! Lets add another gate now.\n Again, you can choose from the "
-            + "gate templates list we gave you earlier.\n Just to recap the available gates are and, or, nand, nor"
-            + ",xor and xnor gate templates.\n We are now going to connect the output of ths GATE you've decided to "
+            + "with.\n\tYou can chose from and, or, nand, nor, xor and xnor gate templates." + System.lineSeparator()
+            + "\teg. To select the and gate template, enter 'template and'",
+        "Lets set a value to the input B!\n\tType in 'set B BOOLVALUE' where BOOLVALUE is either a 1 or a 0. ",
+        "Now lets set a value to the input C!\n\tType in 'set C BOOLVLAUE' where BOOLVALUE is again either a 1 or 0.",
+        "Now lets calculate the output of B GATE C.\n\tGATE here is the template you typed out earlier. Enter 'calc'.",
+        "Voila! Now you can see the output to your gate! Lets add another gate now.\n\tAgain, you can choose from the "
+            + "gate templates list we gave you earlier.\n\tJust to recap the available gates are and, or, nand, nor"
+            + ",xor and xnor gate templates.\n\tWe are now going to connect the output of ths GATE you've decided to "
             + "input B. Enter 'add C GATE'.",
-        "Now a new gate has been added let us assign the other variables. Set input F by entering 'set F BOOLVALUE' "
+        "Now a new gate has been added let us assign the other variables.\n\tSet input F by entering 'set F BOOLVALUE' "
             + "where BOOLVALUE is either 1 or 0.",
-        "Now a new gate has been added let us assign the other variables. Set input G by entering 'set G BOOLVALUE' "
+        "Now a new gate has been added let us assign the other variables.\n\tSet input G by entering 'set G BOOLVALUE' "
             + "where BOOLVALUE is either 1 or 0.",
-        "Now lets calculate the output of F GATE G. GATE here is the template you typed out earlier. Enter 'calc'.",
-        "Great! You're set to use the boolean builder of \n" + LOGO + "Enjoy! :)\n type 'exit' to exit this mode.\n"
+        "Now lets calculate the output of the whole configuration. Enter 'calc'.",
+        "Great! You're set to use the boolean builder of \n" + LOGO
+            + "\n\tEnjoy! :)\n\t type 'exit' to exit this mode.\n"
     };
 
     private static final Scanner IN = new Scanner(System.in);
