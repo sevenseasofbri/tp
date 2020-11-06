@@ -70,7 +70,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 -----------------------------------------------------------
 -----------------------------------------------------------
 	Let's set a value to our power source! Type in 'set v VALUE' , where VALUE is a +ve number in volts.
-	eg. set v 220 will set the power source to 220 volts.
+	eg. set v 220 will set the power source to a value of 220 volts.
 -----------------------------------------------------------
 -----------------------------------------------------------
 	The voltage source was set to 5.0 V
@@ -85,7 +85,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 -----------------------------------------------------------
 -----------------------------------------------------------
 	Let's set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve number in ohms(Ω).
-	eg. 'set r 500' will set the resistor to 500Ω.
+	eg. 'set r 500' will set the resistor to a value of 500Ω.
 -----------------------------------------------------------
 -----------------------------------------------------------
 	Bad Command! Please follow the instructions carefully.
@@ -93,7 +93,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 -----------------------------------------------------------
 -----------------------------------------------------------
 	Let's set a value to the resistor! To do so, type 'set r VALUE' , where VALUE is a +ve number in ohms(Ω).
-	eg. 'set r 500' will set the resistor to 500Ω.
+	eg. 'set r 500' will set the resistor to a value of 500Ω.
 -----------------------------------------------------------
 -----------------------------------------------------------
 	The resistor was set to 500.0 Ω
