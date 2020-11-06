@@ -39,49 +39,6 @@ This **Developer Guide** aims to get developers familiarised with the design and
 |[Hyperlinked](#)|Leads to the appropriate section.|
 |`Code`|Text that appears on the CLI / in code.|
 
-## Table of Contents
-* [Setting up, getting started](#setting-up-getting-started)
-* [Design Architecture](#design)
-    * [UI component](#ui-component)
-    * [Logic component](#logic-component)
-    * [Model component](#model-component)
-* [Implementation of Circuit Commands](#circ-comd)
-    * [Creating Template](#temp-circ)
-    * [Setting Component](#set-circ)
-    * [Adding Component](#add-circ)
-    * [Calculating Value](#calc-circ)
-    * [Implementation Considerations](#impl-cons-dash)
-        * [Rationale](#rationale-circuit-dash) 
-        * [Alternatives Considered](#alt-circuit-dash)
-* [Implementation of Boolean Commands](#bool-comd)
-    * [Creating Template](#temp-bool)
-    * [Setting Input](#set-bool)
-    * [Adding Gate](#add-bool)
-    * [Calculating Output](#calc-bool) 
-    * [Implementation Considerations](#impl-cons)
-        * [Rationale](#rationale-bool)
-        * [Alternatives Considered](#alternatives-considered)
-    * [Binary Tree](#binary-tree)
-        * [Initialising A BinaryTree Object](#initialising-a-binarytreet-object)
-        * [Using BinaryTree isNullAtIndex(int)](#using-binarytreeisnullatindexint)
-        * [Using BinaryTree getParentIndex(int)](#using-binarytreegetparentindexint-t)
-        * [Using BinaryTree insert(int, T)](#using-binarytreeinsertint-t)
-        * [Using BinaryTree isLeaf(int)](#using-binarytreeisleafint)
-        * [Using BinaryTree isEmpty()](#using-binarytreeisempty)
-    * [Rendering Current Boolean Circuit State](#rendering-current-Boolean-circuit-state)
-* [Appendix: Requirements](#appendix-requirements-dorian)
-    * [Product scope](#product-scope)
-    * [User Stories](#user-stories-wira)
-    * [Non-Functional Requirements](#non-functional-requirements-dorian)
-    * [Glossary](#glossary-vishruti)
-* [Appendix: Instructions for manual testing](#appendix-instructions-for-manual-testing-dorian)
-    * [Initial launch](#initial-launch)
-    * [Creating a digital circuit](#creating-a-digital-circuit)
-    * [Creating a logic gate](#creating-a-logic-gate)
-    * [Calculating values](#calculating-values)
-    * [Exiting the program](#exiting-the-program)
-    
-
 --------------------------------------------------------------------------------------------------------------------
 
 
