@@ -1,90 +1,46 @@
 @startuml
-[-> ":CalculateBooleanCommand" : execute()
-activate ":CalculateBooleanCommand"
 
-":CalculateBooleanCommand" -> ":BooleanTemplate" : calculateOutput(index)
-activate ":BooleanTemplate"
+box logic
+participant ":CalculateBooleanCommand" as Calc
+end box
 
-":BooleanTemplate" -> ":BinaryTree" : getRightIndex(index)
-activate ":BinaryTree"
+box model
+participant ":BooleanTemplate" as Bool
+participant ":BinaryTree" as BT
+participant ":Gate" as Gate
+end box
 
-":BinaryTree" --> ":BooleanTemplate" : rightIndex
-deactivate ":BinaryTree"
+[-> Calc : execute()
+activate Calc
 
-":BooleanTemplate" -> ":BinaryTree" : getLeftIndex(index)
-activate ":BinaryTree"
+Calc -> Bool : calculateOutput(index)
+activate Bool
 
-":BinaryTree" --> ":BooleanTemplate" : leftIndex
-deactivate ":BinaryTree"
+ref over Bool, BT : checkIndex
 
-":BooleanTemplate" -> ":BinaryTree" : isNullAtIndex(rightIndex)
-activate ":BinaryTree"
+Bool -> BT: getT(index)
+activate BT
 
-":BinaryTree" --> ":BooleanTemplate" : isNullAtRight
-deactivate ":BinaryTree"
+BT -> Gate : arrayList.get(index)
+activate Gate
 
-":BooleanTemplate" -> ":BinaryTree" : getLeftIndex(index)
-activate ":BinaryTree"
+Gate --> BT : gate
+deactivate Gate
 
-":BinaryTree" --> ":BooleanTemplate" : isNullAtLeft
-deactivate ":BinaryTree"
+BT --> Bool: gate
+deactivate BT
 
-":BooleanTemplate" -> ":BinaryTree": getT(index)
-activate ":BinaryTree"
+ref over Bool, Gate : setIndex
 
-":BinaryTree" -> ":Gate" : arrayList.get(index)
-activate ":Gate"
+Bool -> Gate : getOutput()
+activate Gate
 
-":Gate" --> ":BinaryTree" : gate
-deactivate ":Gate"
+Gate --> Bool: output
+deactivate Gate
 
-":BinaryTree" --> ":BooleanTemplate": gate
-deactivate ":BinaryTree"
+Bool --> Calc: output
+deactivate Bool
 
-alt !isNullAtLeft
-
-":BooleanTemplate" -> ":Gate": setInput(calculateOutput(leftIndex))
-activate ":Gate"
-
-":Gate" --> ":BooleanTemplate"
-deactivate ":Gate"
-
-end
-
-alt !isNullAtRight
-
-":BooleanTemplate" -> ":Gate" : setSecondInput(calculateOutput(rightIndex))
-activate ":Gate"
-
-":Gate" --> ":BooleanTemplate"
-deactivate ":Gate"
-
-end
-
-deactivate ":Gate"
-deactivate ":Gate"
-
-":BooleanTemplate" -> ":BinaryTree": getT(index)
-activate ":BinaryTree"
-
-":BinaryTree" -> ":Gate": arrayList.get(index)
-activate ":Gate"
-
-":Gate" --> ":BinaryTree" : gate
-deactivate ":Gate"
-
-":BinaryTree" --> ":BooleanTemplate" : gate
-deactivate ":BinaryTree"
-
-":BooleanTemplate" -> ":Gate" : gate.getOuput()
-activate ":Gate"
-
-":Gate" --> ":BooleanTemplate": output
-deactivate ":Gate"
-
-":BooleanTemplate" --> ":CalculateBooleanCommand": output
-deactivate ":BooleanTemplate"
-
-[<-- ":CalculateBooleanCommand": output
-deactivate ":CalculateBooleanCommand"
+[<-- Calc: output
+deactivate Calc
 @enduml

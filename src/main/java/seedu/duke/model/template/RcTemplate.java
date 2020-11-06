@@ -1,13 +1,15 @@
 package seedu.duke.model.template;
 
-import seedu.duke.DukeException;
 import seedu.duke.model.component.Capacitor;
 import seedu.duke.model.component.LoadComponent;
+import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
+import seedu.duke.model.exceptions.templateexceptions.InvalidComponentException;
+import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 
 
 public class RcTemplate extends RTemplate {
 
-    private static final String RC_TEMPLATE = "\t+---R-----C---+\n"
+    private static final String RC_TEMPLATE = "+---R-----C---+\n"
                                             + "\t|             |\n"
                                             + "\t|             |\n"
                                             + "\t+----+V_ac+---+\n";
@@ -28,14 +30,14 @@ public class RcTemplate extends RTemplate {
      * Returns impedance value of circuit.
      *
      * @return impedance, a double representation of the impedance value of circuit.
-     * @throws DukeException If component values are not yet set.
+     * @throws TemplateComponentsNotSetException If component values are not yet set.
      */
     @Override
-    public double calcImpedance() throws DukeException {
+    public double calcImpedance() throws TemplateComponentsNotSetException {
         double resistance = super.calcImpedance();
         double capacitance = capacitor.getValue() * Math.pow(10, -6);
         if (capacitance == 0) {
-            throw new DukeException("Component(s) not set yet.");
+            throw new TemplateComponentsNotSetException();
         }
         return Math.sqrt(Math.pow(resistance, 2)
                 + (1 / Math.pow((ANGULAR_FREQUENCY * capacitance), 2)));
@@ -55,7 +57,7 @@ public class RcTemplate extends RTemplate {
      *
      * @param value double type value to be set to the capacitor in the circuit.
      */
-    protected void setCapacitor(double value) {
+    protected void setCapacitor(double value) throws ZeroComponentException {
         capacitor.setValue(value);
     }
 
@@ -66,13 +68,21 @@ public class RcTemplate extends RTemplate {
      * @param value double type value to be set to the component in the circuit.
      */
     @Override
-    public void setComponent(String s, double value) {
+    public void setComponent(String s, double value) throws ZeroComponentException {
         assert s.equals("c") || s.equals("r");
         if (s.equals("c")) {
             setCapacitor(value);
         } else {
             super.setComponent(s, value);
         }
+    }
+
+    protected boolean isSetCapacitor() {
+        return capacitor.getValue() != 0;
+    }
+
+    protected String capacitorToString() {
+        return "\tTotal Capacitance: " + (isSetCapacitor() ? capacitor : NOT_SET) + System.lineSeparator();
     }
 
     /**
@@ -82,10 +92,7 @@ public class RcTemplate extends RTemplate {
      */
     @Override
     public String toString() {
-        return RC_TEMPLATE
-                + "Current Voltage: " + initialPowerSupply + System.lineSeparator()
-                + "Total Resistance: " + resistor + System.lineSeparator()
-                + "Total Capacitance: " + capacitor + System.lineSeparator();
+        return RC_TEMPLATE + voltageToString() + resistorToString() + capacitorToString();
     }
 
     /**
@@ -93,10 +100,10 @@ public class RcTemplate extends RTemplate {
      *
      * @param component String representing the component.
      * @return LoadComponent object.
-     * @throws DukeException If input String does not match a component.
+     * @throws InvalidComponentException If input String does not match a component.
      */
     @Override
-    public LoadComponent getComponent(String component) throws DukeException {
+    public LoadComponent getComponent(String component) throws InvalidComponentException {
         if (component.equals("c")) {
             return getCapacitor();
         }

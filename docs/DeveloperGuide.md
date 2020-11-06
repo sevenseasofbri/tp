@@ -24,6 +24,8 @@ title : Developer Guide
 * Table of Contents
 {:toc}
 
+<div style="page-break-after: always;"></div>
+
 ## How To Use This Guide
 
 This **Developer Guide** aims to get developers familiarised with the design and implementation of **CLIrcuit Assistant**. The following table indicates the symbols used to aid the understanding of the guide. This guide also assumes that the reader has basic understanding of *UML Diagrams*. [To access the **User Guide** instead, click here.](UserGuide.md)
@@ -88,6 +90,8 @@ Refer to the guide [*Setting up and getting started*](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## Design Architecture (Wira) <a name="design"></a>
 
 ![ArchitectureDiagram](diagrams/ArchitectureDiagram.png)
@@ -115,6 +119,7 @@ The `Ui` component
 * Reads user input as lines using `readLine()`.
 * Prints every `Command` object that is parsed using `printMessage()`.
 * Prints any user input error that might occur using `showError()`.
+* Does not depend on any of the other components.
 
 ![UiSequence](diagrams/UiSequenceDiagram.png)
 
@@ -130,20 +135,31 @@ The `Ui` component
 1. `Logic` uses the `Parser` class to parse the user command.
 1. This results in a `Command` object which is executed in `Duke`.
 1. The command execution can affect the `Model` (e.g. setting a value).
-1. In addition, the `Ui` may also perform certain actions, such as displaying help to the user.
+
+<div style="page-break-after: always;"></div>
+
+In general, the creation of `Command` objects via `Parser` can be explained by the following sequence diagram, which acts as a reference frame for `getCommand`:
+
+![getCommand](diagrams/GetCommand.png)
+
+<small><i>Figure 5</i></small>
+
+If the command does not use the reference frame, they would have their own sequence diagram to showcase the difference.
 
 ### Model component
 
 ![ModelDiagram](diagrams/ModelClassDiagram.png)
 
-<small><i>Figure 5</i></small>
+<small><i>Figure 6</i></small>
 
 The `Model`,
 * includes `CircuitTemplate` and `BooleanTemplate` that can represent the current `template` in [`Logic`](#logic-component).
 * has `Component` and `Gate` within the templates.
-* does not depend on any of the other three components.
+* does not depend on any of the other two components.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Implementation of Circuit Commands (Dash) <a name="circ-comd"></a>
 
@@ -170,15 +186,25 @@ There are four different circuit templates that can be instantiated in the progr
 * `RcTemplate` - Resistor-Capacitor Template (extends `RTemplate`)
 * `LrTemplate` - Inductor-Resistor Template (extends `RTemplate`)
 
-![CircuitCommandClass](diagrams/CircuitCommandClassDiagram.png)
-
-<small><i>Figure 6</i></small>
-
-The diagram above demonstrates the relationship between the various `CircuitCommand` objects. The various commands to be parsed are as explained in this section. While the **User Guide** explains the commands used on the CLI, this section goes into detail the classes used to execute the commands. The command classes also make use of the classes in the [**`Model`**](#model-component) shown in the diagram below when executing the commands.
-
 ![CircuitModelClass](diagrams/CircuitModelClassDiagram.png)
 
 <small><i>Figure 7</i></small>
+
+The diagram above showcases the relationships between the various `Component` and `Template` objects.
+
+![CircuitCommandClass](diagrams/CircuitCommandClassDiagram.png)
+
+<small><i>Figure 8</i></small>
+
+The diagram above demonstrates the relationship between the various `CircuitCommand` objects. The various commands to be parsed are as explained in this section. While the **User Guide** explains the commands used on the CLI, this section goes into detail the classes used to execute the commands. The command classes also make use of the classes in the [**`Model`**](#model-component) shown in the diagram below when executing the commands.
+
+For commands excluding `TemplateCircuitCommand`, the following sequence diagram will showcase how the `getComponent` reference frame occurs:
+
+![getComponent](diagrams/GetComponent.png)
+
+<small><i>Figure 9</i></small>
+
+<div style="page-break-after: always;"></div>
 
 ### `TemplateCircuitCommand`  <a name="temp-circ"></a>
 Given below is the sequence diagram for interactions within the `logic` and `template` components for the 
@@ -186,7 +212,9 @@ Given below is the sequence diagram for interactions within the `logic` and `tem
 
 ![TemplateSequence](diagrams/TemplateSequenceDiagram.png)
 
-<small><i>Figure 8</i></small>
+<small><i>Figure 10</i></small>
+
+<div style="page-break-after: always;"></div>
 
 ### `SetCircuitCommand` <a name="set-circ"></a>
 
@@ -194,7 +222,9 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ![SetSequence](diagrams/SetSequenceDiagram.png)
 
-<small><i>Figure 9</i></small>  
+<small><i>Figure 11</i></small>  
+
+<div style="page-break-after: always;"></div>
 
 ### `AddCircuitCommand` <a name="add-circ"></a>
 
@@ -203,7 +233,9 @@ for the `parse("add parallel c 20")` API call that implements the `add` command 
 
 ![AddSequence](diagrams/AddSequenceDiagram.png)
 
-<small><i>Figure 10</i></small>  
+<small><i>Figure 12</i></small>  
+
+<div style="page-break-after: always;"></div>
 
 ### `CalculateCircuitCommand` <a name="calc-circ"></a>
 The calculate command can be split into two distinct sequence diagrams. Given below is the sequence diagram for the
@@ -212,14 +244,14 @@ calculate command that does not show the access of the `component` component and
 
 ![CalcPowerSequence](diagrams/CalcPowerSequenceDiagram.png)
 
-<small><i>Figure 11</i></small>  
+<small><i>Figure 13</i></small>  
 
-The second sequence diagram given below shows the detailed interaction that acesses the `component` class through the
+<div style="page-break-after: always;"></div>
+
+The second sequence diagram given below shows the detailed interaction that accesses the `component` class through the
 `parse("calc reff")` API call that implements this version of the `calculate` command to calculate effective resistance.
 
 ![CalcReffSequence](diagrams/CalcReffSequenceDiagram.png)
-
-<small><i>Figure 12</i></small> 
 
 ### Implementation Considerations For Circuit Commands (Dash) <a name="impl-cons-dash"></a>
 This section describes the methods taken into consideration while implementing the Circuit Commands.
@@ -246,16 +278,30 @@ different types of circuits but they also provide an efficient way of storing th
 
 --------------------------------------------------------------------------------------------------------------------
 
+
+<div style="page-break-after: always;"></div>
+
 ## Implementation of Boolean Commands (Praveen) <a name="bool-comd"></a>
 
 ![BooleanCommandClass](diagrams/BooleanCommandClassDiagram.png)
 
-<small><i>Figure 13</i></small>
+<small><i>Figure 15</i></small>
 
-The second major feature of the application is the implementation of Boolean logic commands, of which various noteworthy implementation details are explained in this section. The above diagram demonstrates the relationships between the various `Command` objects. Notice the similarities to the [Circuit Commands in the earlier section](#implementation-of-circuit-commands).
+The second major feature of the application is the implementation of Boolean logic commands, of which various noteworthy implementation details are explained in this section. The above diagram demonstrates the relationships between the various `Command` objects. Notice the similarities to the [Circuit Commands in the earlier section](#implementation-of-circuit-commands-dash-).
 
-There are six different logic gates that can be instantiated in the program:
-- `or, and, nor, nand, xor, xnor`
+There are six different logic gates that can be instantiated in the program, which can be seen in the diagram below:
+
+![GateClass](diagrams/GateClassDiagram.png)
+
+<small><i>Figure 16</i></small>
+
+<div style="page-break-after: always;"></div>
+
+The next diagram then showcases the methods involved in the `BooleanTemplate` and `Gate` classes to work together:
+
+![BooleanTemplateClass](diagrams/BooleanTemplateClassDiagram.png)
+
+<small><i>Figure 17</i></small>
 
 All gates can be first instantiated using the `Gate` class which has one `int input` and one `int output` as its attributes. 
 It has `setInput(int input)` and `getOutput()` as its methods, which are used to set the input of the logic gate and get the output of the gate respectively. 
@@ -268,20 +314,13 @@ The six different logic gates then individually inherit from the `TwoInputGate` 
 on the logic function of the gate itself. For instance, the `OrGate` which inherits from the `TwoInputGate` class has its `getOutput()` function set to `{return input | secondInput}`, 
 which represents the `or` operation.
 
-The `OrGate` can be visualised as such in the following object diagram:
+An instance of an `OrGate` can be visualised as such in the following object diagram:
 
 ![InsertObjectDiagram](diagrams/OrGateObjectDiagram.png)
 
-<small><i>Figure 14</i></small>
- 
-The inheritance of the `OrGate` class from `TwoInputGate` class which inherits from the `Gate` class can be seen in the following class diagram:
+<small><i>Figure 18</i></small>
 
-![InsertClassDiagram](diagrams/OrGateClassDiagram.png)
-
-<small><i>Figure 15</i></small>
-
-
-There are four Boolean commands that are used in the implementation of the logic gates: `TemplateBooleanCommand, SetBooleanCommand, AddBooleanCommand`, and `CalcBooleanCommand`.
+<div style="page-break-after: always;"></div>
 
 ### `TemplateBooleanCommand` <a name="temp-bool"></a>
 
@@ -297,7 +336,9 @@ The aforementioned sequence of events can be represented in the following sequen
 
 ![InsertClassDiagram](diagrams/TemplateBooleanCommand.png)
 
-<small><i>Figure 16</i></small>
+<small><i>Figure 19</i></small>
+
+<div style="page-break-after: always;"></div>
 
 ### `SetBooleanCommand` <a name="set-bool"></a>
 
@@ -305,33 +346,33 @@ The sequence of object interactions through the `SetBooleanCommand` can be repre
 
 ![InsertSequenceDiagram](diagrams/SetBooleanCommand.png)
 
-<small><i>Figure 17</i></small>
+<small><i>Figure 20</i></small>
+
+<div style="page-break-after: always;"></div>
 
 ### `AddBooleanCommand` <a name="add-bool"></a>
 
 The `AddBooleanCommand` is used to combine multiple logic gate templates to produce advanced Boolean logic gate configurations.
 For instance, an `OrGate` can be combined with an `AndGate` to produce a new logic configuration where its final output will depend on the
-Boolean values assigned to the `OrGate` and `AndGate`. This gate configuration can undergo further addition operations by `addBooleanCommand` to 
-combine another logic gate, such as `XorGate`. The combination of these three gates after the `addBooleanCommand` operations can be represented by the following object diagram:
-
-![InsertObjectDiagram](diagrams/AddBooleanCommandObjectDiagram.png)
-
-<small><i>Figure 18</i></small>
+Boolean values assigned to the `OrGate` and `AndGate`. This gate configuration can undergo further addition operations by `AddBooleanCommand` to 
+combine another logic gate, such as `XorGate`. 
 
 The sequence by which the `AddBooleanCommand` is instantiated to combine the logic gates is as follows:
 
 1. The `AddBooleanCommand` object calls on the `addGate` method in the instantiated `BooleanTemplate`.
 2. This will access the index of the `BinaryTree` object in the `BooleanTemplate` to store the newly added gate to the configuration.
 
+<div style="page-break-after: always;"></div>
+
 The aforementioned sequence of events can be represented in the following sequence diagram:
 
 ![InsertSequeunceDiagram](diagrams/AddBooleanCommand.png)
 
-<small><i>Figure 19</i></small>
+<small><i>Figure 21</i></small>
 
 ### `CalculateBooleanCommand` <a name="calc-bool"></a>
 
-The `CalculateBooleanCommand` is used to calculate the effective output of the configured logic gates stored in the `BinaryTree` is used to , which requires that all inputs be set.
+The `CalculateBooleanCommand` is used to calculate the effective output of the configured logic gates stored in the `BinaryTree`, which requires that all inputs be set.
 
 For instance, in a `BinaryTree` object with just two gates - `OrGate` and `AndGate` - all the inputs of the gates have to be assigned before the effective output of both the logic gates (`Input C`) can 
 be calculated.
@@ -340,7 +381,21 @@ The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
 
 ![InsertSequenceDiagram](diagrams/CalcBooleanCommand.png)
 
-<small><i>Figure 20</i></small>
+<small><i>Figure 22</i></small>
+
+<div style="page-break-after: always;"></div>
+
+The `checkIndex` and `setIndex` reference frames are also shown below. Note that `setIndex` possibly contains recursive `calculateOutput()` calls.
+
+![CheckIndex](diagrams/CheckIndexSequence.png)
+
+<small><i>Figure 23 (Wira)</i></small>
+
+![SetIndex](diagrams/SetIndexSequence.png)
+
+<small><i>Figure 24 (Wira)</i></small>
+
+<div style="page-break-after: always;"></div>
 
 ### Implementation Considerations For Boolean Commands (Vishruti) <a name = "impl-cons"></a>
 This section describes the methods taken into consideration whilst implementing the Boolean Commands.
@@ -377,6 +432,8 @@ restrictions on the number of child-nodes a node can have. Thereby,
 
 Due to the limitations mentioned above, the Binary Heap-Like data structure was considerd to be the best method of approach.
 
+<div style="page-break-after: always;"></div>
+
 ### Binary Tree
 The previous section described the rationale behind using a special Binary Tree-like structure (Heap) for implementing the
 Boolean Commands. This section provides details on *how* the logic circuit is modeled using the selected data structure. 
@@ -402,12 +459,14 @@ The operations exposed to the `Logic` in this `Model` include:
 
 When an object of the `BinaryTree<T>` class is created, it initialises the `ArrayList<T>` instance to 15 `null` values. This will be further discussed in the section detailing the `insert()` function.
 
+<div style="page-break-after: always;"></div>
+
 #### Initialising A `BinaryTree<T>` Object
 The `Logic` initialises the `BinaryTree<Gate>` object using the parameterised constructor, thus specifying the `Gate` class type root. The object diagram below depicts the initial state of the `Model` when a `BinaryTree<Gate>` object is created.
 
 ![InitialBinaryTree](diagrams/BinaryTreeInitialObjectDiagram.png)
 
-<small><i>Figure 21</i></small>
+<small><i>Figure 25</i></small>
 
 The Logic uses the parameterised constructor of `BinaryTree<T>` to create the object since it requires initialisation of
 the root. Such an object is created as follows: `BinaryTree<Gate> obj = new BinaryTree(new OrGate(1,1))`. This sets the root of the Binary Tree to the object specified.
@@ -419,6 +478,8 @@ is also extensively used in other internal operations in `BinaryTree<T>` for che
 #### Using `BinaryTree#getParentIndex(int, T)`
 Similar to `isNullAtIndex(int)`, this method is used in rendering the current configuration of the circuit in String format.
 
+<div style="page-break-after: always;"></div>
+
 #### Using `BinaryTree#insert(int, T)`
 In order to enable the ability to populate the `ArrayList<T>` at any node which has a non-null parent node
 the `ArrayList<T> arrayList` attribute is pre-populated with 15 `null` values. The same attribute is modified in the insert()
@@ -428,9 +489,11 @@ The following sequence diagram is a depiction of the events succeeding a call to
 
 ![InsertSequenceDiagram](diagrams/BinaryTreeInsertSequenceDiagram.png)
 
-<small><i>Figure 22</i></small>
+<small><i>Figure 26</i></small>
 
 Post calling this function, the second element in the `arrayList` will be the `AndGate(1,1)` object.
+
+<div style="page-break-after: always;"></div>
 
 #### Using `BinaryTree#isLeaf(int)`
 This function is used by the Logic class `BooleanTemplate` to calculate output values in the digital circuit. It 
@@ -440,7 +503,7 @@ The following sequence diagram is a depiction of the events succeeding a call to
 
 ![IsLeafSequenceDiagram](diagrams/BinaryTreeIsLeafSequence.png)
 
-<small><i>Figure 23</i></small>
+<small><i>Figure 27</i></small>
 
 #### Using `BinaryTree#isEmpty`
 This is used by `BooleanTemplate` to ensure no calculations are being performed on an empty tree.
@@ -449,8 +512,10 @@ The following sequence diagram showcases the events succeeding a call to `isEmpt
 
 ![IsEmptySequenceDiagram](diagrams/BinaryTreeIsEmptySequenceDiagram.png)
 
-<small><i>Figure 24</i></small>
+<small><i>Figure 28</i></small>
  
+<div style="page-break-after: always;"></div>
+
 ### Rendering Current Boolean Circuit State
 Using a _standard I/O operation_ (Like _Sopln()_) on an object of the `BooleanTemplate` class yields the current configuration
 of the system.
@@ -467,6 +532,8 @@ H  I     J  K      L  M      N  O
 ```
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Appendix: Requirements (Dorian)
 
@@ -502,6 +569,15 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 |v2.0|CEG/EE Student|set input values to the logic gate configuration|analyse inputs and outputs of a configuration
 |v3.0|CEG/EE Student|print the current template I am working on|find out my current configuration and make a decision
 
+### Storage (Wira)
+
+While many other applications under CS2113 implement a storage feature, our app does not include one in the current implementation at v2.1 with the following rationale:
+
+* The focus is on the representation of template circuits and how the users would interact with them. Obtaining the circuit configuration from the user's side is an easy process and therefore it would not be necessary for a user to store the circuits for future reference.
+* The application is, in a sense, equivalent to a calculator. It aims to assist the user in performing quick circuit calculations.
+* [Constraints involved](https://nus-cs2113-ay2021s1.github.io/website/admin/tp-constraints.html) include requiring the storage file to be human editable. Since there is no data file to break the constraint, the constraint is fulfiled.
+
+It is perhaps possible for a future iteration (v3.0 onwards) to implement the feature, but it was not considered an important feature according to our **User Stories**.
 
 ### Non-Functional Requirements (Dorian)
 
@@ -510,6 +586,8 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Glossary (Vishruti)
 
@@ -557,7 +635,7 @@ truth value of the operation will result in 1 (TRUE) if only one of x == 1 or y 
 1. Download the jar file and copy it into an empty folder
 2. Open a new terminal window and navigate to the same directory where your duke.jar is located
 3. Enter the command `java -jar duke.jar` into the terminal window to launch the application
-4. Enter `help` to go into interactive tutorial mode or `summary` to generate a summary of all the commands
+4. Enter `tutorial circuit` or `tutorial boolean` to go through an [interactive tutorial](UserGuide.md/#52-interactive-tutorial) or `summary` to generate a summary of all the commands
 
 ### Creating a digital circuit  
 1. Enter `template` followed by the template type, e.g.: `template rc`
@@ -569,16 +647,16 @@ The four types of components are: `r`,`c`,`l`,`v`. Note that the value inputted 
 ### Creating a logic gate 
 Similar to the creation of a digital circuit, we create a `template`, `set` values, and can `add` values.
 
-For the detailed steps, visit [Logic Gate Commands](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#logic-gate-commands).
+For the detailed steps, visit [Boolean Action Commands](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#7-boolean-action-commands).
 
 ### Calculating values
 For calculation of values, the `calc` command is used.
 
-Detailed steps on calculation for 
+The following links provide detailed steps for calculations for the respective section:
 
-* [Digital circuits](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-circ)
+* [Circuits](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#64-calculating-effective-value-)
 
-* [Logic Gates](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#calc-output) 
+* [Boolean](https://ay2021s1-cs2113t-w13-3.github.io/tp/UserGuide.html#74-calculating-output-) 
 
 ### Exiting the program
 Simply enter `bye` to exit the program and bid farewell to your loyal **CLIrcuit Assistant**.

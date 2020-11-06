@@ -2,6 +2,7 @@ package seedu.duke.model.component;
 
 import org.junit.jupiter.api.Test;
 import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -18,13 +19,13 @@ public class CapacitorTest {
     @Test
     void setValue_negativeCapacitance_expectException() {
         Capacitor c = new Capacitor(100);
-        assertThrows(ArithmeticException.class, () -> c.setValue(-200));
+        assertThrows(ZeroComponentException.class, () -> c.setValue(-200));
     }
 
     @Test
     void setValue_zeroCapacitance_expectException() {
         Capacitor c = new Capacitor(100);
-        assertThrows(ArithmeticException.class, () -> c.setValue(0));
+        assertThrows(ZeroComponentException.class, () -> c.setValue(0));
     }
 
 }

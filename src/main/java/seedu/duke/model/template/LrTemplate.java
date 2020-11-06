@@ -1,11 +1,13 @@
 package seedu.duke.model.template;
 
-import seedu.duke.DukeException;
 import seedu.duke.model.component.Inductor;
 import seedu.duke.model.component.LoadComponent;
+import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
+import seedu.duke.model.exceptions.templateexceptions.InvalidComponentException;
+import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 
 public class LrTemplate extends RTemplate {
-    private static final String RL_TEMPLATE = "\t+---R-----L---+\n"
+    private static final String RL_TEMPLATE = "+---R-----L---+\n"
                                             + "\t|             |\n"
                                             + "\t|             |\n"
                                             + "\t+----+V_ac+---+\n";
@@ -25,14 +27,14 @@ public class LrTemplate extends RTemplate {
      * Returns calculated impedance of the LrTemplate circuit.
      *
      * @return double type calculated Impedance.
-     * @throws DukeException If component values are not yet set.
+     * @throws TemplateComponentsNotSetException If component values are not yet set.
      */
     @Override
-    public double calcImpedance() throws DukeException {
+    public double calcImpedance() throws TemplateComponentsNotSetException {
         double resistance = super.calcImpedance();
         double inductance = inductor.getValue() * Math.pow(10, -6);
         if (inductance == 0) {
-            throw new DukeException("Component(s) not set yet.");
+            throw new TemplateComponentsNotSetException();
         }
         return Math.sqrt(Math.pow(resistance, 2)
                 + Math.pow(inductance * ANGULAR_FREQUENCY, 2));
@@ -52,7 +54,7 @@ public class LrTemplate extends RTemplate {
      *
      * @param value double type value to be set to the inductor in the circuit.
      */
-    protected void setInductor(double value) {
+    protected void setInductor(double value) throws ZeroComponentException {
         inductor.setValue(value);
     }
 
@@ -63,7 +65,7 @@ public class LrTemplate extends RTemplate {
      * @param value double type value to be set to the resistor in the circuit.
      */
     @Override
-    public void setComponent(String s, double value) {
+    public void setComponent(String s, double value) throws ZeroComponentException {
         assert s.equals("l") || s.equals("r");
         if (s.equals("l")) {
             setInductor(value);
@@ -72,6 +74,15 @@ public class LrTemplate extends RTemplate {
         }
     }
 
+    protected boolean isSetInductor() {
+        return inductor.getValue() != 0;
+    }
+
+    protected String inductorToString() {
+        return "\tTotal Inductance: " + (isSetInductor() ? inductor : NOT_SET) + System.lineSeparator();
+    }
+
+
     /**
      * Returns String consisting of total inductance and resistance values of the LrTemplate object.
      *
@@ -79,10 +90,7 @@ public class LrTemplate extends RTemplate {
      */
     @Override
     public String toString() {
-        return RL_TEMPLATE
-                + "Current Voltage: " + initialPowerSupply + System.lineSeparator()
-                + "Total Resistance: " + getResistor() + System.lineSeparator()
-                + "Total Inductance: " + inductor + System.lineSeparator();
+        return RL_TEMPLATE + voltageToString() + resistorToString() + inductorToString();
     }
 
     /**
@@ -90,10 +98,10 @@ public class LrTemplate extends RTemplate {
      *
      * @param component String representing the component.
      * @return LoadComponent object.
-     * @throws DukeException If input String does not match a component.
+     * @throws InvalidComponentException If input String does not match a component.
      */
     @Override
-    public LoadComponent getComponent(String component) throws DukeException {
+    public LoadComponent getComponent(String component) throws InvalidComponentException {
         if (component.equals("l")) {
             return getInductor();
         }

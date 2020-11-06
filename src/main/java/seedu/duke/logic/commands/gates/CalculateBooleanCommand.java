@@ -5,7 +5,7 @@ import seedu.duke.model.template.BooleanTemplate;
 
 public class CalculateBooleanCommand extends BooleanCommand {
     public static final String COMMAND_WORD = "calc";
-    private int output;
+    private boolean output;
 
     public CalculateBooleanCommand(BooleanTemplate template) {
         super(template);
@@ -18,6 +18,7 @@ public class CalculateBooleanCommand extends BooleanCommand {
 
     @Override
     public String toString() {
-        return super.toString() + System.lineSeparator() + "The output of the above configuration is " + output + ".";
+        return super.toString() + System.lineSeparator()
+                + "\tThe output of the above configuration is " + (output ? "1" : "0") + ".";
     }
 }

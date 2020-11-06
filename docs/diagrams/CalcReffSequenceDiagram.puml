@@ -6,22 +6,13 @@ end box
 
 box template
 participant ":Template" as Template
+participant ":Resistor" as Resistor
 end box
 
 [-> Parser : parse("calc reff")
 activate Parser
 
-Parser -> Parser : prepareCalc("calc reff")
-activate Parser
-
-Parser -> CalculateCommand : calculateCommand(template, reff)
-activate CalculateCommand
-
-Parser <-- CalculateCommand : calc
-deactivate CalculateCommand
-
-Parser <-- Parser: calc
-deactivate Parser
+ref over Parser, CalculateCommand : getCommand
 
 [<-- Parser : calc
 deactivate Parser
@@ -32,17 +23,13 @@ activate CalculateCommand
 CalculateCommand -> CalculateCommand : getValue()
 activate CalculateCommand
 
-CalculateCommand -> Template : getComponent("r")
-activate Template
+ref over CalculateCommand, Template : getComponent
 
-Template -> Template : getResistor()
-activate Template
+CalculateCommand -> Resistor : getValue()
+activate Resistor
 
-Template <-- Template : r
-deactivate Template
-
-CalculateCommand <-- Template : value
-deactivate Template
+CalculateCommand <-- Resistor : value
+deactivate Resistor
 
 CalculateCommand <-- CalculateCommand : value
 deactivate CalculateCommand

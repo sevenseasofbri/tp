@@ -1,6 +1,6 @@
 package seedu.duke.model.binarytree;
 
-import seedu.duke.DukeException;
+import seedu.duke.model.exceptions.binarytreeexceptions.BinaryTreeInvalidIndexException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,6 +34,12 @@ public class BinaryTree<T> {
         return arrayList.get(0);
     }
 
+    /**
+     * Returns whether the index is out of bound of the range of the tree.
+     *
+     * @param idx int type input index
+     * @return boolean value true if out of bounds otherwise false.
+     */
     private boolean isOutOfBounds(int idx) {
         return idx < 0 || idx >= arrayList.size();
     }
@@ -43,19 +49,20 @@ public class BinaryTree<T> {
      *
      * @param idx Index in tree.
      * @return T object.
-     * @throws DukeException If the index specified is invalid.
+     * @throws BinaryTreeInvalidIndexException If the index specified is invalid.
      */
-    public T getT(int idx) throws DukeException {
+    public T getT(int idx) throws BinaryTreeInvalidIndexException {
         int parentIndex = getParentIndex(idx);
 
         boolean hasParent = !isNullAtIndex(parentIndex);
         boolean isRoot = idx == 0;
+
         // Not the root or has no parent
-        boolean isExisting = isRoot || hasParent;
+        boolean isExisting = isRoot || (hasParent);
 
         // If out of bounds or does not exist currently
         if (isOutOfBounds(idx) || !isExisting) {
-            throw new DukeException("Index specified is out of bounds!");
+            throw new BinaryTreeInvalidIndexException();
         }
         return arrayList.get(idx);
     }
@@ -65,11 +72,11 @@ public class BinaryTree<T> {
      *
      * @param idx int type specifies position to insert element.
      * @param t T type value to be inserted.
-     * @throws DukeException If the index specified is invalid.
+     * @throws BinaryTreeInvalidIndexException If the index specified is invalid.
      */
-    public void insert(int idx, T t) throws DukeException {
+    public void insert(int idx, T t) throws BinaryTreeInvalidIndexException {
         if (isOutOfBounds(idx) || isNullAtIndex(getParentIndex(idx))) {
-            throw new DukeException("Index specified is out of bounds!");
+            throw new BinaryTreeInvalidIndexException();
         }
         arrayList.set(idx, t);
     }

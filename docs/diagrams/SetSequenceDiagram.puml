@@ -14,30 +14,16 @@ end box
 [-> Parser : parse("set r 500")
 activate Parser
 
-Parser -> Parser : prepareSet("set r 500")
-activate Parser
+ref over Parser, SetCommand : getCommand
 
-Parser -> SetCommand : SetCommand(template, "r", 500)
-activate SetCommand
-
-SetCommand --> Parser : c
-deactivate SetCommand
-
-Parser --> Parser : c
-deactivate Parser
-
-[<-- Parser : c
+[<-- Parser : command
 deactivate Parser
 
 
 [-> SetCommand : execute()
 activate SetCommand
 
-SetCommand -> Template : getComponent("r")
-activate Template
-
-Template --> SetCommand : component
-deactivate Template
+ref over SetCommand, Template : getComponent
 
 SetCommand -> Component : setValue(500)
 activate Component

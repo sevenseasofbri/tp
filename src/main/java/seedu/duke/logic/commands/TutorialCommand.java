@@ -4,6 +4,6 @@ import seedu.duke.DukeException;
 import seedu.duke.ui.Ui;
 
 public interface TutorialCommand {
-    public static final String COMMAND_WORD = "tutorial";
-    public abstract boolean continueTutorial(String command, Ui ui) throws DukeException;
+    String COMMAND_WORD = "tutorial";
+    boolean continueTutorial(String command, Ui ui) throws DukeException;
 }

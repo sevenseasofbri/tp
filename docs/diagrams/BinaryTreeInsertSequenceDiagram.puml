@@ -8,14 +8,14 @@ participant ":BinaryTree" as BinaryTree
 participant ":AndGate" as AndGate
 end box
 autoactivate on
-BooleanTemplate -->>AndGate: <<create>>
+create AndGate
+BooleanTemplate -> AndGate: new
 return gateObj
 
 BooleanTemplate -> BinaryTree : insert(1, gateObj)
-BinaryTree -> BinaryTree : isNullAtIndex(idx)
-ref over BinaryTree
-Check if parent is null.
-end
+BinaryTree -> BinaryTree : isNullAtIndex \n (getParentIndex(idx))
+BinaryTree -> BinaryTree : getParentIndex(idx)
+return parent_idx
 return false
 alt valid index and parent is not null
 return set successfully
