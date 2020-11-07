@@ -7,7 +7,6 @@ import java.util.Collections;
 
 /**
  * A Binary Tree-like structure (Heap) is used for implementing the Boolean Commands.
- *
  * The BinaryTree class is used to create BinaryTree objects.
  * When an object of the BinaryTree class is created,
  * it initialises the ArrayList instance to 15 null values.
