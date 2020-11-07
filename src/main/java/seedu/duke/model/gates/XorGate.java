@@ -6,7 +6,7 @@ public class XorGate extends Gate {
     private static final String XOR = "XOR";
 
     /**
-     * Performs bitwise XOR (^) operation on the input instance variables.
+     * Performs bitwise XOR (^) operation on the input instance variables and returns output.
      *
      * @return boolean value of the gate output.
      * @throws InputsNotSetException If both inputs aren't set yet.
