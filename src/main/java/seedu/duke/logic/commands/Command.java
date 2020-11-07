@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 /**
  *  The Command class is used to create Command objects.
+ *  It is the abstract base class for all commands.
  */
 public abstract class Command {
     protected static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);

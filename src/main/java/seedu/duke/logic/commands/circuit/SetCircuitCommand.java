@@ -9,7 +9,8 @@ import seedu.duke.model.component.VoltageSource;
 import seedu.duke.model.template.CircuitTemplate;
 
 /**
- * The SetCircuitCommand class inherits from the CircuitCommand class and is used to set values of components.
+ * The SetCircuitCommand class inherits from the CircuitCommand class
+ * and allows the user to set values of the circuit components.
  */
 public class SetCircuitCommand extends CircuitCommand {
     public static final String COMMAND_WORD = "set";
