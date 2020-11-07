@@ -2,6 +2,10 @@ package seedu.duke.model.gates;
 
 import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
 
+/**
+ * The XorGate class inherits from the Gate class
+ * and is used to create XorGate objects.
+ */
 public class XorGate extends Gate {
     private static final String XOR = "XOR";
 

@@ -16,6 +16,9 @@ import seedu.duke.logic.parser.exceptions.NotEnoughArgumentsException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *  The Parser class handles text parsing for CLIrcuit Assistant.
+ */
 public class Parser {
     private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private boolean isCircuit = true;

@@ -9,6 +9,10 @@ import seedu.duke.ui.Ui;
 
 import java.util.logging.Level;
 
+/**
+ * The TutorialCircuitCommand class inherits from the SummaryCommand and implements the TutorialCommand interface
+ * It is used to go through the full interactive tutorial on boolean logic gates.
+ */
 public class TutorialBooleanCommand extends SummaryCommand implements TutorialCommand {
     private static final Parser PARSER = new Parser();
     private int numberOfCommandsDone = 0;

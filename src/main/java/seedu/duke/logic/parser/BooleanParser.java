@@ -22,6 +22,10 @@ import seedu.duke.model.gates.XnorGate;
 import seedu.duke.model.gates.XorGate;
 import seedu.duke.model.template.BooleanTemplate;
 
+/**
+ * The BooleanParser class implements the LogicParser interface and is used to prepare
+ * the respective boolean templates.
+ */
 public class BooleanParser implements LogicParser {
     private BooleanTemplate booleanTemplate;
 

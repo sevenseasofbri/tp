@@ -6,6 +6,10 @@ import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
 import seedu.duke.model.exceptions.templateexceptions.InvalidComponentException;
 import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 
+/**
+ * The RTemplate class inherits from the CircuitTemplate class
+ * and is used to create RTemplate objects.
+ */
 public class RTemplate extends CircuitTemplate {
     private static final String R_TEMPLATE =
               "+---R---------+\n"

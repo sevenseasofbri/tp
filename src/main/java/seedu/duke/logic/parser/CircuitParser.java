@@ -18,6 +18,10 @@ import seedu.duke.model.template.LrTemplate;
 import seedu.duke.model.template.RTemplate;
 import seedu.duke.model.template.RcTemplate;
 
+/**
+ * The CircuitParser class implements the LogicParser interface and is used to prepare
+ * the respective circuit templates.
+ */
 public class CircuitParser implements LogicParser {
     private CircuitTemplate circuitTemplate = null;
 

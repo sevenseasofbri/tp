@@ -2,6 +2,10 @@ package seedu.duke.logic.commands.gates;
 
 import seedu.duke.model.template.BooleanTemplate;
 
+/**
+ * The BooleanCircuitCommand class inherits from the BooleanCommand class
+ *  and is used to instantiate a boolean template.
+ */
 public class TemplateBooleanCommand extends BooleanCommand {
     public static final String COMMAND_WORD = "template";
 

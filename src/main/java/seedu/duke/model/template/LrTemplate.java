@@ -6,6 +6,10 @@ import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
 import seedu.duke.model.exceptions.templateexceptions.InvalidComponentException;
 import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 
+/**
+ * The LrTemplate class inherits from the RTemplate class
+ * and is used to create LrTemplate objects.
+ */
 public class LrTemplate extends RTemplate {
     private static final String RL_TEMPLATE = "+---R-----L---+\n"
                                             + "\t|             |\n"

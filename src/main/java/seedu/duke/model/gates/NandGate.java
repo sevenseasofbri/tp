@@ -2,6 +2,10 @@ package seedu.duke.model.gates;
 
 import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
 
+/**
+ * The NandGate class inherits from the AndGate class
+ * and is used to create NandGate objects.
+ */
 public class NandGate extends AndGate {
     private static final String NAND = "NAND";
 

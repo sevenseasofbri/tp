@@ -11,6 +11,9 @@ import seedu.duke.model.exceptions.templateexceptions.ParentGateNotSetException;
 import seedu.duke.model.exceptions.templateexceptions.TemplateException;
 import seedu.duke.model.gates.Gate;
 
+/**
+ * The BooleanTemplate class is used to create BooleanTemplate objects.
+ */
 public class BooleanTemplate {
     private static final String FULL_TREE = "          0UT \n"
             + "\t           |     \n"

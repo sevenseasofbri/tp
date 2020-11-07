@@ -4,6 +4,9 @@ import seedu.duke.DukeException;
 
 import java.util.logging.Logger;
 
+/**
+ *  The Command class is used to create Command objects.
+ */
 public abstract class Command {
     protected static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     /** Boolean whether the command is to exit. **/

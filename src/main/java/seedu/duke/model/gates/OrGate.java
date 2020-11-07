@@ -2,6 +2,10 @@ package seedu.duke.model.gates;
 
 import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
 
+/**
+ * The OrGate class inherits from the Gate class
+ * and is used to create OrGate objects.
+ */
 public class OrGate extends Gate {
     private static final String OR = "OR";
 

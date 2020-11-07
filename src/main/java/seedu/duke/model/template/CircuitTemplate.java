@@ -6,6 +6,9 @@ import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
 import seedu.duke.model.exceptions.templateexceptions.InvalidComponentException;
 import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 
+/**
+ * The BooleanTemplate class is used to create BooleanTemplate objects.
+ */
 public abstract class CircuitTemplate {
     protected VoltageSource initialPowerSupply;
     protected static final double ANGULAR_FREQUENCY = 100 * Math.PI;

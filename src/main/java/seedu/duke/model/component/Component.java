@@ -2,6 +2,9 @@ package seedu.duke.model.component;
 
 import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
 
+/**
+ * The Component class is used to create Component objects.
+ */
 public abstract class Component {
     protected double value;
     protected String siUnit;
