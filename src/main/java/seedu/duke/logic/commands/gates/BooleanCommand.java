@@ -5,7 +5,7 @@ import seedu.duke.model.template.BooleanTemplate;
 
 /**
  * The BooleanCommand class inherits from the Command class
- * and is used to create BooleanCommand objects
+ * and is used to create BooleanCommand objects.
  */
 
 public abstract class BooleanCommand extends Command {

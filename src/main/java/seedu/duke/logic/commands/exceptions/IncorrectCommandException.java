@@ -2,7 +2,7 @@ package seedu.duke.logic.commands.exceptions;
 
 /**
  * The IncorrectCommandException class inherits from CommandException
- * and is thrown if the command entered is invalid
+ * and is thrown if the command entered is invalid.
  */
 public class IncorrectCommandException extends CommandException {
     public IncorrectCommandException() {

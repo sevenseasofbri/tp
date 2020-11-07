@@ -6,7 +6,7 @@ import seedu.duke.model.template.BooleanTemplate;
 
 /**
  * The AddBooleanCommand class inherits from the BooleanCommand class
- * and is used to combine multiple logic gate templates
+ * and is used to combine multiple logic gate templates.
  */
 public class AddBooleanCommand extends BooleanCommand {
     public static final String COMMAND_WORD = "add";

@@ -7,7 +7,6 @@ import java.util.Collections;
 
 /**
  * The BinaryTree class is used to create BinaryTree objects.
- * @param <T>
  */
 public class BinaryTree<T> {
     public final ArrayList<T> arrayList = new ArrayList<>(Collections.nCopies(15, null));
