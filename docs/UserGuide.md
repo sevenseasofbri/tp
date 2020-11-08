@@ -45,6 +45,8 @@ This **User Guide** aims to help you get familiarised with the commands used in 
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## 2. Introduction
 
 **CLIrcuit Assistant** is a desktop app to implement and solve simple **circuits** and **logic gate configurations**, optimized for use via the *CLI*. The application is targeted at those who would simply like a resource-light and offline program to aid in analysing circuits. 
@@ -109,6 +111,8 @@ The commands involved with both categories are:
 * `add`
 * `calc`
 
+<div style="page-break-after: always;"></div>
+
 The format of commands below keep to the following.
 
 <div markdown="span" class="alert alert-primary">
@@ -146,6 +150,8 @@ The image below shows the expected summary table shown with the command `summary
 
 <small><i>Figure 2</i></small>
 
+<div style="page-break-after: always;"></div>
+
 ### 5.2 Interactive Tutorial
 
 To aid the user, this command starts the interactive tutorial for either the [Circuit Action Commands](#6-circuit-action-commands) or [Boolean Action Commands](#7-boolean-action-commands) based on the parameter specified. 
@@ -182,6 +188,8 @@ in the correct command in the terminal line as shown below.
 You may also choose to exit the tutorial at that point of 
 time instead by entering `exit`.
 
+<div style="page-break-after: always;"></div>
+
 ### 5.3 Exiting the Application
 
 This command can be used to exit the application.
@@ -197,8 +205,6 @@ This command can be used to exit the application.
 </div>
 
 The following diagram shows the expected behaviour when using the `bye` command.
-
-<div style="page-break-after: always;"></div>
 
 ![ByeCommand](diagrams/ByeCommand.png)
 
@@ -240,6 +246,8 @@ The diagram below shows an example when using the `template rc` command.
 
 <small><i>Figure 6</i></small>
 
+<div style="page-break-after: always;"></div>
+
 ### 6.2 Setting a component value <a name='set-comp'></a>
 
 This command sets the value of a component. The component must be part of the current circuit template. Units correspond to the component involved - *resistors* in *ohms*, *capacitors* in *microfarads*, and *inductors* in *microhenries*. The values would need to be set to perform calculations or analysis such as in the [`calc` command](#64-calculating-effective-value-).
@@ -266,6 +274,8 @@ The image below shows an example of using the command `set r 500` on the templat
 ![SetCircuit](diagrams/SetCircuitLabel.png)
 
 <small><i>Figure 7</i></small>
+
+<div style="page-break-after: always;"></div>
 
 ### 6.3 Adding a component <a name="add-comp"></a>
 
@@ -301,6 +311,8 @@ The image below shows an example of using the command `add parallel r 500` on a 
 ![AddCircuit](diagrams/AddCircuitLabel.png)
 
 <small><i>Figure 8</i></small>
+
+<div style="page-break-after: always;"></div>
 
 ### 6.4 Calculating Effective Value <a name="calc-circ"></a>
 
@@ -370,6 +382,8 @@ Expected outcome:
 
 Here, `OUT` represents the output of the boolean template. The letters `B` and `C` can correspond to `INPUT` which is used in the following section. `?` represents an `INPUT` which is not yet set.
 
+<div style="page-break-after: always;"></div>
+
 ### 7.2 Setting an input value <a name='set-input'></a>
 
 This command sets the value of an input. The inputs will then be used in the [`calc` command](#74-calculating-output-) to give the output of the boolean template. The input must not have already been set as a `Gate` and must be part of the diagram.
@@ -392,6 +406,8 @@ The image below shows an example of using the command `set B 0` on the template 
 ![SetBoolean](diagrams/SetBooleanLabel.png)
 
 <small><i>Figure 11</i></small>
+
+<div style="page-break-after: always;"></div>
 
 ### 7.3 Adding a Gate <a name="add-gate"></a>
 
@@ -428,6 +444,8 @@ The image below shows an example of using the command `add C or` on the template
 
 <small><i>Figure 12</i></small>
 
+<div style="page-break-after: always;"></div>
+
 ### 7.4 Calculating Output <a name="calc-output"></a>
 
 This command calculates the output of the configured logic *gates*, and requires that all inputs of the circuit are set. The output is represented by `OUT` in the printed `template`.
@@ -449,6 +467,8 @@ The following image shows an example of using the `calc` command.
 <small><i>Figure 13</i></small>
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## 8. FAQ
 
@@ -489,6 +509,8 @@ Action | Format, Examples
 **Calculate Circuit/Logic Gate** | `calc EFF_VALUE/[]` <br> e.g., `calc ceff` <br> e.g., `calc`
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## 10. Glossary
 
