@@ -226,11 +226,8 @@ This command sets the value of a component. The component must be part of the cu
     * `v` represents a voltage source
 * The `VALUE` can be an integer of a float, of which the units depends on the component set.
 
-Example of usage:
+The following diagram is an example of when the `set r 500` command is used in any circuit template:
 
-`set r 500`
-
-Expected Outcome:
 ![SetCircuit](diagrams/SetCircuitLabel.png)
 
 ### 6.3 Adding a component <a name="add-comp"></a>
@@ -264,7 +261,7 @@ This command adds a component, in a specific configuration - either *in parallel
 
 The image below shows an example of using the command `add parallel r 500` on a template.
 
-![AddCircuit](diagrams/AddCircuitLabel.png)
+![AddCircuit](diagrams/SetCircuitLabel.png)
 
 ### 6.4 Calculating effective value <a name="calc-circ"></a>
 
@@ -332,7 +329,7 @@ Example of usage:
 
 Expected outcome:
 
-![SetBoolean](diagrams/SetBooleanLabel.png)
+
 
 Here, `OUT` represents the output of the boolean template. The letters `B` and `C` can correspond to `INPUT` which is used in the following section. `?` represents an `INPUT` which is not yet set.
 
@@ -353,20 +350,9 @@ This command sets the value of an input. The inputs will then be used in the `ca
 * The `INPUT` can be chosen only from the current `template`.
 * The `VALUE` can be any *integer*, but any valid non-zero *integer* will be treated as `1`, while 0 is treated as `0`. Valid *integers* are defined as the *Java* `int` type.
 
-Example of usage:
+The following diagram is an example of when the `set B 0` command is used in any boolean template:
 
-`set B 0`
-
-Expected Outcome:
-```
-      OUT
-       |
-   B       C
-
-OUT = B AND C
-B = 0
-C = ?
-```
+![AddBoolean](diagrams/SetBooleanLabel.png)
 
 ### 7.3 Adding a Gate <a name="add-gate"></a>
 
