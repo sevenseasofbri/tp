@@ -261,7 +261,7 @@ This command adds a component, in a specific configuration - either *in parallel
 
 The image below shows an example of using the command `add parallel r 500` on a template.
 
-![AddCircuit](diagrams/SetCircuitLabel.png)
+![AddCircuit](diagrams/AddCircuitLabel.png)
 
 ### 6.4 Calculating effective value <a name="calc-circ"></a>
 
