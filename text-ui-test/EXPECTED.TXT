@@ -128,22 +128,22 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
-	Want to add a component in parallel/series to your current component? Lets do that with the
-	capacitor! Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF).
+	Want to add a component in parallel to your current component? Lets do that with the
+	capacitor! Type in 'add parallel c VALUE', where VALUE is a +ve number in microfarads (µF).
 	eg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit.
-	Do remember though, this can be done with resistors, capacitors and inductors in the
-	application based on the template chosen! :)
+	Do remember though, this can be done with resistors, capacitors and inductors and
+	different configurations (series/parallel) in the application based on the template chosen!
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 	Bad Command! Please follow the instructions carefully.
 	To exit Tutorial Mode, simply type 'exit' and press Enter.
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
-	Want to add a component in parallel/series to your current component? Lets do that with the
-	capacitor! Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF).
+	Want to add a component in parallel to your current component? Lets do that with the
+	capacitor! Type in 'add parallel c VALUE', where VALUE is a +ve number in microfarads (µF).
 	eg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit.
-	Do remember though, this can be done with resistors, capacitors and inductors in the
-	application based on the template chosen! :)
+	Do remember though, this can be done with resistors, capacitors and inductors and
+	different configurations (series/parallel) in the application based on the template chosen!
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 	Nice, added a 20.0 µF capacitor
@@ -166,8 +166,8 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	The power dissipated in the circuit is 0.04937852460756959W
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
-	Hooray! You're set to use the circuit builder of 
-	  _____ _      _____                _ _                      _     _              _   
+	Hooray! You're set to use the circuit builder of
+	  _____ _      _____                _ _                      _     _              _
 	 / ____| |    |_   _|              (_) |       /\           (_)   | |            | |
 	| |    | |      | |  _ __ ___ _   _ _| |_     /  \   ___ ___ _ ___| |_ __ _ _ __ | |_
 	| |    | |      | | | '__/ __| | | | | __|   / /\ \ / __/ __| / __| __/ _` | '_ \| __|
@@ -178,7 +178,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 	You have exited Tutorial Mode!
-	Here's a summary of available commands: 
+	Here's a summary of available commands:
 	+-----------+----------------------------+---------------------+
 	|  Command  |         Circuit            |      Boolean        |
 	+-----------+----------------------------+---------------------+
@@ -191,7 +191,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	| Exit      | bye                        | bye                 |
 	+-----------+----------------------------+---------------------+
 
-	Here's a summary of the command parameters: 
+	Here's a summary of the command parameters:
 	+-----------+----------------------------------+-------------------------------+
 	| Parameter |       Circuit Params             |        Boolean Params         |
 	+-----------+----------------------------------+-------------------------------+
@@ -211,7 +211,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 	You have entered
-	  _______    _             _       _   __  __           _      _ 
+	  _______    _             _       _   __  __           _      _
 	 |__   __|  | |           (_)     | | |  \/  |         | |    | |
 	    | |_   _| |_ ___  _ __ _  __ _| | | \  / | ___   __| | ___| |
 	    | | | | | __/ _ \| '__| |/ _` | | | |\/| |/ _ \ / _` |/ _ \ |
