@@ -350,7 +350,7 @@ This command sets the value of an input. The inputs will then be used in the `ca
 * The `INPUT` can be chosen only from the current `template`.
 * The `VALUE` can be any *integer*, but any valid non-zero *integer* will be treated as `1`, while 0 is treated as `0`. Valid *integers* are defined as the *Java* `int` type.
 
-The following diagram is an example of when the `set B 0` command is used in any boolean template:
+The image below shows an example of using the command `set B 0` on the template shown.
 
 ![AddBoolean](diagrams/SetBooleanLabel.png)
 
