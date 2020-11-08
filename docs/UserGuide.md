@@ -45,6 +45,8 @@ This **User Guide** aims to help you get familiarised with the commands used in 
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## 2. Introduction
 
 **CLIrcuit Assistant** is a desktop app to implement and solve simple **circuits** and **logic gate configurations**, optimized for use via the *CLI*. The application is targeted at those who would simply like a resource-light and offline program to aid in analysing circuits. 
@@ -78,9 +80,13 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## 4. Command Preface
 
 ![Command](diagrams/CommandUserDiagram.png)
+
+<center><small><i>Figure 1</i></small></center>
 
 The diagram above shows the hierarchy of the types of commands in the application. [If you are looking for the summary of commands used within the CLI app, it can be found at the end of this guide](#9-command-summary). In this **User Guide**, you can find the following sections listed below:
 
@@ -105,6 +111,8 @@ The commands involved with both categories are:
 * `add`
 * `calc`
 
+<div style="page-break-after: always;"></div>
+
 The format of commands below keep to the following.
 
 <div markdown="span" class="alert alert-primary">
@@ -122,6 +130,8 @@ The format of commands below keep to the following.
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## 5. General Commands
 
 This section details the generic commands that can be used. These commands assist you in finding out **generic information** regarding the application.
@@ -138,6 +148,10 @@ The image below shows the expected summary table shown with the command `summary
 
 ![Summary](diagrams/Summary.png)
 
+<small><i>Figure 2</i></small>
+
+<div style="page-break-after: always;"></div>
+
 ### 5.2 Interactive Tutorial
 
 To aid the user, this command starts the interactive tutorial for either the [Circuit Action Commands](#6-circuit-action-commands) or [Boolean Action Commands](#7-boolean-action-commands) based on the parameter specified. 
@@ -152,6 +166,8 @@ Once you have entered the interactive tutorial, you are to follow the instructio
 
 ![InsertImage](diagrams/TutorialMode.png)
 
+<small><i>Figure 3</i></small>
+
 The proceeding instructions will depend on whether you have chosen `tutorial circuit` or `tutorial boolean`.
 
 When you have entered the tutorial, you will be required to type in the commands in the terminal
@@ -163,21 +179,46 @@ reached the end of the tutorial.
 
 When you have typed in a command that is inconsistent with what is required as per the tutorial's
 instruction for that particular step, an invalid command message will be returned until you type 
-in the correct command in the terminal line as shown below. 
+in the correct command in the terminal line as shown below.
 
 ![InsertImage](diagrams/BadCommand.png)
 
-You may also choose to exit the program at that point of 
-time instead.
+<small><i>Figure 4</i></small>
 
+You may also choose to exit the tutorial at that point of 
+time instead by entering `exit`.
+
+<div style="page-break-after: always;"></div>
+
+### 5.3 Exiting the Application
+
+This command can be used to exit the application.
+
+| Command Format | 
+|:-:|
+|`bye`|
+
+<div markdown="span" class="alert alert-warning">
+
+:exclamation: **Warning:** You **cannot** use this command to exit from the app when in interactive tutorial mode. For notes on how to exit tutorial mode, please refer to [5.2 Interactive Tutorial](#52-interactive-tutorial).
+
+</div>
+
+The following diagram shows the expected behaviour when using the `bye` command.
+
+![ByeCommand](diagrams/ByeCommand.png)
+
+<small><i>Figure 5</i></small>
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## 6. Circuit Action Commands 
 
 This section details how the commands are used with a **circuit template**. You can use this section to build simple template circuits which may have a *voltage source* with *load components* such as *resistors*, *capacitors*, or *inductors*. 
 
-It may be important to note that the circuit diagrams shown in the expected outputs are simplified circuits, even when [adding components](#63-adding-a-component). For example, adding a resistor in parallel to a template that contains a resistor will change the effective resistance in the circuit, but it will not dynamically update the visualised diagram to show a second resistor.
+It may be important to note that the circuit diagrams shown in the expected outputs are simplified circuits, even when [adding components](#63-adding-a-component-). For example, adding a resistor in parallel to a template that contains a resistor will change the effective resistance in the circuit, but it will not dynamically update the visualised diagram to show a second resistor. This can be seen more clearly once you [create a circuit template](#61-creating-a-circuit-template-).
 
 <div markdown="span" class="alert alert-primary">
 
@@ -203,6 +244,10 @@ The diagram below shows an example when using the `template rc` command.
 
 ![Simplified](diagrams/SimplifiedCircuit.png)
 
+<small><i>Figure 6</i></small>
+
+<div style="page-break-after: always;"></div>
+
 ### 6.2 Setting a component value <a name='set-comp'></a>
 
 This command sets the value of a component. The component must be part of the current circuit template. Units correspond to the component involved - *resistors* in *ohms*, *capacitors* in *microfarads*, and *inductors* in *microhenries*. The values would need to be set to perform calculations or analysis such as in the [`calc` command](#64-calculating-effective-value-).
@@ -222,23 +267,15 @@ This command sets the value of a component. The component must be part of the cu
     * `c` represents a capacitor
     * `l` represents an inductor
     * `v` represents a voltage source
-* The `VALUE` can be an integer of a float, of which the units depends on the component set.
+* The `VALUE` can be an integer of a float, of which the units depends on the component being set.
 
-Example of usage:
+The image below shows an example of using the command `set r 500` on the template shown.
 
-`set r 500`
+![SetCircuit](diagrams/SetCircuitLabel.png)
 
-Expected Outcome:
-```
-The resistor was set to 500.0 Ω
-	+---R-----C---+
-	|             |
-	|             |
-	+----+V_ac+---+
-Current Voltage: 0.0 V
-Total Resistance: 500.0 Ω
-Total Capacitance: 0.0 µF
-```
+<small><i>Figure 7</i></small>
+
+<div style="page-break-after: always;"></div>
 
 ### 6.3 Adding a component <a name="add-comp"></a>
 
@@ -246,7 +283,7 @@ This command adds a component, in a specific configuration - either *in parallel
 
 <div markdown="span" class="alert alert-tip">
 
-:bulb: **Tip:**  You can add components as long as there is already a value set using the `set` command.
+:bulb: **Tip:**  You can add components as long as there is already a value set using the [`set` command](#62-setting-a-component-value-).
 
 </div>
 
@@ -273,9 +310,13 @@ The image below shows an example of using the command `add parallel r 500` on a 
 
 ![AddCircuit](diagrams/AddCircuitLabel.png)
 
-### 6.4 Calculating effective value <a name="calc-circ"></a>
+<small><i>Figure 8</i></small>
 
-This command calculates the various effective values based on the `template` configuration. If calculating `reff`, `ceff`, or `leff`, the component must be part of the current circuit template. You can obtain the various values detailed below quickly after setting the necessary components.
+<div style="page-break-after: always;"></div>
+
+### 6.4 Calculating Effective Value <a name="calc-circ"></a>
+
+This command calculates the various effective values based on the `template` configuration. While calculating `reff`, `ceff`, or `leff`, the component must be part of the current circuit template. You can obtain the various values detailed below quickly after setting the necessary components.
 
 <div markdown="span" class="alert alert-warning">
 
@@ -300,17 +341,15 @@ This command calculates the various effective values based on the `template` con
     * `current` is the current flowing through the power supply
     * `power` is the power supplied by the power supply
 
-Example of usage:
+The image below is an example of when the `calc power` command is entered.
 
-`calc reff`
+![CalcCircuit](diagrams/CircutiCalc.png)
 
-Expected Outcome:
-
-```
-The effective resistance calculated is 250.0 Ω
-```
+<small><i>Figure 9</i></small>
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## 7. Boolean Action Commands
 
@@ -333,26 +372,19 @@ This command creates a boolean template. Similar to the [circuit template](#6-ci
 * The `GATE` can be chosen from the following:
     * `and`, `or`, `xor`, `nand`, `nor`, `xnor`
 
-Example of usage:
+The image below shows an example when using the `template and` command.
 
-`template and`
+![Simplified](diagrams/TemplateBooleanAnd.png)
 
-Expected outcome:
+<small><i>Figure 10</i></small>
 
-```
-      OUT
-       |
-   B       C
-
-OUT = B AND C
-B = ?
-C = ?
-```
 Here, `OUT` represents the output of the boolean template. The letters `B` and `C` can correspond to `INPUT` which is used in the following section. `?` represents an `INPUT` which is not yet set.
+
+<div style="page-break-after: always;"></div>
 
 ### 7.2 Setting an input value <a name='set-input'></a>
 
-This command sets the value of an input. The inputs will then be used in the `calc` command to give the output of the boolean template. The input must not have already been set as a `Gate` and must be part of the diagram.
+This command sets the value of an input. The inputs will then be used in the [`calc` command](#74-calculating-output-) to give the output of the boolean template. The input must not have already been set as a `Gate` and must be part of the diagram.
 
 <div markdown="span" class="alert alert-warning">
 
@@ -367,20 +399,13 @@ This command sets the value of an input. The inputs will then be used in the `ca
 * The `INPUT` can be chosen only from the current `template`.
 * The `VALUE` can be any *integer*, but any valid non-zero *integer* will be treated as `1`, while 0 is treated as `0`. Valid *integers* are defined as the *Java* `int` type.
 
-Example of usage:
+The image below shows an example of using the command `set B 0` on the template shown.
 
-`set B 0`
+![SetBoolean](diagrams/SetBooleanLabel.png)
 
-Expected Outcome:
-```
-      OUT
-       |
-   B       C
+<small><i>Figure 11</i></small>
 
-OUT = B AND C
-B = 0
-C = ?
-```
+<div style="page-break-after: always;"></div>
 
 ### 7.3 Adding a Gate <a name="add-gate"></a>
 
@@ -411,11 +436,15 @@ The application has the ability to combine multiple `Gate` objects to generate m
 * The `INPUT` is as explained above in [Set](#72-setting-an-input-value-).
 * The `GATE` is as explained above in [Template](#71-creating-a-boolean-template-).
 
-The image below shows an example of using the command `set C or` on the template shown.
+The image below shows an example of using the command `add C or` on the template shown.
 
 ![AddBoolean](diagrams/AddBooleanLabel.png)
 
-### 7.4 Calculating output <a name="calc-output"></a>
+<small><i>Figure 12</i></small>
+
+<div style="page-break-after: always;"></div>
+
+### 7.4 Calculating Output <a name="calc-output"></a>
 
 This command calculates the output of the configured logic *gates*, and requires that all inputs of the circuit are set. The output is represented by `OUT` in the printed `template`.
 
@@ -429,28 +458,15 @@ This command calculates the output of the configured logic *gates*, and requires
 |:-:|
 |`calc`|
 
-Example of usage:
+The following image shows an example of using the `calc` command. 
 
-`calc`
+![CalcBoolean](diagrams/BooleanCalc.png)
 
-Expected Outcome:
-
-```
-      OUT
-       |
-   B       C
-         F   G
-
-OUT = B AND C
-B = 0
-C = F OR G
-F = 1
-G = 0
-
-The output of the above configuration is 0.
-```
+<small><i>Figure 13</i></small>
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## 8. FAQ
 
@@ -470,9 +486,11 @@ This section details the **frequently asked questions (FAQ)** regarding the use 
 
 **Q**: Why does using the `add` command for the circuit template give me a "Component not yet set" error?
 
-**A**: You have to first set the component involved using the [`set` command](#62-setting-a-component-value).
+**A**: You have to first set the component involved using the [`set` command](#62-setting-a-component-value-).
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## 9. Command Summary
 
@@ -489,6 +507,8 @@ Action | Format, Examples
 **Calculate Circuit/Logic Gate** | `calc EFF_VALUE/[]` <br> e.g., `calc ceff` <br> e.g., `calc`
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## 10. Glossary
 
