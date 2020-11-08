@@ -114,7 +114,7 @@ Added the glossary of the guide.
 
 ### Extract: User Guide
 
-#### 5.3 Exiting the Application
+### 5.3 Exiting the Application
 
 This command can be used to exit the application.
 
@@ -128,14 +128,11 @@ This command can be used to exit the application.
 
 </div>
 
-Example of usage:
+The following diagram shows the expected behaviour when using the `bye` command.
 
-`bye`
-
-Expected Output:
 <div style="page-break-after: always;"></div>
 
-![ByeCommand](diagrams/ByeCommand.png)
+![ByeCommand](../diagrams/ByeCommand.png)
 
 ### Extract: Developer Guide
 
