@@ -227,7 +227,7 @@ number 2 (i.e index 1). However, such an approach does not allow users to simula
 approach is not followed. The circuit templates on the other hand not only allow the user to distinguish between 
 different types of circuits but they also provide an efficient way of storing the various parameters related to a circuit.
 
-* Adjacency Matrix: The Adjacency matrix graph data structure is also considered as it allows connections between nodes.
+* Adjacency Matrix: The Adjacency matrix representation of a graph data structure is also considered as it allows connections between nodes.
  Each node is a component and a matrix is derived where a 1 represents a connection between the row of that element and
  the column of the same element. This approach is rejected due to high time complexity. For example, adding a component
  to the matrix requires O(V^2) time complexity where V is the number of vertices. Similarly, removing a component from 
