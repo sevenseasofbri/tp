@@ -2,6 +2,8 @@
 layout : page
 title : Vishruti Ranjan - Project Portfolio Page
 ---
+<img src="https://avatars3.githubusercontent.com/u/57522870?s=460&u=8dd180701edf230c1bd905ff0d49b81d40785e1a&v=4" width="200" height="200" />
+
 <style>
 .alert {
     position:relative;

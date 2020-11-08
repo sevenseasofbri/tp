@@ -2,6 +2,7 @@
 layout : page
 title : Wira Azmoon - Project Portfolio Page
 ---
+<img src="https://avatars2.githubusercontent.com/u/53231968?s=460&u=43fad5fee043173a5c65db833d39c9c00c04549c&v=4" width="200" height="200" />
 
 <style>
 .alert {
