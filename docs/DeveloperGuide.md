@@ -212,6 +212,8 @@ The second sequence diagram given below shows the detailed interaction that acce
 
 <small><i>Figure 14</i></small>  
 
+<div style="page-break-after: always;"></div>
+
 ### Implementation Considerations For Circuit Commands (Dash) <a name="impl-cons-dash"></a>
 This section describes the methods taken into consideration while implementing the Circuit Commands.
 
@@ -318,13 +320,13 @@ The sequence by which the `AddBooleanCommand` is instantiated to combine the log
 1. The `AddBooleanCommand` object calls on the `addGate` method in the instantiated `BooleanTemplate`.
 2. This will access the index of the `BinaryTree` object in the `BooleanTemplate` to store the newly added gate to the configuration.
 
-<div style="page-break-after: always;"></div>
-
 The aforementioned sequence of events can be represented in the following sequence diagram:
 
 ![InsertSequeunceDiagram](diagrams/AddBooleanCommand.png)
 
 <small><i>Figure 21</i></small>
+
+<div style="page-break-after: always;"></div>
 
 ### `CalculateBooleanCommand` <a name="calc-bool"></a>
 
@@ -510,6 +512,8 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 1. Doing labs at home because of remote learning - the App provides a quick visualisation tool for the student.
 1. Online alternatives require internet access, and some sites are slow to load with many resources needed - the App is an offline desktop application with minimal resources.
 
+<div style="page-break-after: always;"></div>
+
 ### User Stories (Wira)
 
 |Version| As a ... | I want to ... | So that I can ...|
@@ -524,6 +528,8 @@ New Computer/Electrical Engineering (CEG/EE) students who are looking for a quic
 |v2.0|CEG/EE Student|add logic gates to configure a Boolean logic circuit|create my own configuration of logic gates
 |v2.0|CEG/EE Student|set input values to the logic gate configuration|analyse inputs and outputs of a configuration
 |v3.0|CEG/EE Student|print the current template I am working on|find out my current configuration and make a decision
+
+<div style="page-break-after: always;"></div>
 
 ### Storage (Wira)
 
@@ -565,6 +571,11 @@ Term | Explanation
  *Heap* | A tree based data structure where all the nodes are stored in a certain order.
  *Inductor* | A passive electronic device with 2 terminals that stores electrical energy in a magnetic field.
  *Leaf Node* | A node in a binary tree data structure whose left and right children are null.
+
+<div style="page-break-after: always;"></div>
+
+ Term | Explanation
+-|-
  *Level Order Traversal* | A method of processing all nodes in a tree data structure by depth (level-by-level).
  *Logic Gate* | A virtual/physical electronic device which performs a boolean function. Usually has 2 inputs and 1 output.
  *Mainstream OS* | For example Microsoft Windows, macOS, Unix, Linux etc.
@@ -582,6 +593,7 @@ Term | Explanation
 
  -------------------------------------------------------------------------------------------------------------------- 
 
+<div style="page-break-after: always;"></div>
 
 ## Appendix: Instructions for manual testing (Dorian)
 ### Initial launch  

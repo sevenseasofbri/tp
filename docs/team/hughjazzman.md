@@ -85,7 +85,7 @@ Squashed bugs found in the PE Dry Run. These included high severity bugs such as
 
 ### User Guide
 
-* **PRs**: [#9](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/9), [#45](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/45), [#59](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/59), [#61](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/61), [#91](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/91), [#109](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/109), [#158](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/158)
+* **PRs**: [#9](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/9), [#45](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/45), [#59](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/59), [#61](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/61), [#91](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/91), [#109](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/109), [#158](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/158), [#159](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/159), [#163](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/163)
 
 Set up the first draft of User Guide for the project, starting with all commands discussed in the initial group meeting in [#9](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/9), [#45](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/45). Updated User Guide with v2.0 commands in [#59](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/59), and updated their expected outcomes in [#61](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/61). Numerous PED Bugs were also squashed in [#158](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/158), with many of them being high severity, as can be seen in [#154](https://github.com/AY2021S1-CS2113T-W13-3/tp/issues/154).
 
@@ -104,7 +104,7 @@ Created structure of Developer Guide, starting with Architecture in [#45](https:
 Almost all PRs were reviewed, with the notable ones listed below:
 
 * [#19](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/19), [#21](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/21), [#27](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/27), [#34](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/32), [#35](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/35): Spotted minor fixes
-* [#23](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/23), [#26](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/26), [#38](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/38), [#41](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/41), [#43](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/43), [#51](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/51), [#56](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/56), [#62](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/62), [#63](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/63), [#90](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/90), [#93](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/93), [#100](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/100): Gave minor suggestions accepted by teammate
+* [#23](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/23), [#26](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/26), [#38](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/38), [#41](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/41), [#43](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/43), [#51](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/51), [#56](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/56), [#62](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/62), [#63](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/63), [#90](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/90), [#93](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/93), [#100](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/100), [#116](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/161), [#160](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/160), [#161](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/161): Gave minor suggestions accepted by teammate
 * [#42](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/42), [#54](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/54), [#92](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/92): Gave a number of suggestions accepted by teammate
 * [#75](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/75): Gave many suggestions accepted by teammate, taking the role of **PlantUML expert**
 
@@ -126,9 +126,9 @@ Almost all PRs were reviewed, with the notable ones listed below:
 
 ### Extract: User Guide - Adding a Gate
 
-To aid the user in understanding the User Guide, informational boxes such as below are put in the appropriate commands:
+To aid the user in understanding the User Guide, informational boxes such as below are put in the appropriate commands. The example is from [7.3 Adding a Gate](UserGuide.md#73-adding-a-gate-).
 
-> The application has the ability to combine multiple `Gate` objects to generate more complicated boolean logic gate configurations. This command allows you to set an input to a boolean logic `Gate`. You can also change an existing gate if needed. However, the depth of the deepest logic `Gate` from the *root* logic `Gate` (at the top) cannot exceed 2.
+> The application has the ability to combine multiple `Gate` objects to generate more complicated boolean *logic gate* configurations. This command allows you to set an input to a boolean logic `Gate`. You can also change an existing gate if needed. However, the depth of the deepest logic `Gate` from the *root* logic `Gate` (at the top) cannot exceed 2.
 
 <div markdown="span" class="alert alert-tip">
 
@@ -144,15 +144,19 @@ To aid the user in understanding the User Guide, informational boxes such as bel
 
 <div markdown="span" class="alert alert-primary">
 
-:information_source: **Note:**  The current implementation only allows the `Gate` objects to be 3 levels deep, counting from 0 at the top.
+:information_source: **Note:**  The current implementation only allows the `Gate` objects to be 2 levels deep, counting from 0 at the top. This means you may see inputs up to the 3rd level, up to the letter `O`.
 
 </div>
+
+| Command Format | 
+|:-:|
+|`add INPUT GATE`|
 
 <div style="page-break-after: always;"></div>
 
 ### Extract: Developer Guide - Logic Class and Sequence Diagrams
 
-To better showcase the relationships between the various classes used in the project, the following UML diagrams were used to explain the Architecture of the application. A reference frame was also used so that the diagrams explained in the later section could be more concise.
+To better showcase the relationships between the various classes used in the project, the following UML diagrams were used to explain the Architecture of the application. A reference frame was also used so that the diagrams explained in the later section could be more concise. The following example is from [Logic Component](#DeveloperGuide.md#logic-component).
 
 ![LogicDiagram](../diagrams/LogicClassDiagram.png)
 
