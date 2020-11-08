@@ -226,7 +226,7 @@ This command sets the value of a component. The component must be part of the cu
     * `v` represents a voltage source
 * The `VALUE` can be an integer of a float, of which the units depends on the component set.
 
-The following diagram is an example of when the `set r 500` command is used in any circuit template:
+The image below shows an example of using the command `set r 500` on the template shown.
 
 ![SetCircuit](diagrams/SetCircuitLabel.png)
 
