@@ -334,8 +334,9 @@ This command creates a boolean template. Similar to the [circuit template](#6-ci
     * `and`, `or`, `xor`, `nand`, `nor`, `xnor`
 
 The image below shows an example when using the `template and` command.
+
 ![Simplified](diagrams/TemplateBooleanAnd.png)
-```
+
 Here, `OUT` represents the output of the boolean template. The letters `B` and `C` can correspond to `INPUT` which is used in the following section. `?` represents an `INPUT` which is not yet set.
 
 ### 7.2 Setting an input value <a name='set-input'></a>
