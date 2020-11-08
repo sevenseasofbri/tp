@@ -348,7 +348,7 @@ application's requirements.
 | Inputs can be easily manipulated | Manipulating augmented values involves a simple _O(1)_ operation. |
 | Emulate 2-input logic circuit | Being a binary tree, each node can have atmost 2 children, thus recreating a 2-Input Logic Gate |
 
-Therefore, since the Binary Heap-Like data structure best-fit the requirements for the system, the data structure was selected to
+Therefore, since the Binary Heap-Like data structure best-fits the requirements for the system, the data structure was selected to
 implement the logic circuit.
 
 #### Alternatives Considered
