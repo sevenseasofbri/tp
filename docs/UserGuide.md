@@ -175,9 +175,30 @@ in the correct command in the terminal line as shown below. r
 
 <small><i>Figure 4</i></small>
 
-You may also choose to exit the program at that point of 
-time instead.
+You may also choose to exit the tutorial at that point of 
+time instead by entering `exit`.
 
+### 5.3 Exiting the Application
+
+This command can be used to exit the application.
+
+| Command Format | 
+|:-:|
+|`bye`|
+
+<div markdown="span" class="alert alert-warning">
+
+:exclamation: **Warning:** You **cannot** use this command to exit from the app when in interactive tutorial mode. For notes on how to exit tutorial mode, please refer to [5.2 Interactive Tutorial](#52-interactive-tutorial).
+
+</div>
+
+The following diagram shows the expected behaviour when using the `bye` command.
+
+<div style="page-break-after: always;"></div>
+
+![ByeCommand](diagrams/ByeCommand.png)
+
+<small><i>Figure 5</i></small>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -211,7 +232,7 @@ The diagram below shows an example when using the `template rc` command.
 
 ![Simplified](diagrams/SimplifiedCircuit.png)
 
-<small><i>Figure 5</i></small>
+<small><i>Figure 6</i></small>
 
 ### 6.2 Setting a component value <a name='set-comp'></a>
 
@@ -238,7 +259,7 @@ The image below shows an example of using the command `set r 500` on the templat
 
 ![SetCircuit](diagrams/SetCircuitLabel.png)
 
-<small><i>Figure 6</i></small>
+<small><i>Figure 7</i></small>
 
 ### 6.3 Adding a component <a name="add-comp"></a>
 
@@ -273,11 +294,11 @@ The image below shows an example of using the command `add parallel r 500` on a 
 
 ![AddCircuit](diagrams/AddCircuitLabel.png)
 
-<small><i>Figure 7</i></small>
+<small><i>Figure 8</i></small>
 
-### 6.4 Calculating effective value <a name="calc-circ"></a>
+### 6.4 Calculating Effective Value <a name="calc-circ"></a>
 
-This command calculates the various effective values based on the `template` configuration. If calculating `reff`, `ceff`, or `leff`, the component must be part of the current circuit template. You can obtain the various values detailed below quickly after setting the necessary components.
+This command calculates the various effective values based on the `template` configuration. While calculating `reff`, `ceff`, or `leff`, the component must be part of the current circuit template. You can obtain the various values detailed below quickly after setting the necessary components.
 
 <div markdown="span" class="alert alert-warning">
 
@@ -302,17 +323,11 @@ This command calculates the various effective values based on the `template` con
     * `current` is the current flowing through the power supply
     * `power` is the power supplied by the power supply
 
-Example of usage:
+The image below is an example of when the `calc power` command is entered.
 
-`calc reff`
+![CalcCircuit](diagrams/CircutiCalc.png)
 
-Expected Outcome:
-
-```
-The effective resistance calculated is 250.0 Ω
-```
-
-<small><i>Figure 8</i></small>
+<small><i>Figure 9</i></small>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -343,7 +358,7 @@ Example of usage:
 
 Expected outcome:
 
-<small><i>Figure 9</i></small>
+<small><i>Figure 10</i></small>
 
 Here, `OUT` represents the output of the boolean template. The letters `B` and `C` can correspond to `INPUT` which is used in the following section. `?` represents an `INPUT` which is not yet set.
 
@@ -368,7 +383,7 @@ The image below shows an example of using the command `set B 0` on the template 
 
 ![AddBoolean](diagrams/SetBooleanLabel.png)
 
-<small><i>Figure 10</i></small>
+<small><i>Figure 11</i></small>
 
 ### 7.3 Adding a Gate <a name="add-gate"></a>
 
@@ -403,9 +418,9 @@ The image below shows an example of using the command `add C or` on the template
 
 ![AddBoolean](diagrams/AddBooleanLabel.png)
 
-<small><i>Figure 11</i></small>
+<small><i>Figure 12</i></small>
 
-### 7.4 Calculating output <a name="calc-output"></a>
+### 7.4 Calculating Output <a name="calc-output"></a>
 
 This command calculates the output of the configured logic *gates*, and requires that all inputs of the circuit are set. The output is represented by `OUT` in the printed `template`.
 
@@ -419,28 +434,11 @@ This command calculates the output of the configured logic *gates*, and requires
 |:-:|
 |`calc`|
 
-Example of usage:
+The following image shows an example of using the `calc` command. 
 
-`calc`
+![CalcBoolean](diagrams/BooleanCalc.png)
 
-Expected Outcome:
-
-```
-      OUT
-       |
-   B       C
-         F   G
-
-OUT = B AND C
-B = 0
-C = F OR G
-F = 1
-G = 0
-
-The output of the above configuration is 0.
-```
-
-<small><i>Figure 12</i></small>
+<small><i>Figure 13</i></small>
 
 --------------------------------------------------------------------------------------------------------------------
 
