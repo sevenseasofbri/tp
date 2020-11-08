@@ -124,7 +124,7 @@ Almost all PRs were reviewed, with the notable ones listed below:
 
 ### Extract: User Guide - Adding a Gate
 
-To aid the user in understanding the User Guide, informational boxes such as below are put in the appropriate commands. The example is from [7.3 Adding a Gate](UserGuide.md#73-adding-a-gate-).
+To aid the user in understanding the User Guide, informational boxes such as below are put in the appropriate commands. The example is from [7.3 Adding a Gate](../UserGuide.md#73-adding-a-gate-).
 
 > The application has the ability to combine multiple `Gate` objects to generate more complicated boolean *logic gate* configurations. This command allows you to set an input to a boolean logic `Gate`. You can also change an existing gate if needed. However, the depth of the deepest logic `Gate` from the *root* logic `Gate` (at the top) cannot exceed 2.
 
@@ -154,13 +154,13 @@ To aid the user in understanding the User Guide, informational boxes such as bel
 
 ### Extract: Developer Guide - Logic Class and Sequence Diagrams
 
-To better showcase the relationships between the various classes used in the project, the following UML diagrams were used to explain the Architecture of the application. A reference frame was also used so that the diagrams explained in the later section could be more concise. The following example is from [Logic Component](#DeveloperGuide.md#logic-component).
+To better showcase the relationships between the various classes used in the project, the following UML diagrams were used to explain the Architecture of the application. A reference frame was also used so that the diagrams explained in the later section could be more concise. The following example is from [Logic Component](../DeveloperGuide.md#logic-component).
 
 ![LogicDiagram](../diagrams/LogicClassDiagram.png)
 
 <small><i>Figure 4</i></small>
 
-> 1. `Logic` stores a current `Template` object in [`Model`](#model-component) that represents the current circuit configuration.
+> 1. `Logic` stores a current `Template` object in [`Model`](../DeveloperGuide.md#model-component) that represents the current circuit configuration.
 > 1. `Logic` uses the `Parser` class to parse the user command.
 > 1. This results in a `Command` object which is executed in `Duke`.
 > 1. The command execution can affect the `Model` (e.g. setting a value).
