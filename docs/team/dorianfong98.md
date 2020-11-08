@@ -1,7 +1,6 @@
 ---
 layout : page
 title : Dorian Fong - Project Portfolio Page  
-<img src="https://avatars2.githubusercontent.com/u/47025155?s=400&u=ce782a0a69f128f7fb409598101baeef34fd201e&v=4" width="200" height="200" />
 ---
 
 <style>
