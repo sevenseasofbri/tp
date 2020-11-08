@@ -10,7 +10,7 @@ public class OrGate extends Gate {
     private static final String OR = "OR";
 
     /**
-     * Performs bitwise OR (|) operation on the input instance variables.
+     * Performs bitwise OR (|) operation on the input instance variables and returns output.
      *
      * @return boolean value of the gate output.
      * @throws InputsNotSetException If both inputs aren't set yet.
