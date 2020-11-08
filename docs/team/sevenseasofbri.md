@@ -151,3 +151,9 @@ application's requirements.
 
 Therefore, since the Binary Heap-Like data structure best-fits the requirements for the system, the data structure was selected to
 implement the logic circuit.
+
+#### Sequence Diagram Example
+The following image is one of the sequence diagrams added to the Developer Guide under the `BinaryTree<T>` section. 
+
+<div style="page-break-after: always;"></div>
+![DeveloperGuideSequenceDiagramExample](../diagrams/BinaryTreeInsertSequenceDiagram.png)
