@@ -229,11 +229,8 @@ different types of circuits but they also provide an efficient way of storing th
 
 * Adjacency Matrix: The Adjacency matrix representation of a graph data structure is also considered as it allows connections between nodes.
  Each node is a component and a matrix is derived where a 1 represents a connection between the row of that element and
- the column of the same element. This approach is rejected due to high time complexity. For example, adding a component
- to the matrix requires O(V^2) time complexity where V is the number of vertices. Similarly, removing a component from 
- the matrix also requires the same time complexity. On the other hand, the chosen template implementation only requires O(1) 
- time complexity for the same functions, leading to a more efficient and faster system. Furthermore, issues with space
- complexity also hinder the use of an adjacency matrix to represent circuit templates.
+ the column of the same element. This approach is rejected due to the GUI constraints required to print the adjacency matrix as a circuit
+ and so templates are used to simplify this process.
 
 --------------------------------------------------------------------------------------------------------------------
 
