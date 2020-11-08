@@ -36,10 +36,11 @@ public class Ui {
         "Let's set a value to the capacitor! To do so, type 'set c VALUE' , where VALUE is a +ve\n\tnumber in "
             + "microfarads(µF).\n\teg. 'set c 900' will set the capacitor to 900µF.",
         "Want to add a component in parallel/series to your current component? Lets do that with the\n\tcapacitor! "
-            + "Type in 'add c VALUE', where VALUE is a +ve number in microfarads (µF)."
+            + "Type in 'add parallel c VALUE', where VALUE is a +ve number in microfarads (µF)."
             + "\n\teg. 'add parallel c 500' will add a capacitor in parallel to the capacitor in your circuit."
             + "\n\tDo remember though, this can be done with resistors, capacitors and"
-            + " inductors in the\n\tapplication based on the template chosen! :)",
+            + " inductors in the\n\tapplication based on the template chosen!\n\t"
+            + "Also note you may choose from different configurations (series/parallel)\n\tin the application. :)",
         "Great! Say, do you think we could find effective power OR current consumed by the circuit?\n\tYes!"
             + "\n\tType in 'calc power' to calculate total power dissipated in watts(W) OR"
             + " type 'calc current'\n\tto calculate total current flowing through the circuit in amperes(A).",
