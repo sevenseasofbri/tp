@@ -184,11 +184,8 @@ This command can be used to exit the application.
 
 </div>
 
-Example of usage:
+The following diagram shows the expected behaviour when using the `bye` command.
 
-`bye`
-
-Expected Output:
 <div style="page-break-after: always;"></div>
 
 ![ByeCommand](diagrams/ByeCommand.png)
@@ -323,11 +320,7 @@ This command calculates the various effective values based on the `template` con
     * `current` is the current flowing through the power supply
     * `power` is the power supplied by the power supply
 
-Example of usage:
-
-`calc power`
-
-Expected Outcome:
+The image below is an example of when the `calc power` command is entered.
 
 ![CalcCircuit](diagrams/CircutiCalc.png)
 
@@ -450,11 +443,7 @@ This command calculates the output of the configured logic *gates*, and requires
 |:-:|
 |`calc`|
 
-Example of usage:
-
-`calc`
-
-Expected Outcome:
+The following image shows an example of using the `calc` command. 
 
 ![CalcBoolean](diagrams/BooleanCalc.png)
 
