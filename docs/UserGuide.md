@@ -206,7 +206,7 @@ The following diagram shows the expected behaviour when using the `bye` command.
 
 This section details how the commands are used with a **circuit template**. You can use this section to build simple template circuits which may have a *voltage source* with *load components* such as *resistors*, *capacitors*, or *inductors*. 
 
-It may be important to note that the circuit diagrams shown in the expected outputs are simplified circuits, even when [adding components](#63-adding-a-component). For example, adding a resistor in parallel to a template that contains a resistor will change the effective resistance in the circuit, but it will not dynamically update the visualised diagram to show a second resistor. This can be seen more clearly once you [create a circuit template](#61-creating-a-circuit-template-).
+It may be important to note that the circuit diagrams shown in the expected outputs are simplified circuits, even when [adding components](#63-adding-a-component-). For example, adding a resistor in parallel to a template that contains a resistor will change the effective resistance in the circuit, but it will not dynamically update the visualised diagram to show a second resistor. This can be seen more clearly once you [create a circuit template](#61-creating-a-circuit-template-).
 
 <div markdown="span" class="alert alert-primary">
 
@@ -267,7 +267,7 @@ This command adds a component, in a specific configuration - either *in parallel
 
 <div markdown="span" class="alert alert-tip">
 
-:bulb: **Tip:**  You can add components as long as there is already a value set using the `set` command.
+:bulb: **Tip:**  You can add components as long as there is already a value set using the [`set` command](#62-setting-a-component-value-).
 
 </div>
 
