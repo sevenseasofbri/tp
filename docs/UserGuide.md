@@ -82,6 +82,8 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
 
 ![Command](diagrams/CommandUserDiagram.png)
 
+<center><small><i>Figure 1</i></small></center>
+
 The diagram above shows the hierarchy of the types of commands in the application. [If you are looking for the summary of commands used within the CLI app, it can be found at the end of this guide](#9-command-summary). In this **User Guide**, you can find the following sections listed below:
 
 * [General Commands](#5-general-commands)
@@ -138,7 +140,7 @@ The image below shows the expected summary table shown with the command `summary
 
 ![Summary](diagrams/Summary.png)
 
-
+<small><i>Figure 2</i></small>
 
 ### 5.2 Interactive Tutorial
 
@@ -153,6 +155,8 @@ To aid the user, this command starts the interactive tutorial for either the [Ci
 Once you have entered the interactive tutorial, you are to follow the instructions provided to them as follows:
 
 ![InsertImage](diagrams/TutorialMode.png)
+
+<small><i>Figure 3</i></small>
 
 The proceeding instructions will depend on whether you have chosen `tutorial circuit` or `tutorial boolean`.
 
@@ -169,6 +173,8 @@ in the correct command in the terminal line as shown below. r
 
 ![InsertImage](diagrams/BadCommand.png)
 
+<small><i>Figure 4</i></small>
+
 You may also choose to exit the program at that point of 
 time instead.
 
@@ -179,7 +185,7 @@ time instead.
 
 This section details how the commands are used with a **circuit template**. You can use this section to build simple template circuits which may have a *voltage source* with *load components* such as *resistors*, *capacitors*, or *inductors*. 
 
-It may be important to note that the circuit diagrams shown in the expected outputs are simplified circuits, even when [adding components](#63-adding-a-component). For example, adding a resistor in parallel to a template that contains a resistor will change the effective resistance in the circuit, but it will not dynamically update the visualised diagram to show a second resistor.
+It may be important to note that the circuit diagrams shown in the expected outputs are simplified circuits, even when [adding components](#63-adding-a-component). For example, adding a resistor in parallel to a template that contains a resistor will change the effective resistance in the circuit, but it will not dynamically update the visualised diagram to show a second resistor. This can be seen more clearly once you [create a circuit template](#61-creating-a-circuit-template-).
 
 <div markdown="span" class="alert alert-primary">
 
@@ -205,6 +211,8 @@ The diagram below shows an example when using the `template rc` command.
 
 ![Simplified](diagrams/SimplifiedCircuit.png)
 
+<small><i>Figure 5</i></small>
+
 ### 6.2 Setting a component value <a name='set-comp'></a>
 
 This command sets the value of a component. The component must be part of the current circuit template. Units correspond to the component involved - *resistors* in *ohms*, *capacitors* in *microfarads*, and *inductors* in *microhenries*. The values would need to be set to perform calculations or analysis such as in the [`calc` command](#64-calculating-effective-value-).
@@ -224,11 +232,13 @@ This command sets the value of a component. The component must be part of the cu
     * `c` represents a capacitor
     * `l` represents an inductor
     * `v` represents a voltage source
-* The `VALUE` can be an integer of a float, of which the units depends on the component set.
+* The `VALUE` can be an integer of a float, of which the units depends on the component being set.
 
 The image below shows an example of using the command `set r 500` on the template shown.
 
 ![SetCircuit](diagrams/SetCircuitLabel.png)
+
+<small><i>Figure 6</i></small>
 
 ### 6.3 Adding a component <a name="add-comp"></a>
 
@@ -262,6 +272,8 @@ This command adds a component, in a specific configuration - either *in parallel
 The image below shows an example of using the command `add parallel r 500` on a template.
 
 ![AddCircuit](diagrams/AddCircuitLabel.png)
+
+<small><i>Figure 7</i></small>
 
 ### 6.4 Calculating effective value <a name="calc-circ"></a>
 
@@ -300,6 +312,8 @@ Expected Outcome:
 The effective resistance calculated is 250.0 Ω
 ```
 
+<small><i>Figure 8</i></small>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## 7. Boolean Action Commands
@@ -329,13 +343,13 @@ Example of usage:
 
 Expected outcome:
 
-
+<small><i>Figure 9</i></small>
 
 Here, `OUT` represents the output of the boolean template. The letters `B` and `C` can correspond to `INPUT` which is used in the following section. `?` represents an `INPUT` which is not yet set.
 
 ### 7.2 Setting an input value <a name='set-input'></a>
 
-This command sets the value of an input. The inputs will then be used in the `calc` command to give the output of the boolean template. The input must not have already been set as a `Gate` and must be part of the diagram.
+This command sets the value of an input. The inputs will then be used in the [`calc` command](#74-calculating-output-) to give the output of the boolean template. The input must not have already been set as a `Gate` and must be part of the diagram.
 
 <div markdown="span" class="alert alert-warning">
 
@@ -353,6 +367,8 @@ This command sets the value of an input. The inputs will then be used in the `ca
 The image below shows an example of using the command `set B 0` on the template shown.
 
 ![AddBoolean](diagrams/SetBooleanLabel.png)
+
+<small><i>Figure 10</i></small>
 
 ### 7.3 Adding a Gate <a name="add-gate"></a>
 
@@ -383,9 +399,11 @@ The application has the ability to combine multiple `Gate` objects to generate m
 * The `INPUT` is as explained above in [Set](#72-setting-an-input-value-).
 * The `GATE` is as explained above in [Template](#71-creating-a-boolean-template-).
 
-The image below shows an example of using the command `set C or` on the template shown.
+The image below shows an example of using the command `add C or` on the template shown.
 
 ![AddBoolean](diagrams/AddBooleanLabel.png)
+
+<small><i>Figure 11</i></small>
 
 ### 7.4 Calculating output <a name="calc-output"></a>
 
@@ -422,6 +440,8 @@ G = 0
 The output of the above configuration is 0.
 ```
 
+<small><i>Figure 12</i></small>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## 8. FAQ
@@ -442,7 +462,7 @@ This section details the **frequently asked questions (FAQ)** regarding the use 
 
 **Q**: Why does using the `add` command for the circuit template give me a "Component not yet set" error?
 
-**A**: You have to first set the component involved using the [`set` command](#62-setting-a-component-value).
+**A**: You have to first set the component involved using the [`set` command](#62-setting-a-component-value-).
 
 --------------------------------------------------------------------------------------------------------------------
 
