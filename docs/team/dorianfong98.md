@@ -105,3 +105,5 @@ Made minor but long overdue modifications to naming, ASCII art, etc.
 
 [#170](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/170):
 Addressing feedback from PE dry run, constructed and added an annotated diagram to the User Guide in an attempt to improve readability for the average user by assuming little to no experience or technical knowledge in either the field of Digital/Boolean Circuits or just in running CLI applications.
+>The image below shows an example when using the `template and` command.
+>![Simplified](diagrams/TemplateBooleanAnd.png)
