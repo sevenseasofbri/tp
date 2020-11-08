@@ -89,13 +89,13 @@ Squashed bugs found in the PE Dry Run. These included high severity bugs such as
 
 Set up the first draft of User Guide for the project, starting with all commands discussed in the initial group meeting in [#9](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/9), [#45](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/45). Updated User Guide with v2.0 commands in [#59](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/59), and updated their expected outcomes in [#61](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/61). Numerous PED Bugs were also squashed in [#158](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/158), with many of them being high severity, as can be seen in [#154](https://github.com/AY2021S1-CS2113T-W13-3/tp/issues/154). Finished up the final submission in [#173](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/173).
 
+<div style="page-break-after: always;"></div>
+
 ### Developer Guide
 
 * **PR**: [#45](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/45), [#50](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/50), [#59](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/59), [#61](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/61), [#91](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/91), [#109](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/109), [#113](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/113), [#119](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/119), [#121](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/121)
 
 Created structure of Developer Guide, starting with Architecture in [#45](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/45). Created UML Diagrams with the help of PlantUML, including Class Diagrams found in the Architecture and Sequence Diagram for `SetCircuitCommand`. As the IC for documentation, improvements were also made to diagrams made by other group members, such as the Class Diagrams found under the Implementation of Boolean Commands. User Stories discussed by the group were also added into its own section.
-
-
 
 ### Review/Mentoring
 
