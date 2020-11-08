@@ -78,6 +78,8 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## 4. Command Preface
 
 ![Command](diagrams/CommandUserDiagram.png)
@@ -123,6 +125,8 @@ The format of commands below keep to the following.
 
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## 5. General Commands
 
@@ -201,6 +205,8 @@ The following diagram shows the expected behaviour when using the `bye` command.
 <small><i>Figure 5</i></small>
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## 6. Circuit Action Commands 
 
@@ -330,6 +336,8 @@ The image below is an example of when the `calc power` command is entered.
 <small><i>Figure 9</i></small>
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## 7. Boolean Action Commands
 
@@ -463,6 +471,8 @@ This section details the **frequently asked questions (FAQ)** regarding the use 
 **A**: You have to first set the component involved using the [`set` command](#62-setting-a-component-value-).
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## 9. Command Summary
 
