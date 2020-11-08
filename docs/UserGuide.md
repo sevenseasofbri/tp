@@ -138,6 +138,8 @@ The image below shows the expected summary table shown with the command `summary
 
 ![Summary](diagrams/Summary.png)
 
+
+
 ### 5.2 Interactive Tutorial
 
 To aid the user, this command starts the interactive tutorial for either the [Circuit Action Commands](#6-circuit-action-commands) or [Boolean Action Commands](#7-boolean-action-commands) based on the parameter specified. 
@@ -163,7 +165,7 @@ reached the end of the tutorial.
 
 When you have typed in a command that is inconsistent with what is required as per the tutorial's
 instruction for that particular step, an invalid command message will be returned until you type 
-in the correct command in the terminal line as shown below. 
+in the correct command in the terminal line as shown below. r
 
 ![InsertImage](diagrams/BadCommand.png)
 
@@ -229,16 +231,7 @@ Example of usage:
 `set r 500`
 
 Expected Outcome:
-```
-The resistor was set to 500.0 Ω
-	+---R-----C---+
-	|             |
-	|             |
-	+----+V_ac+---+
-Current Voltage: 0.0 V
-Total Resistance: 500.0 Ω
-Total Capacitance: 0.0 µF
-```
+![SetCircuit](diagrams/SetCircuitLabel.png)
 
 ### 6.3 Adding a component <a name="add-comp"></a>
 
@@ -339,15 +332,8 @@ Example of usage:
 
 Expected outcome:
 
-```
-      OUT
-       |
-   B       C
+![SetBoolean](diagrams/SetBooleanLabel.png)
 
-OUT = B AND C
-B = ?
-C = ?
-```
 Here, `OUT` represents the output of the boolean template. The letters `B` and `C` can correspond to `INPUT` which is used in the following section. `?` represents an `INPUT` which is not yet set.
 
 ### 7.2 Setting an input value <a name='set-input'></a>
