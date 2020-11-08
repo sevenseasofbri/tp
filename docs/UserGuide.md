@@ -333,20 +333,8 @@ This command creates a boolean template. Similar to the [circuit template](#6-ci
 * The `GATE` can be chosen from the following:
     * `and`, `or`, `xor`, `nand`, `nor`, `xnor`
 
-Example of usage:
-
-`template and`
-
-Expected outcome:
-
-```
-      OUT
-       |
-   B       C
-
-OUT = B AND C
-B = ?
-C = ?
+The diagram below shows an example when using the `template and` command.
+![Simplified](diagrams/TemplateBooleanAnd.png)
 ```
 Here, `OUT` represents the output of the boolean template. The letters `B` and `C` can correspond to `INPUT` which is used in the following section. `?` represents an `INPUT` which is not yet set.
 
