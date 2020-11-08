@@ -2,6 +2,10 @@ package seedu.duke.model.gates;
 
 import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
 
+/**
+ * The NorGate class inherits from the OrGate class
+ * and is used to create NorGate objects.
+ */
 public class NorGate extends OrGate {
     private static final String NOR = "NOR";
 

@@ -6,7 +6,10 @@ import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
 import seedu.duke.model.exceptions.templateexceptions.InvalidComponentException;
 import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 
-
+/**
+ * The RcTemplate class inherits from the RTemplate class
+ * and is used to create RcTemplate objects.
+ */
 public class RcTemplate extends RTemplate {
 
     private static final String RC_TEMPLATE = "+---R-----C---+\n"

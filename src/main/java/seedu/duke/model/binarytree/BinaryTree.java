@@ -5,6 +5,13 @@ import seedu.duke.model.exceptions.binarytreeexceptions.BinaryTreeInvalidIndexEx
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * A Binary Tree-like structure (Heap) is used for implementing the Boolean Commands.
+ * The BinaryTree class is used to create BinaryTree objects.
+ * When an object of the BinaryTree class is created,
+ * it initialises the ArrayList instance to 15 null values.
+ *
+ */
 public class BinaryTree<T> {
     public final ArrayList<T> arrayList = new ArrayList<>(Collections.nCopies(15, null));
 

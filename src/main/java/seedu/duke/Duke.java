@@ -11,6 +11,10 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+/**
+ * Duke is the is the main class of the application, and handles the app launch,
+ * initializing the appropriate classes to be used.
+ */
 public class Duke {
     private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     /** Instances of class objects for UI. **/

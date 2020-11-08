@@ -3,6 +3,10 @@ package seedu.duke.model.gates;
 import seedu.duke.DukeException;
 import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
 
+/**
+ * The AndGate class inherits from the Gate class
+ * and is used to create AndGate objects.
+ */
 public class AndGate extends Gate {
     private static final String AND = "AND";
 

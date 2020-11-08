@@ -1,5 +1,9 @@
 package seedu.duke.logic.commands;
 
+/**
+ *  The SummaryCommand class inherits from the Command class
+ *  and is used to to generate a summary of all the commands.
+ */
 public class SummaryCommand extends Command {
     public static final String COMMAND_WORD = "summary";
     private static final String COMMAND_SUMMARY = "\tHere's a summary of available commands: \n"

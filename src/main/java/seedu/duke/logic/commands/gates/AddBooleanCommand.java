@@ -4,6 +4,10 @@ import seedu.duke.DukeException;
 import seedu.duke.model.gates.Gate;
 import seedu.duke.model.template.BooleanTemplate;
 
+/**
+ * The AddBooleanCommand class inherits from the BooleanCommand class
+ * and is used to combine multiple logic gate templates.
+ */
 public class AddBooleanCommand extends BooleanCommand {
     public static final String COMMAND_WORD = "add";
     private final Gate gate;

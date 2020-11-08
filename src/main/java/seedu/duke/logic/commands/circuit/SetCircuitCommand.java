@@ -8,6 +8,10 @@ import seedu.duke.model.component.Resistor;
 import seedu.duke.model.component.VoltageSource;
 import seedu.duke.model.template.CircuitTemplate;
 
+/**
+ * The SetCircuitCommand class inherits from the CircuitCommand class
+ * and allows the user to set values of the circuit components.
+ */
 public class SetCircuitCommand extends CircuitCommand {
     public static final String COMMAND_WORD = "set";
     protected final String component;
@@ -44,6 +48,17 @@ public class SetCircuitCommand extends CircuitCommand {
      */
     @Override
     public String toString() {
+        String componentName = getComponentString(componentObject);
+
+        return "The " + componentName + " was set to " + componentObject + "\n\t" + template;
+    }
+
+    /**
+     * Returns the componentObject as a String.
+     *
+     * @return String type representation of the componentObject
+     */
+    protected String getComponentString(Component componentObject) {
         String componentName = "";
         if (componentObject instanceof VoltageSource) {
             componentName = "voltage source";
@@ -54,7 +69,6 @@ public class SetCircuitCommand extends CircuitCommand {
         } else if (componentObject instanceof Inductor) {
             componentName = "inductor";
         }
-
-        return "The " + componentName + " was set to " + componentObject + "\n\t" + template;
+        return componentName;
     }
 }

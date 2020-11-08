@@ -8,6 +8,10 @@ import seedu.duke.model.component.LoadComponent;
 import seedu.duke.model.component.Resistor;
 import seedu.duke.model.template.CircuitTemplate;
 
+/**
+ * The AddCircuitCommand class inherits from the SetCircuitCommand class
+ * and is used to add components to the current circuit.
+ */
 public class AddCircuitCommand extends SetCircuitCommand {
     public static final String COMMAND_WORD = "add";
     private final String config;
@@ -62,6 +66,6 @@ public class AddCircuitCommand extends SetCircuitCommand {
      */
     @Override
     public String toString() {
-        return "Nice, added a " + oldLoadComponent + "\n\t" + template;
+        return "Nice, added a " + oldLoadComponent + " " + getComponentString(oldLoadComponent) + "\n\t" + template;
     }
 }
