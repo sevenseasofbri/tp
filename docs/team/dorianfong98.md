@@ -36,6 +36,7 @@ title : Dorian Fong - Project Portfolio Page
 * **Deliverables and Deadlines**: Responsible for keeping track of submission deadlines for the project team and planning of timeline for the preparation of the respective deliverables.
 * **Git Expert**: Helps other team members with matters related to Git and Github, including running various Git commands on the command line. 
 * **Writing of `Command`, `Exceptions`, and `tests` of the code**: Assists in the writing of the code that deals with different commands, as well as the execution of said commands based on user input. Also responsible for writing exception handlers and JUnit tests to improve defensiveness and code testability of the program.  
+
 ## Summary of Contributions
 
 ### Code Contributed
