@@ -372,11 +372,9 @@ This command creates a boolean template. Similar to the [circuit template](#6-ci
 * The `GATE` can be chosen from the following:
     * `and`, `or`, `xor`, `nand`, `nor`, `xnor`
 
-Example of usage:
+The image below shows an example when using the `template and` command.
 
-`template and`
-
-Expected outcome:
+![Simplified](diagrams/TemplateBooleanAnd.png)
 
 <small><i>Figure 10</i></small>
 
