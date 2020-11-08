@@ -133,11 +133,9 @@ Example of usage:
 `bye`
 
 Expected Output:
-<div style="page-break-after: always;">
+<div style="page-break-after: always;"></div>
 
 ![ByeCommand](diagrams/ByeCommand.png)
-
-</div>
 
 ### Extract: Developer Guide
 
