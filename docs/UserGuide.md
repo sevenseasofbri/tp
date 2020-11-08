@@ -169,7 +169,7 @@ reached the end of the tutorial.
 
 When you have typed in a command that is inconsistent with what is required as per the tutorial's
 instruction for that particular step, an invalid command message will be returned until you type 
-in the correct command in the terminal line as shown below. r
+in the correct command in the terminal line as shown below.
 
 ![InsertImage](diagrams/BadCommand.png)
 
@@ -381,7 +381,7 @@ This command sets the value of an input. The inputs will then be used in the [`c
 
 The image below shows an example of using the command `set B 0` on the template shown.
 
-![AddBoolean](diagrams/SetBooleanLabel.png)
+![SetBoolean](diagrams/SetBooleanLabel.png)
 
 <small><i>Figure 11</i></small>
 
