@@ -2,6 +2,9 @@ package seedu.duke.model.gates;
 
 import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
 
+/**
+ * The Gate class is used to create Gate objects.
+ */
 public abstract class Gate {
     protected boolean output;
     protected boolean input;

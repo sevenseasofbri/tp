@@ -1,5 +1,9 @@
 package seedu.duke.logic.commands;
 
+/**
+ *  The ExitCommand class inherits from the Command class
+ *  and is used to exit the program.
+ */
 public class ExitCommand extends Command {
     public static final String COMMAND_WORD = "bye";
 

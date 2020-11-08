@@ -2,6 +2,10 @@ package seedu.duke.model.gates;
 
 import seedu.duke.model.exceptions.gatesexceptions.InputsNotSetException;
 
+/**
+ * The XnorGate class inherits from the XorGate class
+ * and is used to create XnorGate objects.
+ */
 public class XnorGate extends XorGate {
     private static final String XNOR = "XNOR";
 

@@ -4,6 +4,10 @@ import seedu.duke.logic.commands.SummaryCommand;
 
 import java.util.Scanner;
 
+/**
+ * The UI class handles the user interface, reads user input and
+ * prints messages to the user.
+ */
 public class Ui {
     private static final String LOGO = "\t  _____ _      _____                _ _                      _  "
             + "   _              _   \n"

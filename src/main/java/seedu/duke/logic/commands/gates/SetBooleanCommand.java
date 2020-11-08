@@ -3,6 +3,10 @@ package seedu.duke.logic.commands.gates;
 import seedu.duke.DukeException;
 import seedu.duke.model.template.BooleanTemplate;
 
+/**
+ * * The SetBooleanCommand class inherits from the BooleanCommand class
+ * and is used to set the boolean values in the current boolean template.
+ */
 public class SetBooleanCommand extends BooleanCommand {
     public static final String COMMAND_WORD = "set";
     private final boolean value;

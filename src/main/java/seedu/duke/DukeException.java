@@ -1,5 +1,8 @@
 package seedu.duke;
 
+/**
+ * DukeException is the exception class for exceptions specific to Duke.
+ */
 public class DukeException extends Exception {
 
     private final String message;

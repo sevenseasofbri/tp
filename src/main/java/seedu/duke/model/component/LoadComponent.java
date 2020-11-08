@@ -2,6 +2,10 @@ package seedu.duke.model.component;
 
 import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
 
+/**
+ * The LoadComponent class inherits from the Component class
+ * and is used to create LoadComponent objects.
+ */
 public abstract class LoadComponent extends Component {
     protected boolean isDirectSeries;
 

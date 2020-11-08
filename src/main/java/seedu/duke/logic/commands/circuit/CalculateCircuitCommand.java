@@ -3,6 +3,10 @@ package seedu.duke.logic.commands.circuit;
 import seedu.duke.DukeException;
 import seedu.duke.model.template.CircuitTemplate;
 
+/**
+ * The CalculateCircuitCommand class inherits from the CircuitCommand class,
+ * and is used to calculate values of current, effective resistance, capacitance, inductance, and power.
+ */
 public class CalculateCircuitCommand extends CircuitCommand {
     public static final String COMMAND_WORD = "calc";
     private final String calculationType;

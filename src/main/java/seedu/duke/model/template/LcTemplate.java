@@ -7,6 +7,10 @@ import seedu.duke.model.exceptions.componentexceptions.ZeroComponentException;
 import seedu.duke.model.exceptions.templateexceptions.InvalidComponentException;
 import seedu.duke.model.exceptions.templateexceptions.TemplateComponentsNotSetException;
 
+/**
+ * The LcTemplate class inherits from the CircuitTemplate class
+ * and is used to create LcTemplate objects.
+ */
 public class LcTemplate extends CircuitTemplate {
 
     private static final String LC_TEMPLATE = "+---L-----C---+\n"

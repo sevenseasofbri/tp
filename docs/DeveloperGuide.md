@@ -365,7 +365,7 @@ restrictions on the number of child-nodes a node can have. Thereby,
     1. Extra considerations/checks for emulating 2-input logic circuit.
     2. Extra checks to test if graph is connected and circuit is complete.
 
-Due to the limitations mentioned above, the Binary Heap-Like data structure was considerd to be the best method of approach.
+Due to the limitations mentioned above, the Binary Heap-Like data structure was considered to be the best method of approach.
 
 <div style="page-break-after: always;"></div>
 
