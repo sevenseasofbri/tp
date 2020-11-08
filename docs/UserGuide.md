@@ -167,8 +167,28 @@ in the correct command in the terminal line as shown below.
 
 ![InsertImage](diagrams/BadCommand.png)
 
-You may also choose to exit the program at that point of 
-time instead.
+You may also choose to exit the tutorial at that point of 
+time instead by entering `exit`.
+
+### 5.3 Exiting the Application
+
+This command can be used to exit the application.
+
+| Command Format | 
+|:-:|
+|`bye`|
+
+<div markdown="span" class="alert alert-warning">
+
+:exclamation: **Warning:** You **cannot** use this command to exit from the app when in interactive tutorial mode. For notes on how to exit tutorial mode, please refer to [5.2 Interactive Tutorial](#52-interactive-tutorial).
+
+</div>
+
+The following diagram shows the expected behaviour when using the `bye` command.
+
+<div style="page-break-after: always;"></div>
+
+![ByeCommand](diagrams/ByeCommand.png)
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -273,9 +293,9 @@ The image below shows an example of using the command `add parallel r 500` on a 
 
 ![AddCircuit](diagrams/AddCircuitLabel.png)
 
-### 6.4 Calculating effective value <a name="calc-circ"></a>
+### 6.4 Calculating Effective Value <a name="calc-circ"></a>
 
-This command calculates the various effective values based on the `template` configuration. If calculating `reff`, `ceff`, or `leff`, the component must be part of the current circuit template. You can obtain the various values detailed below quickly after setting the necessary components.
+This command calculates the various effective values based on the `template` configuration. While calculating `reff`, `ceff`, or `leff`, the component must be part of the current circuit template. You can obtain the various values detailed below quickly after setting the necessary components.
 
 <div markdown="span" class="alert alert-warning">
 
@@ -300,15 +320,9 @@ This command calculates the various effective values based on the `template` con
     * `current` is the current flowing through the power supply
     * `power` is the power supplied by the power supply
 
-Example of usage:
+The image below is an example of when the `calc power` command is entered.
 
-`calc reff`
-
-Expected Outcome:
-
-```
-The effective resistance calculated is 250.0 Ω
-```
+![CalcCircuit](diagrams/CircutiCalc.png)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -415,7 +429,7 @@ The image below shows an example of using the command `set C or` on the template
 
 ![AddBoolean](diagrams/AddBooleanLabel.png)
 
-### 7.4 Calculating output <a name="calc-output"></a>
+### 7.4 Calculating Output <a name="calc-output"></a>
 
 This command calculates the output of the configured logic *gates*, and requires that all inputs of the circuit are set. The output is represented by `OUT` in the printed `template`.
 
@@ -429,26 +443,9 @@ This command calculates the output of the configured logic *gates*, and requires
 |:-:|
 |`calc`|
 
-Example of usage:
+The following image shows an example of using the `calc` command. 
 
-`calc`
-
-Expected Outcome:
-
-```
-      OUT
-       |
-   B       C
-         F   G
-
-OUT = B AND C
-B = 0
-C = F OR G
-F = 1
-G = 0
-
-The output of the above configuration is 0.
-```
+![CalcBoolean](diagrams/BooleanCalc.png)
 
 --------------------------------------------------------------------------------------------------------------------
 
