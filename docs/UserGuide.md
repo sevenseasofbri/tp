@@ -388,6 +388,12 @@ Here, `OUT` represents the output of the boolean template. The letters `B` and `
 
 This command sets the value of an input. The inputs will then be used in the [`calc` command](#74-calculating-output-) to give the output of the boolean template. The input must not have already been set as a `Gate` and must be part of the diagram.
 
+<div markdown="span" class="alert alert-tip">
+
+:bulb: **Tip:**  You don't need to worry whether your inputs are lower case or upper case - both are recognised by the application.
+
+</div>
+
 <div markdown="span" class="alert alert-warning">
 
 :exclamation: **Warning:** The `INPUT` must exist in the diagram, and must not have already been set as a `Gate`.
@@ -532,6 +538,7 @@ Term | Explanation
 *Command Line Interface (CLI)* | Text-based user interface which the application uses to interact with the user
 *current* | Flow of electric charge in a circuit
 *inductors* | A component which stores energy in a magnetic field when electric *current* flows throw it
+*Java `int`* | Defined as an *integer* in the programming language *Java* which can store numbers from -2147483648 to 2147483647
 *integer* | A whole number 
 *load components* | A component which consumes electric power
 *logging* | Keeping a record of information about events which take place, specific to the application
