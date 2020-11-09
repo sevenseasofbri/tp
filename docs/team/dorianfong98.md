@@ -69,13 +69,13 @@ Updated the abovementioned classes. Added JUnit Tests `BinaryTreeTest` and `Exit
 
 #### Circuit Commands Enhancements
 
-* **PR**: [##93](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/93)
+* **PR**: [#93](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/93)
 
 Added/Updated classes in the `commands.circuit`, `model.template`, `ui` packages, as well as updated the `ParserTest` to handle new commands.
 
 #### JavaDoc Comprehensiveness
 
-* **PR**: [##167](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/167)
+* **PR**: [#167](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/167)
 
 Added/Updated documentation comments for most, if not all, of the files in the program (especially classes) in accordance with the Java Coding Standard guidelines and conventions for the final release. 
 
