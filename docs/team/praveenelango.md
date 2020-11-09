@@ -82,17 +82,19 @@ The list of contributions for testing and assertions include the following:
 
 ### User Guide
 
-The list of contributions for the user guide include the following:
+The list of contributions for the User Guide include the following:
 
 * Included explanation for why interactive tutorial enters infinite loop by design [#162](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/162)
 * Included labeled diagrams for both setting of circuit and boolean commands [#169](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/169)
+* Made grammatical changes to entire User Guide document [#179](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/179)
 
 ### Developer Guide
 
-The list of contributions for the developer guide include the following:
+The list of contributions for the Developer Guide include the following:
 
 * Documented entire section for boolean commands by including UML diagrams (class, object, and sequence diagrams) and corresponding explanations for
 `TemplateBooleanCommand`,`AddBooleanCommand`, `SetBooleanCommand`, `CalcBooleanCommand` [#75](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/75)
+* Made grammatical changes to entire Developer Guide document [#179](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/179)
 
 ### Extract: User Guide
 
