@@ -144,7 +144,8 @@ This command prints a summary of all commands in the application as shown in [Co
 |:-:|
 |`summary`|
 
-The image below shows the expected summary table shown with the command `summary`.
+The image below shows the expected summary tables where the first table lists the commands and the second table
+lists all the parameters for the commands. This is as shown with the command `summary`.
 
 ![Summary](diagrams/Summary.png)
 
@@ -187,7 +188,7 @@ in the correct command in the terminal line as shown below.
 
 You may also choose to exit the tutorial at that point of 
 time instead by entering `exit`. However, it is recommended that you go through the entire tutorial
-at least once to familiarize yourself with the basic commands and how they work.
+for both circuit and boolean tutorials at least once to familiarize yourself with the basic commands and how they work.
 
 <div style="page-break-after: always;"></div>
 
