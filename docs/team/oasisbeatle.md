@@ -37,14 +37,15 @@ The list of contributions for testing, assertions and logging include the follow
 
 The list of the contributions to the developer guide include:
 
- * UML Diagrams for Circuit Commands
- * Implimentation consideration for Boolean Commands 
+ * UML Diagrams for Circuit Commands inlcuding the Add, Set, Calculate and Template commands with explanation on how each of these commands are implimented [#62](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/62)
+ * Implimentation consideration for Boolean Commands [#116](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/116) 
  
- * **PR**: 
-
 
 #### User Guide
 
+The list of contributions to user guide include:
+* FAQs [#180](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/180) 
+* Formattting [#180](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/180) 
 
 
 
