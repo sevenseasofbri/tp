@@ -76,7 +76,7 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
 1. Once the app starts, type a command in the command line and press enter to execute it.
 1. Use the command `tutorial circuit` or `tutorial boolean` to go through an [interactive tutorial](#52-interactive-tutorial) before using the application.
 1. Alternatively, you can use the command [`summary`](#51-summary-of-commands-) to get a list of all commands used in the application.
-1. Note that a *logging* file `appLog.txt` will be created in the same directory that `CS2113T-W13-3.CLIRCUIT_ASSISTANT.jar` is run from. For further information regarding *logging*, you can refer to the [**Developer Guide**](DeveloperGuide.md).
+1. Note that a *logging* file `appLog.txt` will be created in the same directory that `CS2113T-W13-3.CLIRCUIT_ASSISTANT.jar` is run from. For further information regarding *logging*, you can refer to the [**Developer Guide**](DeveloperGuide.md#logging).
 
 --------------------------------------------------------------------------------------------------------------------
 

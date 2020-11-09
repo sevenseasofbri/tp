@@ -625,3 +625,7 @@ The following links provide detailed steps for calculations for the respective s
 
 ### Exiting the program
 Simply enter `bye` to exit the program and bid farewell to your loyal **CLIrcuit Assistant**.
+
+### Logging
+
+When the application is run, a log file `appLog.txt` is created in the same directory the application was run from. This file can be used to keep track of the events that are taking place in the application. This can be useful when trying to troubleshoot any system errors, crashes, or bugs and can possibly be attached to any bug report that may be submitted for the application.
