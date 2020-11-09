@@ -147,7 +147,7 @@ This command prints a summary of all commands in the application as shown in [Co
 The image below shows the expected summary tables where the first table lists the commands and the second table
 lists all the parameters for the commands. This is as shown with the command `summary`.
 
-![Summary](diagrams/Summary.png)
+![Summary](diagrams/SummaryCommand.png)
 
 <small><i>Figure 2</i></small>
 

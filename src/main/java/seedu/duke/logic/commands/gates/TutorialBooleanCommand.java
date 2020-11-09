@@ -16,8 +16,8 @@ import java.util.logging.Level;
 public class TutorialBooleanCommand extends SummaryCommand implements TutorialCommand {
     private static final Parser PARSER = new Parser();
     private int numberOfCommandsDone = 0;
-    private static final String[] orderOfInstructions = {"template and", "set B", "set C", "calc",
-        "add C", "set F", "set G", "calc"};
+    private static final String[] orderOfInstructions = {"template and", "set b", "set c", "calc",
+        "add c", "set f", "set g", "calc"};
     private final Ui ui;
 
     public TutorialBooleanCommand() {
@@ -29,12 +29,14 @@ public class TutorialBooleanCommand extends SummaryCommand implements TutorialCo
     public void execute() {
         ui.printWelcomeTutorial();
         String command;
+        String readCommand;
         boolean isNotDone = true;
 
         while (isNotDone) {
             assert numberOfCommandsDone < Ui.BOOLEAN_INSTRUCTIONS.length;
             ui.printBooleanInstruction(numberOfCommandsDone);
-            command = ui.readLine();
+            readCommand = ui.readLine();
+            command = readCommand.toLowerCase();
             try {
                 isNotDone = continueTutorial(command, ui);
             } catch (DukeException e) {
