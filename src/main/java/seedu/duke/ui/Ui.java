@@ -43,7 +43,7 @@ public class Ui {
             + " chosen!",
         "Great! Say, do you think we could find effective power consumed by the circuit?\n\tYes!"
             + "\n\tType in 'calc power' to calculate total power dissipated in watts(W)."
-            + "\n\tDo remember though, you can calculate a variety of effective values in the application!",
+            + "\n\tDo remember, you can calculate a variety of other effective values\n\tin the application too!",
         "Hooray! You're set to use the circuit builder of \n" + LOGO + "\n\tEnjoy! :) type 'exit' to exit this mode."
             + "\n"};
 
