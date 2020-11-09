@@ -66,17 +66,17 @@ In its current implementation, this application has no storage feature. More inf
 The following section will explain the steps taken to get **CLIrcuit Assistant** running on your computer.
 
 1. Ensure that you have Java 11 or above installed.
-1. Download the latest version of `Duke` from [the releases](https://github.com/AY2021S1-CS2113T-W13-3/tp/releases).
+1. Download the latest version of `CLIrcuit Assistant` from [the releases](https://github.com/AY2021S1-CS2113T-W13-3/tp/releases).
 1. Double click the `jar` file to start the application. 
     1. If the above step does not open the app, then open your *terminal* and make sure you are in the folder with the `jar` file. 
     1. Type the following command: 
         ```
-        java -jar duke.jar
+        java -jar CS2113T-W13-3.CLIRCUIT_ASSISTANT.jar
         ```
 1. Once the app starts, type a command in the command line and press enter to execute it.
 1. Use the command `tutorial circuit` or `tutorial boolean` to go through an [interactive tutorial](#52-interactive-tutorial) before using the application.
 1. Alternatively, you can use the command [`summary`](#51-summary-of-commands-) to get a list of all commands used in the application.
-1. Note that a *logging* file `appLog.txt` will be created in the same directory that `duke.jar` is run from. For further information regarding *logging*, you can refer to the [**Developer Guide**](DeveloperGuide.md).
+1. Note that a *logging* file `appLog.txt` will be created in the same directory that `CS2113T-W13-3.CLIRCUIT_ASSISTANT.jar` is run from. For further information regarding *logging*, you can refer to the [**Developer Guide**](DeveloperGuide.md#logging).
 
 --------------------------------------------------------------------------------------------------------------------
 

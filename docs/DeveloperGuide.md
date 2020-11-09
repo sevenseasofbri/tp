@@ -598,8 +598,8 @@ Term | Explanation
 ## Appendix: Instructions for manual testing (Dorian)
 ### Initial launch  
 1. Download the jar file and copy it into an empty folder
-2. Open a new terminal window and navigate to the same directory where your duke.jar is located
-3. Enter the command `java -jar duke.jar` into the terminal window to launch the application
+2. Open a new terminal window and navigate to the same directory where your `CS2113T-W13-3.CLIRCUIT_ASSISTANT.jar` is located
+3. Enter the command `java -jar CS2113T-W13-3.CLIRCUIT_ASSISTANT.jar` into the terminal window to launch the application
 4. Enter `tutorial circuit` or `tutorial boolean` to go through an [interactive tutorial](UserGuide.md/#52-interactive-tutorial) or `summary` to generate a summary of all the commands
 
 ### Creating a digital circuit  
@@ -625,3 +625,7 @@ The following links provide detailed steps for calculations for the respective s
 
 ### Exiting the program
 Simply enter `bye` to exit the program and bid farewell to your loyal **CLIrcuit Assistant**.
+
+### Logging
+
+When the application is run, a log file `appLog.txt` is created in the same directory the application was run from. This file can be used to keep track of the events that are taking place in the application. This can be useful when trying to troubleshoot any system errors, crashes, or bugs and can possibly be attached to any bug report that may be submitted for the application.
