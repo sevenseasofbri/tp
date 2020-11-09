@@ -33,12 +33,14 @@ public class TutorialCircuitCommand extends SummaryCommand implements TutorialCo
     public void execute() {
         ui.printWelcomeTutorial();
         String command;
+        String readCommand;
         boolean isNotDone = true;
 
         while (isNotDone) {
             assert numOfCommandsDone < Ui.CIRCUIT_INSTRUCTIONS.length;
             ui.printCircuitInstruction(numOfCommandsDone);
-            command = ui.readLine();
+            readCommand = ui.readLine();
+            command = readCommand.toLowerCase();
             try {
                 isNotDone = continueTutorial(command, ui);
             } catch (DukeException e) {

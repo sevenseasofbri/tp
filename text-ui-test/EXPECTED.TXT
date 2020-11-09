@@ -11,19 +11,19 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	circuits, optimized for use via the Command Line Interface (CLI)! :D 
 
 	Here's a summary of available commands: 
-	+-----------+----------------------------+---------------------+
-	|  Command  |         Circuit            |      Boolean        |
-	+-----------+----------------------------+---------------------+
-	| Tutorial  | tutorial circuit           | tutorial boolean    |
-	| Template  | template TEMPLATE          | template TEMPLATE   |
-	| Summary   | summary                    | summary             |
-	| Set       | set COMPONENT VALUE        | set INPUT BOOLVALUE |
-	| Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
-	| Calculate | calc EFF_VALUE             | calc                |
-	| Exit      | bye                        | bye                 |
-	+-----------+----------------------------+---------------------+
+	+-----------+----------------------------+------------------------+
+	|  Command  |         Circuit            |          Boolean       |
+	+-----------+----------------------------+------------------------+
+	| Tutorial  | tutorial circuit           | tutorial boolean       |
+	| Template  | template TEMPLATE          | template TEMPLATE      |
+	| Summary   | summary                    | summary                |
+	| Set       | set COMPONENT VALUE        | set INPUT_CH BOOLVALUE |
+	| Add       | add CONFIG COMPONENT VALUE | add INPUT GATE         |
+	| Calculate | calc EFF_VALUE             | calc                   |
+	| Exit      | bye                        | bye                    |
+	+-----------+----------------------------+------------------------+
 
-	Here's a summary of the command parameters: 
+	Here's a summary of the command parameters:
 	+-----------+----------------------------------+-------------------------------+
 	| Parameter |       Circuit Params             |        Boolean Params         |
 	+-----------+----------------------------------+-------------------------------+
@@ -31,8 +31,9 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	| COMPONENT | r, c, l, v                       | N.A.                          |
 	| CONFIG    | parallel, series                 | N.A                           |
 	| EFF_VALUE | reff, ceff, leff, current, power | N.A                           |
-	| VALUE     | any number of double datatype    | N.A                           |
-	| INPUT     | N.A                              | A, B, C, D, E, F, G           |
+	| VALUE     | +ve real number                  | N.A                           |
+	| INPUT_CH  | N.A                              | B, C, D, E...L, M, N, O.      |
+	| INPUT     | N.A                              | B, C, D, E, F, G              |
 	| GATE      | N.A                              | or, and, nor, nand, xor, xnor |
 	| BOOLVALUE | N.A                              | 0, 1                          |
 	+-----------+----------------------------------+-------------------------------+
@@ -45,7 +46,7 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 	You have entered
-	  _______    _             _       _   __  __           _      _ 
+	  _______    _             _       _   __  __           _      _
 	 |__   __|  | |           (_)     | | |  \/  |         | |    | |
 	    | |_   _| |_ ___  _ __ _  __ _| | | \  / | ___   __| | ___| |
 	    | | | | | __/ _ \| '__| |/ _` | | | |\/| |/ _ \ / _` |/ _ \ |
@@ -180,17 +181,17 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 -----------------------------------------------------------------------------------------
 	You have exited Tutorial Mode!
 	Here's a summary of available commands:
-	+-----------+----------------------------+---------------------+
-	|  Command  |         Circuit            |      Boolean        |
-	+-----------+----------------------------+---------------------+
-	| Tutorial  | tutorial circuit           | tutorial boolean    |
-	| Template  | template TEMPLATE          | template TEMPLATE   |
-	| Summary   | summary                    | summary             |
-	| Set       | set COMPONENT VALUE        | set INPUT BOOLVALUE |
-	| Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
-	| Calculate | calc EFF_VALUE             | calc                |
-	| Exit      | bye                        | bye                 |
-	+-----------+----------------------------+---------------------+
+	+-----------+----------------------------+------------------------+
+	|  Command  |         Circuit            |          Boolean       |
+	+-----------+----------------------------+------------------------+
+	| Tutorial  | tutorial circuit           | tutorial boolean       |
+	| Template  | template TEMPLATE          | template TEMPLATE      |
+	| Summary   | summary                    | summary                |
+	| Set       | set COMPONENT VALUE        | set INPUT_CH BOOLVALUE |
+	| Add       | add CONFIG COMPONENT VALUE | add INPUT GATE         |
+	| Calculate | calc EFF_VALUE             | calc                   |
+	| Exit      | bye                        | bye                    |
+	+-----------+----------------------------+------------------------+
 
 	Here's a summary of the command parameters:
 	+-----------+----------------------------------+-------------------------------+
@@ -200,8 +201,9 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	| COMPONENT | r, c, l, v                       | N.A.                          |
 	| CONFIG    | parallel, series                 | N.A                           |
 	| EFF_VALUE | reff, ceff, leff, current, power | N.A                           |
-	| VALUE     | any number of double datatype    | N.A                           |
-	| INPUT     | N.A                              | A, B, C, D, E, F, G           |
+	| VALUE     | +ve real number                  | N.A                           |
+	| INPUT_CH  | N.A                              | B, C, D, E...L, M, N, O.      |
+	| INPUT     | N.A                              | B, C, D, E, F, G              |
 	| GATE      | N.A                              | or, and, nor, nand, xor, xnor |
 	| BOOLVALUE | N.A                              | 0, 1                          |
 	+-----------+----------------------------------+-------------------------------+
@@ -376,17 +378,17 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 -----------------------------------------------------------------------------------------
 	You have exited Tutorial Mode!
 	Here's a summary of available commands:
-	+-----------+----------------------------+---------------------+
-	|  Command  |         Circuit            |      Boolean        |
-	+-----------+----------------------------+---------------------+
-	| Tutorial  | tutorial circuit           | tutorial boolean    |
-	| Template  | template TEMPLATE          | template TEMPLATE   |
-	| Summary   | summary                    | summary             |
-	| Set       | set COMPONENT VALUE        | set INPUT BOOLVALUE |
-	| Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
-	| Calculate | calc EFF_VALUE             | calc                |
-	| Exit      | bye                        | bye                 |
-	+-----------+----------------------------+---------------------+
+	+-----------+----------------------------+------------------------+
+	|  Command  |         Circuit            |          Boolean       |
+	+-----------+----------------------------+------------------------+
+	| Tutorial  | tutorial circuit           | tutorial boolean       |
+	| Template  | template TEMPLATE          | template TEMPLATE      |
+	| Summary   | summary                    | summary                |
+	| Set       | set COMPONENT VALUE        | set INPUT_CH BOOLVALUE |
+	| Add       | add CONFIG COMPONENT VALUE | add INPUT GATE         |
+	| Calculate | calc EFF_VALUE             | calc                   |
+	| Exit      | bye                        | bye                    |
+	+-----------+----------------------------+------------------------+
 
 	Here's a summary of the command parameters:
 	+-----------+----------------------------------+-------------------------------+
@@ -396,8 +398,9 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	| COMPONENT | r, c, l, v                       | N.A.                          |
 	| CONFIG    | parallel, series                 | N.A                           |
 	| EFF_VALUE | reff, ceff, leff, current, power | N.A                           |
-	| VALUE     | any number of double datatype    | N.A                           |
-	| INPUT     | N.A                              | A, B, C, D, E, F, G           |
+	| VALUE     | +ve real number                  | N.A                           |
+	| INPUT_CH  | N.A                              | B, C, D, E...L, M, N, O.      |
+	| INPUT     | N.A                              | B, C, D, E, F, G              |
 	| GATE      | N.A                              | or, and, nor, nand, xor, xnor |
 	| BOOLVALUE | N.A                              | 0, 1                          |
 	+-----------+----------------------------------+-------------------------------+
@@ -545,21 +548,21 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 	Successfully set B to 1
-	          0UT 
-	           |     
+	          0UT
+	           |
 	     B           C
 
 	OUT = B AND C
 	B = 1
 	C = ?
-	
+
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 	Nice, added OR at C
-	          0UT 
-	           |     
+	          0UT
+	           |
 	     B           C
-	                     
+
 	              F     G
 
 	OUT = B AND C
@@ -567,14 +570,14 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	C = F OR G
 	F = ?
 	G = ?
-	
+
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 	Successfully set F to 0
-	          0UT 
-	           |     
+	          0UT
+	           |
 	     B           C
-	                     
+
 	              F     G
 
 	OUT = B AND C
@@ -582,16 +585,16 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	C = F OR G
 	F = 0
 	G = ?
-	
+
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 	Nice, added XOR at G
-	          0UT 
-	           |     
+	          0UT
+	           |
 	     B           C
-	                     
+
 	              F     G
-	                      
+
 	                  N   O
 
 	OUT = B AND C
@@ -601,16 +604,16 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	G = N XOR O
 	N = ?
 	O = ?
-	
+
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 	Successfully set N to 1
-	          0UT 
-	           |     
+	          0UT
+	           |
 	     B           C
-	                     
+
 	              F     G
-	                      
+
 	                  N   O
 
 	OUT = B AND C
@@ -620,16 +623,16 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	G = N XOR O
 	N = 1
 	O = ?
-	
+
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 	Successfully set O to 0
-	          0UT 
-	           |     
+	          0UT
+	           |
 	     B           C
-	                     
+
 	              F     G
-	                      
+
 	                  N   O
 
 	OUT = B AND C
@@ -639,15 +642,15 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	G = N XOR O
 	N = 1
 	O = 0
-	
+
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
-	          0UT 
-	           |     
+	          0UT
+	           |
 	     B           C
-	                     
+
 	              F     G
-	                      
+
 	                  N   O
 
 	OUT = B AND C
@@ -657,24 +660,24 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	G = N XOR O
 	N = 1
 	O = 0
-	
+
 	The output of the above configuration is 1.
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
-		Here's a summary of available commands: 
-	+-----------+----------------------------+---------------------+
-	|  Command  |         Circuit            |      Boolean        |
-	+-----------+----------------------------+---------------------+
-	| Tutorial  | tutorial circuit           | tutorial boolean    |
-	| Template  | template TEMPLATE          | template TEMPLATE   |
-	| Summary   | summary                    | summary             |
-	| Set       | set COMPONENT VALUE        | set INPUT BOOLVALUE |
-	| Add       | add CONFIG COMPONENT VALUE | add INPUT GATE      |
-	| Calculate | calc EFF_VALUE             | calc                |
-	| Exit      | bye                        | bye                 |
-	+-----------+----------------------------+---------------------+
+		Here's a summary of available commands:
+	+-----------+----------------------------+------------------------+
+	|  Command  |         Circuit            |          Boolean       |
+	+-----------+----------------------------+------------------------+
+	| Tutorial  | tutorial circuit           | tutorial boolean       |
+	| Template  | template TEMPLATE          | template TEMPLATE      |
+	| Summary   | summary                    | summary                |
+	| Set       | set COMPONENT VALUE        | set INPUT_CH BOOLVALUE |
+	| Add       | add CONFIG COMPONENT VALUE | add INPUT GATE         |
+	| Calculate | calc EFF_VALUE             | calc                   |
+	| Exit      | bye                        | bye                    |
+	+-----------+----------------------------+------------------------+
 
-	Here's a summary of the command parameters: 
+	Here's a summary of the command parameters:
 	+-----------+----------------------------------+-------------------------------+
 	| Parameter |       Circuit Params             |        Boolean Params         |
 	+-----------+----------------------------------+-------------------------------+
@@ -682,8 +685,9 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 	| COMPONENT | r, c, l, v                       | N.A.                          |
 	| CONFIG    | parallel, series                 | N.A                           |
 	| EFF_VALUE | reff, ceff, leff, current, power | N.A                           |
-	| VALUE     | any number of double datatype    | N.A                           |
-	| INPUT     | N.A                              | A, B, C, D, E, F, G           |
+	| VALUE     | +ve real number                  | N.A                           |
+	| INPUT_CH  | N.A                              | B, C, D, E...L, M, N, O.      |
+	| INPUT     | N.A                              | B, C, D, E, F, G              |
 	| GATE      | N.A                              | or, and, nor, nand, xor, xnor |
 	| BOOLVALUE | N.A                              | 0, 1                          |
 	+-----------+----------------------------------+-------------------------------+
