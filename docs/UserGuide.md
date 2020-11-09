@@ -186,7 +186,8 @@ in the correct command in the terminal line as shown below.
 <small><i>Figure 4</i></small>
 
 You may also choose to exit the tutorial at that point of 
-time instead by entering `exit`.
+time instead by entering `exit`. However, it is recommended that you go through the entire tutorial
+at least once to familiarize yourself with the basic commands and how they work.
 
 <div style="page-break-after: always;"></div>
 
@@ -472,21 +473,31 @@ The following image shows an example of using the `calc` command.
 
 This section details the **frequently asked questions (FAQ)** regarding the use of the application.
 
-**Q**: How do I know the difference between the components?
+**Q**: How do I know what each component does?
 
-**A**: Pay attention in CG1111 Engineering Principles & Practice (EPP).
+**A**: The components are derived from basic circuit theory that is covered in detail in the module 
+CG1111: Engineering Principles and Practice I. Basic understanding of this module is enough to familiarise you
+with each of the components and what they do.
 
 **Q**: How do I know what each logic gate does?
 
-**A**: Pay attention in EE2026 Digital Design.
+**A**: Logic Gates are basic elements of electrical design that can be read and understood easily through various 
+online resources. This is covered in detail in the module EE2026: Digital Design. Basic understanding of this module
+is enough to familiarize you with each of the logic gates and how they operate.
 
 **Q**: Why is the interactive tutorial so restrictive?
 
-**A**: This is by design. Once you get the hang of the application, you can exit the tutorial to use the commands proper.
+**A**: Given that this is a tutorial, the goal here is to make sure that you know how to use each and every feature of
+this application. However, you are allowed to exit the tutorial at any point of time and be able to use the full
+functionality of this application.
 
 **Q**: Why does using the `add` command for the circuit template give me a "Component not yet set" error?
 
 **A**: You have to first set the component involved using the [`set` command](#62-setting-a-component-value-).
+
+**Q**: Why can't I calculate the output from the logic circuit I created?
+
+**A**: You have to make sure all inputs to the gate have been set. 
 
 --------------------------------------------------------------------------------------------------------------------
 

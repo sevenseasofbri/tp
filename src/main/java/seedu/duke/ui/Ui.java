@@ -47,6 +47,7 @@ public class Ui {
         "Hooray! You're set to use the circuit builder of \n" + LOGO + "\n\tEnjoy! :) type 'exit' to exit this mode."
             + "\n"};
 
+    //@@author oasisbeatle
     public static final String[] BOOLEAN_INSTRUCTIONS = {"Let's get started! First chose a template you want to work "
             + "with.\n\tYou can chose from and, or, nand, nor, xor and xnor gate templates." + System.lineSeparator()
             + "\tHowever for this tutorial, we will use an and gate template.\n\tTo select the and gate, "
@@ -66,6 +67,7 @@ public class Ui {
         "Great! You're set to use the boolean builder of \n" + LOGO
             + "\n\tEnjoy! :)\n\t type 'exit' to exit this mode.\n"
     };
+    //@@author
 
     private static final Scanner IN = new Scanner(System.in);
 
