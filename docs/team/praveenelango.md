@@ -1,4 +1,9 @@
+---
+layout : page
+title : Praveen Elango - Project Portfolio Page
+---
 
+<img src= "https://avatars1.githubusercontent.com/u/37036833?s=460&u=2c0e2ed51f01d354f32fb3efd9e51a56aa273e8f&v=4" width="200" height="200" />
 <style>
 .alert {
     position:relative;
@@ -24,7 +29,6 @@
 }
 </style>
 
-# Praveen Elango's Project Portfolio Page
 
 ## Project: CLIrcuit Assistant 
 ## Overview
@@ -71,9 +75,9 @@ The list of code contributions with links to the PRs includes the following:
 
 The list of contributions for testing and assertions include the following:
 
-* Add Tests to Template tests including `RTemplate`, `RcTemplate`, `LrTemplate`, `LcTemplate` [#42](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/42)
-* Add assertions to all circuit templates including `RTemplate`, `RcTemplate`, `LrTemplate`, `LcTemplate` [#52](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/52)
-* JUnit tests for remaining commands [#58](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/58)
+* Added unit testing to Template tests including `RTemplate`, `RcTemplate`, `LrTemplate`, `LcTemplate` [#42](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/42)
+* Added assertions to all circuit templates including `RTemplate`, `RcTemplate`, `LrTemplate`, `LcTemplate` [#52](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/52)
+* Included JUnit tests for remaining commands including `SetCommandTest` [#58](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/58)
 
 
 ### User Guide
@@ -90,3 +94,21 @@ The list of contributions for the developer guide include the following:
 * Documented entire section for boolean commands by including UML diagrams (class, object, and sequence diagrams) and corresponding explanations for
 `TemplateBooleanCommand`,`AddBooleanCommand`, `SetBooleanCommand`, `CalcBooleanCommand` [#75](https://github.com/AY2021S1-CS2113T-W13-3/tp/pull/75)
 
+### Extract: User Guide
+
+The image below shows an example of using the command `set r 500` on the template shown.
+
+![SetCircuit](../diagrams/SetCircuitLabel.png)
+
+### Extract: Developer Guide
+
+### `CalculateBooleanCommand` <a name="calc-bool"></a>
+
+The `CalculateBooleanCommand` is used to calculate the effective output of the configured logic gates stored in the `BinaryTree`, which requires that all inputs be set.
+
+For instance, in a `BinaryTree` object with just two gates - `OrGate` and `AndGate` - all the inputs of the gates have to be assigned before the effective output of both the logic gates (`Input C`) can 
+be calculated.
+
+The sequence by which the `CalcBooleanCommand` is instantiated is as follows:
+
+![InsertSequenceDiagram](../diagrams/CalcBooleanCommand.png)
