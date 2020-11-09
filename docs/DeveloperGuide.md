@@ -598,8 +598,8 @@ Term | Explanation
 ## Appendix: Instructions for manual testing (Dorian)
 ### Initial launch  
 1. Download the jar file and copy it into an empty folder
-2. Open a new terminal window and navigate to the same directory where your duke.jar is located
-3. Enter the command `java -jar duke.jar` into the terminal window to launch the application
+2. Open a new terminal window and navigate to the same directory where your `CS2113T-W13-3.CLIRCUIT_ASSISTANT.jar` is located
+3. Enter the command `java -jar CS2113T-W13-3.CLIRCUIT_ASSISTANT.jar` into the terminal window to launch the application
 4. Enter `tutorial circuit` or `tutorial boolean` to go through an [interactive tutorial](UserGuide.md/#52-interactive-tutorial) or `summary` to generate a summary of all the commands
 
 ### Creating a digital circuit  
