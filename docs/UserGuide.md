@@ -72,7 +72,6 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
     1. Type the following command: 
         ```
         java -jar CS2113T-W13-3.CLIRCUIT_ASSISTANT.jar
-.jar
         ```
 1. Once the app starts, type a command in the command line and press enter to execute it.
 1. Use the command `tutorial circuit` or `tutorial boolean` to go through an [interactive tutorial](#52-interactive-tutorial) before using the application.
