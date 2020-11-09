@@ -61,7 +61,7 @@ The **Architecture Design** given above explains the high-level design of the Ap
 
 The rest of the app consists of three components.
 
-* [**`UI`**](#ui-component): The UI of the App.
+* [**`UI`**](#ui-component): The User Interface of the App.
 * [**`Logic`**](#logic-component): The command executor.
 * [**`Model`**](#model-component): Holds the data of the App in memory.
 
@@ -218,7 +218,7 @@ The second sequence diagram given below shows the detailed interaction that acce
 This section describes the methods taken into consideration while implementing the Circuit Commands.
 
 #### Rationale Behind The Implementation of Circuit Template <a name="rationale-circuit-dash"></a>
-This section details the rationale for implimenting the circuit template as described in the prior sections. Selecting a way to build circuits is the primary purpose of the system and hence a way to design the circuit is required. Since the system is designed primarily as a command line interface, creating complex customizable circuits using a graphical interface is beyond the scope of this system. To implement a circuit four different `template` classes are used, which inherit from a superclass `template`. The four different templates are also presented as simple logos to show how the templates would look like as real life circuits. Furthermore, the function to add components to the circuit calculates the effective value with the components that are already present. For example when a resistor is added in parallel, the effective resistance of the aforementioned resistor is added to the effective resistance of the resistor already present in the circuit template. The two resistors are then replaced by one resistor with the same effective resistance. Similarly, other components are also added and abstracted into a single component of the matching component type.
+This section details the rationale for implementing the circuit template as described in the prior sections. Selecting a way to build circuits is the primary purpose of the system and hence a way to design the circuit is required. Since the system is designed primarily as a command line interface, creating complex customizable circuits using a graphical interface is beyond the scope of this system. To implement a circuit, four different `template` classes are used, which inherit from a superclass `template`. The four different templates are also presented as simple logos to show how the templates would look like as real life circuits. Furthermore, the function to add components to the circuit calculates the effective value with the components that are already present. For example when a resistor is added in parallel, the effective resistance of the aforementioned resistor is added to the effective resistance of the resistor already present in the circuit template. The two resistors are then replaced by one resistor with the same effective resistance. Similarly, other components are also added and abstracted into a single component of the matching component type.
 
 #### Alternatives Considered <a name="alt-circuit-dash"></a>
 This section illustrates the alternatives considered for implementing the Circuit Template.

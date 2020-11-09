@@ -31,7 +31,7 @@ title : User Guide
 
 ## 1. How To Use This Guide
 
-This **User Guide** aims to help you get familiarised with the commands used in the *Command Line Interface* (CLI) application. The following table indicates the symbols used to aid the understanding of the guide. The end of this **User Guide** also gives a [summary of commands](#9-command-summary) used in the application.
+This **User Guide** aims to help you get familiarised with the commands used in this *Command Line Interface* (CLI) application. The following table indicates the symbols used to aid the understanding of the guide. The end of this **User Guide** also gives a [summary of commands](#9-command-summary) used in the application.
 
 | Symbol/Format | Meaning |
 |:---------------:|:--------|
@@ -49,9 +49,9 @@ This **User Guide** aims to help you get familiarised with the commands used in 
 
 ## 2. Introduction
 
-**CLIrcuit Assistant** is a desktop app to implement and solve simple **circuits** and **logic gate configurations**, optimized for use via the *CLI*. The application is targeted at those who would simply like a resource-light and offline program to aid in analysing circuits. 
+**CLIrcuit Assistant** is a desktop app designed to implement and solve simple **circuits** and **logic gate configurations**, optimized for use via the *CLI*. The application is targeted at those who would prefer using a resource-light and offline program to aid in analysing circuits. 
 
-At its current implementation, this application has no storage feature. More information on this can be found in the [**Developer Guide**](DeveloperGuide.md#storage-wira).
+In its current implementation, this application has no storage feature. More information on this can be found in the [**Developer Guide**](DeveloperGuide.md#storage-wira).
 
 <div markdown="span" class="alert alert-primary">
 
@@ -88,7 +88,7 @@ The following section will explain the steps taken to get **CLIrcuit Assistant**
 
 <center><small><i>Figure 1</i></small></center>
 
-The diagram above shows the hierarchy of the types of commands in the application. [If you are looking for the summary of commands used within the CLI app, it can be found at the end of this guide](#9-command-summary). In this **User Guide**, you can find the following sections listed below:
+The diagram above shows the hierarchy of the types of commands in the application. [If you are looking for the summary of commands used within the CLI app, it can be found at the end of this guide](#9-command-summary). In this **User Guide**, you can find the following sections as listed below:
 
 * [General Commands](#5-general-commands)
 * [Circuit Action Commands](#6-circuit-action-commands)
@@ -96,7 +96,7 @@ The diagram above shows the hierarchy of the types of commands in the applicatio
 
 General commands are commands which are not specific to features available using the action commands.
 
-Action commands are split into **two categories** - they may use the same *syntax* for some commands, but the application will continuously track the current `template` that is being worked on and automatically use the correct command to execute. Thus, if there is no current `template`, then the other commands used will not be available to run.
+Action commands are split into **two categories** - `circuit` and `boolean`. They may use the same *syntax* for some commands, but the application will continuously track the current `template` that is being worked on and automatically use the correct command to execute. Thus, if there is no current `template`, then the other commands used will not be available to run.
 
 <div markdown="span" class="alert alert-primary">
 
@@ -104,7 +104,7 @@ Action commands are split into **two categories** - they may use the same *synta
 
 </div>
 
-The commands involved with both categories are:
+The commands usable in both categories are:
 
 * `template`
 * `set`
@@ -113,7 +113,7 @@ The commands involved with both categories are:
 
 <div style="page-break-after: always;"></div>
 
-The format of commands below keep to the following.
+The format required for the commands are as follows:
 
 <div markdown="span" class="alert alert-primary">
 
@@ -163,7 +163,7 @@ To aid the user, this command starts the interactive tutorial for either the [Ci
 
 * `TYPE` can be either `circuit` or `boolean`.
 
-Once you have entered the interactive tutorial, you are to follow the instructions provided to them as follows:
+Once you have entered the interactive tutorial, you are to follow the instructions provided to you as follows:
 
 ![InsertImage](diagrams/TutorialMode.png)
 
@@ -281,7 +281,7 @@ The image below shows an example of using the command `set r 500` on the templat
 
 ### 6.3 Adding a component <a name="add-comp"></a>
 
-This command adds a component, in a specific configuration - either *in parallel* or *in series* - to the current circuit template. This allows you to quickly obtain calculations to your chosen configurations. Only *load components* can be added - you cannot add a *voltage source*. You should only add a component after it has already been set.
+This command adds a component in a specific configuration - either *in parallel* or *in series* - to the current circuit template. This allows you to quickly obtain calculations to your chosen configurations. Only *load components* can be added - you cannot add a *voltage source*. You should only add a component after it has already been set.
 
 <div markdown="span" class="alert alert-tip">
 
@@ -318,7 +318,7 @@ The image below shows an example of using the command `add parallel r 500` on a 
 
 ### 6.4 Calculating Effective Value <a name="calc-circ"></a>
 
-This command calculates the various effective values based on the `template` configuration. While calculating `reff`, `ceff`, or `leff`, the component must be part of the current circuit template. You can obtain the various values detailed below quickly after setting the necessary components.
+This command calculates the various effective values based on the `template` configuration. While calculating `reff`, `ceff`, or `leff`, the component must be part of the current circuit template. You can quickly obtain the various values detailed below after setting the necessary components.
 
 <div markdown="span" class="alert alert-warning">
 
