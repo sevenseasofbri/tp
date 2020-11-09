@@ -157,10 +157,11 @@ Hello! Type 'start' to start the CLIrcuit Assistant
 
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
-	Great! Say, do you think we could find effective power OR current consumed by the circuit?
+	Great! Say, do you think we could find effective power consumed by the circuit?
 	Yes!
-	Type in 'calc power' to calculate total power dissipated in watts(W) OR type 'calc current'
-	to calculate total current flowing through the circuit in amperes(A).
+	Type in 'calc power' to calculate total power dissipated in watts(W).
+	Do remember, you can calculate a variety of other effective values
+	in the application too!
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 	The power dissipated in the circuit is 0.04937852460756959W

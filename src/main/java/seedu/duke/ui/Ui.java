@@ -41,9 +41,9 @@ public class Ui {
             + "\n\tDo remember though, this can be done with resistors, capacitors and"
             + " inductors and\n\tdifferent configurations (series/parallel) in the application based on the template"
             + " chosen!",
-        "Great! Say, do you think we could find effective power OR current consumed by the circuit?\n\tYes!"
-            + "\n\tType in 'calc power' to calculate total power dissipated in watts(W) OR"
-            + " type 'calc current'\n\tto calculate total current flowing through the circuit in amperes(A).",
+        "Great! Say, do you think we could find effective power consumed by the circuit?\n\tYes!"
+            + "\n\tType in 'calc power' to calculate total power dissipated in watts(W)."
+            + "\n\tDo remember, you can calculate a variety of other effective values\n\tin the application too!",
         "Hooray! You're set to use the circuit builder of \n" + LOGO + "\n\tEnjoy! :) type 'exit' to exit this mode."
             + "\n"};
 

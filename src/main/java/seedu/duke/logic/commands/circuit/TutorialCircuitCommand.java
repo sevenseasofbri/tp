@@ -17,7 +17,7 @@ import java.util.logging.Level;
 public class TutorialCircuitCommand extends SummaryCommand implements TutorialCommand {
     private final Parser parser = new Parser();
     private static final String[] orderOfInstructions = {"template rc", "set v", "set r", "set c", "add parallel c",
-        "calc"};
+        "calc power"};
     private int numOfCommandsDone = 0;
     private final Ui ui;
 
